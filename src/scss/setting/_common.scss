@@ -1,14 +1,23 @@
+@font-face {
+    font-family: "Pretendard";
+    src: url("../../assets/Pretendard-Medium.otf") format("opentype");
+}
+
+* {
+    font-family: "Pretendard";
+}
+
 @media (min-width: 375px) {
     #root,
     .Nav,
-    .showNav{
+    .showNav {
         width: 430px;
     }
 }
-@media (max-width:500px) {
+@media (max-width: 500px) {
     #root,
     .Nav,
-    .showNav{
+    .showNav {
         width: 100vw;
     }
 }
@@ -20,16 +29,13 @@
     position: relative;
 }
 
-
-
 body {
     align-items: center;
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    
 }
 
 button {
     cursor: pointer;
-} 
+}

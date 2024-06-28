@@ -13,10 +13,12 @@ const Layout = () => {
   // const showModal = !noUserModalPaths.includes(location.pathname)
 
   return (
-    <div>
-      <Outlet />
+    <>
+      <div className="content-container">
+        <Outlet />
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
 

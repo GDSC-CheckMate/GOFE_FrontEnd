@@ -5,6 +5,10 @@ import Layout from "../layout/Layout"
 
 const Main = lazy(() => import("../page/main"))
 
+const Achievement = lazy(() => import("../page/achievement"))
+const Community = lazy(() => import("../page/community"))
+const Mypage = lazy(() => import("../page/mypage"))
+
 const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -14,6 +18,30 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <Main />
+          </Suspense>
+        ),
+      },
+      {
+        path: "achievement",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Achievement />
+          </Suspense>
+        ),
+      },
+      {
+        path: "community",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Community />
+          </Suspense>
+        ),
+      },
+      {
+        path: "mypage",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Mypage />
           </Suspense>
         ),
       },

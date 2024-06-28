@@ -1,5 +1,6 @@
 import React from "react"
 import { Outlet, useLocation } from "react-router-dom"
+import Footer from "./Footer"
 
 const Layout = () => {
   const location = useLocation()
@@ -12,11 +13,12 @@ const Layout = () => {
   // const showModal = !noUserModalPaths.includes(location.pathname)
 
   return (
-    <div>
-      {/* <Header /> */}
-
-      <Outlet />
-    </div>
+    <>
+      <div className="content-container">
+        <Outlet />
+      </div>
+      <Footer />
+    </>
   )
 }
 

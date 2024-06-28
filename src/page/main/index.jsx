@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react"
 import { ReactComponent as ArrowfrontIcon } from "../../assets/home/Arrowfront.svg"
 import { ReactComponent as ArrowbackIcon } from "../../assets/home/Arrowback.svg"
 import dayData from "../../api/mock/day.json"
+import MainPickerDay from "../../components/main/MainPickerDay"
 
 const Main = () => {
   const [calendarData, setCalendarData] = useState(null)
   const [selectedDay, setSelectedDay] = useState("월")
+  const [selectedSection, setSelectedSection] = useState("오늘 목표🔥")
 
   useEffect(() => {
     setCalendarData(dayData)
@@ -20,8 +22,9 @@ const Main = () => {
     setSelectedDay(weekday)
   }
 
-  const activeDay = (weekday) => {
-    return selectedDay === weekday
+  const onClickSelectedSection = (section) => {
+    console.log(section)
+    setSelectedSection(section)
   }
 
   return (
@@ -34,31 +37,30 @@ const Main = () => {
         </div>
         <div className="main-page-calendar-days-container">
           {calendarData.days.map((day) => (
-            <div onClick={() => onClickSelectedDay(day.weekday)}>
-              <div
-                key={day.day}
-                className={`main-page-calendar-days-item-container ${
-                  activeDay(day.weekday) ? "active" : ""
-                }`}
-              >
-                <div
-                  className={`main-page-calendar-days-item-weekday ${
-                    activeDay(day.weekday) ? "active" : ""
-                  }`}
-                >
-                  {day.weekday}
-                </div>
-                <div className={`main-page-calendar-days-item-day`}>
-                  <div className={`${activeDay(day.weekday) ? "active" : ""}`}>
-                    {day.day}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <MainPickerDay
+              key={day.day}
+              day={day.day}
+              weekday={day.weekday}
+              selectedDay={selectedDay}
+              onClickSelectedDay={onClickSelectedDay}
+            />
           ))}
         </div>
       </div>
-      <div className="main-page-calendar-detail-container"></div>
+      <div className="main-page-detail-container">
+        <div className="main-page-detail-routine-container">
+          <div className="main-page-detail-routine-selection-container">
+            <div
+              className="main-page-detail-routine-selection"
+              onClick={() => onClickSelectedSection("오늘 목표🔥")}
+            >
+              오늘 목표🔥
+            </div>
+            <div className="main-page-detail-routine-selection">루틴 추가</div>
+          </div>
+          <hr className="main-page-detail-routine-selection-hr" />
+        </div>
+      </div>
     </div>
   )
 }

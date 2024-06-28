@@ -1,16 +1,16 @@
 import React from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import { ReactComponent as HomeIcon } from "../assets/Home.svg"
-import { ReactComponent as ActiveHomeIcon } from "../assets/HomeActive.svg"
+import { ReactComponent as HomeIcon } from "../assets/footer/Home.svg"
+import { ReactComponent as ActiveHomeIcon } from "../assets/footer/HomeActive.svg"
 
-import { ReactComponent as AchievementIcon } from "../assets/Achievement.svg"
-import { ReactComponent as ActiveAchievementIcon } from "../assets/AchievementActive.svg"
+import { ReactComponent as AchievementIcon } from "../assets/footer/Achievement.svg"
+import { ReactComponent as ActiveAchievementIcon } from "../assets/footer/AchievementActive.svg"
 
-import { ReactComponent as CommunityIcon } from "../assets/Community.svg"
-import { ReactComponent as ActiveCommunityIcon } from "../assets/CommunityActive.svg"
+import { ReactComponent as CommunityIcon } from "../assets/footer/Community.svg"
+import { ReactComponent as ActiveCommunityIcon } from "../assets/footer/CommunityActive.svg"
 
-import { ReactComponent as MypageIcon } from "../assets/Mypage.svg"
-import { ReactComponent as ActiveMypageIcon } from "../assets/MypageActive.svg"
+import { ReactComponent as MypageIcon } from "../assets/footer/Mypage.svg"
+import { ReactComponent as ActiveMypageIcon } from "../assets/footer/MypageActive.svg"
 
 const Footer = () => {
   const location = useLocation()
@@ -26,26 +26,18 @@ const Footer = () => {
         >
           {path === "/" ? <ActiveHomeIcon /> : <HomeIcon />}
         </div>
-        <div
-          className={`footer-item ${path === "/achievement" ? "active" : ""}`}
-          onClick={() => navigate("/achievement")}
-        >
+        <div className="footer-item" onClick={() => navigate("/achievement")}>
           {path === "/achievement" ? (
             <ActiveAchievementIcon />
           ) : (
             <AchievementIcon />
           )}
         </div>
-        <div
-          className={`footer-item ${path === "/community" ? "active" : ""}`}
-          onClick={() => navigate("/community")}
-        >
+        <div className="footer-item" onClick={() => navigate("/community")}>
           {path === "/community" ? <ActiveCommunityIcon /> : <CommunityIcon />}
         </div>
         <div
-          className={`footer-item footer-item-right ${
-            path === "/mypage" ? "active" : ""
-          }`}
+          className="footer-item footer-item-right"
           onClick={() => navigate("/mypage")}
         >
           {path === "/mypage" ? <ActiveMypageIcon /> : <MypageIcon />}

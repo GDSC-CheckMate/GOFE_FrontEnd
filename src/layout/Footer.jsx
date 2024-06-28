@@ -1,5 +1,16 @@
 import React from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import { ReactComponent as HomeIcon } from "../assets/Home.svg"
+import { ReactComponent as ActiveHomeIcon } from "../assets/HomeActive.svg"
+
+import { ReactComponent as AchievementIcon } from "../assets/Achievement.svg"
+import { ReactComponent as ActiveAchievementIcon } from "../assets/AchievementActive.svg"
+
+import { ReactComponent as CommunityIcon } from "../assets/Community.svg"
+import { ReactComponent as ActiveCommunityIcon } from "../assets/CommunityActive.svg"
+
+import { ReactComponent as MypageIcon } from "../assets/Mypage.svg"
+import { ReactComponent as ActiveMypageIcon } from "../assets/MypageActive.svg"
 
 const Footer = () => {
   const location = useLocation()
@@ -10,24 +21,26 @@ const Footer = () => {
     <div className="footer-container">
       <div className="footer-item-container">
         <div
-          className={`footer-item footer-item-left ${
-            path === "/" ? "active" : ""
-          }`}
+          className="footer-item footer-item-left"
           onClick={() => navigate("/")}
         >
-          홈
+          {path === "/" ? <ActiveHomeIcon /> : <HomeIcon />}
         </div>
         <div
           className={`footer-item ${path === "/achievement" ? "active" : ""}`}
           onClick={() => navigate("/achievement")}
         >
-          성취
+          {path === "/achievement" ? (
+            <ActiveAchievementIcon />
+          ) : (
+            <AchievementIcon />
+          )}
         </div>
         <div
           className={`footer-item ${path === "/community" ? "active" : ""}`}
           onClick={() => navigate("/community")}
         >
-          커뮤
+          {path === "/community" ? <ActiveCommunityIcon /> : <CommunityIcon />}
         </div>
         <div
           className={`footer-item footer-item-right ${
@@ -35,7 +48,7 @@ const Footer = () => {
           }`}
           onClick={() => navigate("/mypage")}
         >
-          my
+          {path === "/mypage" ? <ActiveMypageIcon /> : <MypageIcon />}
         </div>
       </div>
     </div>

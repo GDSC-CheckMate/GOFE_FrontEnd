@@ -19,7 +19,6 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background-color: #b4b4b4;
             transition: background-color 0.3s;
 
             &-left {
@@ -28,11 +27,6 @@
 
             &-right {
                 margin-right: 40px;
-            }
-
-            &.active {
-                background-color: white;
-                border: 1px solid #b4b4b4;
             }
         }
     }

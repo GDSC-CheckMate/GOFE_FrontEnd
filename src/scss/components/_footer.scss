@@ -1,0 +1,39 @@
+.footer-container {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    border-top: 2px solid #b4b4b4;
+
+    .footer-item-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        border-top: 10px solid transparent;
+
+        .footer-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #b4b4b4;
+            transition: background-color 0.3s;
+
+            &-left {
+                margin-left: 40px;
+            }
+
+            &-right {
+                margin-right: 40px;
+            }
+
+            &.active {
+                background-color: white;
+                border: 1px solid #b4b4b4;
+            }
+        }
+    }
+}

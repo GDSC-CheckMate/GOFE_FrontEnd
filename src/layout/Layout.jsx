@@ -1,5 +1,6 @@
 import React from "react"
 import { Outlet, useLocation } from "react-router-dom"
+import Footer from "./Footer"
 
 const Layout = () => {
   const location = useLocation()
@@ -13,9 +14,8 @@ const Layout = () => {
 
   return (
     <div>
-      {/* <Header /> */}
-
       <Outlet />
+      <Footer />
     </div>
   )
 }

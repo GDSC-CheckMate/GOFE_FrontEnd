@@ -1,24 +1,25 @@
-import React from "react";
-import "../../scss/page/_community.scss"; // 스타일 파일을 정확한 경로로 import
+// src/page/community/index.jsx
+import React, { useState, useEffect } from 'react';
+import CommunityItem from '../../components/CommunityItem';
+import '../../scss/page/_community.scss';
 
 const Community = () => {
-  const groups = [
-    {
-      id: 1,
-      name: "리액트 100일 스터디",
-      notice: "호스트가 공지글을 게시했습니다.",
-      time: "오후 8:36",
-      image: "/path/to/react_study.png",
-    },
-    {
-      id: 2,
-      name: "토익 스터디 커뮤니티",
-      notice: "@Lundean 님이 입장했습니다.",
-      time: "오후 5:40",
-      image: "/path/to/toeic_study.png",
-      badge: "50+",
-    },
-  ];
+  const [groups, setGroups] = useState([]);
+
+  useEffect(() => {
+    const fetchGroups = async () => {
+      try {
+        const response = await fetch('/api/mock/community.json');
+        const data = await response.json();
+        console.log("Fetched data:", data); // 디버깅을 위한 콘솔 로그
+        setGroups(data);
+      } catch (error) {
+        console.error("Failed to fetch community data", error);
+      }
+    };
+
+    fetchGroups();
+  }, []);
 
   return (
     <div className="community-page">
@@ -33,19 +34,13 @@ const Community = () => {
         <button className="create-group">+ 소모임 개설</button>
       </div>
       <div className="group-list">
-        {groups.map((group) => (
-          <div key={group.id} className="group-item">
-            <div className="group-icon">
-              <img src={group.image} alt={group.name} />
-            </div>
-            <div className="group-details">
-              <div className="group-name">{group.name}</div>
-              <div className="group-notice">{group.notice}</div>
-              <div className="group-time">{group.time}</div>
-              {group.badge && <div className="group-badge">{group.badge}</div>}
-            </div>
-          </div>
-        ))}
+        {groups.length > 0 ? (
+          groups.map((group) => (
+            <CommunityItem key={group.id} group={group} />
+          ))
+        ) : (
+          <p>참여중인 커뮤니티를 찾을 수 없음</p>
+        )}
       </div>
     </div>
   );

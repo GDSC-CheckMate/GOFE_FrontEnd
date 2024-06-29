@@ -1,15 +1,20 @@
 // src/page/community/index.jsx
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CommunityItem from '../../components/CommunityItem';
 import '../../scss/page/_community.scss';
 
 const Community = () => {
   const [groups, setGroups] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchGroups = async () => {
       try {
         const response = await fetch('/api/mock/community.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         console.log("Fetched data:", data); // 디버깅을 위한 콘솔 로그
         setGroups(data);
@@ -21,6 +26,10 @@ const Community = () => {
     fetchGroups();
   }, []);
 
+  const handleCreateGroup = () => {
+    navigate('/create-group');
+  };
+
   return (
     <div className="community-page">
       <div className="community-header">
@@ -31,7 +40,7 @@ const Community = () => {
       </div>
       <div className="community-subheader">
         <span className="subheader-title">참여중인 소모임</span>
-        <button className="create-group">+ 소모임 개설</button>
+        <button className="create-group" onClick={handleCreateGroup}>+ 소모임 개설</button>
       </div>
       <div className="group-list">
         {groups.length > 0 ? (

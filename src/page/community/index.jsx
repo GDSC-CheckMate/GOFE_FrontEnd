@@ -11,7 +11,7 @@ const Community = () => {
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const response = await fetch('/api/mock/community.json');
+        const response = await fetch('/community.json'); // public 폴더 기준 경로
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

@@ -11,6 +11,8 @@ const CommunityItem = ({ group }) => {
       <div className="group-details">
         <div className="group-name">{group.name}</div>
         <div className="group-notice">{group.notice}</div>
+      </div>
+      <div className="group-info">
         <div className="group-time">{group.time}</div>
         {group.badge && <div className="group-badge">{group.badge}</div>}
       </div>

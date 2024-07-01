@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { ReactComponent as ArrowfrontIcon } from "../../assets/home/Arrowfront.svg"
-import { ReactComponent as ArrowbackIcon } from "../../assets/home/Arrowback.svg"
+import { ReactComponent as ArrowfrontIcon } from "../../assets/main/Arrowfront.svg"
+import { ReactComponent as ArrowbackIcon } from "../../assets/main/Arrowback.svg"
+import { ReactComponent as RoutinePlus } from "../../assets/main/RoutinePlus.svg"
 import dayData from "../../api/mock/day.json"
 import MainPickerDay from "../../components/main/MainPickerDay"
 
@@ -51,14 +52,31 @@ const Main = () => {
         <div className="main-page-detail-routine-container">
           <div className="main-page-detail-routine-selection-container">
             <div
-              className="main-page-detail-routine-selection"
+              className={
+                selectedSection === "오늘 목표🔥"
+                  ? "main-page-detail-routine-selection active"
+                  : "main-page-detail-routine-selection"
+              }
               onClick={() => onClickSelectedSection("오늘 목표🔥")}
             >
               오늘 목표🔥
             </div>
-            <div className="main-page-detail-routine-selection">루틴 추가</div>
+            <div
+              className={
+                selectedSection === "루틴 추가"
+                  ? "main-page-detail-routine-selection active"
+                  : "main-page-detail-routine-selection"
+              }
+              onClick={() => onClickSelectedSection("루틴 추가")}
+            >
+              루틴 추가
+            </div>
           </div>
           <hr className="main-page-detail-routine-selection-hr" />
+          <div className="main-page-detail-routine-title">
+            개인 루틴
+            <RoutinePlus />
+          </div>
         </div>
       </div>
     </div>

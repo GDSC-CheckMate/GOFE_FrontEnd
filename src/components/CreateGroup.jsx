@@ -1,18 +1,29 @@
-// src/page/community/CreateGroup.jsx
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../scss/page/_createGroup.scss';
+import { CommunityContext } from './CommunityContext';
 
 const CreateGroup = () => {
+  const { addGroup } = useContext(CommunityContext);
   const [groupName, setGroupName] = useState('');
   const [goalStartDate, setGoalStartDate] = useState('');
   const [goalDuration, setGoalDuration] = useState('');
   const [members, setMembers] = useState('');
   const [joinAfterStart, setJoinAfterStart] = useState('불가능');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 소모임 개설 로직 추가
-    console.log({ groupName, goalStartDate, goalDuration, members, joinAfterStart });
+    const newGroup = {
+      id: Date.now(),
+      name: groupName,
+      notice: '새로운 소모임이 생성되었습니다.',
+      time: new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}),
+      image: 'images/default.png', // 기본 이미지 설정
+      badge: null,
+    };
+    addGroup(newGroup);
+    navigate('/community');
   };
 
   return (

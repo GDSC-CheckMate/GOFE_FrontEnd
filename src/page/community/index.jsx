@@ -1,30 +1,12 @@
-// src/page/community/index.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CommunityItem from '../../components/CommunityItem';
 import '../../scss/page/_community.scss';
+import { CommunityContext } from '../../components/CommunityContext';
 
 const Community = () => {
-  const [groups, setGroups] = useState([]);
+  const { groups } = useContext(CommunityContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchGroups = async () => {
-      try {
-        const response = await fetch('/community.json'); // public 폴더 기준 경로
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log("Fetched data:", data); // 디버깅을 위한 콘솔 로그
-        setGroups(data);
-      } catch (error) {
-        console.error("Failed to fetch community data", error);
-      }
-    };
-
-    fetchGroups();
-  }, []);
 
   const handleCreateGroup = () => {
     navigate('/create-group');

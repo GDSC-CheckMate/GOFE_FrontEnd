@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loading from "../components/Loading";
 import Layout from "../layout/Layout";
+import { CommunityProvider } from "../components/CommunityContext";
 
 const Main = lazy(() => import("../page/main"));
 const Achievement = lazy(() => import("../page/achievement"));
@@ -32,9 +33,11 @@ const router = createBrowserRouter([
       {
         path: "community",
         element: (
-          <Suspense fallback={<Loading />}>
-            <Community />
-          </Suspense>
+          <CommunityProvider>
+            <Suspense fallback={<Loading />}>
+              <Community />
+            </Suspense>
+          </CommunityProvider>
         ),
       },
       {
@@ -48,9 +51,11 @@ const router = createBrowserRouter([
       {
         path: "create-group",
         element: (
-          <Suspense fallback={<Loading />}>
-            <CreateGroup />
-          </Suspense>
+          <CommunityProvider>
+            <Suspense fallback={<Loading />}>
+              <CreateGroup />
+            </Suspense>
+          </CommunityProvider>
         ),
       },
     ],

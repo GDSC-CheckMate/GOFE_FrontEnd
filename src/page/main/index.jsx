@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from "react"
-import { ReactComponent as ArrowfrontIcon } from "../../assets/main/Arrowfront.svg"
-import { ReactComponent as ArrowbackIcon } from "../../assets/main/Arrowback.svg"
 import dayData from "../../api/mock/day.json"
 import MainPickerDay from "../../components/main/MainPickerDay"
 import MainDetail from "../../components/main/MainDetail"
+import { useDispatch, useSelector } from "react-redux"
+import { setSelectedSection } from "../../Redux/main"
+
+import { ReactComponent as ArrowfrontIcon } from "../../assets/main/Arrowfront.svg"
+import { ReactComponent as ArrowbackIcon } from "../../assets/main/Arrowback.svg"
 
 const Main = () => {
   const [calendarData, setCalendarData] = useState(null)
   const [selectedDay, setSelectedDay] = useState("월")
-  const [selectedSection, setSelectedSection] = useState("오늘 목표🔥")
+  const selectedSection = useSelector(
+    (state) => state.selectedSection.selectedSection
+  )
+  const dispatch = useDispatch()
 
   useEffect(() => {
     setCalendarData(dayData)
+    dispatch(setSelectedSection("view1"))
   }, [])
+
+  useEffect(() => {
+    console.log("selectedSection:", selectedSection)
+  }, [selectedSection])
 
   if (!calendarData) {
     return <div>로딩중...</div>
@@ -22,6 +33,15 @@ const Main = () => {
     console.log(weekday)
     setSelectedDay(weekday)
   }
+
+  const calculateCompletionPercentage = (events) => {
+    if (!events || events.length === 0) return 0
+    const completedEvents = events.filter((event) => event.success).length
+    return (completedEvents / events.length) * 100
+  }
+
+  const selectedDayEvents =
+    calendarData.days.find((day) => day.weekday === selectedDay)?.events || []
 
   return (
     <div className="main-page-container">
@@ -39,14 +59,23 @@ const Main = () => {
               weekday={day.weekday}
               selectedDay={selectedDay}
               onClickSelectedDay={onClickSelectedDay}
+              completionPercentage={calculateCompletionPercentage(day.events)}
+              hasTodos={day.events && day.events.length > 0}
             />
           ))}
         </div>
       </div>
       <div className="main-page-detail-container">
         <MainDetail
-          selectedSection={selectedSection}
-          setSelectedSection={setSelectedSection}
+          routineData={selectedDayEvents}
+          setRoutineData={(setSelectedDayEvents) => {
+            const updatedCalendarData = calendarData.days.map((day) =>
+              day.weekday === selectedDay
+                ? { ...day, events: setSelectedDayEvents }
+                : day
+            )
+            setCalendarData({ ...calendarData, days: updatedCalendarData })
+          }}
         />
       </div>
     </div>

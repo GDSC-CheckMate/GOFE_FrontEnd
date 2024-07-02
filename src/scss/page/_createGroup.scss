@@ -44,6 +44,14 @@
       color: #888;
       border-radius: 8px;
       margin-bottom: 16px;
+      overflow: hidden;
+      cursor: pointer; // 커서 모양 변경
+    
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     .input-group {
@@ -62,7 +70,11 @@
       }
 
       span {
-        margin-left: 8px;
+        margin-right: 6px;
+        display : flex;
+        align-items : center;
+        justify-content : center;
+        height: 100%;
       }
     }
 

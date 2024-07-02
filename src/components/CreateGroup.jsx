@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../scss/page/_createGroup.scss';
 import { CommunityContext } from './CommunityContext';
@@ -10,7 +10,24 @@ const CreateGroup = () => {
   const [goalDuration, setGoalDuration] = useState('');
   const [members, setMembers] = useState('');
   const [joinAfterStart, setJoinAfterStart] = useState('불가능');
+  const [profileImage, setProfileImage] = useState(null);
+  const fileInputRef = useRef(null);
   const navigate = useNavigate();
+
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setProfileImage(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleProfileImageClick = () => {
+    fileInputRef.current.click();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +35,8 @@ const CreateGroup = () => {
       id: Date.now(),
       name: groupName,
       notice: '새로운 소모임이 생성되었습니다.',
-      time: new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}),
-      image: 'images/default.png', // 기본 이미지 설정
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      image: profileImage || 'images/default.png',
       badge: null,
     };
     addGroup(newGroup);
@@ -34,7 +51,20 @@ const CreateGroup = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>프로필 이미지</label>
-          <div className="profile-image-placeholder">프로필 이미지</div>
+          <div className="profile-image-placeholder" onClick={handleProfileImageClick}>
+            {profileImage ? (
+              <img src={profileImage} alt="프로필 이미지" />
+            ) : (
+              '프로필 이미지'
+            )}
+          </div>
+          <input 
+            type="file" 
+            accept="image/*" 
+            onChange={handleImageChange} 
+            ref={fileInputRef} 
+            style={{ display: 'none' }} 
+          />
         </div>
         <div className="form-group">
           <label>소모임명</label>
@@ -53,7 +83,7 @@ const CreateGroup = () => {
               value={goalStartDate} 
               onChange={(e) => setGoalStartDate(e.target.value)} 
             />
-            ~
+            <span>~</span>
             <input 
               type="number" 
               min="0" 

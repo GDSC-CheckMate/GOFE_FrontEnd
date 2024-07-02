@@ -20,7 +20,13 @@ const MainPickerDay = ({ day, weekday, selectedDay, onClickSelectedDay }) => {
           {weekday}
         </div>
         <div className={`main-page-calendar-days-item-day`}>
-          <div className={`${activeDay(weekday) ? "active" : ""}`}>{day}</div>
+          <div
+            className={`main-page-calendar-days-item-circle ${
+              activeDay(weekday) ? "active" : ""
+            }`}
+          >
+            {day}
+          </div>
         </div>
       </div>
     </div>

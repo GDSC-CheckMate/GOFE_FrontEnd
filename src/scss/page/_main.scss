@@ -21,11 +21,8 @@
                 cursor: pointer;
             }
 
-            div {
-                font-family: Pretendard;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 600;
+            .main-page-calendar-title-h1 {
+                @include custom-font-size(600, 16px, basic);
                 line-height: 166.023%;
                 letter-spacing: 0.08px;
             }
@@ -40,29 +37,36 @@
                 padding: 5px 0;
                 margin: 5px;
                 text-align: center;
+                border-radius: 5px;
 
                 &.active {
-                    border-radius: 5px;
                     background-color: #3c3c3c;
-                    color: white;
+                    @include custom-font-color(white);
                 }
 
                 .main-page-calendar-days-item-weekday {
-                    font-size: 12px;
+                    @include custom-font-size(500, 12px, color-1);
+
+                    &.active {
+                        @include custom-font-color(white);
+                    }
                 }
 
                 .main-page-calendar-days-item-day {
                     padding: 5px;
                     @include column-flexbox(center, center);
 
-                    div {
-                        @include column-flexbox(center, center);
+                    .main-page-calendar-days-item-circle {
+                        @include inline-flexbox(center, center);
                         width: 35px;
                         height: 35px;
+                        border-radius: 50%;
+                        background-color: #8c8c8c;
+                        @include custom-font-size(500, 14px, white);
                         &.active {
                             border-radius: 50%;
                             background-color: #ffffff;
-                            color: #3c3c3c;
+                            @include custom-font-color(color-3);
                         }
                     }
                 }
@@ -114,6 +118,8 @@
             }
 
             .main-page-detail-routine-title {
+                margin-left: 20px;
+                margin-top: 20px;
                 @include inline-flexbox(start, center);
                 width: 109px;
                 height: 30px;
@@ -131,6 +137,77 @@
                     padding: 0px;
                     cursor: pointer;
                 }
+            }
+
+            .main-page-detail-routine-add-title {
+                margin: 40px 0 15px 20px;
+                @include custom-font-size(600, 14px, basic);
+            }
+
+            .main-page-detail-routine-add-container {
+                @include inline-flexbox(between, center);
+
+                .main-page-detail-routine-add-input-time {
+                    @include inline-flexbox(start, center);
+                    width: 75px;
+                    height: 35px;
+                    padding: 10px;
+                    margin-left: 20px;
+                    gap: 10px;
+                    box-sizing: border-box;
+                    border-radius: 8px;
+                    border: 1px solid var(--calendar_-date_text, #cdcdcd);
+                    @include custom-font-size(500, 14px, color-6);
+                }
+
+                .main-page-detail-routine-add-input-content {
+                    @include inline-flexbox(start, center);
+                    width: 269px;
+                    height: 35px;
+                    padding: 10px;
+                    margin-right: 20px;
+                    gap: 10px;
+                    border-radius: 8px;
+                    border: 1px solid var(--calendar_-date_text, #cdcdcd);
+                    @include custom-font-size(500, 14px, color-6);
+                }
+            }
+
+            .main-page-detail-routine-day-title-container {
+                @include inline-flexbox(start, center);
+                margin: 25px 0 15px 20px;
+                gap: 10px;
+                .main-page-detail-routine-day-title {
+                    @include custom-font-size(600, 14px, basic);
+                }
+                .main-page-detail-routine-day-sub-title {
+                    @include custom-font-size(600, 12px, color-7);
+                }
+            }
+
+            .main-page-detail-routine-day-container {
+                margin: 20px 20px 15px 20px;
+                @include inline-flexbox(between, center);
+                .main-page-detail-routine-day-item {
+                    @include inline-flexbox(center, center);
+                    width: 42px;
+                    height: 42px;
+                    padding: 10px;
+                    @include custom-font-size(600, 14px, white);
+                    gap: 10px;
+                    border-radius: 8px;
+                    background: #3c3c3c;
+                }
+            }
+
+            .main-page-detail-routine-alert-title {
+                margin: 35px 0 55px 20px;
+                @include custom-font-size(600, 14px, basic);
+            }
+
+            .main-page-detail-routine-alert-bottom-hr {
+                height: 1px;
+                background: #a4a4a4;
             }
         }
     }

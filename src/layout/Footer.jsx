@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
+
 import { ReactComponent as HomeIcon } from "../assets/footer/Home.svg"
 import { ReactComponent as ActiveHomeIcon } from "../assets/footer/HomeActive.svg"
 
@@ -16,33 +18,48 @@ const Footer = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const path = location.pathname
+  const selectedSection = useSelector(
+    (state) => state.selectedSection.selectedSection
+  )
+
+  useEffect(() => {}, [selectedSection])
 
   return (
     <div className="footer-container">
-      <div className="footer-item-container">
-        <div
-          className="footer-item footer-item-left"
-          onClick={() => navigate("/")}
-        >
-          {path === "/" ? <ActiveHomeIcon /> : <HomeIcon />}
+      {selectedSection === "view1" ? (
+        <div className="footer-item-container">
+          <div
+            className="footer-item footer-item-left"
+            onClick={() => navigate("/")}
+          >
+            {path === "/" ? <ActiveHomeIcon /> : <HomeIcon />}
+          </div>
+          <div className="footer-item" onClick={() => navigate("/achievement")}>
+            {path === "/achievement" ? (
+              <ActiveAchievementIcon />
+            ) : (
+              <AchievementIcon />
+            )}
+          </div>
+          <div className="footer-item" onClick={() => navigate("/community")}>
+            {path === "/community" ? (
+              <ActiveCommunityIcon />
+            ) : (
+              <CommunityIcon />
+            )}
+          </div>
+          <div
+            className="footer-item footer-item-right"
+            onClick={() => navigate("/mypage")}
+          >
+            {path === "/mypage" ? <ActiveMypageIcon /> : <MypageIcon />}
+          </div>
         </div>
-        <div className="footer-item" onClick={() => navigate("/achievement")}>
-          {path === "/achievement" ? (
-            <ActiveAchievementIcon />
-          ) : (
-            <AchievementIcon />
-          )}
+      ) : (
+        <div className="footer-routine-view-container">
+          <button className="footer-routine-view-button">목표 만들기</button>
         </div>
-        <div className="footer-item" onClick={() => navigate("/community")}>
-          {path === "/community" ? <ActiveCommunityIcon /> : <CommunityIcon />}
-        </div>
-        <div
-          className="footer-item footer-item-right"
-          onClick={() => navigate("/mypage")}
-        >
-          {path === "/mypage" ? <ActiveMypageIcon /> : <MypageIcon />}
-        </div>
-      </div>
+      )}
     </div>
   )
 }

@@ -1,39 +1,35 @@
-import React, { useState, useContext, useRef } from "react"
-import { useNavigate } from "react-router-dom"
-// import "../scss/page/_createGroup.scss"
-import { CommunityContext } from "./CommunityProvider"
-import Chodan from "../../../assets/community/images/chodan.png"
-import Ronnie from "../../../assets/community/images/ronnie.png"
-import wonyoung from "../../../assets/community/images/wonyoung.png"
+import React, { useState, useContext, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { CommunityContext } from "./CommunityProvider";
 
 const CreateGroup = () => {
-  const { addGroup } = useContext(CommunityContext)
-  const [groupName, setGroupName] = useState("")
-  const [goalStartDate, setGoalStartDate] = useState("")
-  const [goalDuration, setGoalDuration] = useState("")
-  const [members, setMembers] = useState("")
-  const [joinAfterStart, setJoinAfterStart] = useState("불가능")
-  const [profileImage, setProfileImage] = useState(null)
-  const fileInputRef = useRef(null)
-  const navigate = useNavigate()
+  const { addGroup } = useContext(CommunityContext);
+  const [groupName, setGroupName] = useState("");
+  const [goalStartDate, setGoalStartDate] = useState("");
+  const [goalDuration, setGoalDuration] = useState("");
+  const [members, setMembers] = useState("");
+  const [joinAfterStart, setJoinAfterStart] = useState("불가능");
+  const [profileImage, setProfileImage] = useState(null);
+  const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0]
-      const reader = new FileReader()
+      const file = e.target.files[0];
+      const reader = new FileReader();
       reader.onload = (e) => {
-        setProfileImage(e.target.result)
-      }
-      reader.readAsDataURL(file)
+        setProfileImage(e.target.result);
+      };
+      reader.readAsDataURL(file);
     }
-  }
+  };
 
   const handleProfileImageClick = () => {
-    fileInputRef.current.click()
-  }
+    fileInputRef.current.click();
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newGroup = {
       id: Date.now(),
       name: groupName,
@@ -44,10 +40,10 @@ const CreateGroup = () => {
       }),
       image: profileImage || "images/default.png",
       badge: null,
-    }
-    addGroup(newGroup)
-    navigate("/community")
-  }
+    };
+    addGroup(newGroup);
+    navigate("/community");
+  };
 
   return (
     <div className="create-group-page">
@@ -145,7 +141,7 @@ const CreateGroup = () => {
         <button type="submit">소모임 개설하기</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default CreateGroup
+export default CreateGroup;

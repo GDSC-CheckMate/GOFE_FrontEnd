@@ -9,9 +9,6 @@ const CommunityMainPage = () => {
   const { groups } = useContext(CommunityContext);
   const navigate = useNavigate();
 
-  //   const handleCreateGroup = () => {
-  //     navigate("/creategroup");
-  //   };
   return (
     <div className="community-page">
       <CommunityHeader />

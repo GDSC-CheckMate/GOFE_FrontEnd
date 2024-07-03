@@ -1,23 +1,23 @@
-import React, { useContext } from "react"
-import { useNavigate } from "react-router-dom"
-import CommunityItem from "./components/CommunityItem"
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import CommunityItem from "./components/CommunityItem";
 // import "../../scss/page/_community.scss"
-import { CommunityContext } from "./components/CommunityProvider"
+import { CommunityContext } from "./components/CommunityProvider";
 
 const Community = () => {
-  const { groups } = useContext(CommunityContext)
-  const navigate = useNavigate()
+  const { groups } = useContext(CommunityContext);
+  const navigate = useNavigate();
 
   const handleCreateGroup = () => {
-    navigate("/create-group")
-  }
+    navigate("/create-group");
+  };
 
   return (
     <div className="community-page">
       <div className="community-header">
         <div className="tabs">
           <button className="tab active">My</button>
-          <button className="tab">커뮤홈</button>
+          <button className="tab">커뮤 홈</button>
         </div>
       </div>
       <div className="community-subheader">
@@ -34,7 +34,7 @@ const Community = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Community
+export default Community;

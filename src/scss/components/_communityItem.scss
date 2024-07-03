@@ -1,45 +1,50 @@
-/* src/scss/components/_communityItem.scss */
+// src/scss/components/_communityItem.scss
 .group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 6px; // 각 커뮤니티 항목 간의 간격을 일정하게 설정
+
+  .group-icon {
     display: flex;
     align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    position: relative; /* 추가: 배지를 오른쪽에 고정 */
+    justify-content: center;
+    margin-right: 16px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
   }
-  
-  .group-icon img {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-  }
-  
+
   .group-details {
-    flex: 1;
-    margin-left: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // 중앙 정렬
   }
-  
-  .group-name {
-    font-size: 16px;
-    font-weight: bold;
+
+  .group-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center; // 중앙 정렬
+
+    .group-time {
+      font-size: 12px;
+      color: #aaa;
+      margin-bottom: 4px;
+    }
+
+    .group-badge {
+      background-color: #ff4500;
+      color: #fff;
+      border-radius: 12px;
+      padding: 2px 8px;
+      font-size: 12px;
+    }
   }
-  
-  .group-notice {
-    font-size: 14px;
-    color: #888;
-  }
-  
-  .group-time {
-    font-size: 12px;
-    color: #aaa;
-  }
-  
-  .group-badge {
-    background: #ff4500;
-    color: #fff;
-    border-radius: 12px;
-    padding: 2px 8px;
-    font-size: 12px;
-    position: absolute; /* 추가: 배지 위치 고정 */
-    right: 10px; /* 오른쪽 여백 */
-  }
-  
+}

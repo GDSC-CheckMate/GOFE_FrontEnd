@@ -1,14 +1,16 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense } from "react"
 
-import Loading from "../components/Loading";
+import Loading from "../components/Loading"
 
-const ShowMypage = lazy(() => import("../page/mypage/components/ShowMypage"));
-const ShowAlarm = lazy(() => import("../page/mypage/components/ShowAlarm"));
+const ShowMypage = lazy(() => import("../page/mypage/components/ShowMypage"))
+const ShowAlarm = lazy(() => import("../page/mypage/components/ShowAlarm"))
 const MypageMessage = lazy(() =>
   import("../page/mypage/components/MypageMessage")
-);
-const MypageLike = lazy(() => import("../page/mypage/components/MypageLike"));
-const MypageEdit = lazy(() => import("../page/mypage/components/MypageEdit"));
+)
+const MypageLike = lazy(() => import("../page/mypage/components/MypageLike"))
+const MypageEdit = lazy(() =>
+  import("../page/mypage/components/MypageEdit.jsx")
+)
 
 const mypageRouter = [
   {
@@ -51,5 +53,5 @@ const mypageRouter = [
       </Suspense>
     ),
   },
-];
-export default mypageRouter;
+]
+export default mypageRouter

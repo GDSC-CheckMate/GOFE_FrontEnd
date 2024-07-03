@@ -1,0 +1,101 @@
+.community-page {
+    padding: 16px;
+  }
+  
+  .community-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .tabs {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .tab {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #aaa;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .tab.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+  
+  .community-subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .subheader-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .create-group {
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .group-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .group-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .group-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+  
+  .group-details {
+    flex: 1;
+    margin-left: 16px;
+  }
+  
+  .group-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .group-notice {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .group-time {
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  .group-badge {
+    background: #ff4500;
+    color: #fff;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 12px;
+    margin-left: auto;
+  }

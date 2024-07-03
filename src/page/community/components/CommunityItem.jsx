@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../scss/components/_communityItem.scss';
+import React from "react"
+import PropTypes from "prop-types"
+// import '../scss/components/_communityItem.scss';
 
 const CommunityItem = ({ group }) => (
   <div className="group-item">
@@ -16,7 +16,7 @@ const CommunityItem = ({ group }) => (
       {group.badge && <div className="group-badge">{group.badge}</div>}
     </div>
   </div>
-);
+)
 
 CommunityItem.propTypes = {
   group: PropTypes.shape({
@@ -27,6 +27,6 @@ CommunityItem.propTypes = {
     image: PropTypes.string.isRequired,
     badge: PropTypes.string,
   }).isRequired,
-};
+}
 
-export default CommunityItem;
+export default CommunityItem

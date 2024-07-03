@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react"
 import dayData from "../../api/mock/day.json"
-import MainPickerDay from "../../components/main/MainPickerDay"
-import MainDetail from "../../components/main/MainDetail"
+
 import { useDispatch, useSelector } from "react-redux"
 import { setSelectedSection } from "../../Redux/main"
 
 import { ReactComponent as ArrowfrontIcon } from "../../assets/main/Arrowfront.svg"
 import { ReactComponent as ArrowbackIcon } from "../../assets/main/Arrowback.svg"
+import MainPickerDay from "./components/MainPickerDay"
+import MainDetail from "./components/MainDetail"
 
 const Main = () => {
   const [calendarData, setCalendarData] = useState(null)

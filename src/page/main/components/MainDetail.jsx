@@ -1,11 +1,11 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setSelectedSection } from "../../Redux/main"
+import { setSelectedSection } from "../../../Redux/main"
 import CreateRoutine from "./CreateRoutine"
 
-import { ReactComponent as RoutinePlus } from "../../assets/main/RoutinePlus.svg"
-import { ReactComponent as Check } from "../../assets/main/Check.svg"
-import { ReactComponent as NotCheck } from "../../assets/main/NotCheck.svg"
+import { ReactComponent as RoutinePlus } from "../../../assets/main/RoutinePlus.svg"
+import { ReactComponent as Check } from "../../../assets/main/Check.svg"
+import { ReactComponent as NotCheck } from "../../../assets/main/NotCheck.svg"
 
 const MainDetail = ({ routineData, setRoutineData }) => {
   const selectedSection = useSelector(

@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import CommunityItem from "./components/CommunityItem"
-// import "../../scss/page/_community.scss"
+
 import { CommunityContext } from "./components/CommunityProvider"
 
 const Community = () => {

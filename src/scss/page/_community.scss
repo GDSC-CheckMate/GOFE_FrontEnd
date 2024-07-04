@@ -1,24 +1,140 @@
 //src>scss>page>_community.scss
 .community-page {
-  padding: 0px;
+  padding: 0rem;
 }
 .Community-header-box {
-  padding: 61px 83px 2px 88.64px;
+  padding: 3.8125rem 5.1875rem 0.125rem 5.54rem;
 }
 .community-header-root {
   display: flex;
   align-items: flex-start;
-  gap: 120px;
+  gap: 7.5rem;
   justify-content: center;
 }
 .community-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
   position: relative;
 }
 
+.Community-profile-list-container-box {
+  display: flex;
+  padding: auto;
+  overflow-x: hidden; /* 가로 스크롤을 가능하게 함 */
+}
+.Community-profile-list {
+  display: flex;
+  align-items: center; /* 수직 정렬을 중앙으로 맞춤 */
+  overflow-x: auto; /* 내부 요소가 가로로 넘칠 경우 스크롤 가능하게 함 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.Community-profile-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.Community-profile-personal-box {
+  display: block;
+  background-color: white;
+  position: absolute; /* 상대 위치로 변경하여 스크롤 내에 위치하게 함 */
+}
+.Community-profiles-neigbor {
+  display: flex;
+  white-space: nowrap;
+  flex-grow: 1;
+  margin: 0rem 0rem 0rem 5.625rem;
+}
+
+.Community-profile-me-img {
+  width: 2.5463rem;
+  height: 2.5463rem;
+  margin: 0.875rem 1.125rem 0rem 1.625rem;
+  flex-shrink: 0;
+  border-radius: 3.7843rem;
+  background: #d5d5d5;
+}
+.Community-profile-me-name {
+  margin: 0.375rem 1.125rem 0rem 1.625rem;
+  text-align: center;
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.Community-neibore-profile {
+  display: inline-block;
+  /* 각 프로필 간의 간격 설정 */
+}
+.Community-neibore-me-img {
+  width: 2.5463rem;
+  height: 2.5463rem;
+  margin: 14px 1.125rem 0rem 0rem;
+  flex-shrink: 0;
+  border-radius: 3.7843rem;
+  background: #d5d5d5;
+}
+.Community-neibore-me-name {
+  margin: 0.375rem 1.125rem 0rem 0rem;
+  text-align: center;
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.Community-show-more-profile {
+  display: flex;
+  width: 2.1875rem;
+  height: 2.1875rem;
+  padding: 0.5609rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 1.3237rem;
+  background: #999;
+  position: relative;
+  margin: 1.25rem 1.25rem 0rem 0.6875rem;
+}
+.community-search-container-box {
+  display: flex;
+  margin: 1.75rem 0rem 0rem 1.3125rem;
+}
+.community-search-detail-list {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.375rem 0.1875rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1875rem;
+  flex-shrink: 0;
+}
+.community-search-command-box {
+  display: flex;
+  width: 16.875rem;
+  height: 2.5rem;
+  padding: 0.625rem 0.9375rem;
+  align-items: center;
+  gap: 2.125rem;
+  flex-shrink: 0;
+  border-radius: 3.125rem;
+  border: 0.0625rem solid var(--calendar_-date_text, #cdcdcd);
+  margin: 0.3125rem 0rem 0rem 0.375rem;
+}
+.community-search-command-button {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  float: right;
+}
 .tabs {
   display: flex;
   width: 100%;

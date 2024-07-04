@@ -17,6 +17,9 @@ const CommunityMainPage = lazy(() =>
 const CommunityHomePage = lazy(() =>
   import("../page/community/components/CommunityHomePage")
 );
+const CommunityShowProfile = lazy(() =>
+  import("../page/community/components/CommunityShowProfile")
+);
 
 const communityRouter = [
   {
@@ -56,6 +59,14 @@ const communityRouter = [
     element: (
       <Suspense fallback={<Loading />}>
         <CreateGroup />
+      </Suspense>
+    ),
+  },
+  {
+    path: "communityShowProfile",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <CommunityShowProfile />
       </Suspense>
     ),
   },

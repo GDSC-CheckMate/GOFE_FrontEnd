@@ -1,11 +1,18 @@
 .mypage {
-  padding: 61px 83px 2px 88.64px;
+  padding: 3.8125rem 20% 0.125rem 19%;
 }
+
 .mypage-root {
   display: flex;
   align-items: flex-start;
-  gap: 120px;
+  gap: 7.5rem;
   justify-content: center;
+  margin: auto;
+
+  @media screen and (max-width: 360px) {
+    gap: 48%;
+    align-items: center;
+  }
 }
 
 .mypage-root-line {
@@ -42,27 +49,30 @@
 
 .mypage-profile {
   display: flex;
+  width: 100%;
 }
 .mypage-profile-picture {
-  width: 81.74px;
-  height: 81.74px;
-  margin: 43.43px 25.63px 0px 23.41px;
+  width: 5.1087rem;
+  height: 5.1087rem;
+  margin: 2.7144rem 1.6019rem 0rem 1.4631rem;
   flex-shrink: 0;
-  border-radius: 60.548px;
+  border-radius: 3.7843rem;
   background: #d5d5d5;
 }
 .mypage-profile-name {
-  width: Fixed 28px;
-  height: Fixed 19px;
-  margin: 58.28px 0px 0px;
+  width: Fixed 1.75rem;
+  height: Fixed 1.1875rem;
+  margin: 3.6425rem 0px 0px;
 }
 .mypage-profile-content {
-  width: 244.854px;
-  margin: 7.02px 0px 0px;
+  width: 100%;
+  margin: 0.4387rem 0px 0px;
   display: block;
 }
 .mypage-profile-box {
   display: block;
+  width: 100%;
+  padding: 1%;
 }
 .mypage-profile-appeal-all {
   display: flex;
@@ -72,12 +82,12 @@
   width: 88.613px;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 0.4375rem;
   flex-shrink: 0;
-  margin: 13.24px 39.64px 13.24px 39.64px;
+  margin: 0.8275rem auto 0.8275rem;
 }
 .mypage-profile-appeal-mail {
-  width: 168px;
+  width: 40%;
   height: 78px;
   flex-shrink: 0;
   border-radius: 8px 0px 0px 8px;
@@ -99,7 +109,7 @@
   align-items: center;
   gap: 7px;
   flex-shrink: 0;
-  margin: 13.24px 39.64px 13.24px 39.64px;
+  margin: 13.24px auto 13.24px;
 }
 .mypage-profile-appeal-like-icon-box-num {
   display: flex;
@@ -115,7 +125,7 @@
   margin: 4.26px 0px 4.26px 4px;
 }
 .mypage-profile-appeal-like {
-  width: 168px;
+  width: 40%;
   height: 78px;
   flex-shrink: 0;
   border-radius: 0px 8px 8px 0px;
@@ -133,7 +143,7 @@
 }
 .mypage-profile-edit {
   display: flex;
-  width: 338px;
+  width: 80%;
   height: 35px;
   padding: 10px;
   justify-content: center;
@@ -145,11 +155,11 @@
   margin: 22.07px auto 0px;
 }
 .mypage-divide-line {
-  width: 430px;
-  height: 9px;
+  width: 100%;
+  height: 0.5625rem;
   flex-shrink: 0;
   background: #f4f4f4;
-  margin: 35.93px auto 0px auto;
+  margin: 2.2456rem auto 0rem auto;
 }
 .mypage-community-section {
   display: flex;

@@ -4,23 +4,15 @@ import CommunityItem from "./CommunityItem";
 // import "../../scss/page/_community.scss"
 import { CommunityContext } from "./CommunityProvider";
 import CommunityHeader from "./CommunityHeader";
+import CommunityMadeGroup from "./CommunityMadeGroup";
 
 const CommunityMainPage = () => {
   const { groups } = useContext(CommunityContext);
-  const navigate = useNavigate();
 
   return (
     <div className="community-page">
       <CommunityHeader />
-      <div className="community-subheader">
-        <span className="subheader-title">참여중인 소모임</span>
-        <button
-          className="create-group"
-          onClick={() => navigate("/creategroup")}
-        >
-          + 소모임 개설
-        </button>
-      </div>
+      <CommunityMadeGroup />
       <div className="group-list">
         {groups.length > 0 ? (
           groups.map((group) => <CommunityItem key={group.id} group={group} />)

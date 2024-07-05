@@ -7,6 +7,7 @@ import { ReactComponent as Activesearch } from "../../../assets/community/Active
 import { ReactComponent as Search } from "../../../assets/community/Search.svg";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import CommunityMadeGroup from "./CommunityMadeGroup";
 
 const CommunitySearch = () => {
   const location = useLocation();
@@ -23,6 +24,11 @@ const CommunitySearch = () => {
         {path === "/" ? <ActiveVector /> : <Vector />}
       </div>
       <div className="community-search-command-box">
+        <input
+          type="text"
+          className="community-search-input"
+          placeholder="어떤 스터디를 찾으세요? #키워드 입력"
+        />
         <div
           className="community-search-command-button"
           onClick={() => navigate("/")}

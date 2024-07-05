@@ -4,7 +4,7 @@ import ShowMypage from "./components/ShowMypage";
 
 const Mypage = () => {
   return (
-    <div>
+    <div className="mypage-main-box-all">
       <ShowMypage />
     </div>
   );

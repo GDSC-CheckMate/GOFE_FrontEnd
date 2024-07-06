@@ -177,7 +177,86 @@
   cursor: pointer;
   font-size: 16px;
 }
+.community-home-recommend-container-box {
+  width: 100%;
+  height: 392px;
+  background: #f4f4f4;
+  margin: 200px 0px 0px 0px;
+}
+.community-home-keyword-container-box {
+  margin: 0px 0px 30px;
+  width: 100%;
+}
+.community-home-keyword-box {
+  float: left;
+  margin-left: 4%;
+  margin-top: 2%;
+}
+.community-home-keyword-content {
+  padding: 5px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  border: 1px solid #b3b3b3;
+}
 
+.community-home-group-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.community-home-group-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.community-home-group-details {
+  flex: 1;
+  margin-left: 16px;
+}
+
+.community-home-group-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.community-home-group-notice {
+  font-size: 0.875rem;
+  color: #888;
+}
+.community-home-recommend-show-container-box-name {
+  margin: auto 22px;
+  padding: 10px 0px 0px 0px;
+}
+.community-home-recommend-show {
+  margin-top: 10px;
+  display: flex;
+  overflow-x: hidden;
+  align-items: center; /* 수직 정렬을 중앙으로 맞춤 */
+  overflow-x: auto; /* 내부 요소가 가로로 넘칠 경우 스크롤 가능하게 함 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.community-home-recommend-show-more {
+  min-width: 58%;
+  max-width: 58%;
+  height: 316px;
+  border-radius: 5px;
+  background: #fff;
+  margin: 10px 20px 0px 20px;
+}
+.community-home-recommend-show-community-name {
+  margin: 191px 59px 0px 59px;
+  justify-content: center;
+}
+.community-home-recommend-show-content-detail {
+  display: flex;
+  justify-content: center;
+}
 .tabs {
   display: flex;
   width: 100%;

@@ -1,14 +1,23 @@
 // src/page/community/components/CommunityMainPage.jsx
 
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import CommunityItem from "./CommunityItem";
-import { CommunityContext } from "./CommunityProvider";
-import CommunityHeader from "./CommunityHeader";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchGroups } from '../../../Redux/communitySlice';
+import CommunityItem from './CommunityItem';
+import CommunityHeader from './CommunityHeader';
+import { useNavigate } from 'react-router-dom';
 
 const CommunityMainPage = () => {
-  const { groups } = useContext(CommunityContext);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const groups = useSelector((state) => state.community.groups);
+  const groupStatus = useSelector((state) => state.community.status);
+
+  useEffect(() => {
+    if (groupStatus === 'idle') {
+      dispatch(fetchGroups());
+    }
+  }, [groupStatus, dispatch]);
 
   return (
     <div className="community-page">

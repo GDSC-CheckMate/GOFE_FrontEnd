@@ -1,5 +1,3 @@
-// src/page/community/components/CommunityMainPage.jsx
-
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchGroups } from '../../../Redux/communitySlice';
@@ -19,6 +17,10 @@ const CommunityMainPage = () => {
     }
   }, [groupStatus, dispatch]);
 
+  const handleGroupClick = (groupId) => {
+    navigate(`/group/${groupId}`);
+  };
+
   return (
     <div className="community-page">
       <CommunityHeader />
@@ -33,7 +35,11 @@ const CommunityMainPage = () => {
       </div>
       <div className="community-group-list">
         {groups.length > 0 ? (
-          groups.map((group) => <CommunityItem key={group.id} group={group} />)
+          groups.map((group) => (
+            <div key={group.id} onClick={() => handleGroupClick(group.id)}>
+              <CommunityItem group={group} />
+            </div>
+          ))
         ) : (
           <p>참여중인 커뮤니티를 찾을 수 없음</p>
         )}

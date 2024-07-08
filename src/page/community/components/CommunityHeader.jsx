@@ -9,7 +9,7 @@ const CommunityHeader = () => {
       <div className="community-header-container">
         <div className="community-header-root">
           <NavLink
-            to="/community"
+            to="/CommunityMainPage"
             className={({ isActive }) => (isActive ? 'nav-link underline' : 'nav-link')}
           >
             My

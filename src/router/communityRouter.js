@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-
 import Loading from "../components/Loading";
 
 const CommunityItem = lazy(() =>
@@ -16,6 +15,9 @@ const CommunityMainPage = lazy(() =>
 );
 const CommunityHomePage = lazy(() =>
   import("../page/community/components/CommunityHomePage")
+);
+const GroupDetailPage = lazy(() =>
+  import("../page/community/components/GroupDetailPage")
 );
 
 const communityRouter = [
@@ -59,5 +61,14 @@ const communityRouter = [
       </Suspense>
     ),
   },
+  {
+    path: "group/:groupId",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <GroupDetailPage />
+      </Suspense>
+    ),
+  },
 ];
+
 export default communityRouter;

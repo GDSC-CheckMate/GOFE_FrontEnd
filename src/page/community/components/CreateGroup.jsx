@@ -50,7 +50,7 @@ const CreateGroup = () => {
       badge: null,
     };
     dispatch(addGroup(newGroup));
-    navigate("/community");
+    navigate("/communityMainPage");
   };
 
   return (

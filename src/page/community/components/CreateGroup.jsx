@@ -1,5 +1,3 @@
-// src/page/community/components/CreateGroup.jsx
-
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -33,20 +31,13 @@ const CreateGroup = () => {
     fileInputRef.current.click();
   };
 
-  const calculateEndDate = (startDate, duration) => {
-    const date = new Date(startDate);
-    date.setDate(date.getDate() + parseInt(duration));
-    return date.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 반환
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const endDate = calculateEndDate(goalStartDate, goalDuration);
     const newGroup = {
       id: Date.now(),
       name: groupName,
       description: groupDescription,
-      keywords: keywords.split(',').map(keyword => keyword.trim()), // 키워드를 배열로 저장
+      keywords: keywords.split(',').map(keyword => keyword.trim()), // 키워드를 배열로 변환
       notice: "새로운 소모임이 생성되었습니다.",
       time: new Date().toLocaleTimeString([], {
         hour: "2-digit",
@@ -55,12 +46,11 @@ const CreateGroup = () => {
       image: profileImage || null,
       badge: null,
       startDate: goalStartDate,
-      duration: goalDuration,
-      endDate: endDate,
-      members: members,
+      duration: parseInt(goalDuration),
+      members: parseInt(members)
     };
     dispatch(addGroup(newGroup));
-    navigate("/communityMainPage");
+    navigate(`/CommunityMainPage`);
   };
 
   return (
@@ -115,7 +105,7 @@ const CreateGroup = () => {
             type="text"
             value={keywords}
             onChange={(e) => setKeywords(e.target.value)}
-            placeholder="소모임의 키워드를 적어보세요. (콤마로 구분)"
+            placeholder="키워드를 적어보세요. (쉼표로 구분)"
           />
         </div>
         <div className="create-group-form-group">

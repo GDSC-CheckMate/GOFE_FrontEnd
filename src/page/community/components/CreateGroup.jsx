@@ -1,18 +1,19 @@
+// src/page/community/components/CreateGroup.jsx
+
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addGroup } from '../../../Redux/communitySlice';
-// import DefaultImage from '../../../assets/community/images/default.png';
 
 const CreateGroup = () => {
   const dispatch = useDispatch();
-  const [groupName, setGroupName] = useState('');
-  const [groupDescription, setGroupDescription] = useState('');
-  const [keywords, setKeywords] = useState('');
-  const [goalStartDate, setGoalStartDate] = useState('');
-  const [goalDuration, setGoalDuration] = useState('');
-  const [members, setMembers] = useState('');
-  const [joinAfterStart, setJoinAfterStart] = useState('불가능');
+  const [groupName, setGroupName] = useState("");
+  const [groupDescription, setGroupDescription] = useState("");
+  const [keywords, setKeywords] = useState("");
+  const [goalStartDate, setGoalStartDate] = useState("");
+  const [goalDuration, setGoalDuration] = useState("");
+  const [members, setMembers] = useState("");
+  const [joinAfterStart, setJoinAfterStart] = useState("불가능");
   const [profileImage, setProfileImage] = useState(null);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
@@ -32,23 +33,34 @@ const CreateGroup = () => {
     fileInputRef.current.click();
   };
 
+  const calculateEndDate = (startDate, duration) => {
+    const date = new Date(startDate);
+    date.setDate(date.getDate() + parseInt(duration));
+    return date.toISOString().split('T')[0]; // YYYY-MM-DD 형식으로 반환
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const endDate = calculateEndDate(goalStartDate, goalDuration);
     const newGroup = {
       id: Date.now(),
       name: groupName,
       description: groupDescription,
-      keywords: keywords.split(',').map(keyword => keyword.trim()),
-      notice: '새로운 소모임이 생성되었습니다.',
-      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      keywords: keywords.split(',').map(keyword => keyword.trim()), // 키워드를 배열로 저장
+      notice: "새로운 소모임이 생성되었습니다.",
+      time: new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
       image: profileImage || null,
       badge: null,
+      startDate: goalStartDate,
       duration: goalDuration,
+      endDate: endDate,
       members: members,
-      joinAfterStart: joinAfterStart,
     };
     dispatch(addGroup(newGroup));
-    navigate(`/communityMainPage`);
+    navigate("/communityMainPage");
   };
 
   return (
@@ -61,15 +73,22 @@ const CreateGroup = () => {
       <form onSubmit={handleSubmit}>
         <div className="create-group-form-group">
           <label>프로필 이미지</label>
-          <div className="create-group-profile-image-placeholder" onClick={handleProfileImageClick}>
-            {profileImage ? <img src={profileImage} alt="프로필 이미지" /> : '프로필 이미지'}
+          <div
+            className="create-group-profile-image-placeholder"
+            onClick={handleProfileImageClick}
+          >
+            {profileImage ? (
+              <img src={profileImage} alt="프로필 이미지" />
+            ) : (
+              "프로필 이미지"
+            )}
           </div>
           <input
             type="file"
             accept="image/*"
             onChange={handleImageChange}
             ref={fileInputRef}
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
           />
         </div>
         <div className="create-group-form-group">
@@ -96,7 +115,7 @@ const CreateGroup = () => {
             type="text"
             value={keywords}
             onChange={(e) => setKeywords(e.target.value)}
-            placeholder="키워드를 설정해보세요."
+            placeholder="소모임의 키워드를 적어보세요. (콤마로 구분)"
           />
         </div>
         <div className="create-group-form-group">
@@ -137,7 +156,7 @@ const CreateGroup = () => {
                 type="checkbox"
                 name="joinAfterStart"
                 value="불가능"
-                checked={joinAfterStart === '불가능'}
+                checked={joinAfterStart === "불가능"}
                 onChange={(e) => setJoinAfterStart(e.target.value)}
               />
               <span className="checkmark"></span>
@@ -148,16 +167,14 @@ const CreateGroup = () => {
                 type="checkbox"
                 name="joinAfterStart"
                 value="가능"
-                checked={joinAfterStart === '가능'}
+                checked={joinAfterStart === "가능"}
                 onChange={(e) => setJoinAfterStart(e.target.value)}
               />
               <span className="checkmark"></span>
             </label>
           </div>
         </div>
-        <button type="submit" className="create-group-submit-button">
-          소모임 개설하기
-        </button>
+        <button type="submit" className="create-group-submit-button">소모임 개설하기</button>
       </form>
     </div>
   );

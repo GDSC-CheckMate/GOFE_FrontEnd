@@ -1,3 +1,5 @@
+// src/page/community/components/GroupDetailPage.jsx
+
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -42,7 +44,7 @@ const GroupDetailPage = () => {
         </div>
         <div className="group-detail-section">
           <h4 className="group-detail-section-title">목표 기간</h4>
-          <p>{group.duration}일</p>
+          <p>시작일 : {group.startDate} ~ 종료일 : {group.endDate}</p>
         </div>
         <div className="group-detail-section">
           <h4 className="group-detail-section-title">참여 인원</h4>

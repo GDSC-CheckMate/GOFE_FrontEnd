@@ -17,6 +17,13 @@ const CommunityMainPage = lazy(() =>
 const CommunityHomePage = lazy(() =>
   import("../page/community/components/CommunityHomePage")
 );
+
+const CommunityShowFollwers = lazy(() =>
+  import("../page/community/components/CommunityShowFollwers")
+);
+const CommunityShowAddFreind = lazy(() =>
+  import("../page/community/components/CommunityShowAddFreind")
+);
 const CommunityShowProfile = lazy(() =>
   import("../page/community/components/CommunityShowProfile")
 );
@@ -67,6 +74,23 @@ const communityRouter = [
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityShowProfile />
+      </Suspense>
+    ),
+  },
+
+  {
+    path: "communityShowFollwers",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <CommunityShowFollwers />
+      </Suspense>
+    ),
+  },
+  {
+    path: "communityShowAddFreind",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <CommunityShowAddFreind />
       </Suspense>
     ),
   },

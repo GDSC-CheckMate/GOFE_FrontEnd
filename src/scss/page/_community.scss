@@ -244,18 +244,142 @@
 .community-home-recommend-show-more {
   min-width: 58%;
   max-width: 58%;
-  height: 316px;
+  height: 310px;
   border-radius: 5px;
   background: #fff;
-  margin: 10px 20px 0px 20px;
+  margin: 10px 10px 0px 20px;
+}
+.community-home-recommend-show-more-out {
+  float: right;
+}
+.community-home-recommend-show-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 90px;
+  background: #d5d5d5;
+  margin: 25px auto 5px;
 }
 .community-home-recommend-show-community-name {
-  margin: 191px 59px 0px 59px;
-  justify-content: center;
+  margin: 10px auto 0px;
+  text-align: center;
 }
 .community-home-recommend-show-content-detail {
   display: flex;
+  margin: 0px 0px 0px 17%;
+  color: #acacac;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.community-home-recommend-show-content-detail-host {
+  margin: 0rem 0.625rem 0 0;
+}
+.community-home-recommend-show-content-active {
+  display: inline-flex;
+  padding: 2.559px 5.118px;
   justify-content: center;
+  align-items: center;
+  gap: 5.118px;
+  border-radius: 50px;
+  background: #daedff;
+  color: #0083ff;
+  margin: auto 0 auto 10px;
+  font-size: 8.188px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  position: relative;
+}
+.community-home-recommend-join-button {
+  display: flex;
+  width: 162px;
+  height: 35px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 30px auto 0px;
+  border-radius: 8px;
+  background: #3c3c3c;
+  color: #fff;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.community-show-profile-follow-header-container-box {
+  display: flex;
+  padding: 44px 0px 0px 0px;
+}
+.community-show-profile-follow-header-back-icon {
+  padding: 6px 0 6px 20px;
+}
+.community-show-profile-follow-header-title {
+  margin: 0 0 0 36%;
+}
+.community-show-profile-follow-title-menu {
+  display: flex;
+  margin: 22px 0 5px 0;
+  width: 100%;
+}
+.community-show-profile-follow-title-menu-follow {
+  margin: 0 0 0 18%;
+}
+.community-show-profile-follow-title-menu-followers {
+  margin: 0 0 0 15%;
+}
+.community-show-profile-follow-title-menu-add-friends {
+  margin: 0 0 0 15%;
+}
+.community-show-follow-or-follower-container {
+  display: flex;
+  width: 100%;
+}
+.community-show-follow-or-follower-container-picture {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 25px 13px 0rem 1.4631rem;
+  flex-shrink: 0;
+  border-radius: 3.7843rem;
+  background: #d5d5d5;
+}
+.community-show-follow-or-follower-container-name {
+  width: Fixed 1.75rem;
+  height: Fixed 1.1875rem;
+  margin: 30px 0px 0px;
+  margin-right: auto; /* 자동 여백을 추가하여 이름의 길이와 관계없이 다른 요소들을 오른쪽으로 밀어냅니다 */
+}
+.community-show-follow-or-follower-container-actions {
+  display: flex;
+  align-items: center;
+}
+.community-show-follow-or-follower-container-send-message {
+  display: flex;
+  width: 109px;
+  height: 40px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0px 0px;
+  border-radius: 8px;
+  background: #efefef;
+}
+.community-show-follow-or-follower-container-send-more {
+  margin: 1.875rem 1.25rem 0 1.25rem;
+}
+.community-show-follow-or-follower-container-box {
+  display: flex;
+  width: 100%;
+  padding: 1%;
+}
+.community-show-profile-friend-count {
+  color: #959595;
+  margin: 10px 0px 0px 23px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 .tabs {
   display: flex;

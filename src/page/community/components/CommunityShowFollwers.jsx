@@ -1,18 +1,18 @@
 import React from "react";
-import { ReactComponent as Back } from "../../../assets/community/Back.svg";
-import { useNavigate } from "react-router-dom";
 import CommunityShowProfileMenu from "./CommunityShowProfileMenu";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ReactComponent as Back } from "../../../assets/community/Back.svg";
 import CommunityShowFollowList from "./CommunityShowFollowList";
-import { useLocation } from "react-router-dom";
+import CommunityShowFollwers_list from "./CommunityShowFollwers_list";
 
-const followlist = [
+const followerlist = [
   {
     id: 1,
-    name: "은진",
+    name: "은진이",
   },
   {
     id: 2,
-    name: "른딘",
+    name: "른딘2",
   },
   {
     id: 3,
@@ -34,12 +34,15 @@ const followlist = [
     id: 4,
     name: "용차니",
   },
+  {
+    id: 5,
+    name: "현용찬",
+  },
 ];
 
-const CommunityShowProfile = () => {
+const CommunityShowFollwers = () => {
   const navigate = useNavigate();
-
-  const totalProfiles = followlist ? followlist.length : 0;
+  const totalfollowers = followerlist ? followerlist.length : 0;
 
   return (
     <div>
@@ -50,21 +53,21 @@ const CommunityShowProfile = () => {
         >
           <Back />
         </div>
-        <div className="community-show-profile-follow-header-title">팔로우</div>
+        <div className="community-show-profile-follow-header-title">팔로워</div>
       </div>
       <CommunityShowProfileMenu />
       <div className="community-show-profile-friend-count">
-        친구: {totalProfiles}명
+        친구: {totalfollowers}명
       </div>
-      {followlist &&
-        followlist.map((follow_profile) => (
-          <CommunityShowFollowList
-            key={follow_profile}
-            follow_profile={follow_profile}
+      {followerlist &&
+        followerlist.map((followers_profile) => (
+          <CommunityShowFollwers_list
+            key={followers_profile}
+            followers_profile={followers_profile}
           />
         ))}
     </div>
   );
 };
 
-export default CommunityShowProfile;
+export default CommunityShowFollwers;

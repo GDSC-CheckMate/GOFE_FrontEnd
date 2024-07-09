@@ -9,34 +9,42 @@ const followerlist = [
   {
     id: 1,
     name: "은진이",
+    followstate: "ok",
   },
   {
     id: 2,
     name: "른딘2",
+    followstate: "ok",
   },
   {
     id: 3,
     name: "최은진",
+    followstate: "ok",
   },
   {
     id: 4,
     name: "릉빵이",
+    followstate: "ok",
   },
   {
     id: 5,
     name: "현용찬",
+    followstate: "ok",
   },
   {
     id: 4,
     name: "용찬",
+    followstate: "no",
   },
   {
     id: 4,
     name: "용차니",
+    followstate: "no",
   },
   {
     id: 5,
     name: "현용찬",
+    followstate: "no",
   },
 ];
 

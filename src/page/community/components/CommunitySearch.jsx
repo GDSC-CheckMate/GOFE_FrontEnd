@@ -7,7 +7,6 @@ import { ReactComponent as Activesearch } from "../../../assets/community/Active
 import { ReactComponent as Search } from "../../../assets/community/Search.svg";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import CommunityMadeGroup from "./CommunityMadeGroup";
 
 const CommunitySearch = () => {
   const location = useLocation();

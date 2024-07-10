@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setSelectedSection } from "../../Redux/main"
 import { ReactComponent as ArrowfrontIcon } from "../../assets/main/Arrowfront.svg"
@@ -29,13 +29,60 @@ const Main = () => {
     dispatch(setSelectedSection("view1"))
   }, [dispatch])
 
-  useEffect(() => {
-    console.log("selectedSection:", selectedSection)
-  }, [selectedSection])
+  const groupDayEvents = useMemo(() => {
+    return (
+      calendarData?.groups?.map((group) => ({
+        id: group.id,
+        name: group.group,
+        month: group.month,
+        days: group.days
+          .filter((day) => day.weekday === selectedDay)
+          .flatMap((day) => day.events),
+      })) || []
+    )
+  }, [calendarData, selectedDay])
 
-  if (!calendarData) {
-    return <div>로딩중...</div>
+  const personalDayEvents = useMemo(() => {
+    return (
+      calendarData?.personal
+        ?.find((date) => date.days.some((day) => day.weekday === selectedDay))
+        ?.days.find((day) => day.weekday === selectedDay)?.events || []
+    )
+  }, [calendarData, selectedDay])
+
+  const updateDayEvents = (updatedEvents, dayEventsType, groupId) => {
+    const updatedCalendarData = {
+      ...calendarData,
+      [dayEventsType]: calendarData[dayEventsType].map((entry) => {
+        if (dayEventsType === "groups" && entry.id === groupId) {
+          return {
+            ...entry,
+            days: entry.days.map((day) =>
+              day.weekday === selectedDay
+                ? { ...day, events: updatedEvents }
+                : day
+            ),
+          }
+        }
+        if (dayEventsType === "personal") {
+          return {
+            ...entry,
+            days: entry.days.map((day) =>
+              day.weekday === selectedDay
+                ? { ...day, events: updatedEvents }
+                : day
+            ),
+          }
+        }
+        return entry
+      }),
+    }
+    setCalendarData(updatedCalendarData)
   }
+
+  useEffect(() => {
+    console.log("groupDayEvents:", groupDayEvents)
+  }, [groupDayEvents])
 
   const onClickSelectedDay = (weekday) => {
     setSelectedDay(weekday)
@@ -47,13 +94,14 @@ const Main = () => {
     return (completedEvents / events.length) * 100
   }
 
-  const groupDayEvents = calendarData.groups?.map(
-    (group) =>
-      group.days.find((day) => day.weekday === selectedDay)?.events || []
-  )
-  const personalDayEvents =
-    calendarData.personal.days.find((day) => day.weekday === selectedDay)
-      ?.events || []
+  const calculateDayCompletionPercentage = (personalEvents, groupEvents) => {
+    const allEvents = [...personalEvents, ...groupEvents]
+    return calculateCompletionPercentage(allEvents)
+  }
+
+  if (!calendarData) {
+    return <div>로딩중...</div>
+  }
 
   return (
     <div className="main-page-container">
@@ -61,60 +109,68 @@ const Main = () => {
         <div className="main-page-calendar-title-container">
           <ArrowbackIcon />
           <h1 className="main-page-calendar-title-h1">
-            {calendarData.personal.month}
+            {calendarData.personal[0].month}
           </h1>
           <ArrowfrontIcon />
         </div>
         <div className="main-page-calendar-days-container">
-          {calendarData.personal.days.map((day) => (
-            <MainPickerDay
-              key={day.day}
-              day={day.day}
-              weekday={day.weekday}
-              selectedDay={selectedDay}
-              onClickSelectedDay={onClickSelectedDay}
-              completionPercentage={calculateCompletionPercentage(day.events)}
-              hasTodos={day.events && day.events.length > 0}
-            />
-          ))}
+          {calendarData.personal[0].days.map((day) => {
+            const personalEvents = day.events || []
+            const groupEventsForDay = calendarData.groups.flatMap((group) =>
+              group.days
+                .filter((groupDay) => groupDay.weekday === day.weekday)
+                .flatMap((groupDay) => groupDay.events)
+            )
+
+            const completionPercentage = calculateDayCompletionPercentage(
+              personalEvents,
+              groupEventsForDay
+            )
+
+            return (
+              <MainPickerDay
+                key={day.day}
+                day={day.day}
+                weekday={day.weekday}
+                selectedDay={selectedDay}
+                onClickSelectedDay={onClickSelectedDay}
+                completionPercentage={completionPercentage}
+                hasTodos={personalEvents.length + groupEventsForDay.length > 0}
+              />
+            )
+          })}
         </div>
       </div>
       <div className="main-page-detail-container">
         <MainPersonalRoutine
           routineData={personalDayEvents}
-          setRoutineData={(updatedEvents) => {
-            const updatedCalendarData = {
-              ...calendarData,
-              personal: {
-                ...calendarData.personal,
-                days: calendarData.personal.days.map((day) =>
-                  day.weekday === selectedDay
-                    ? { ...day, events: updatedEvents }
-                    : day
-                ),
-              },
-            }
-            setCalendarData(updatedCalendarData)
-          }}
+          setRoutineData={(updatedEvents) =>
+            updateDayEvents(updatedEvents, "personal")
+          }
         />
-        <MainGroupRoutine
-          routineData={groupDayEvents}
-          setRoutineData={(updatedEvents) => {
-            const updatedCalendarData = {
-              ...calendarData,
-              groups: calendarData.groups.map((group) =>
-                group.days.map((day) =>
-                  day.weekday === selectedDay
-                    ? { ...day, events: updatedEvents }
-                    : day
-                )
-              ),
-            }
-            setCalendarData(updatedCalendarData)
-          }}
-          newRoutineInput={newRoutineInput}
-          setNewRoutineInput={setNewRoutineInput}
-        />
+        <div className="main-page-detail-group-routine-container">
+          <div className="main-page-detail-group-routine-title">
+            진행중인 소모임
+          </div>
+          {calendarData.groups.map((group) => {
+            const groupEventsForSelectedDay = group.days
+              .filter((day) => day.weekday === selectedDay)
+              .flatMap((day) => day.events)
+
+            return (
+              <MainGroupRoutine
+                key={group.id}
+                groupName={group.group}
+                routineData={groupEventsForSelectedDay}
+                setRoutineData={(updatedEvents) =>
+                  updateDayEvents(updatedEvents, "groups", group.id)
+                }
+                newRoutineInput={newRoutineInput}
+                setNewRoutineInput={setNewRoutineInput}
+              />
+            )
+          })}
+        </div>
       </div>
     </div>
   )

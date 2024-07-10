@@ -41,8 +41,8 @@ const Footer = () => {
               <AchievementIcon />
             )}
           </div>
-          <div className="footer-item" onClick={() => navigate("/community")}>
-            {path === "/community" ? (
+          <div className="footer-item" onClick={() => navigate("/CommunityMainPage")}>
+            {path === "/CommunityMainPage" ? (
               <ActiveCommunityIcon />
             ) : (
               <CommunityIcon />

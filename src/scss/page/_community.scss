@@ -2,16 +2,29 @@
 .community-page {
   padding: 0rem;
 }
+.community-main-view-all {
+  margin-top: 87px;
+}
+
 .Community-header-box {
-  padding: 3.8125rem 5.1875rem 0.125rem 5.54rem;
+  width: 55%;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  z-index: 9;
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 }
 .community-header-root {
   display: flex;
   align-items: flex-start;
   gap: 7.5rem;
   justify-content: center;
+  margin-top: 61px;
   @media screen and (max-width: 360px) {
-    gap: 60%;
+    gap: 30%;
     align-items: center;
   }
 }

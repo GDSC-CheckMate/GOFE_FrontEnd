@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CommunityHeader = () => {
   return (
-    <div>
+    <div className="Community-header-container-box">
       <div className="Community-header-box">
         <div className="community-header-root">
           <Link to="/CommunityMainPage" className="">
@@ -13,8 +13,9 @@ const CommunityHeader = () => {
             커뮤홈
           </Link>
         </div>
+
+        <div className="mypage-root-line" />
       </div>
-      <div className="mypage-root-line" />
     </div>
   );
 };

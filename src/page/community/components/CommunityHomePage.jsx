@@ -14,12 +14,14 @@ const CommunityHomePage = () => {
   return (
     <div>
       <CommunityHeader />
-      <CommunityProfilesList />
-      <CommunitySearch />
-      <CommunityHomeMadeGroup />
-      <CommunityHomeKeyword />
-      <CommunityHomeRecommend />
-      <CommunityHomeJoin />
+      <div className="community-main-view-all">
+        <CommunityProfilesList />
+        <CommunitySearch />
+        <CommunityHomeMadeGroup />
+        <CommunityHomeKeyword />
+        <CommunityHomeRecommend />
+        <CommunityHomeJoin />
+      </div>
     </div>
   );
 };

@@ -46,7 +46,7 @@ const GroupDetailPage = () => {
   return (
     <div className="group-detail-page">
       <div className="group-detail-header">
-        <button className="back-button" onClick={() => navigate('/communityMainPage')}>&lt;</button>
+        <button className="back-button" onClick={() => navigate('/CommunityMainPage')}>&lt;</button>
         <span className="group-detail-name">{group.name}</span>
       </div>
       <div className="group-detail-tabs">

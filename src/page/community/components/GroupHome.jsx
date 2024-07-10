@@ -53,6 +53,10 @@ const GroupHome = ({ group }) => {
         <h4 className="group-detail-section-title">키워드 설정</h4>
         <p>{Array.isArray(group.keywords) ? group.keywords.join(', ') : group.keywords}</p>
       </div>
+      <div className="group-detail-section">
+        <h4 className="group-detail-section-title">참여자 목록</h4>
+        <p>여기에 참여자 뜸</p>
+      </div>
     </div>
   );
 };

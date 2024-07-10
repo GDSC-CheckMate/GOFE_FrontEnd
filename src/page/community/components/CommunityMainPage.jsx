@@ -18,7 +18,7 @@ const CommunityMainPage = () => {
   }, [groupStatus, dispatch]);
 
   const handleGroupClick = (groupId) => {
-    navigate(`/group/${groupId}`);
+    navigate(`/group/${groupId}/home`);
   };
 
   return (

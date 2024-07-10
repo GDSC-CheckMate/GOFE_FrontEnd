@@ -500,24 +500,19 @@
 //////////////////////////////////
 //////////////////////////////////
 
-
 // src/scss/components/_groupChat.scss
 
 .group-chat {
-  .group-chat-header {
-    padding: 16px;
-    border-bottom: 1px solid #ddd;
-    background-color: #ffffff;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-  }
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px); // 적절히 조절
+  background-color: #ffffff;
 
   .group-chat-content {
+    flex: 1;
     padding: 16px;
-    height: calc(100vh - 200px); // header와 input의 높이를 뺀 나머지 공간
-    background-color: #dcdcdc;
     overflow-y: auto;
+    background-color: #dcdcdc;
   }
 
   .group-chat-message {
@@ -544,6 +539,9 @@
     padding: 16px;
     background-color: #fff;
     border-top: 1px solid #ddd;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 
     input {
       flex-grow: 1;

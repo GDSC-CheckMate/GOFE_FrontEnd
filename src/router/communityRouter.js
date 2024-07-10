@@ -78,7 +78,7 @@ const communityRouter = [
     ),
     children: [
       {
-        path: "",
+        path: "home",
         element: (
           <Suspense fallback={<Loading />}>
             <GroupHome />

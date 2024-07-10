@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -38,6 +39,8 @@ const CreateGroup = () => {
       name: groupName,
       description: groupDescription,
       keywords: keywords.split(',').map(keyword => keyword.trim()), // 키워드를 배열로 변환
+
+
       notice: "새로운 소모임이 생성되었습니다.",
       time: new Date().toLocaleTimeString([], {
         hour: "2-digit",
@@ -81,6 +84,7 @@ const CreateGroup = () => {
             style={{ display: "none" }}
           />
         </div>
+
         <div className="create-group-form-group">
           <label>소모임명</label>
           <input
@@ -90,6 +94,7 @@ const CreateGroup = () => {
             placeholder="소모임명을 적어보세요."
           />
         </div>
+
         <div className="create-group-form-group">
           <label>모임 소개</label>
           <input
@@ -127,6 +132,7 @@ const CreateGroup = () => {
             <span>일간</span>
           </div>
         </div>
+
         <div className="create-group-form-group">
           <label>참여 인원</label>
           <input

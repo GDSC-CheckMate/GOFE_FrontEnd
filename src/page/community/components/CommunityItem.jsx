@@ -1,3 +1,4 @@
+
 // src/page/community/components/CommunityItem.jsx
 
 import React from "react";
@@ -18,6 +19,7 @@ const CommunityItem = ({ group }) => (
     </div>
   </div>
 );
+
 
 CommunityItem.propTypes = {
   group: PropTypes.shape({

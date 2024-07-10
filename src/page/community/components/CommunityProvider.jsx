@@ -28,6 +28,7 @@ const CommunityProvider = ({ children }) => {
     setGroups([...groups, group]);
   };
 
+
   return (
     <CommunityContext.Provider value={{ groups, addGroup }}>
       {children}
@@ -36,3 +37,4 @@ const CommunityProvider = ({ children }) => {
 };
 
 export default CommunityProvider;
+

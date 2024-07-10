@@ -1,7 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setSelectedSection } from "../../../Redux/main"
-import CreateRoutine from "./CreateRoutine"
+import { setSelectedSection } from "../../../redux/main"
+import CreatePersonalRoutine from "./CreatePersonalRoutine"
 
 import { ReactComponent as RoutinePlus } from "../../../assets/main/RoutinePlus.svg"
 import { ReactComponent as Check } from "../../../assets/main/Check.svg"
@@ -24,7 +24,7 @@ const MainPersonalRoutine = ({ routineData, setRoutineData }) => {
     setRoutineData(updatedEvents)
   }
 
-  const deleteEvent = (eventTitle) => {
+  const handleDeleteEvent = (eventTitle) => {
     const updatedEvents = routineData.filter(
       (event) => event.title !== eventTitle
     )
@@ -82,7 +82,10 @@ const MainPersonalRoutine = ({ routineData, setRoutineData }) => {
           </div>
         </div>
       ) : (
-        <CreateRoutine />
+        <CreatePersonalRoutine
+          routineData={routineData}
+          setRoutineData={setRoutineData}
+        />
       )}
     </div>
   )

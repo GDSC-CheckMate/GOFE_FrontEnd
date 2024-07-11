@@ -10,7 +10,7 @@ const CommunityHeader = () => {
             My
           </Link>
           <Link to="/CommunityHomePage" className="">
-            커뮤홈
+            커뮤 홈
           </Link>
         </div>
 

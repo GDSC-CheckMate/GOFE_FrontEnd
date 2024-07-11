@@ -1,5 +1,14 @@
 .mypage {
-  padding: 3.8125rem 20% 0.125rem 19%;
+  width: 55%;
+  position: fixed;
+  background-color: white;
+
+  top: 0;
+  z-index: 9;
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 }
 
 .mypage-root {
@@ -7,10 +16,10 @@
   align-items: flex-start;
   gap: 7.5rem;
   justify-content: center;
-  margin: auto;
 
+  margin-top: 61px;
   @media screen and (max-width: 360px) {
-    gap: 48%;
+    gap: 30%;
     align-items: center;
   }
 }
@@ -50,6 +59,7 @@
 .mypage-profile {
   display: flex;
   width: 100%;
+  margin-top: 87px;
 }
 .mypage-profile-picture {
   width: 5.1087rem;
@@ -229,4 +239,7 @@
       line-height: normal;
     }
   }
+}
+.mypage-show-alarm-main-container-box {
+  margin-top: 87px;
 }

@@ -13,8 +13,8 @@ const Mypageheader = () => {
             알림 설정
           </Link>
         </div>
+        <div className="mypage-root-line" />
       </div>
-      <div className="mypage-root-line" />
     </div>
   );
 };

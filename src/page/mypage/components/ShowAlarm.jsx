@@ -5,7 +5,7 @@ const ShowAlarm = () => {
   return (
     <div>
       <Mypageheader />
-      ui작업 필요
+      <div className="mypage-show-alarm-main-container-box">ui작업 필요</div>
     </div>
   );
 };

@@ -2,7 +2,6 @@
   width: 55%;
   position: fixed;
   background-color: white;
-
   top: 0;
   z-index: 9;
 
@@ -14,65 +13,37 @@
 .mypage-root {
   display: flex;
   align-items: flex-start;
-  gap: 5.5rem;
+  gap: 3.5rem;
   justify-content: center;
-
   margin-top: 61px;
+  margin-left: 75px;
+  margin-right: 75px;
   @media screen and (max-width: 360px) {
     gap: 15%;
     align-items: center;
   }
+}
+.mypage-root .nav-link {
+  padding-bottom: 8.5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #aaa;
+  flex-grow: 1;
+  text-align: center;
+  text-decoration: none;
+}
+.mypage-root .nav-link.underline {
+  color: #000;
+  border-bottom: 2px solid #000;
 }
 
 .mypage-root-line {
   background: var(--calender_date_box, #eaeaea);
   height: 1px;
 }
-.mypage-spread-underline-left {
-  @include inline-flexbox(center, center);
-  width: 95px;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative;
-  margin-bottom: 8.5px;
-}
-.mypage-spread-underline-left::after {
-  content: "";
-  position: absolute;
-  top: 32.5px;
-  border-radius: 10px;
-  width: 100%;
-  height: 2px;
-  background-color: #3c3c3c;
-}
-// .mypage-spread-underline-left:hover::after {
-//   width: 50%;
-//   left: 0;
-//   right: auto;
-// }
-.mypage-spread-underline-right::after {
-  content: "";
-  position: absolute;
-  top: 32.5px;
-  border-radius: 10px;
-  width: 100%;
-  height: 2px;
-  background-color: #3c3c3c;
-}
-.mypage-spread-underline-right {
-  @include inline-flexbox(center, center);
-  width: 95px;
-  font-size: 16px;
-  cursor: pointer;
-  position: relative;
-  margin-bottom: 8.5px;
-}
-// .mypage-spread-underline-right:hover::after {
-//   width: 50%;
-//   right: 0;
-//   left: auto;
-// }
-
 .mypage-profile {
   display: flex;
   width: 100%;
@@ -258,5 +229,5 @@
   }
 }
 .mypage-show-alarm-main-container-box {
-  margin-top: 87px;
+  margin-top: 93px;
 }

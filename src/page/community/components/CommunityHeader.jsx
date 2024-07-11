@@ -1,19 +1,31 @@
+// src/page/community/components/CommunityHeader.jsx
+
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const CommunityHeader = () => {
   return (
-    <div className="Community-header-container-box">
+    <div className="community-header-container">
       <div className="Community-header-box">
         <div className="community-header-root">
-          <Link to="/CommunityMainPage" className="">
+          <NavLink
+            to="/CommunityMainPage"
+            className={({ isActive }) =>
+              isActive ? "nav-link underline" : "nav-link"
+            }
+          >
             My
-          </Link>
-          <Link to="/CommunityHomePage" className="">
-            커뮤 홈
-          </Link>
-        </div>
 
+          </NavLink>
+          <NavLink
+            to="/CommunityHomePage"
+            className={({ isActive }) =>
+              isActive ? "nav-link underline" : "nav-link"
+            }
+          >
+            커뮤홈
+          </NavLink>        
+        </div>
         <div className="mypage-root-line" />
       </div>
     </div>

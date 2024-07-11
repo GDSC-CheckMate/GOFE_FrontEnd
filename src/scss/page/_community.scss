@@ -20,13 +20,32 @@
 .community-header-root {
   display: flex;
   align-items: flex-start;
-  gap: 7.5rem;
+  gap: 3.5rem;
   justify-content: center;
   margin-top: 61px;
+  margin-left: 75px;
+  margin-right: 75px;
   @media screen and (max-width: 360px) {
     gap: 30%;
     align-items: center;
   }
+}
+.community-header-root .nav-link {
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #aaa;
+  flex-grow: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.community-header-root .nav-link.underline {
+  color: #000;
+  border-bottom: 2px solid #000;
 }
 .community-header {
   display: flex;

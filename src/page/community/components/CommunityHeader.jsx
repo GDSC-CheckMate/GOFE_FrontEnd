@@ -15,6 +15,7 @@ const CommunityHeader = () => {
             }
           >
             My
+
           </NavLink>
           <NavLink
             to="/CommunityHomePage"
@@ -23,7 +24,7 @@ const CommunityHeader = () => {
             }
           >
             커뮤홈
-          </NavLink>
+          </NavLink>        
         </div>
         <div className="mypage-root-line" />
       </div>

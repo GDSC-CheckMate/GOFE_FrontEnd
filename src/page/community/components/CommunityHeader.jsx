@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 
 const CommunityHeader = () => {
   return (
-    <div>
-      <div className="community-header-container">
+    <div className="community-header-container">
+      <div className="Community-header-box">
         <div className="community-header-root">
           <NavLink
             to="/CommunityMainPage"
@@ -25,8 +25,8 @@ const CommunityHeader = () => {
             커뮤홈
           </NavLink>
         </div>
+        <div className="mypage-root-line" />
       </div>
-      <div className="mypage-root-line" />
     </div>
   );
 };

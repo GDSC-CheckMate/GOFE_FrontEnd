@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import CommunityItem from "./CommunityItem";
-// import "../../scss/page/_community.scss"
 import { CommunityContext } from "./CommunityProvider";
 import CommunityHeader from "./CommunityHeader";
 import CommunityMadeGroup from "./CommunityMadeGroup";

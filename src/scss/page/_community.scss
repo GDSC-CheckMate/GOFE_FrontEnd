@@ -306,8 +306,8 @@
   .group-detail-header {
     display: flex;
     align-items: center;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     .back-button {
       background: none;
@@ -326,8 +326,6 @@
   .group-detail-tabs {
     display: flex;
     justify-content: space-around;
-    margin-top: 15px;
-    margin-bottom: 0px;
 
     .tab {
       padding: 8px 16px;

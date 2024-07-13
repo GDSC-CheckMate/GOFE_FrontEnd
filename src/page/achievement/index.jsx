@@ -1,26 +1,40 @@
 import React from "react";
-import Calendar from "./Calendar/CalendarComponent";
+import CalendarComponent from "./Calendar/CalendarComponent";
 import ProgressBar from "./ProgressBar/ProgressBar";
 import MonthlyAchievementGraph from "./MonthlyAchievementGraph/MonthlyAchievementGraph";
+import "./Index.scss";
+import mockData from "./mockData.json";
+const { achievements } = mockData;
+const monthlyAchievements = [
+  { month: "1월", percentage: 80 },
+  { month: "2월", percentage: 80 },
+  { month: "3월", percentage: 50 },
+  { month: "4월", percentage: 80 },
+  { month: "5월", percentage: 100 },
+  { month: "6월", percentage: 70 },
+  { month: "7월", percentage: 0 },
+  { month: "8월", percentage: 0 },
+  { month: "9월", percentage: 0 },
+  { month: "10월", percentage: 0 },
+  { month: "11월", percentage: 0 },
+  { month: "12월", percentage: 0 },
+];
+
+const calculateAverage = (data) => {
+  const total = data.reduce((sum, day) => sum + day.percentage, 0);
+  return Math.round(total / data.length);
+};
 
 const Achievement = () => {
-  // 예시 데이터, 실제 데이터는 API 호출 등을 통해 동적으로 가져와야 할 수 있습니다.
-  const progressValue = 70; // 프로그레스 바 값
-  const monthlyData = [
-    // 월별 데이터 예시
-    { label: "1월", value: 80 },
-    { label: "2월", value: 60 },
-    { label: "3월", value: 100 },
-    { label: "4월", value: 50 },
-    { label: "5월", value: 80 },
-    { label: "6월", value: 70 },
-  ];
+  const averageAchievement = calculateAverage(achievements);
 
   return (
-    <div>
-      <Calendar />
-      <ProgressBar value={progressValue} />
-      <MonthlyAchievementGraph data={monthlyData} />
+    <div className="app-container">
+      <CalendarComponent achievements={achievements} />
+      <div>이번달 달성률✨</div>
+      <ProgressBar percentage={averageAchievement} />
+      <div>월간 달성 그래프 📊</div>
+      <MonthlyAchievementGraph monthlyAchievements={monthlyAchievements} />
     </div>
   );
 };

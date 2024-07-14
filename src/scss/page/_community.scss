@@ -298,7 +298,8 @@
 }
 
 //////////////////////////////////
-/* 추가할 GroupDetailPage 스타일 */
+// src/scss/page/group_detail_page.scss
+
 .group-detail-page {
   padding: 16px;
   background: #fff;
@@ -306,6 +307,7 @@
   .group-detail-header {
     display: flex;
     align-items: center;
+    justify-content: flex-start; // 왼쪽 정렬로 변경
     margin-top: 10px;
     margin-bottom: 10px;
 
@@ -320,12 +322,14 @@
     .group-detail-name {
       font-size: 24px;
       font-weight: bold;
+      text-align: left; // 왼쪽 정렬로 변경
     }
   }
 
   .group-detail-tabs {
     display: flex;
     justify-content: space-around;
+    flex-wrap: nowrap;
 
     .tab {
       padding: 8px 16px;
@@ -403,33 +407,35 @@
 
   @media (max-width: 768px) {
     .group-detail-header {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      justify-content: flex-start; // 왼쪽 정렬로 변경
+      align-items: center;
 
       .back-button {
-        margin-right: 0;
-        margin-bottom: 8px;
+        font-size: 24px;
+        margin-right: 16px;
       }
 
       .group-detail-name {
         font-size: 20px;
+        text-align: left;
       }
     }
 
     .group-detail-tabs {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+    }
 
-      .tab {
-        width: 100%;
-        text-align: left;
-        padding: 8px 0;
-        border-bottom: 1px solid #eee;
-      }
+    .tab {
+      width: auto;
+      padding: 8px 8px;
+      border-bottom: 2px solid transparent;
+    }
 
-      .tab.active {
-        border-bottom: 2px solid #000;
-      }
+    .tab.active {
+      border-bottom: 2px solid #000;
     }
 
     .group-detail-body {
@@ -457,19 +463,35 @@
 
   @media (max-width: 480px) {
     .group-detail-header {
+      flex-direction: row;
+      justify-content: flex-start; // 왼쪽 정렬로 변경
+      align-items: center;
+
       .back-button {
         font-size: 24px;
+        margin-right: 16px;
       }
 
       .group-detail-name {
         font-size: 18px;
+        text-align: left;
       }
     }
 
     .group-detail-tabs {
-      .tab {
-        font-size: 14px;
-      }
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+    }
+
+    .tab {
+      width: auto;
+      padding: 4px 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab.active {
+      border-bottom: 2px solid #000;
     }
 
     .group-detail-body {
@@ -495,9 +517,11 @@
     }
   }
 }
-//////////////////////////////////
-//////////////////////////////////
 
+
+
+
+//////////////////////////////////
 // src/scss/components/_groupChat.scss
 
 .group-chat {
@@ -510,52 +534,118 @@
     flex: 1;
     padding: 16px;
     overflow-y: auto;
-    background-color: #dcdcdc;
+    background-color: #f9f9f9; // 배경색을 좀 더 밝게 조정
   }
 
   .group-chat-message {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
+    padding: 8px 12px;
+    border-radius: 16px;
+    background-color: #f1f1f1; // 메시지 배경색
+    color: #333; // 메시지 글자색
 
     .username {
       font-weight: bold;
       margin-right: 8px;
+      color: #007bff; // 사용자 이름 색상
     }
 
     .message {
-      background-color: #f1f1f1;
-      padding: 8px 12px;
-      border-radius: 16px;
       flex-grow: 1;
     }
   }
+}
 
+.group-chat-input {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 32px); // 전체 너비에서 좌우 패딩 제외
+  max-width: 430px; // 최대 너비를 430px로 제한
+  left: 50%;
+  transform: translateX(-50%); // 중앙 정렬을 위해 transform 사용
+  box-sizing: border-box; // 패딩과 테두리를 포함한 전체 크기를 계산
+
+  input[type='text'] {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    margin-right: 8px;
+  }
+
+  input[type='file'] {
+    display: none;
+  }
+
+  button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+
+  .plus-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
   .group-chat-input {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
+    width: calc(100% - 32px); // padding에 맞게 조정
+    max-width: 100%;
+    padding: 8px;
 
-    input {
-      flex-grow: 1;
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 16px;
-      margin-right: 8px;
+    input[type='text'] {
+      padding: 8px;
+      border-radius: 8px;
     }
 
     button {
-      padding: 8px 16px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 16px;
-      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
     }
+  }
+
+  .group-chat-content {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .group-chat-input {
+    width: calc(100% - 32px); // padding에 맞게 조정
+    max-width: 100%;
+    padding: 8px;
+
+    input[type='text'] {
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 8px;
+      border-radius: 8px;
+    }
+  }
+
+  .group-chat-content {
+    padding: 8px;
   }
 }

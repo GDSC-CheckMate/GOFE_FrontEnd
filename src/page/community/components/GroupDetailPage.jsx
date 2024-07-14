@@ -1,3 +1,5 @@
+// src/page/community/components/GroupDetailPage.jsx
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';

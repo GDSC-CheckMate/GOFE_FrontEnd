@@ -73,7 +73,7 @@
 
 
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNewRoutine } from '../redux/routine';
@@ -95,11 +95,32 @@ const Footer = () => {
   const path = location.pathname;
   const dispatch = useDispatch();
   const selectedSection = useSelector((state) => state.selectedSection.selectedSection);
+  const [chatInput, setChatInput] = useState('');
+  const textareaRef = useRef(null);
 
   const handleAddRoutine = () => {
     dispatch(setNewRoutine({ time: "", title: "", recurringDays: [] }));
-    dispatch(setSelectedSection('routine'));
-    console.log('handleAddRoutine: selectedSection이 routine으로 설정됨');
+    dispatch(setSelectedSection('view2'));
+    console.log('handleAddRoutine: selectedSection이 view2로 설정됨');
+  };
+
+  const handleTextareaChange = (e) => {
+    setChatInput(e.target.value);
+    adjustTextareaHeight();
+  };
+
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+
+      // 특정 높이를 넘지 않으면 스크롤바를 없앰
+      if (textareaRef.current.scrollHeight <= 300) {
+        textareaRef.current.style.overflowY = 'hidden';
+      } else {
+        textareaRef.current.style.overflowY = 'auto';
+      }
+    }
   };
 
   useEffect(() => {
@@ -112,6 +133,10 @@ const Footer = () => {
     }
     console.log('useEffect: 경로가 다음으로 변경됨 :', path);
   }, [path, dispatch]);
+
+  useEffect(() => {
+    adjustTextareaHeight();
+  }, [chatInput]);
 
   const renderFooterContent = () => {
     console.log('renderFooterContent: selectedSection이 다음으로 설정됨 :', selectedSection);
@@ -127,7 +152,14 @@ const Footer = () => {
       return (
         <div className="footer-chat-container">
           <PlusIcon className="footer-chat-plus-icon" />
-          <input type="text" className="footer-chat-input" placeholder="메시지를 입력하세요" />
+          <textarea
+            ref={textareaRef}
+            className="footer-chat-input"
+            placeholder="메시지를 입력하세요"
+            value={chatInput}
+            onChange={handleTextareaChange}
+            rows={1}
+          />
           <button className="footer-chat-button">전송</button>
         </div>
       );

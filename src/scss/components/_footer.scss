@@ -38,6 +38,7 @@
   
     .footer-routine-view-container {
       @include inline-flexbox(center, center);
+      
       .footer-routine-view-button {
         margin-top: 20px;
         width: 338px;
@@ -47,6 +48,39 @@
         @include custom-font-size(600, 16px, white);
         border-radius: 8px;
         background: #3c3c3c;
+      }
+    }
+
+    .footer-chat-container {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background: #ffffff;
+      border-top: 1px solid #eaeaea;
+      height: 60px;
+  
+      .footer-chat-plus-icon {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+      }
+  
+      .footer-chat-input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #eaeaea;
+        border-radius: 20px;
+      }
+  
+      .footer-chat-button {
+        margin-left: 10px;
+        padding: 10px 20px;
+        background: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
       }
     }
   }

@@ -24,15 +24,6 @@ const GroupChat = () => {
           </div>
         ))}
       </div>
-      <div className="group-chat-input">
-        <input
-          type="text"
-          placeholder="메시지를 입력하세요"
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-        />
-        <button onClick={handleSendMessage}>전송</button>
-      </div>
     </div>
   );
 };

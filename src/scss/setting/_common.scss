@@ -8,16 +8,12 @@
 }
 
 @media (min-width: 375px) {
-    #root,
-    .Nav,
-    .showNav {
+    #root {
         width: 430px;
     }
 }
 @media (max-width: 500px) {
-    #root,
-    .Nav,
-    .showNav {
+    #root {
         width: 100vw;
     }
 }

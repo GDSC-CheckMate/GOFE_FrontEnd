@@ -1,62 +1,117 @@
 {
-    "month": "2024년 6월",
-    "days": [
+    "personal": [
         {
-            "day": 3,
-            "weekday": "월",
-            "events": [
+            "id": 1,
+            "month": "2024년 6월",
+            "whatweek": 1,
+            "week": [
+                {
+                    "day": "월",
+                    "date": 1
+                },
+                {
+                    "day": "화",
+                    "date": 2
+                },
+                {
+                    "day": "수",
+                    "date": 3
+                },
+                {
+                    "day": "목",
+                    "date": 4
+                },
+                {
+                    "day": "금",
+                    "date": 5
+                },
+                {
+                    "day": "토",
+                    "date": 6
+                },
+                {
+                    "day": "일",
+                    "date": 7
+                }
+            ],
+            "recurringEvents": [
                 {
                     "title": "8시 기상",
                     "time": "08:00",
-                    "success": true
+                    "recurringDays": [
+                        {
+                            "day": "월",
+                            "success": true
+                        },
+                        {
+                            "day": "화",
+                            "success": false
+                        },
+                        {
+                            "day": "수",
+                            "success": true
+                        },
+                        {
+                            "day": "목",
+                            "success": true
+                        },
+                        {
+                            "day": "금",
+                            "success": true
+                        }
+                    ]
                 },
                 {
                     "title": "헬스장 가기",
                     "time": "09:00",
-                    "success": true
+                    "recurringDays": [
+                        {
+                            "day": "수",
+                            "success": true
+                        },
+                        {
+                            "day": "목",
+                            "success": false
+                        },
+                        {
+                            "day": "금",
+                            "success": true
+                        }
+                    ]
                 },
                 {
                     "title": "유산소 1시간 타기",
                     "time": "10:00",
-                    "success": false
-                }
-            ]
-        },
-        {
-            "day": 4,
-            "weekday": "화",
-            "events": []
-        },
-        {
-            "day": 5,
-            "weekday": "수",
-            "events": [
+                    "recurringDays": [
+                        {
+                            "day": "수",
+                            "success": false
+                        },
+                        {
+                            "day": "목",
+                            "success": false
+                        }
+                    ]
+                },
                 {
                     "title": "코딩하기",
                     "time": "09:00",
-                    "success": false
+                    "recurringDays": [
+                        {
+                            "day": "수",
+                            "success": false
+                        },
+                        {
+                            "day": "목",
+                            "success": false
+                        },
+                        {
+                            "day": "금",
+                            "success": true
+                        }
+                    ]
                 }
             ]
-        },
-        {
-            "day": 6,
-            "weekday": "목",
-            "events": []
-        },
-        {
-            "day": 7,
-            "weekday": "금",
-            "events": []
-        },
-        {
-            "day": 8,
-            "weekday": "토",
-            "events": []
-        },
-        {
-            "day": 9,
-            "weekday": "일",
-            "events": []
         }
     ]
 }

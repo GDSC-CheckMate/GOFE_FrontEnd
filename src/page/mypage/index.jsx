@@ -1,7 +1,13 @@
-import React from "react"
+import React from "react";
+
+import ShowMypage from "./components/ShowMypage";
 
 const Mypage = () => {
-  return <div>mypage</div>
-}
+  return (
+    <div>
+      <ShowMypage />
+    </div>
+  );
+};
 
-export default Mypage
+export default Mypage;

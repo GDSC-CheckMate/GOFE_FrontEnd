@@ -1,11 +1,16 @@
+@charset "UTF-8";
+
 @import "./setting/common";
 @import "./setting/reset";
 
 @import "./mixins/flexbox";
+@import "./mixins/font";
 
 @import "./components/layout";
 @import "./components/footer";
-@import "./components/communityItem";
 
 @import "./page/main";
+
+@import "./page/mypage";
+
 @import "./page/community";

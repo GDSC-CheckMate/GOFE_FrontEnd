@@ -1,45 +1,43 @@
-
-import React, { useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { addGroup } from '../../../Redux/communitySlice';
+import React, { useState, useRef } from "react"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { addGroup } from "../../../redux/communitySlice"
 
 const CreateGroup = () => {
-  const dispatch = useDispatch();
-  const [groupName, setGroupName] = useState("");
-  const [groupDescription, setGroupDescription] = useState("");
-  const [keywords, setKeywords] = useState("");
-  const [goalStartDate, setGoalStartDate] = useState("");
-  const [goalDuration, setGoalDuration] = useState("");
-  const [members, setMembers] = useState("");
-  const [joinAfterStart, setJoinAfterStart] = useState("불가능");
-  const [profileImage, setProfileImage] = useState(null);
-  const fileInputRef = useRef(null);
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const [groupName, setGroupName] = useState("")
+  const [groupDescription, setGroupDescription] = useState("")
+  const [keywords, setKeywords] = useState("")
+  const [goalStartDate, setGoalStartDate] = useState("")
+  const [goalDuration, setGoalDuration] = useState("")
+  const [members, setMembers] = useState("")
+  const [joinAfterStart, setJoinAfterStart] = useState("불가능")
+  const [profileImage, setProfileImage] = useState(null)
+  const fileInputRef = useRef(null)
+  const navigate = useNavigate()
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
+      const file = e.target.files[0]
+      const reader = new FileReader()
       reader.onload = (e) => {
-        setProfileImage(e.target.result);
-      };
-      reader.readAsDataURL(file);
+        setProfileImage(e.target.result)
+      }
+      reader.readAsDataURL(file)
     }
-  };
+  }
 
   const handleProfileImageClick = () => {
-    fileInputRef.current.click();
-  };
+    fileInputRef.current.click()
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const newGroup = {
       id: Date.now(),
       name: groupName,
       description: groupDescription,
-      keywords: keywords.split(',').map(keyword => keyword.trim()), // 키워드를 배열로 변환
-
+      keywords: keywords.split(",").map((keyword) => keyword.trim()), // 키워드를 배열로 변환
 
       notice: "새로운 소모임이 생성되었습니다.",
       time: new Date().toLocaleTimeString([], {
@@ -50,16 +48,19 @@ const CreateGroup = () => {
       badge: null,
       startDate: goalStartDate,
       duration: parseInt(goalDuration),
-      members: parseInt(members)
-    };
-    dispatch(addGroup(newGroup));
-    navigate(`/CommunityMainPage`);
-  };
+      members: parseInt(members),
+    }
+    dispatch(addGroup(newGroup))
+    navigate(`/CommunityMainPage`)
+  }
 
   return (
     <div className="create-group-page">
       <div className="create-group-header">
-        <button className="create-group-back-button" onClick={() => window.history.back()}>
+        <button
+          className="create-group-back-button"
+          onClick={() => window.history.back()}
+        >
           &lt;
         </button>
       </div>
@@ -170,10 +171,12 @@ const CreateGroup = () => {
             </label>
           </div>
         </div>
-        <button type="submit" className="create-group-submit-button">소모임 개설하기</button>
+        <button type="submit" className="create-group-submit-button">
+          소모임 개설하기
+        </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default CreateGroup;
+export default CreateGroup

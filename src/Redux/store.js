@@ -1,13 +1,7 @@
-
-import { configureStore } from "@reduxjs/toolkit";
-import selectedSectionReducer from "./main";
-
-
 import { configureStore } from "@reduxjs/toolkit"
 import selectedSectionReducer from "./main"
 import routineReducer from "./routine"
-import communityReducer from "./communitySlice";
-
+import communityReducer from "./communitySlice"
 
 const store = configureStore({
   reducer: {
@@ -15,6 +9,6 @@ const store = configureStore({
     community: communityReducer,
     routine: routineReducer,
   },
-});
+})
 
-export default store;
+export default store

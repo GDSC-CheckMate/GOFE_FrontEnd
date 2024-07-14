@@ -1,25 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchGroups } from '../../../Redux/communitySlice';
-import CommunityItem from './CommunityItem';
-import CommunityHeader from './CommunityHeader';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchGroups } from "../../../redux/communitySlice"
+import CommunityItem from "./CommunityItem"
+import CommunityHeader from "./CommunityHeader"
+import { useNavigate } from "react-router-dom"
 
 const CommunityMainPage = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const groups = useSelector((state) => state.community.groups);
-  const groupStatus = useSelector((state) => state.community.status);
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const groups = useSelector((state) => state.community.groups)
+  const groupStatus = useSelector((state) => state.community.status)
 
   useEffect(() => {
-    if (groupStatus === 'idle') {
-      dispatch(fetchGroups());
+    if (groupStatus === "idle") {
+      dispatch(fetchGroups())
     }
-  }, [groupStatus, dispatch]);
+  }, [groupStatus, dispatch])
 
   const handleGroupClick = (groupId) => {
-    navigate(`/group/${groupId}/home`);
-  };
+    navigate(`/group/${groupId}/home`)
+  }
 
   return (
     <div className="community-page">
@@ -45,7 +45,7 @@ const CommunityMainPage = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CommunityMainPage;
+export default CommunityMainPage

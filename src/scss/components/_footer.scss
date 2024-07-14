@@ -1,100 +1,53 @@
 .footer-container {
-    position: absolute;
-    bottom: 0;
-    height: 100px;
-    width: 100%;
-    box-sizing: border-box;
-    border-top: 2px solid #b4b4b4;
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 2px solid #b4b4b4;
 
-    &.hide-footer{
-        display: none;
-    }
-  
-    .footer-item-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 20px;
-      border-top: 10px solid transparent;
-  
-      .footer-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        transition: background-color 0.3s;
-  
-        &-left {
-          margin-left: 40px;
-        }
-  
-        &-right {
-          margin-right: 40px;
-        }
-      }
-    }
-  
-    .footer-routine-view-container {
-      @include inline-flexbox(center, center);
-      
-      .footer-routine-view-button {
-        margin-top: 20px;
-        width: 338px;
-        height: 48px;
-        padding: 10px;
-        @include inline-flexbox(center, center);
-        @include custom-font-size(600, 16px, white);
-        border-radius: 8px;
-        background: #3c3c3c;
-      }
-    }
-
-    .footer-chat-container {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      background: #ffffff;
-      border-top: 1px solid #eaeaea;
-      height: auto;
-    
-      .footer-chat-plus-icon {
-        margin-right: 10px;
-        width: 25px;
-        height: 25px;
-        cursor: pointer;
-      }
-    
-      .footer-chat-input {
-        flex: 1;
-        height: auto;  // 높이를 자동으로 설정
-        max-height: 300px;  // 최대 높이 설정 (조정 가능)
-        resize: none;  // 사용자가 크기를 조절하지 못하도록 설정
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;  // 네모 모양으로 설정
-        box-sizing: border-box;
-        overflow-y: auto;  // 내용이 많아지면 스크롤 생성
-        scrollbar-width: thin;  // 스크롤바가 얇게 보이도록 설정 (Firefox용)
-        -ms-overflow-style: none;  // 스크롤바를 기본적으로 숨김 (IE, Edge용)
-      }
-
-      .footer-chat-input::-webkit-scrollbar {
-        width: 0px;  // 스크롤바를 기본적으로 숨김 (Chrome, Safari용)
-      }
-    
-      .footer-chat-button {
-        margin-left: 10px;
-        padding: 10px 20px;
-        background: #007bff;
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-    }
-    
+  &.hide-footer{
+      display: none;
   }
-  
-  
+
+  .footer-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 10px solid transparent;
+
+    .footer-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+
+      &-left {
+        margin-left: 40px;
+      }
+
+      &-right {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  .footer-routine-view-container {
+    @include inline-flexbox(center, center);
+    .footer-routine-view-button {
+      margin-top: 20px;
+      width: 338px;
+      height: 48px;
+      padding: 10px;
+      @include inline-flexbox(center, center);
+      @include custom-font-size(600, 16px, white);
+      border-radius: 8px;
+      background: #3c3c3c;
+    }
+  }
+}
+

@@ -298,54 +298,12 @@
 }
 
 //////////////////////////////////
+//////////////////////////////////
 // src/scss/page/group_detail_page.scss
 
 .group-detail-page {
   padding: 16px;
   background: #fff;
-
-  .group-detail-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; // 왼쪽 정렬로 변경
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    .back-button {
-      background: none;
-      border: none;
-      font-size: 32px;
-      cursor: pointer;
-      margin-right: 16px;
-    }
-
-    .group-detail-name {
-      font-size: 24px;
-      font-weight: bold;
-      text-align: left; // 왼쪽 정렬로 변경
-    }
-  }
-
-  .group-detail-tabs {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-
-    .tab {
-      padding: 8px 16px;
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      color: #aaa;
-    }
-
-    .tab.active {
-      color: #000;
-      border-bottom: 2px solid #000;
-    }
-  }
 
   .group-detail-image {
     width: 100%;
@@ -406,38 +364,6 @@
   }
 
   @media (max-width: 768px) {
-    .group-detail-header {
-      flex-direction: row;
-      justify-content: flex-start; // 왼쪽 정렬로 변경
-      align-items: center;
-
-      .back-button {
-        font-size: 24px;
-        margin-right: 16px;
-      }
-
-      .group-detail-name {
-        font-size: 20px;
-        text-align: left;
-      }
-    }
-
-    .group-detail-tabs {
-      flex-direction: row;
-      justify-content: space-around;
-      flex-wrap: nowrap;
-    }
-
-    .tab {
-      width: auto;
-      padding: 8px 8px;
-      border-bottom: 2px solid transparent;
-    }
-
-    .tab.active {
-      border-bottom: 2px solid #000;
-    }
-
     .group-detail-body {
       .group-detail-section-title {
         font-size: 16px;
@@ -462,38 +388,6 @@
   }
 
   @media (max-width: 480px) {
-    .group-detail-header {
-      flex-direction: row;
-      justify-content: flex-start; // 왼쪽 정렬로 변경
-      align-items: center;
-
-      .back-button {
-        font-size: 24px;
-        margin-right: 16px;
-      }
-
-      .group-detail-name {
-        font-size: 18px;
-        text-align: left;
-      }
-    }
-
-    .group-detail-tabs {
-      flex-direction: row;
-      justify-content: space-around;
-      flex-wrap: nowrap;
-    }
-
-    .tab {
-      width: auto;
-      padding: 4px 4px;
-      border-bottom: 2px solid transparent;
-    }
-
-    .tab.active {
-      border-bottom: 2px solid #000;
-    }
-
     .group-detail-body {
       .group-detail-section-title {
         font-size: 16px;
@@ -519,8 +413,104 @@
 }
 
 
+//////////////////////////////////
+//////////////////////////////////
+//GroupDetailHeaderTabs.scss
+
+/* src/scss/components/_groupDetailHeaderTabs.scss */
+
+.group-detail-header-tabs {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.group-detail-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: none; /* 실선 제거 */
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.group-detail-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.group-detail-tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: none; /* 실선 제거 */
+
+  .tab {
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #aaa;
+  }
+
+  .tab.active {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+  .group-detail-header {
+    padding: 8px;
+    .back-button {
+      font-size: 20px;
+      margin-right: 6px;
+    }
+    .group-detail-name {
+      font-size: 16px;
+    }
+  }
+
+  .group-detail-tabs {
+    .tab {
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .group-detail-header {
+    padding: 6px;
+    .back-button {
+      font-size: 18px;
+      margin-right: 4px;
+    }
+    .group-detail-name {
+      font-size: 14px;
+    }
+  }
+
+  .group-detail-tabs {
+    .tab {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  }
+}
 
 
+//////////////////////////////////
 //////////////////////////////////
 // src/scss/components/_groupChat.scss
 

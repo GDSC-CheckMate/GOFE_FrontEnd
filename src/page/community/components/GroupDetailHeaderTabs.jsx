@@ -40,3 +40,4 @@ GroupDetailHeaderTabs.propTypes = {
 };
 
 export default GroupDetailHeaderTabs;
+

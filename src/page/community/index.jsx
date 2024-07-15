@@ -1,5 +1,5 @@
 
-import React, { useContext } from "react";
+//import React, { useContext } from "react";
 // import "../../scss/page/_community.scss"
 import CommunityMainPage from "./components/CommunityMainPage";
 
@@ -14,5 +14,3 @@ const Community = () => {
 
 
 export default Community;
-
-

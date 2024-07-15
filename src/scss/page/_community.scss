@@ -315,7 +315,7 @@
 .group-detail-page {
   flex: 1;
   overflow-y: auto; /* 스크롤 가능하도록 설정 */
-  padding: 100px 16px 16px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
+  padding: 122px 16px 16px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
   background: #fff;
 }
 
@@ -430,6 +430,7 @@
   }
 }
 
+
 //////////////////////////////////
 //////////////////////////////////
 //GroupDetailHeaderTabs.scss
@@ -437,14 +438,13 @@
 /* src/scss/components/_groupDetailHeaderTabs.scss */
 
 .group-detail-header-tabs {
-  width: 100%;
-  max-width: 100%;
   position: fixed; /* 상단 고정 */
   top: 0;
-  left: 0; /* 왼쪽 정렬 */
-  right: 0; /* 오른쪽 정렬 */
+  left: 50%;
+  transform: translateX(-52%);
   background-color: #fff;
   z-index: 1000;
+  width: inherit;
   padding: 0 16px; /* 좌우 패딩 추가 */
   box-sizing: border-box; /* 박스 모델을 패딩과 테두리를 포함한 크기로 설정 */
 }
@@ -452,7 +452,8 @@
 .group-detail-header {
   display: flex;
   align-items: center;
-  padding: 10px 0; /* 상하 패딩만 설정 */
+  padding-top: 35px;
+  padding-bottom: 10px;
   border-bottom: none; /* 실선 제거 */
 }
 
@@ -475,7 +476,7 @@
 .group-detail-tabs {
   display: flex;
   justify-content: space-around; /* 탭들이 균등하게 배치되도록 함 */
-  padding: 10px 0; /* 상하 패딩만 설정 */
+  padding: 0px; /* 상하 패딩만 설정 */
   width: 100%; /* 탭 컨테이너의 너비를 100%로 설정 */
   border-bottom: 1px solid #e0e0e0;
 }
@@ -500,7 +501,7 @@
 /* 반응형 디자인을 위한 미디어 쿼리 */
 @media (max-width: 768px) {
   .group-detail-header {
-    padding: 8px 0;
+    padding: 8px;
   }
 
   .back-button {
@@ -512,7 +513,10 @@
     font-size: 16px;
   }
 
-  .group-detail-tabs .tab {
+  .group-detail-tabs {
+    padding: 4px 0;
+  }
+  .tab {
     padding: 6px 0;
     font-size: 14px;
   }
@@ -532,7 +536,10 @@
     font-size: 14px;
   }
 
-  .group-detail-tabs .tab {
+  .group-detail-tabs {
+    padding: 0px 0;
+  }
+  .tab {
     padding: 4px 0;
     font-size: 12px;
   }
@@ -553,7 +560,7 @@
     flex: 1;
     padding: 16px;
     overflow-y: auto;
-    background-color: #f9f9f9; // 배경색을 좀 더 밝게 조정
+    background-color: #dfdbdb; // 배경색을 좀 더 밝게 조정
   }
 
   .group-chat-message {

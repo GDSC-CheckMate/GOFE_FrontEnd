@@ -553,125 +553,172 @@
 .group-chat {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px); // 적절히 조절
+  height: calc(100vh - 222px); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
   background-color: #ffffff;
 
   .group-chat-content {
+    display: flex;
+    flex-direction: column-reverse; // 메시지들을 역순으로 정렬
     flex: 1;
     padding: 16px;
     overflow-y: auto;
-    background-color: #dfdbdb; // 배경색을 좀 더 밝게 조정
+    background-color: #f0f0f0; // 배경색을 좀 더 밝게 조정
+    max-height: calc(100vh - 222px); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .group-chat-message {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 12px;
-    padding: 8px 12px;
-    border-radius: 16px;
-    background-color: #f1f1f1; // 메시지 배경색
-    color: #333; // 메시지 글자색
+    padding: 0; // 전체 메시지 박스의 패딩 제거
+    border-radius: 20px;
 
-    .username {
-      font-weight: bold;
-      margin-right: 8px;
-      color: #007bff; // 사용자 이름 색상
+    &.user {
+      justify-content: flex-end;
+      .message {
+        background-color: #f0e991; // 사용자가 보낸 메시지의 배경색
+      }
     }
 
-    .message {
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .message-content {
+      display: flex;
+      flex-direction: column;
+      max-width: 68%; // 메시지 최대 너비 설정
+
+      .username {
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      .message {
+        display: flex;
+        align-items: center;  // 메시지와 시간을 가로로 정렬
+        background-color: #ffffff;
+        padding: 8px 12px;
+        border-radius: 10px;
+        margin-bottom: 4px;
+        border-radius: 10px;
+        margin-bottom: 4px;
+        max-width: 100%;
+        word-wrap: break-word;
+
+        &.user {
+          background-color: #f0e991;
+        }
+      }
+      .time {
+        margin-left: 8px;  // 메시지와 시간 사이에 간격 추가
+        font-size: 0.8rem;
+        color: #999;
+      }
+    }
+  }
+
+  .group-chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 430px; // 최대 너비를 430px로 제한
+    left: 50%;
+    transform: translateX(-50%); // 중앙 정렬을 위해 transform 사용
+    box-sizing: border-box; // 패딩과 테두리를 포함한 전체 크기를 계산
+    height: 100px; // 입력창 높이 자동 조절
+
+    textarea {
       flex-grow: 1;
-    }
-  }
-}
-
-.group-chat-input {
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  background-color: #fff;
-  border-top: 1px solid #ddd;
-  position: fixed;
-  bottom: 0;
-  width: calc(100% - 32px); // 전체 너비에서 좌우 패딩 제외
-  max-width: 430px; // 최대 너비를 430px로 제한
-  left: 50%;
-  transform: translateX(-50%); // 중앙 정렬을 위해 transform 사용
-  box-sizing: border-box; // 패딩과 테두리를 포함한 전체 크기를 계산
-
-  input[type='text'] {
-    flex-grow: 1;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 16px;
-    margin-right: 8px;
-  }
-
-  input[type='file'] {
-    display: none;
-  }
-
-  button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-  }
-
-  .plus-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-
-    img {
-      width: 24px;
-      height: 24px;
-    }
-  }
-}
-
-/* 반응형 디자인을 위한 미디어 쿼리 */
-@media (max-width: 768px) {
-  .group-chat-input {
-    width: calc(100% - 32px); // padding에 맞게 조정
-    max-width: 100%;
-    padding: 8px;
-
-    input[type='text'] {
-      padding: 8px;
-      border-radius: 8px;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 0px;
+      margin-right: 8px;
+      resize: none; // 사용자가 크기 조절을 못하게 설정
+      overflow-y: auto;
+      height: auto; // 높이를 자동으로 조절
+      min-height: 38px; // 최소 높이 설정
+      max-height: 100px; // 최대 높이 설정
     }
 
     button {
-      padding: 8px;
-      border-radius: 8px;
+      padding: 8px 8px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 0px;
+      cursor: pointer;
+    }
+
+    .plus-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 
-  .group-chat-content {
-    padding: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .group-chat-input {
-    width: calc(100% - 32px); // padding에 맞게 조정
-    max-width: 100%;
-    padding: 8px;
-
-    input[type='text'] {
+  /* 반응형 디자인을 위한 미디어 쿼리 */
+  @media (max-width: 768px) {
+    .group-chat-input {
+      width: 100%; // padding에 맞게 조정
+      max-width: 100%;
       padding: 8px;
-      border-radius: 8px;
+
+      textarea {
+        padding: 8px;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 8px;
+        border-radius: 10px;
+      }
     }
 
-    button {
+    .group-chat-content {
       padding: 8px;
-      border-radius: 8px;
+      max-height: calc(100vh - 110px); // 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
+      width: 100%;
     }
   }
 
-  .group-chat-content {
-    padding: 8px;
+  @media (max-width: 480px) {
+    .group-chat-input {
+      width: 100%; // padding에 맞게 조정
+      max-width: 100%;
+      padding: 8px;
+
+      textarea {
+        padding: 8px;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 8px;
+        border-radius: 10px;
+      }
+    }
+
+    .group-chat-content {
+      padding: 8px;
+      max-height: calc(100vh - 110px); // 더 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
+      width: 100%;
+    }
   }
 }

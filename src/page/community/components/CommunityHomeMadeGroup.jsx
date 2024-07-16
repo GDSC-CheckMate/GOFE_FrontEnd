@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import CommunityHomeKeyword from "./CommunityHomeKeyword";
 
 const CommunityHomeMadeGroup = () => {
   const navigate = useNavigate();

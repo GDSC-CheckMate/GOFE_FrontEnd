@@ -1,8 +1,11 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import CommunityProfiles from "./CommunityProfiles";
+
 import { ReactComponent as Activearrow } from "../../../assets/community/Activearrow-right .svg";
 import { ReactComponent as Arrow } from "../../../assets/community/Arrow-right.svg";
+
 const profileName = [
   {
     id: 1,
@@ -38,6 +41,7 @@ const CommunityProfilesList = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
+
   return (
     <div className="Community-profile-list-container-box">
       <div className="Community-profile-list">

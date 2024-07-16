@@ -39,7 +39,7 @@ const CommunityShowAddFreind = () => {
       <div className="community-search-friends-add-box">
         <input
           type="text"
-          className="community-search-friend-add-input"
+          className="community-search-friends-add-input"
           placeholder="친구를 찾아보아요"
         />
         <div

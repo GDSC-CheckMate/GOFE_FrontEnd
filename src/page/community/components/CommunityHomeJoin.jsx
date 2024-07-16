@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import CommunityItem from "./CommunityItem";
 import { CommunityContext } from "./CommunityProvider";
 import CommunityHomeItem from "./CommunityHomeItem";
+
 const CommunityHomeJoin = () => {
   const { groups } = useContext(CommunityContext);
   return (

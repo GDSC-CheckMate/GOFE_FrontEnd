@@ -12,6 +12,9 @@ $font-map: (
   color-8: #aaa,
   color-9: #545454,
   color-10: #9b9b9b,
+  color-11: #acacac,
+  color-12: #0083ff,
+  color-13: #959595,
 );
 
 @function _get-font-value($key) {

@@ -28,7 +28,7 @@ const ShowMypage = () => {
         <div className="mypage-profile-box">
           <div className="mypage-profile-name">용찬</div>
           <div className="mypage-profile-content">
-            아 리엑트 너무 어려워 scss 너무 너무 어려워 살려줘
+            리엑트 너무 어려워 scss 너무 너무 어려워 살려줘
           </div>
         </div>
       </div>

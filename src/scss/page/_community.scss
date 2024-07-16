@@ -308,7 +308,7 @@
 
 .community-show-profile-follow-title-menu {
   display: flex;
-  margin: 22px 0 5px 0;
+  margin: 22px 0 0;
   width: 100%;
 
   .community-show-profile-follow-title-menu-follow {
@@ -319,6 +319,14 @@
   }
   .community-show-profile-follow-title-menu-add-friends {
     margin: 0 0 0 15%;
+  }
+
+  .nav-link {
+    @include _nav-link();
+  }
+
+  .nav-link.underline {
+    @include _nav-link_under-line();
   }
 }
 

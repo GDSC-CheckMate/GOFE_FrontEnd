@@ -5,6 +5,8 @@
 
 @import "./mixins/flexbox";
 @import "./mixins/font";
+@import "./mixins/mypageStyle";
+@import "./mixins/navLink";
 
 @import "./components/layout";
 @import "./components/footer";
@@ -15,4 +17,3 @@
 @import "./page/mypage";
 
 @import "./page/community";
-

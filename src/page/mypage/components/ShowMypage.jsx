@@ -65,6 +65,7 @@ const ShowMypage = () => {
           </Link>
         </div>
       </div>
+
       <div className="mypage-profile-edit">
         <Link to="/MypageEdit">프로필 편집</Link>
       </div>

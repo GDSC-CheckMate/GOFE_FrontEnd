@@ -5,7 +5,7 @@ $flex-map: (
   between: space-between,
   around: space-around,
   stretch: stretch,
-  center: center,
+  center: center
 );
 
 @function _get-flex-value($key) {
@@ -14,8 +14,8 @@ $flex-map: (
 
 @mixin inline-flexbox($jc: center, $ai: center) {
   display: flex;
-  justify-content: _get-flex-value($jc);
   align-items: _get-flex-value($ai);
+  justify-content: _get-flex-value($jc);
 }
 
 @mixin column-flexbox($jc: center, $ai: center) {

@@ -31,11 +31,21 @@
   }
 }
 .community-header-root .nav-link {
-  @include _nav-link();
+  padding-bottom: 8.5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #aaa;
+  flex-grow: 1;
+  text-align: center;
+  text-decoration: none;
 }
 
 .community-header-root .nav-link.underline {
-  @include _nav-link_under-line();
+  color: #000;
+  border-bottom: 2px solid #000;
 }
 .community-header {
   display: flex;

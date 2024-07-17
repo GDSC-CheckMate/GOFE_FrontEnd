@@ -50,7 +50,12 @@ const Footer = () => {
             className="footer-item"
             onClick={() => navigate("/community/main")}
           >
-            {path === "/community/main" ? (
+            {path === "/community/main" ||
+            path === "/community/home" ||
+            path === "/community/communityShowProfile" ||
+            path === "/community/communityShowFollwers" ||
+            path === "/community/addFreind" ||
+            path === "/community/creategroup" ? (
               <ActiveCommunityIcon />
             ) : (
               <CommunityIcon />

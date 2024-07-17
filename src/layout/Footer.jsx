@@ -10,6 +10,7 @@ import { ReactComponent as CommunityIcon } from "../assets/footer/Community.svg"
 import { ReactComponent as ActiveCommunityIcon } from "../assets/footer/CommunityActive.svg"
 import { ReactComponent as MypageIcon } from "../assets/footer/Mypage.svg"
 import { ReactComponent as ActiveMypageIcon } from "../assets/footer/MypageActive.svg"
+import { useEffect } from "react"
 
 const Footer = () => {
   const location = useLocation()
@@ -19,15 +20,13 @@ const Footer = () => {
 
   const selectedSection = useSelector(
     (state) => state.selectedSection.selectedSection
-  );
+  )
 
-
-  useEffect(() => {}, [selectedSection]);
+  useEffect(() => {}, [selectedSection])
 
   const handleAddRoutine = () => {
     dispatch(setNewRoutine({ time: "", title: "", recurringDays: [] }))
   }
-
 
   return (
     <div className="footer-container">
@@ -75,9 +74,7 @@ const Footer = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-
-export default Footer;
-
+export default Footer

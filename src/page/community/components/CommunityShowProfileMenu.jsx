@@ -17,20 +17,20 @@ const CommunityShowProfileMenu = ({ profileName }) => {
     <div>
       <div className="community-show-profile-follow-title-menu">
         <div
-          className={getClassName("/communityShowProfile")}
-          onClick={() => handleNavigate("/communityShowProfile")}
+          className={getClassName("/community/communityShowProfile")}
+          onClick={() => handleNavigate("/community/communityShowProfile")}
         >
           팔로우
         </div>
         <div
-          className={getClassName("/communityShowFollwers")}
-          onClick={() => handleNavigate("/communityShowFollwers")}
+          className={getClassName("/community/communityShowFollwers")}
+          onClick={() => handleNavigate("/community/communityShowFollwers")}
         >
           팔로워
         </div>
         <div
-          className={getClassName("/communityShowAddFreind")}
-          onClick={() => handleNavigate("/communityShowAddFreind")}
+          className={getClassName("/community/communityShowAddFreind")}
+          onClick={() => handleNavigate("/community/communityShowAddFreind")}
         >
           친구추가
         </div>

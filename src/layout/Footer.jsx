@@ -1,28 +1,28 @@
-import React, { useEffect } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
-import { useSelector } from "react-redux"
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { ReactComponent as HomeIcon } from "../assets/footer/Home.svg"
-import { ReactComponent as ActiveHomeIcon } from "../assets/footer/HomeActive.svg"
+import { ReactComponent as HomeIcon } from "../assets/footer/Home.svg";
+import { ReactComponent as ActiveHomeIcon } from "../assets/footer/HomeActive.svg";
 
-import { ReactComponent as AchievementIcon } from "../assets/footer/Achievement.svg"
-import { ReactComponent as ActiveAchievementIcon } from "../assets/footer/AchievementActive.svg"
+import { ReactComponent as AchievementIcon } from "../assets/footer/Achievement.svg";
+import { ReactComponent as ActiveAchievementIcon } from "../assets/footer/AchievementActive.svg";
 
-import { ReactComponent as CommunityIcon } from "../assets/footer/Community.svg"
-import { ReactComponent as ActiveCommunityIcon } from "../assets/footer/CommunityActive.svg"
+import { ReactComponent as CommunityIcon } from "../assets/footer/Community.svg";
+import { ReactComponent as ActiveCommunityIcon } from "../assets/footer/CommunityActive.svg";
 
-import { ReactComponent as MypageIcon } from "../assets/footer/Mypage.svg"
-import { ReactComponent as ActiveMypageIcon } from "../assets/footer/MypageActive.svg"
+import { ReactComponent as MypageIcon } from "../assets/footer/Mypage.svg";
+import { ReactComponent as ActiveMypageIcon } from "../assets/footer/MypageActive.svg";
 
 const Footer = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const path = location.pathname
+  const location = useLocation();
+  const navigate = useNavigate();
+  const path = location.pathname;
   const selectedSection = useSelector(
     (state) => state.selectedSection.selectedSection
-  )
+  );
 
-  useEffect(() => {}, [selectedSection])
+  useEffect(() => {}, [selectedSection]);
 
   return (
     <div className="footer-container">
@@ -41,7 +41,10 @@ const Footer = () => {
               <AchievementIcon />
             )}
           </div>
-          <div className="footer-item" onClick={() => navigate("/community")}>
+          <div
+            className="footer-item"
+            onClick={() => navigate("/community/main")}
+          >
             {path === "/community" ? (
               <ActiveCommunityIcon />
             ) : (
@@ -61,7 +64,7 @@ const Footer = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

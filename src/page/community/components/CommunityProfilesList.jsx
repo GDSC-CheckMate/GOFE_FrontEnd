@@ -59,7 +59,7 @@ const CommunityProfilesList = () => {
       </div>
       <div
         className="Community-show-more-profile"
-        onClick={() => navigate("/communityShowProfile")}
+        onClick={() => navigate("/community/communityShowProfile")}
       >
         {path === "/" ? <Activearrow /> : <Arrow />}
       </div>

@@ -28,17 +28,19 @@ const CommunityShowProfile = lazy(() =>
   import("../page/community/components/CommunityShowProfile")
 );
 
+const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
+
 const communityRouter = [
   {
-    path: "CommunityMainPage",
+    path: "main",
     element: (
       <Suspense fallback={<Loading />}>
-        <CommunityMainPage />
+        <ComMyPage />
       </Suspense>
     ),
   },
   {
-    path: "CommunityHomePage",
+    path: "home",
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityHomePage />

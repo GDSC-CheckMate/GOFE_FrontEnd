@@ -46,7 +46,7 @@ const CommunityShowProfile = () => {
       <div className="community-show-profile-follow-header-container-box">
         <div
           className="community-show-profile-follow-header-back-icon"
-          onClick={() => navigate("/CommunityHomePage")}
+          onClick={() => navigate("/community/home")}
         >
           <Back />
         </div>

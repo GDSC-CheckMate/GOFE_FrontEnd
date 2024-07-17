@@ -3,25 +3,24 @@ import CommunityItem from "./CommunityItem";
 import { CommunityContext } from "./CommunityProvider";
 import CommunityHeader from "./CommunityHeader";
 import CommunityMadeGroup from "./CommunityMadeGroup";
+import { Outlet, useLocation } from "react-router-dom";
 
 const CommunityMainPage = () => {
-  const { groups } = useContext(CommunityContext);
+  const location = useLocation();
+  // 유저정보 모달을 안띄우고 싶은 라우팅을 설정
+  const noCommuntiyHeaderPaths = [
+    "/community/communityShowProfile",
+    "/community/communityShowFollwers",
+    "/community/communityShowAddFreind",
+  ];
 
+  // 현재 location이랑 같은지 확인
+  const noShowHeader = !noCommuntiyHeaderPaths.includes(location.pathname);
   return (
     <div className="community-page">
-      <CommunityHeader />
-      <div className="community-main-view-all">
-        <CommunityMadeGroup />
-        <div className="group-list">
-          {groups.length > 0 ? (
-            groups.map((group) => (
-              <CommunityItem key={group.id} group={group} />
-            ))
-          ) : (
-            <p>참여중인 커뮤니티를 찾을 수 없음</p>
-          )}
-        </div>
-      </div>
+      {noShowHeader && <CommunityHeader />}
+
+      <Outlet />
     </div>
   );
 };

@@ -9,22 +9,21 @@ const CommunityHeader = () => {
       <div className="Community-header-box">
         <div className="community-header-root">
           <NavLink
-            to="/CommunityMainPage"
+            to="/community/main"
             className={({ isActive }) =>
               isActive ? "nav-link underline" : "nav-link"
             }
           >
             My
-
           </NavLink>
           <NavLink
-            to="/CommunityHomePage"
+            to="/community/home"
             className={({ isActive }) =>
               isActive ? "nav-link underline" : "nav-link"
             }
           >
             커뮤홈
-          </NavLink>        
+          </NavLink>
         </div>
         <div className="mypage-root-line" />
       </div>

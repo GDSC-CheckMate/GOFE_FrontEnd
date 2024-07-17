@@ -94,6 +94,8 @@
   flex-direction: column;
 }
 
+///////////////////////////////////
+///////////////////////////////////
 /* 기존 _communityItem.scss 파일 */
 .community-group-item {
   display: flex;
@@ -137,6 +139,8 @@
   margin-left: auto;
 }
 
+/////////////////////////////////
+/////////////////////////////////
 /* 기존 _createGroup.scss 파일 */
 .create-group-page {
   padding: 0 16px 16px; /* 상단 패딩을 제거 */
@@ -298,266 +302,436 @@
 }
 
 //////////////////////////////////
-/* 추가할 GroupDetailPage 스타일 */
+//////////////////////////////////
+// src/scss/page/group_detail_page.scss
+
+.group-detail-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 전체 뷰 높이를 차지하도록 설정 */
+  overflow: hidden; /* 내부 스크롤을 위해 숨김 처리 */
+}
+
 .group-detail-page {
-  padding: 16px;
+  flex: 1;
+  overflow-y: auto; /* 스크롤 가능하도록 설정 */
+  padding: 122px 16px 16px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
   background: #fff;
+}
 
-  .group-detail-header {
-    display: flex;
-    align-items: center;
-    margin-top: 16px;
-    margin-bottom: 16px;
-
-    .back-button {
-      background: none;
-      border: none;
-      font-size: 32px;
-      cursor: pointer;
-      margin-right: 16px;
-    }
-
-    .group-detail-name {
-      font-size: 24px;
-      font-weight: bold;
-    }
+.group-detail-body {
+  .group-detail-section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 4px;
   }
 
-  .group-detail-tabs {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
-    margin-bottom: 0px;
-
-    .tab {
-      padding: 8px 16px;
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      color: #aaa;
-    }
-
-    .tab.active {
-      color: #000;
-      border-bottom: 2px solid #000;
-    }
+  p {
+    font-size: 17px;
+    margin-bottom: 26px;
   }
+}
 
-  .group-detail-image {
+.group-detail-image {
+  width: 100%;
+  margin-top: 16px; /* 추가: 상단 간격 */
+  img {
     width: 100%;
-    img {
-      width: 100%;
-      height: auto;
-    }
-    margin-bottom: 16px;
+    height: auto;
   }
+  margin-bottom: 16px;
+}
 
-  .group-detail-body {
-    .group-detail-section-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 30px;
-      margin-bottom: 4px;
-    }
+.progress-bar-container {
+  position: relative;
+  height: 20px;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 8px;
+  margin-bottom: 8px;
 
-    p {
-      font-size: 17px;
-      margin-bottom: 26px;
-    }
-  }
-
-  .progress-bar-container {
-    position: relative;
-    height: 20px;
+  .progress-bar {
+    height: 100%;
     width: 100%;
     background-color: #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
-    margin-top: 8px;
-    margin-bottom: 8px;
 
-    .progress-bar {
+    .progress-bar-fill {
       height: 100%;
-      width: 100%;
-      background-color: #e0e0e0;
-      border-radius: 10px;
-      overflow: hidden;
+      background-color: #007bff;
+      border-radius: 10px 0 0 10px;
+      transition: width 1s ease-in-out;
+    }
+  }
 
-      .progress-bar-fill {
-        height: 100%;
-        background-color: #007bff;
-        border-radius: 10px 0 0 10px;
-        transition: width 1s ease-in-out;
-      }
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: #333;
+  }
+}
+
+@media (max-width: 768px) {
+  .group-detail-body {
+    padding: 8px; 
+  }
+
+  .group-detail-body .group-detail-section-title {
+    font-size: 16px;
+  }
+
+  .group-detail-body p {
+    font-size: 16px;
+  }
+
+  .progress-bar-container {
+    height: 16px;
+
+    .progress-bar-fill {
+      border-radius: 8px 0 0 8px;
     }
 
     span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 12px;
-      color: #333;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .group-detail-header {
-      flex-direction: column;
-      align-items: flex-start;
-
-      .back-button {
-        margin-right: 0;
-        margin-bottom: 8px;
-      }
-
-      .group-detail-name {
-        font-size: 20px;
-      }
-    }
-
-    .group-detail-tabs {
-      flex-direction: column;
-      align-items: flex-start;
-
-      .tab {
-        width: 100%;
-        text-align: left;
-        padding: 8px 0;
-        border-bottom: 1px solid #eee;
-      }
-
-      .tab.active {
-        border-bottom: 2px solid #000;
-      }
-    }
-
-    .group-detail-body {
-      .group-detail-section-title {
-        font-size: 16px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-    }
-
-    .progress-bar-container {
-      height: 16px;
-
-      .progress-bar-fill {
-        border-radius: 8px 0 0 8px;
-      }
-
-      span {
-        font-size: 10px;
-      }
-    }
-  }
-
-  @media (max-width: 480px) {
-    .group-detail-header {
-      .back-button {
-        font-size: 24px;
-      }
-
-      .group-detail-name {
-        font-size: 18px;
-      }
-    }
-
-    .group-detail-tabs {
-      .tab {
-        font-size: 14px;
-      }
-    }
-
-    .group-detail-body {
-      .group-detail-section-title {
-        font-size: 16px;
-      }
-
-      p {
-        font-size: 14px;
-      }
-    }
-
-    .progress-bar-container {
-      height: 14px;
-
-      .progress-bar-fill {
-        border-radius: 7px 0 0 7px;
-      }
-
-      span {
-        font-size: 8px;
-      }
+      font-size: 10px;
     }
   }
 }
-//////////////////////////////////
-//////////////////////////////////
 
+@media (max-width: 480px) {
+  .group-detail-body {
+    padding: 8px; /* 작은 화면에서는 패딩을 줄임 */
+  }
+
+  .group-detail-body .group-detail-section-title {
+    font-size: 14px;
+  }
+
+  .group-detail-body p {
+    font-size: 14px;
+  }
+
+  .progress-bar-container {
+    height: 14px;
+
+    .progress-bar-fill {
+      border-radius: 7px 0 0 7px;
+    }
+
+    span {
+      font-size: 8px;
+    }
+  }
+}
+
+
+//////////////////////////////////
+//////////////////////////////////
+//GroupDetailHeaderTabs.scss
+
+/* src/scss/components/_groupDetailHeaderTabs.scss */
+
+.group-detail-header-tabs {
+  position: fixed; /* 상단 고정 */
+  top: 0;
+  left: 50%;
+  transform: translateX(-52%);
+  background-color: #fff;
+  z-index: 1000;
+  width: inherit;
+  padding: 0 16px; /* 좌우 패딩 추가 */
+  box-sizing: border-box; /* 박스 모델을 패딩과 테두리를 포함한 크기로 설정 */
+}
+
+.group-detail-header {
+  display: flex;
+  align-items: center;
+  padding-top: 35px;
+  padding-bottom: 10px;
+  border-bottom: none; /* 실선 제거 */
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.group-detail-name {
+  font-size: 18px;
+  font-weight: bold;
+  white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
+  overflow: hidden; /* 텍스트 오버플로 방지 */
+  text-overflow: ellipsis; /* 텍스트가 넘칠 때 말줄임 표시 */
+}
+
+.group-detail-tabs {
+  display: flex;
+  justify-content: space-around; /* 탭들이 균등하게 배치되도록 함 */
+  padding: 0px; /* 상하 패딩만 설정 */
+  width: 100%; /* 탭 컨테이너의 너비를 100%로 설정 */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab {
+  flex: 1; /* 모든 탭들이 동일한 너비를 가지도록 설정 */
+  text-align: center;
+  padding: 8px 0; /* 패딩 조정 */
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #aaa;
+}
+
+.tab.active {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+  .group-detail-header {
+    padding: 8px;
+  }
+
+  .back-button {
+    font-size: 20px;
+    margin-right: 6px;
+  }
+
+  .group-detail-name {
+    font-size: 16px;
+  }
+
+  .group-detail-tabs {
+    padding: 4px 0;
+  }
+  .tab {
+    padding: 6px 0;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .group-detail-header {
+    padding: 6px 0;
+  }
+
+  .back-button {
+    font-size: 18px;
+    margin-right: 4px;
+  }
+
+  .group-detail-name {
+    font-size: 14px;
+  }
+
+  .group-detail-tabs {
+    padding: 0px 0;
+  }
+  .tab {
+    padding: 4px 0;
+    font-size: 12px;
+  }
+}
+
+
+//////////////////////////////////
+//////////////////////////////////
 // src/scss/components/_groupChat.scss
 
 .group-chat {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px); // 적절히 조절
+  height: calc(100vh - 222px); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
   background-color: #ffffff;
 
   .group-chat-content {
+    display: flex;
+    flex-direction: column; // 메시지들을 정방향으로 정렬
     flex: 1;
     padding: 16px;
     overflow-y: auto;
-    background-color: #dcdcdc;
+    background-color: #f0f0f0; // 배경색을 좀 더 밝게 조정
+    max-height: calc(100vh - 222px); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .group-chat-message {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 12px;
+    padding: 0; // 전체 메시지 박스의 패딩 제거
+    border-radius: 20px;
+    position: relative;
 
-    .username {
-      font-weight: bold;
-      margin-right: 8px;
+    &.user {
+      justify-content: flex-end;
+
+      .message {
+        background-color: #f0e991; // 사용자가 보낸 메시지의 배경색
+        text-align: left;
+      }
+
+      .time {
+        text-align: left;
+      }
     }
 
-    .message {
-      background-color: #f1f1f1;
-      padding: 8px 12px;
-      border-radius: 16px;
-      flex-grow: 1;
+    &.other {
+      justify-content: flex-start;
+
+      .message {
+        background-color: #ffffff; // 다른 사용자가 보낸 메시지의 배경색
+        text-align: left;
+      }
+
+      .time {
+        text-align: left;
+      }
+    }
+
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .message-content {
+      display: flex;
+      flex-direction: column;
+      max-width: 68%; // 메시지 최대 너비 설정
+
+      .username {
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+
+      .message {
+        padding: 8px 12px;
+        border-radius: 10px;
+        margin-bottom: 4px;
+        position: relative;
+        word-wrap: break-word;
+        overflow-wrap: break-word;  // 긴 단어도 줄바꿈 되도록 설정
+      }
+
+      .time {
+        font-size: 0.8rem;
+        color: #999;
+        margin-top: 4px;
+      }
     }
   }
 
   .group-chat-input {
     display: flex;
     align-items: center;
-    padding: 16px;
+    padding: 10px;
     background-color: #fff;
     border-top: 1px solid #ddd;
-    position: sticky;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    max-width: 430px; // 최대 너비를 430px로 제한
+    left: 50%;
+    transform: translateX(-50%); // 중앙 정렬을 위해 transform 사용
+    box-sizing: border-box; // 패딩과 테두리를 포함한 전체 크기를 계산
+    height: 100px; // 입력창 높이 자동 조절
 
-    input {
+    textarea {
       flex-grow: 1;
       padding: 8px 12px;
       border: 1px solid #ddd;
-      border-radius: 16px;
+      border-radius: 0px;
       margin-right: 8px;
+      resize: none; // 사용자가 크기 조절을 못하게 설정
+      overflow-y: auto;
+      height: auto; // 높이를 자동으로 조절
+      min-height: 38px; // 최소 높이 설정
+      max-height: 100px; // 최대 높이 설정
     }
 
     button {
-      padding: 8px 16px;
+      padding: 8px 8px;
       background-color: #007bff;
       color: #fff;
       border: none;
-      border-radius: 16px;
+      border-radius: 0px;
       cursor: pointer;
+    }
+
+    .plus-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  /* 반응형 디자인을 위한 미디어 쿼리 */
+  @media (max-width: 768px) {
+    .group-chat-input {
+      width: 100%; // padding에 맞게 조정
+      max-width: 100%;
+      padding: 8px;
+
+      textarea {
+        padding: 8px;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 8px;
+        border-radius: 10px;
+      }
+    }
+
+    .group-chat-content {
+      padding: 8px;
+      max-height: calc(100vh - 110px); // 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .group-chat-input {
+      width: 100%; // padding에 맞게 조정
+      max-width: 100%;
+      padding: 8px;
+
+      textarea {
+        padding: 8px;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 8px;
+        border-radius: 10px;
+      }
+    }
+
+    .group-chat-content {
+      padding: 8px;
+      max-height: calc(100vh - 110px); // 더 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
+      width: 100%;
     }
   }
 }

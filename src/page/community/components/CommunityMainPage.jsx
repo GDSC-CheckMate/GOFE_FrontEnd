@@ -48,4 +48,5 @@ const CommunityMainPage = () => {
   )
 }
 
+
 export default CommunityMainPage

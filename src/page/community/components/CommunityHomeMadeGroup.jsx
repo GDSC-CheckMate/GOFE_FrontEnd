@@ -9,7 +9,7 @@ const CommunityHomeMadeGroup = () => {
         <span className="community-home-subheader-title">인기 키워드</span>
         <button
           className="community-home-create-group"
-          onClick={() => navigate("/creategroup")}
+          onClick={() => navigate("/community/creategroup")}
         >
           + 소모임 개설
         </button>

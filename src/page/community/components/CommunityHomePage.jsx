@@ -1,4 +1,3 @@
-
 import React from "react";
 import CommunityHeader from "./CommunityHeader";
 import CommunityProfilesList from "./CommunityProfilesList";
@@ -12,17 +11,15 @@ import CommunityHomeJoin from "./CommunityHomeJoin";
 
 const CommunityHomePage = () => {
   return (
-    <div>
-      <CommunityHeader />
-      <div className="community-main-view-all">
-        <CommunityProfilesList />
-        <CommunitySearch />
-        <CommunityHomeMadeGroup />
-        <CommunityHomeKeyword />
-        <CommunityHomeRecommend />
-        <CommunityHomeJoin />
-      </div>
+    <div className="community-main-view-all">
+      {/* <CommunityHeader /> */}
 
+      <CommunityProfilesList />
+      <CommunitySearch />
+      <CommunityHomeMadeGroup />
+      <CommunityHomeKeyword />
+      <CommunityHomeRecommend />
+      <CommunityHomeJoin />
     </div>
   );
 };

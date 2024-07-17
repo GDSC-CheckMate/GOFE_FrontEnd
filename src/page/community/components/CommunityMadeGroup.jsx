@@ -9,7 +9,7 @@ const CommunityMadeGroup = () => {
         <span className="subheader-title">참여중인 소모임</span>
         <button
           className="create-group"
-          onClick={() => navigate("/creategroup")}
+          onClick={() => navigate("/community/creategroup")}
         >
           + 소모임 개설
         </button>

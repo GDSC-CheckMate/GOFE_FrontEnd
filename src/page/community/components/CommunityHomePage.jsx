@@ -1,3 +1,4 @@
+
 import React from "react";
 import CommunityHeader from "./CommunityHeader";
 import CommunityProfilesList from "./CommunityProfilesList";
@@ -21,6 +22,7 @@ const CommunityHomePage = () => {
         <CommunityHomeRecommend />
         <CommunityHomeJoin />
       </div>
+
     </div>
   );
 };

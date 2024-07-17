@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-
 import Loading from "../components/Loading";
 
 const CommunityItem = lazy(() =>
@@ -16,6 +15,17 @@ const CommunityMainPage = lazy(() =>
 );
 const CommunityHomePage = lazy(() =>
   import("../page/community/components/CommunityHomePage")
+);
+const GroupDetailPage = lazy(() =>
+  import("../page/community/components/GroupDetailPage")
+);
+const GroupHome = lazy(() => import("../page/community/components/GroupHome"));
+const GroupChat = lazy(() => import("../page/community/components/GroupChat"));
+const GroupAchievements = lazy(() =>
+  import("../page/community/components/GroupAchievements")
+);
+const GroupNotices = lazy(() =>
+  import("../page/community/components/GroupNotices")
 );
 
 const CommunityShowFollwers = lazy(() =>
@@ -95,6 +105,49 @@ const communityRouter = [
         <CommunityShowAddFreind />
       </Suspense>
     ),
+
+    path: "group/:groupId",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <GroupDetailPage />
+      </Suspense>
+    ),
+    children: [
+      {
+        path: "home",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GroupHome />
+          </Suspense>
+        ),
+      },
+      {
+        path: "chat",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GroupChat />
+          </Suspense>
+        ),
+      },
+      {
+        path: "achievements",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GroupAchievements />
+          </Suspense>
+        ),
+      },
+      {
+        path: "notices",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GroupNotices />
+          </Suspense>
+        ),
+      },
+    ],
+
   },
 ];
+
 export default communityRouter;

@@ -1,5 +1,6 @@
 // src/page/community/components/CommunityHeader.jsx
 
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -13,14 +14,18 @@ const CommunityHeader = () => {
             className={({ isActive }) =>
               isActive ? "nav-link underline" : "nav-link"
             }
+
           >
             My
           </NavLink>
           <NavLink
+
             to="/community/home"
             className={({ isActive }) =>
               isActive ? "nav-link underline" : "nav-link"
             }
+
+
           >
             커뮤홈
           </NavLink>

@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Plus } from "../../../assets/community/Plus.svg";
+import { ReactComponent as Plus } from "../../../assets/community/PlusButton.svg";
 
 const CommunityHomeRecom_com = ({ recommend, onRemove }) => {
   if (!recommend) {

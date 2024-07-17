@@ -1,0 +1,111 @@
+{
+    "groups": [
+        {
+            "id": 1,
+            "group": "리액트 스터디",
+            "month": "2024년 6월",
+            "days": [
+                {
+                    "day": 3,
+                    "weekday": "월",
+                    "events": [
+                        {
+                            "title": "리액트 복습하기",
+                            "success": true
+                        },
+                        {
+                            "title": "강의 4강 듣기",
+                            "success": true
+                        }
+                    ]
+                },
+                {
+                    "day": 4,
+                    "weekday": "화",
+                    "events": []
+                },
+                {
+                    "day": 5,
+                    "weekday": "수",
+                    "events": [
+                        {
+                            "title": "코딩하기",
+                            "success": false
+                        }
+                    ]
+                },
+                {
+                    "day": 6,
+                    "weekday": "목",
+                    "events": []
+                },
+                {
+                    "day": 7,
+                    "weekday": "금",
+                    "events": []
+                },
+                {
+                    "day": 8,
+                    "weekday": "토",
+                    "events": []
+                },
+                {
+                    "day": 9,
+                    "weekday": "일",
+                    "events": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "group": "토익 스터디",
+            "month": "2024년 6월",
+            "days": [
+                {
+                    "day": 3,
+                    "weekday": "월",
+                    "events": [
+                        {
+                            "title": "단어 복습하기",
+                            "success": true
+                        },
+                        {
+                            "title": "영단어 듣기",
+                            "success": true
+                        }
+                    ]
+                },
+                {
+                    "day": 4,
+                    "weekday": "화",
+                    "events": []
+                },
+                {
+                    "day": 5,
+                    "weekday": "수",
+                    "events": []
+                },
+                {
+                    "day": 6,
+                    "weekday": "목",
+                    "events": []
+                },
+                {
+                    "day": 7,
+                    "weekday": "금",
+                    "events": []
+                },
+                {
+                    "day": 8,
+                    "weekday": "토",
+                    "events": []
+                },
+                {
+                    "day": 9,
+                    "weekday": "일",
+                    "events": []
+                }
+            ]
+        }
+    ]
+}

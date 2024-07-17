@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import plusIcon from '../../../assets/community/plus.svg';
 
 const ChatInput = ({ onSend, onFileUpload }) => {
   const [message, setMessage] = useState('');
+  const textareaRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,7 +29,19 @@ const ChatInput = ({ onSend, onFileUpload }) => {
 
   const handleInputChange = (e) => {
     setMessage(e.target.value);
+    adjustTextareaHeight();
   };
+
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  };
+
+  useEffect(() => {
+    adjustTextareaHeight();
+  }, [message]);
 
   return (
     <form className="group-chat-input" onSubmit={handleSubmit}>
@@ -42,12 +55,14 @@ const ChatInput = ({ onSend, onFileUpload }) => {
         onChange={handleFileChange}
       />
       <textarea
+        ref={textareaRef}
         value={message}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
         placeholder="메시지를 입력하세요"
         rows="1"
         className="chat-textarea"
+        style={{ minHeight: '38px', maxHeight: '100px', overflowY: message ? 'auto' : 'hidden' }}
       />
       <button type="submit">전송</button>
     </form>

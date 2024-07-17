@@ -558,7 +558,7 @@
 
   .group-chat-content {
     display: flex;
-    flex-direction: column-reverse; // 메시지들을 역순으로 정렬
+    flex-direction: column; // 메시지들을 정방향으로 정렬
     flex: 1;
     padding: 16px;
     overflow-y: auto;
@@ -574,11 +574,31 @@
     margin-bottom: 12px;
     padding: 0; // 전체 메시지 박스의 패딩 제거
     border-radius: 20px;
+    position: relative;
 
     &.user {
       justify-content: flex-end;
+
       .message {
         background-color: #f0e991; // 사용자가 보낸 메시지의 배경색
+        text-align: left;
+      }
+
+      .time {
+        text-align: left;
+      }
+    }
+
+    &.other {
+      justify-content: flex-start;
+
+      .message {
+        background-color: #ffffff; // 다른 사용자가 보낸 메시지의 배경색
+        text-align: left;
+      }
+
+      .time {
+        text-align: left;
       }
     }
 
@@ -601,25 +621,18 @@
       }
 
       .message {
-        display: flex;
-        align-items: center;  // 메시지와 시간을 가로로 정렬
-        background-color: #ffffff;
         padding: 8px 12px;
         border-radius: 10px;
         margin-bottom: 4px;
-        border-radius: 10px;
-        margin-bottom: 4px;
-        max-width: 100%;
+        position: relative;
         word-wrap: break-word;
-
-        &.user {
-          background-color: #f0e991;
-        }
+        overflow-wrap: break-word;  // 긴 단어도 줄바꿈 되도록 설정
       }
+
       .time {
-        margin-left: 8px;  // 메시지와 시간 사이에 간격 추가
         font-size: 0.8rem;
         color: #999;
+        margin-top: 4px;
       }
     }
   }

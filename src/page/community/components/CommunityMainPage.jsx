@@ -1,4 +1,3 @@
-
 import React, { useContext } from "react";
 import CommunityItem from "./CommunityItem";
 import { CommunityContext } from "./CommunityProvider";
@@ -22,10 +21,8 @@ const CommunityMainPage = () => {
       {noShowHeader && <CommunityHeader />}
 
       <Outlet />
-
     </div>
-  )
-}
+  );
+};
 
-
-export default CommunityMainPage
+export default CommunityMainPage;

@@ -29,8 +29,8 @@ const CommunityShowProfileMenu = ({ profileName }) => {
           팔로워
         </div>
         <div
-          className={getClassName("/community/communityShowAddFreind")}
-          onClick={() => handleNavigate("/community/communityShowAddFreind")}
+          className={getClassName("/community/addFreind")}
+          onClick={() => handleNavigate("/community/addFreind")}
         >
           친구추가
         </div>

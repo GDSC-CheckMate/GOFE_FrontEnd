@@ -23,8 +23,8 @@ const Mypageheader = () => {
             알림 설정
           </NavLink>
         </div>
-        <div className="mypage-root-line" />
       </div>
+      <div className="mypage-root-line" />
     </div>
   );
 };

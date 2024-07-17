@@ -291,15 +291,19 @@
   }
 }
 
-.community-show-profile-follow-header-container-box {
-  display: flex;
-  padding: 44px 0px 0px 0px;
+.community-show-container-view {
+  width: 100%;
 
-  .community-show-profile-follow-header-back-icon {
-    padding: 6px 0 6px 20px;
-  }
-  .community-show-profile-follow-header-title {
-    margin: 0 0 0 36%;
+  .community-show-profile-follow-header-container-box {
+    display: flex;
+    padding: 44px 0px 0px 0px;
+
+    .community-show-profile-follow-header-back-icon {
+      padding: 6px 0 6px 20px;
+    }
+    .community-show-profile-follow-header-title {
+      margin: 0 0 0 37.5%;
+    }
   }
 }
 

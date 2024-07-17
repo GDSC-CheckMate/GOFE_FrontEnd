@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import Community from "./Community";
 import Mypageheader from "./Mypageheader";
@@ -11,10 +11,14 @@ import { ReactComponent as Mail } from "../../../assets/mypage/Mail.svg";
 import { ReactComponent as Activeheart } from "../../../assets/mypage/Activeheart.svg";
 import { ReactComponent as Heart } from "../../../assets/mypage/Heart.svg";
 
+import CommunityHomeItem from "../../community/components/CommunityHomeItem";
+
+import { CommunityContext } from "../../community/components/CommunityProvider";
 const ShowMypage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
+  const { groups } = useContext(CommunityContext);
   return (
     <div>
       <Mypageheader />
@@ -24,7 +28,7 @@ const ShowMypage = () => {
         <div className="mypage-profile-box">
           <div className="mypage-profile-name">용찬</div>
           <div className="mypage-profile-content">
-            아 리엑트 너무 어려워 css 너무너무 어려워 살려줘
+            리엑트 너무 어려워 scss 너무 너무 어려워 살려줘
           </div>
         </div>
       </div>
@@ -61,6 +65,7 @@ const ShowMypage = () => {
           </Link>
         </div>
       </div>
+
       <div className="mypage-profile-edit">
         <Link to="/MypageEdit">프로필 편집</Link>
       </div>
@@ -71,9 +76,13 @@ const ShowMypage = () => {
           <p className="mypage-communication-now">참여중인 소모임2개</p>
           <p className="mypage-communication-all">/ 10개</p>
         </div>
-        <div className="mypage-communication-list">
-          <Community />
-        </div>
+        {groups.length > 0 ? (
+          groups.map((group) => (
+            <CommunityHomeItem key={group.id} group={group} />
+          ))
+        ) : (
+          <p>참여중인 커뮤니티를 찾을 수 없음</p>
+        )}
       </div>
     </div>
   );

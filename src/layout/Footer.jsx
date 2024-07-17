@@ -16,13 +16,18 @@ const Footer = () => {
   const navigate = useNavigate()
   const path = location.pathname
   const dispatch = useDispatch()
+
   const selectedSection = useSelector(
     (state) => state.selectedSection.selectedSection
-  )
+  );
+
+
+  useEffect(() => {}, [selectedSection]);
 
   const handleAddRoutine = () => {
     dispatch(setNewRoutine({ time: "", title: "", recurringDays: [] }))
   }
+
 
   return (
     <div className="footer-container">
@@ -41,8 +46,12 @@ const Footer = () => {
               <AchievementIcon />
             )}
           </div>
-          <div className="footer-item" onClick={() => navigate("/CommunityMainPage")}>
-            {path === "/CommunityMainPage" ? (
+
+          <div
+            className="footer-item"
+            onClick={() => navigate("/community/main")}
+          >
+            {path === "/community" ? (
               <ActiveCommunityIcon />
             ) : (
               <CommunityIcon />
@@ -66,7 +75,9 @@ const Footer = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+
+export default Footer;
+

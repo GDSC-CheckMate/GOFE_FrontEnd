@@ -10,7 +10,12 @@ import communityRouter from "./communityRouter";
 const Main = lazy(() => import("../page/main"));
 
 const Achievement = lazy(() => import("../page/achievement"));
-const Community = lazy(() => import("../page/community"));
+const Community = lazy(() =>
+  import("../page/community/components/CommunityMainPage")
+);
+const CommunityHomePage = lazy(() =>
+  import("../page/community/components/CommunityHomePage")
+);
 const Mypage = lazy(() => import("../page/mypage"));
 
 const router = createBrowserRouter([
@@ -18,7 +23,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       ...mypageRouter,
-      ...communityRouter,
+
       {
         path: "",
         element: (
@@ -44,6 +49,7 @@ const router = createBrowserRouter([
             </Suspense>
           </CommunityProvider>
         ),
+        children: communityRouter,
       },
       {
         path: "mypage",

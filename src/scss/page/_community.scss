@@ -1,50 +1,410 @@
-// src/scss/page/_community.scss
 
-// Community Page Styles
 .community-page {
-  padding: 0px;
-}
+  padding: 0rem;
 
-/* 기존 _community.scss 파일 */
-.community-header-container {
-  padding: 61px 83px 2px 88.64px;
+  .Community-header-box {
+    width: 55%;
+    position: fixed;
+    background-color: white;
+    top: 0;
+    z-index: 9;
+
+    @media screen and (max-width: 480px) {
+      width: 100%;
+    }
+  }
+
+  .community-main-view-all {
+    margin-top: 93px;
+  }
+
 }
 
 .community-header-root {
   display: flex;
+
+  align-items: flex-start;
+  gap: 3.5rem;
   justify-content: center;
-  align-items: center;
-  margin-bottom: -3.5px;
-  position: relative;
-}
+  margin-top: 61px;
+  margin-left: 75px;
+  margin-right: 75px;
 
-.community-header-root .nav-link {
-  padding: 8px 16px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  color: #aaa;
-  flex-grow: 1;
-  text-align: center;
-  text-decoration: none;
-}
+  @media screen and (max-width: 360px) {
+    gap: 30%;
+    align-items: center;
+  }
 
-.community-header-root .nav-link.underline {
-  color: #000;
-  border-bottom: 2px solid #000;
+  .nav-link {
+    @include _nav-link();
+  }
+
+  .nav-link.underline {
+    @include _nav-link_under-line();
+  }
+
 }
 
 .community-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
   position: relative;
 }
 
-.community-tabs {
+
+.Community-profile-list-container-box {
+  display: flex;
+  padding: auto;
+  overflow-x: hidden;
+
+  .Community-profile-list {
+    @include scroll_bar();
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .Community-profile-personal-box {
+      display: block;
+      background-color: white;
+      position: absolute;
+
+      .Community-profile-me-img {
+        @include box-size(2.5463rem, 2.5463rem);
+        @include box-radius_with_color(3.7843rem, bcolor-1);
+        margin: 0.875rem 1.125rem 0rem 1.625rem;
+      }
+
+      .Community-profile-me-name {
+        @include custom-font-size(500, 10px, black);
+        @include profile-list_name(0.375rem 1.125rem 0rem 1.625rem);
+      }
+    }
+
+    .Community-profiles-neigbor {
+      display: flex;
+      white-space: nowrap;
+      flex-grow: 1;
+      margin: 0rem 0rem 0rem 5.625rem;
+    }
+  }
+
+  .Community-neibore-profile {
+    display: inline-block;
+
+    .Community-neibore-me-img {
+      @include box-size(2.5463rem, 2.5463rem);
+      @include box-radius_with_color(3.7843rem, bcolor-1);
+      margin: 14px 1.125rem 0rem 0rem;
+    }
+    .Community-neibore-me-name {
+      @include custom-font-size(500, 10px, black);
+      @include profile-list_name(0.375rem 1.125rem 0rem 0rem);
+    }
+  }
+
+  .Community-show-more-profile {
+    @include box-size(2.1875rem, 2.1875rem);
+    @include inline-flexbox();
+    @include box-radius_with_color(1.3237rem, bcolor-2);
+    padding: 0.5609rem;
+    position: relative;
+    margin: 1.25rem 1.25rem 0rem 0.6875rem;
+  }
+}
+
+.community-search-container-box {
+  display: flex;
+  margin: 1.75rem 0rem 0rem 1.3125rem;
+
+  .community-search-detail-list {
+    @include inline-flexbox();
+    @include box-size(3rem, 3rem);
+    padding: 0.375rem 0.1875rem;
+    flex-direction: column;
+    gap: 0.1875rem;
+    flex-shrink: 0;
+  }
+
+  .community-search-command-box {
+    @include box-size(80%, 2.5rem);
+    @include box-radius(3.125rem);
+    @include search-box(0.3125rem 0rem 0rem 0.375rem);
+
+    .community-search-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 0 1rem;
+      font-size: 0.8rem;
+      border-radius: 3.125rem;
+    }
+
+    .community-search-command-button {
+      position: absolute;
+      right: 0.625rem;
+      @include inline-flexbox();
+      @include box-size(1.25rem, 1.25rem);
+    }
+  }
+}
+.community-home-made-group {
+  display: block;
+}
+.community-home-subheader {
+  @include inline-flexbox(between);
+  margin-bottom: 16px;
+  padding: 10px 16px;
+
+  .community-home-subheader-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .community-home-create-group {
+    @include custom-font-size(500, 13px, black);
+    cursor: pointer;
+    font-size: 16px;
+  }
+}
+
+.community-home-keyword-container-box {
+  margin: 0px 0px 30px;
+  width: 100%;
+
+  .community-home-keyword-box {
+    float: left;
+    margin-left: 4%;
+    margin-top: 2%;
+
+    .community-home-keyword-content {
+      padding: 5px 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 50px;
+      border: 1px solid #b3b3b3;
+    }
+  }
+}
+
+.community-home-group-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+
+  .community-home-group-icon img {
+    @include box-size(40px, 40px);
+    border-radius: 20px;
+  }
+  .community-home-group-details {
+    flex: 1;
+    margin-left: 16px;
+
+    .community-home-group-name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .community-home-group-notice {
+      font-size: 0.875rem;
+      color: #888;
+    }
+  }
+}
+
+.community-home-recommend-container-box {
+  @include box-size(100%, 392px);
+  background: #f4f4f4;
+  margin: 200px 0px 0px 0px;
+  .community-home-recommend-show-container-box-name {
+    margin: auto 22px;
+    padding: 10px 0px 0px 0px;
+  }
+  .community-home-recommend-show {
+    margin-top: 10px;
+    @include scroll_bar();
+  }
+}
+.community-home-recommend-show-more {
+  min-width: 58%;
+  max-width: 58%;
+  height: 310px;
+  border-radius: 5px;
+  background: #fff;
+  margin: 10px 10px 0px 20px;
+
+  .community-home-recommend-show-more-out {
+    float: right;
+  }
+  .community-home-recommend-show-img {
+    @include box-size(150px, 150px);
+    border-radius: 90px;
+    background: #d5d5d5;
+    margin: 25px auto 5px;
+  }
+  .community-home-recommend-show-community-name {
+    @include profile-list_name(10px auto 0px);
+  }
+  .community-home-recommend-show-content-detail {
+    display: flex;
+    margin: 0px 0px 0px 17%;
+    @include custom-font-size(500, 12px, color-11);
+
+    .community-home-recommend-show-content-detail-host {
+      margin: 0rem 0.625rem 0 0;
+    }
+
+    .community-home-recommend-show-content-active {
+      padding: 2.559px 5.118px;
+      @include inline-flexbox();
+      gap: 5.118px;
+      border-radius: 50px;
+      background: #daedff;
+      margin: auto 0 auto 10px;
+      position: relative;
+      @include custom-font-size(600, 8.188px, color-12);
+    }
+  }
+
+  .community-home-recommend-join-button {
+    @include inline-flexbox();
+    @include box-size(162px, 35px);
+    @include custom-font-size(600, 13px, white);
+    padding: 10px;
+    gap: 10px;
+    margin: 30px auto 0px;
+    border-radius: 8px;
+    background: #3c3c3c;
+  }
+}
+
+.community-show-profile-follow-header-container-box {
+  display: flex;
+  padding: 44px 0px 0px 0px;
+
+  .community-show-profile-follow-header-back-icon {
+    padding: 6px 0 6px 20px;
+  }
+  .community-show-profile-follow-header-title {
+    margin: 0 0 0 36%;
+  }
+}
+
+.community-show-profile-follow-title-menu {
+  display: flex;
+  margin: 22px 0 0;
+  width: 100%;
+
+  .community-show-profile-follow-title-menu-follow {
+    margin: 0 0 0 18%;
+  }
+  .community-show-profile-follow-title-menu-followers {
+    margin: 0 0 0 15%;
+  }
+  .community-show-profile-follow-title-menu-add-friends {
+    margin: 0 0 0 15%;
+  }
+
+  .nav-link {
+    @include _nav-link();
+  }
+
+  .nav-link.underline {
+    @include _nav-link_under-line();
+  }
+}
+
+.community-show-profile-friend-count {
+  @include custom-font-size(500, 12px, color-13);
+  margin: 10px 0px 0px 23px;
+}
+
+.community-show-follow-or-follower-container {
+  display: flex;
+  width: 100%;
+
+  .community-show-follow-or-follower-container-picture {
+    @include box-size(2.5rem, 2.5rem);
+    @include box-radius_with_color(3.7843rem, bcolor-1);
+    margin: 25px 13px 0rem 1.4631rem;
+  }
+  .community-show-follow-or-follower-container-box {
+    display: flex;
+    width: 100%;
+    padding: 1%;
+
+    .community-show-follow-or-follower-container-name {
+      @include box-size(Fixed 1.75rem, Fixed 1.1875rem);
+      margin: 30px 0px 0px;
+      margin-right: auto; /* 자동 여백을 추가하여 이름의 길이와 관계없이 다른 요소들을 오른쪽으로 밀어냅니다 */
+    }
+    .community-show-follow-or-follower-container-actions {
+      display: flex;
+      align-items: center;
+
+      .community-show-follow-or-follower-container-send-message {
+        @include box-size(109px, 40px);
+        @include inline-flexbox();
+        @include box-radius_with_color(0.5rem, bcolor-3);
+        padding: 10px;
+        margin: 25px 0px 0px;
+      }
+
+      .community-show-follow-or-follower-container-send-more {
+        margin: 1.875rem 1.25rem 0 1.25rem;
+      }
+    }
+  }
+}
+
+.community-search-friends-add-box {
+  @include box-size(85%, 2.5rem);
+  @include box-radius(3.125rem);
+  @include search-box(29px auto);
+
+  .community-search-friends-add-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 1rem;
+    font-size: 0.8rem;
+    border-radius: 3.125rem;
+  }
+  .community-search-friends-add-button {
+    @include box-size(1.25rem, 1.25rem);
+    @include inline-flexbox();
+    position: absolute;
+    right: 0.625rem;
+  }
+}
+
+.community-show-recommend-friend-container-box {
+  width: 85%;
+  margin: 0 auto;
+}
+.community-show-follow-or-follower-container-send-follow {
+  @include box-size(109px, 40px);
+  @include inline-flexbox();
+  padding: 10px;
+  margin: 25px 19px 0px;
+  border-radius: 8px;
+  background: #393939;
+  color: #fff;
+}
+
+.community-show-follow-or-follower-container-send-followers {
+  @include box-size(109px, 40px);
+  @include inline-flexbox();
+  @include box-radius_with_color(8px, bcolor-4);
+  margin: 25px 0px 0px;
+  color: #fff;
+}
+
+.tabs {
+
   display: flex;
   width: 100%;
   justify-content: space-around;

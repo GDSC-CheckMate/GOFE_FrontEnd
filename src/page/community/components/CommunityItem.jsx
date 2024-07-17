@@ -1,6 +1,4 @@
 
-// src/page/community/components/CommunityItem.jsx
-
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -32,4 +30,6 @@ CommunityItem.propTypes = {
   }).isRequired,
 };
 
+
 export default CommunityItem;
+

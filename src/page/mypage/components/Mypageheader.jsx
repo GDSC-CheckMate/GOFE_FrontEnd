@@ -1,20 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Mypageheader = () => {
   return (
     <div>
       <div className="mypage">
         <div className="mypage-root">
-          <Link to="/ShowMypage" className="mypage-spread-underline-left">
+          <NavLink
+            to="/ShowMypage"
+            className={({ isActive }) =>
+              isActive ? "nav-link underline" : "nav-link"
+            }
+          >
             내정보
-          </Link>
-          <Link to="/ShowAlarm" className="mypage-spread-underline-right">
+          </NavLink>
+          <NavLink
+            to="/ShowAlarm"
+            className={({ isActive }) =>
+              isActive ? "nav-link underline" : "nav-link"
+            }
+          >
             알림 설정
-          </Link>
+          </NavLink>
         </div>
+        <div className="mypage-root-line" />
       </div>
-      <div className="mypage-root-line" />
     </div>
   );
 };

@@ -28,17 +28,29 @@ const GroupNotices = lazy(() =>
   import("../page/community/components/GroupNotices")
 );
 
+const CommunityShowFollwers = lazy(() =>
+  import("../page/community/components/CommunityShowFollwers")
+);
+const CommunityShowAddFreind = lazy(() =>
+  import("../page/community/components/CommunityShowAddFreind")
+);
+const CommunityShowProfile = lazy(() =>
+  import("../page/community/components/CommunityShowProfile")
+);
+
+const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
+
 const communityRouter = [
   {
-    path: "CommunityMainPage",
+    path: "main",
     element: (
       <Suspense fallback={<Loading />}>
-        <CommunityMainPage />
+        <ComMyPage />
       </Suspense>
     ),
   },
   {
-    path: "CommunityHomePage",
+    path: "home",
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityHomePage />
@@ -70,6 +82,30 @@ const communityRouter = [
     ),
   },
   {
+    path: "communityShowProfile",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <CommunityShowProfile />
+      </Suspense>
+    ),
+  },
+
+  {
+    path: "communityShowFollwers",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <CommunityShowFollwers />
+      </Suspense>
+    ),
+  },
+  {
+    path: "communityShowAddFreind",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <CommunityShowAddFreind />
+      </Suspense>
+    ),
+
     path: "group/:groupId",
     element: (
       <Suspense fallback={<Loading />}>
@@ -110,6 +146,7 @@ const communityRouter = [
         ),
       },
     ],
+
   },
 ];
 

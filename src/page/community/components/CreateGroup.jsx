@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
@@ -18,21 +19,21 @@ const CreateGroup = () => {
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0]
-      const reader = new FileReader()
+      const file = e.target.files[0];
+      const reader = new FileReader();
       reader.onload = (e) => {
-        setProfileImage(e.target.result)
-      }
-      reader.readAsDataURL(file)
+        setProfileImage(e.target.result);
+      };
+      reader.readAsDataURL(file);
     }
-  }
+  };
 
   const handleProfileImageClick = () => {
-    fileInputRef.current.click()
-  }
+    fileInputRef.current.click();
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const newGroup = {
       id: Date.now(),
       name: groupName,
@@ -46,13 +47,12 @@ const CreateGroup = () => {
       }),
       image: profileImage || null,
       badge: null,
-      startDate: goalStartDate,
-      duration: parseInt(goalDuration),
-      members: parseInt(members),
-    }
-    dispatch(addGroup(newGroup))
-    navigate(`/CommunityMainPage`)
-  }
+
+    };
+    addGroup(newGroup);
+    navigate("/community");
+  };
+
 
   return (
     <div className="create-group-page">
@@ -176,7 +176,7 @@ const CreateGroup = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default CreateGroup
+export default CreateGroup;

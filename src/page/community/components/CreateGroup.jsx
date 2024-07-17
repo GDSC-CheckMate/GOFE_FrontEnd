@@ -1,21 +1,20 @@
-
-import React, { useState, useRef } from "react"
-import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import { addGroup } from "../../../redux/communitySlice"
+import React, { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addGroup } from "../../../redux/communitySlice";
 
 const CreateGroup = () => {
-  const dispatch = useDispatch()
-  const [groupName, setGroupName] = useState("")
-  const [groupDescription, setGroupDescription] = useState("")
-  const [keywords, setKeywords] = useState("")
-  const [goalStartDate, setGoalStartDate] = useState("")
-  const [goalDuration, setGoalDuration] = useState("")
-  const [members, setMembers] = useState("")
-  const [joinAfterStart, setJoinAfterStart] = useState("불가능")
-  const [profileImage, setProfileImage] = useState(null)
-  const fileInputRef = useRef(null)
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const [groupName, setGroupName] = useState("");
+  const [groupDescription, setGroupDescription] = useState("");
+  const [keywords, setKeywords] = useState("");
+  const [goalStartDate, setGoalStartDate] = useState("");
+  const [goalDuration, setGoalDuration] = useState("");
+  const [members, setMembers] = useState("");
+  const [joinAfterStart, setJoinAfterStart] = useState("불가능");
+  const [profileImage, setProfileImage] = useState(null);
+  const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -47,12 +46,10 @@ const CreateGroup = () => {
       }),
       image: profileImage || null,
       badge: null,
-
     };
     addGroup(newGroup);
-    navigate("/community");
+    navigate("/community/main");
   };
-
 
   return (
     <div className="create-group-page">

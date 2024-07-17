@@ -1,34 +1,33 @@
-import React, { lazy, Suspense } from "react";
-
-import Loading from "../components/Loading";
+import React, { lazy, Suspense } from "react"
+import Loading from "../components/Loading"
 
 const CommunityItem = lazy(() =>
   import("../page/community/components/CommunityItem")
-);
+)
 const CommunityProvider = lazy(() =>
   import("../page/community/components/CommunityProvider")
-);
+)
 const CreateGroup = lazy(() =>
   import("../page/community/components/CreateGroup")
-);
+)
 const CommunityMainPage = lazy(() =>
   import("../page/community/components/CommunityMainPage")
-);
+)
 const CommunityHomePage = lazy(() =>
   import("../page/community/components/CommunityHomePage")
-);
+)
 
 const CommunityShowFollwers = lazy(() =>
   import("../page/community/components/CommunityShowFollwers")
-);
+)
 const CommunityShowAddFreind = lazy(() =>
   import("../page/community/components/CommunityShowAddFreind")
-);
+)
 const CommunityShowProfile = lazy(() =>
   import("../page/community/components/CommunityShowProfile")
-);
+)
 
-const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
+const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"))
 
 const communityRouter = [
   {
@@ -96,5 +95,6 @@ const communityRouter = [
       </Suspense>
     ),
   },
-];
-export default communityRouter;
+]
+
+export default communityRouter

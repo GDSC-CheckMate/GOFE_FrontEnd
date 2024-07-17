@@ -1,7 +1,7 @@
 // src/page/community/components/CommunityHeader.jsx
 
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from "react"
+import { NavLink } from "react-router-dom"
 
 const CommunityHeader = () => {
   return (
@@ -28,7 +28,7 @@ const CommunityHeader = () => {
         <div className="mypage-root-line" />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CommunityHeader;
+export default CommunityHeader

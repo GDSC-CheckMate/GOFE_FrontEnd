@@ -1,13 +1,13 @@
-import React from "react";
-import CommunityHeader from "./CommunityHeader";
-import CommunityProfilesList from "./CommunityProfilesList";
-import CommunitySearch from "./CommunitySearch";
+import React from "react"
+import CommunityHeader from "./CommunityHeader"
+import CommunityProfilesList from "./CommunityProfilesList"
+import CommunitySearch from "./CommunitySearch"
 
-import CommunityHomeMadeGroup from "./CommunityHomeMadeGroup";
+import CommunityHomeMadeGroup from "./CommunityHomeMadeGroup"
 
-import CommunityHomeKeyword from "./CommunityHomeKeyword";
-import CommunityHomeRecommend from "./CommunityHomeRecommend";
-import CommunityHomeJoin from "./CommunityHomeJoin";
+import CommunityHomeKeyword from "./CommunityHomeKeyword"
+import CommunityHomeRecommend from "./CommunityHomeRecommend"
+import CommunityHomeJoin from "./CommunityHomeJoin"
 
 const CommunityHomePage = () => {
   return (
@@ -22,7 +22,7 @@ const CommunityHomePage = () => {
         <CommunityHomeJoin />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CommunityHomePage;
+export default CommunityHomePage

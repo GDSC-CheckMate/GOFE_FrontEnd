@@ -53,11 +53,11 @@ const CommunityShowFollwers = () => {
   const totalfollowers = followerlist ? followerlist.length : 0;
 
   return (
-    <div>
+    <div className="community-show-container-view">
       <div className="community-show-profile-follow-header-container-box">
         <div
           className="community-show-profile-follow-header-back-icon"
-          onClick={() => navigate("/CommunityHomePage")}
+          onClick={() => navigate("/community/CommunityHomePage")}
         >
           <Back />
         </div>

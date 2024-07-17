@@ -11,7 +11,7 @@ const CommunityMainPage = () => {
   const noCommuntiyHeaderPaths = [
     "/community/communityShowProfile",
     "/community/communityShowFollwers",
-    "/community/communityShowAddFreind",
+    "/community/addFreind",
   ];
 
   // 현재 location이랑 같은지 확인

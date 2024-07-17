@@ -23,11 +23,11 @@ const CommunityShowAddFreind = () => {
   const navigate = useNavigate();
   const path = location.pathname;
   return (
-    <div>
+    <div className="community-show-container-view">
       <div className="community-show-profile-follow-header-container-box">
         <div
           className="community-show-profile-follow-header-back-icon"
-          onClick={() => navigate("/CommunityHomePage")}
+          onClick={() => navigate("/community/home")}
         >
           <Back />
         </div>

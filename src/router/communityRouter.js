@@ -99,13 +99,14 @@ const communityRouter = [
     ),
   },
   {
-    path: "communityShowAddFreind",
+    path: "addFreind",
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityShowAddFreind />
       </Suspense>
     ),
-
+  },
+  {
     path: "group/:groupId",
     element: (
       <Suspense fallback={<Loading />}>
@@ -146,7 +147,6 @@ const communityRouter = [
         ),
       },
     ],
-
   },
 ];
 

@@ -42,7 +42,7 @@ const CommunityShowProfile = () => {
   const totalProfiles = followlist ? followlist.length : 0;
 
   return (
-    <div>
+    <div className="community-show-container-view">
       <div className="community-show-profile-follow-header-container-box">
         <div
           className="community-show-profile-follow-header-back-icon"

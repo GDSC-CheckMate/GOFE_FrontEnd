@@ -1,7 +1,7 @@
-import React from "react";
-import "./scss/style.scss";
-import { RouterProvider } from "react-router-dom";
-import router from "./router";
+import React from "react"
+import "./scss/style.scss"
+import { RouterProvider } from "react-router-dom"
+import router from "./router"
 // import { createStore } from "redux";
 // import rootReducer from "./redux"
 
@@ -15,7 +15,7 @@ const App = () => {
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

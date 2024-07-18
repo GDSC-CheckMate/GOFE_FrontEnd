@@ -47,7 +47,7 @@ const CreateGroup = () => {
       image: profileImage || null,
       badge: null,
     };
-    addGroup(newGroup);
+    dispatch(addGroup(newGroup));
     navigate("/community/main");
   };
 

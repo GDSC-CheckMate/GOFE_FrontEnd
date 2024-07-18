@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React from 'react';
 import CommunityMadeGroup from "./CommunityMadeGroup";
 import CommunityItem from "./CommunityItem";
-import { CommunityContext } from "./CommunityProvider";
+import { useSelector } from "react-redux";
 
 const ComMyPage = () => {
-  const { groups } = useContext(CommunityContext);
+  const groups = useSelector((state) => state.community.groups);
+  console.log(groups);
   return (
     <div className="community-main-view-all">
       <CommunityMadeGroup />

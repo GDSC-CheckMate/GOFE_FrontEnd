@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 
 const Mypageheader = () => {
   return (
-    <div>
-      <div className="mypage">
-        <div className="mypage-root">
+    <div className="mypage-header-container">
+      <div className="mypage-header-box">
+        <div className="mypage-header-root">
           <NavLink
-            to="/ShowMypage"
+            to="/mypage/showmypage"
             className={({ isActive }) =>
               isActive ? "nav-link underline" : "nav-link"
             }
@@ -15,7 +15,7 @@ const Mypageheader = () => {
             내정보
           </NavLink>
           <NavLink
-            to="/ShowAlarm"
+            to="/mypage/showalarm"
             className={({ isActive }) =>
               isActive ? "nav-link underline" : "nav-link"
             }

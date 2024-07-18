@@ -1,32 +1,44 @@
-.mypage {
-  width: 55%;
-  position: fixed;
-  background-color: white;
-  top: 0;
-  z-index: 9;
+.mypage-page {
+  padding: 0rem;
+  @include column-flexbox(start, start);
 
-  @media screen and (max-width: 480px) {
+  .mypage-header-container {
+    position: sticky;
+    top: 0;
     width: 100%;
+    height: 88px;
+    z-index: 10;
+    background-color: white;
+
+    .mapage-header-box {
+      @include inline-flexbox(center, center);
+      padding: 0 32px;
+
+      @media screen and (max-width: 480px) {
+        width: 100%;
+        padding: 0 16px; /* Adjust padding for small screens */
+      }
+    }
+  }
+}
+
+.mypage-header-root {
+  @include inline-flexbox(center, start);
+  gap: 3.5rem;
+  margin-top: 61px;
+  margin-left: 75px;
+  margin-right: 75px;
+  @media screen and (max-width: 360px) {
+    gap: 15%;
+    align-items: center;
   }
 
-  .mypage-root {
-    @include inline-flexbox(center, start);
-    gap: 3.5rem;
-    margin-top: 61px;
-    margin-left: 75px;
-    margin-right: 75px;
-    @media screen and (max-width: 360px) {
-      gap: 15%;
-      align-items: center;
-    }
+  .nav-link {
+    @include _nav-link();
+  }
 
-    .nav-link {
-      @include _nav-link();
-    }
-
-    .nav-link.underline {
-      @include _nav-link_under-line();
-    }
+  .nav-link.underline {
+    @include _nav-link_under-line();
   }
 }
 .mypage-root-line {
@@ -37,7 +49,6 @@
 .mypage-profile {
   display: flex;
   width: 100%;
-  margin-top: 87px;
 
   .mypage-profile-picture {
     @include box-size(5.1087rem, 5.1087rem);
@@ -188,5 +199,4 @@
   }
 }
 .mypage-show-alarm-main-container-box {
-  margin-top: 93px;
 }

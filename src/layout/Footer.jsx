@@ -63,9 +63,13 @@ const Footer = () => {
           </div>
           <div
             className="footer-item footer-item-right"
-            onClick={() => navigate("/mypage")}
+            onClick={() => navigate("/mypage/showmypage")}
           >
-            {path === "/mypage" ? <ActiveMypageIcon /> : <MypageIcon />}
+            {path === "/mypage/showmypage" || path === "/mypage/showalarm" ? (
+              <ActiveMypageIcon />
+            ) : (
+              <MypageIcon />
+            )}
           </div>
         </div>
       ) : (

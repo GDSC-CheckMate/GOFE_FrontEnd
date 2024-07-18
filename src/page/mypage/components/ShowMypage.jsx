@@ -21,8 +21,6 @@ const ShowMypage = () => {
   const { groups } = useContext(CommunityContext);
   return (
     <div>
-      <Mypageheader />
-
       <div className="mypage-profile">
         <div className="mypage-profile-picture"></div>
         <div className="mypage-profile-box">
@@ -35,11 +33,11 @@ const ShowMypage = () => {
 
       <div className="mypage-profile-appeal-all">
         <div className="mypage-profile-appeal-mail">
-          <Link to="/MypageMessage">
+          <Link to="/mypage/message">
             <div className="mypage-profile-appeal-mail-box">
               <div
                 className="mypage-profile-appeal-mail-icon"
-                onClick={() => navigate("/MypageMessage")}
+                onClick={() => navigate("/mypage/message")}
               >
                 {path === "/" ? <Activemail /> : <Mail />}
               </div>
@@ -49,12 +47,12 @@ const ShowMypage = () => {
         </div>
 
         <div className="mypage-profile-appeal-like">
-          <Link to="/MypageLike">
+          <Link to="/mypage/like">
             <div className="mypage-profile-appeal-like-box">
               <div className="mypage-profile-appeal-like-icon-box-num">
                 <div
                   className="mypage-profile-appeal-like-icon"
-                  onClick={() => navigate("/MypageLike")}
+                  onClick={() => navigate("/mypage/like")}
                 >
                   {path === "/" ? <Activeheart /> : <Heart />}
                 </div>
@@ -67,7 +65,7 @@ const ShowMypage = () => {
       </div>
 
       <div className="mypage-profile-edit">
-        <Link to="/MypageEdit">프로필 편집</Link>
+        <Link to="/mypage/edit">프로필 편집</Link>
       </div>
       <div className="mypage-divide-line"></div>
       <div className="mypage-community-section">

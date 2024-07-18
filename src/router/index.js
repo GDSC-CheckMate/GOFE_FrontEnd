@@ -1,21 +1,18 @@
-import React, { lazy, Suspense } from "react";
-import { createBrowserRouter } from "react-router-dom";
-import Loading from "../components/Loading";
-import Layout from "../layout/Layout";
-import CommunityProvider from "../page/community/components/CommunityProvider";
-import mypageRouter from "./mypageRouter";
-import communityRouter from "./communityRouter";
+import React, { lazy, Suspense } from "react"
+import { createBrowserRouter } from "react-router-dom"
+import Loading from "../components/Loading"
+import Layout from "../layout/Layout"
+import CommunityProvider from "../page/community/components/CommunityProvider"
+import mypageRouter from "./mypageRouter"
+import communityRouter from "./communityRouter"
 
-const Main = lazy(() => import("../page/main"));
-
-const Achievement = lazy(() => import("../page/achievement"));
+const Auth = lazy(() => import("../page/auth"))
+const Main = lazy(() => import("../page/main"))
+const Achievement = lazy(() => import("../page/achievement"))
 const Community = lazy(() =>
   import("../page/community/components/CommunityMainPage")
-);
-const CommunityHomePage = lazy(() =>
-  import("../page/community/components/CommunityHomePage")
-);
-const Mypage = lazy(() => import("../page/mypage"));
+)
+const Mypage = lazy(() => import("../page/mypage"))
 
 const router = createBrowserRouter([
   {
@@ -23,6 +20,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Auth />
+          </Suspense>
+        ),
+      },
+      {
+        path: "main",
         element: (
           <Suspense fallback={<Loading />}>
             <Main />
@@ -59,6 +64,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 
-export default router;
+export default router

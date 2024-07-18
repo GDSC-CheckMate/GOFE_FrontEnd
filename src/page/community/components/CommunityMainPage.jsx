@@ -1,8 +1,5 @@
-import React, { useContext } from "react";
-import CommunityItem from "./CommunityItem";
-import { CommunityContext } from "./CommunityProvider";
+import React from "react";
 import CommunityHeader from "./CommunityHeader";
-import CommunityMadeGroup from "./CommunityMadeGroup";
 import { Outlet, useLocation } from "react-router-dom";
 
 const CommunityMainPage = () => {

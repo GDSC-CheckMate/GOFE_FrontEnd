@@ -46,6 +46,9 @@ const CreateGroup = () => {
       }),
       image: profileImage || null,
       badge: null,
+      startDate: goalStartDate,
+      duration: parseInt(goalDuration),
+      members: parseInt(members),
     };
     dispatch(addGroup(newGroup));
     navigate("/community/main");

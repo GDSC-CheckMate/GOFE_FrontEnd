@@ -683,13 +683,12 @@
   flex-direction: column;
   height: 100vh; /* 전체 뷰 높이를 차지하도록 설정 */
   overflow: hidden; /* 내부 스크롤을 위해 숨김 처리 */
-  width: 100%;
 }
 
 .group-detail-page {
   flex: 1;
   overflow-y: auto; /* 스크롤 가능하도록 설정 */
-  padding: 30px 16px 16px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
+  padding: 122px 16px 16px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
   background: #fff;
   width: 100%;
 }
@@ -814,14 +813,13 @@
 .group-detail-header-tabs {
   position: fixed; /* 상단 고정 */
   top: 0;
-  left: 0;
-  right: 0;
-  //transform: translateX(-52%);
+  left: 50%;
+  transform: translateX(-52%);
   background-color: #fff;
-  width: 100%;
   z-index: 1000;
   padding: 0 16px; /* 좌우 패딩 추가 */
   box-sizing: border-box; /* 박스 모델을 패딩과 테두리를 포함한 크기로 설정 */
+  width: 100%;
 }
 
 .group-detail-header {

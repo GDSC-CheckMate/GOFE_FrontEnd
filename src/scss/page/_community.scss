@@ -1077,6 +1077,12 @@
       height: auto; // 높이를 자동으로 조절
       min-height: 38px; // 최소 높이 설정
       max-height: 100px; // 최대 높이 설정
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .textarea::-webkit-scrollbar {
+      display: none;
     }
 
     .send-button {

@@ -965,7 +965,7 @@
       }
 
       .time {
-        text-align: left;
+        text-align: right;
       }
     }
 
@@ -1032,12 +1032,21 @@
     box-sizing: border-box; // 패딩과 테두리를 포함한 전체 크기를 계산
     height: 100px; // 입력창 높이 자동 조절
 
+    .plus-button {
+      padding: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      img {
+        width: 45px;
+        height: 45px;
+      }
+    }
+
     textarea {
       flex-grow: 1;
       padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 0px;
-      margin-right: 8px;
       resize: none; // 사용자가 크기 조절을 못하게 설정
       overflow-y: auto;
       height: auto; // 높이를 자동으로 조절
@@ -1045,23 +1054,14 @@
       max-height: 100px; // 최대 높이 설정
     }
 
-    button {
-      padding: 8px 8px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 0px;
-      cursor: pointer;
-    }
-
-    .plus-button {
+    .send-button {
       background: none;
       border: none;
       cursor: pointer;
 
       img {
-        width: 24px;
-        height: 24px;
+        width: 45px;
+        height: 45px;
       }
     }
   }

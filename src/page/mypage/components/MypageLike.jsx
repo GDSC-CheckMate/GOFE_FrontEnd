@@ -1,7 +1,19 @@
 import React from "react";
+import Mypageviewheader from "./Mypageviewheader";
+import Record_of_like from "./like/Record_of_like";
+import Record from "./like/Record";
 
 const MypageLike = () => {
-  return <div>MypageLike</div>;
+  return (
+    <div className="mypage-like-container-box">
+      <div className="mypage-like-header">
+        <Mypageviewheader name="받은 응원" />
+      </div>
+      <div className="mypage-like-record-list">
+        <Record day="최근 받은 응원" />
+      </div>
+    </div>
+  );
 };
 
 export default MypageLike;

@@ -22,9 +22,13 @@ const Record = (props) => {
   return (
     <div className="mypage-like-record-list-container-box">
       <div className="mypage-like-record-list-title">{props.day}</div>
-      {fake_like_1.map((recent) => (
-        <Record_of_like key={recent.id} recent={recent} />
-      ))}
+      {props.day === "최근 받은 응원"
+        ? fake_like_1.map((recent) => (
+            <Record_of_like key={recent.id} recent={recent} />
+          ))
+        : fake_like_2.map((recent) => (
+            <Record_of_like key={recent.id} recent={recent} />
+          ))}
     </div>
   );
 };

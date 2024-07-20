@@ -11,6 +11,8 @@ const MypageLike = () => {
       </div>
       <div className="mypage-like-record-list">
         <Record day="최근 받은 응원" />
+
+        <Record day="최근 7일" />
       </div>
     </div>
   );

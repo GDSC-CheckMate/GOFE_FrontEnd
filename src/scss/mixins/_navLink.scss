@@ -14,3 +14,12 @@
   color: #000;
   border-bottom: 2px solid #000;
 }
+
+@mixin fixed_header($w: 100%, $h: 88px, $c: white) {
+  position: sticky;
+  top: 0;
+  width: $w;
+  height: $h;
+  z-index: 10;
+  background-color: $c;
+}

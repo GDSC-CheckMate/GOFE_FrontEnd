@@ -4,7 +4,6 @@ import Mypageheader from "./Mypageheader";
 const ShowAlarm = () => {
   return (
     <div>
-      <Mypageheader />
       <div className="mypage-show-alarm-main-container-box">ui작업 필요</div>
     </div>
   );

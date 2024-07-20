@@ -1,4 +1,3 @@
-
 import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loading from "../components/Loading";
@@ -22,8 +21,6 @@ const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      ...mypageRouter,
-
       {
         path: "",
         element: (
@@ -58,6 +55,7 @@ const router = createBrowserRouter([
             <Mypage />
           </Suspense>
         ),
+        children: mypageRouter,
       },
     ],
   },

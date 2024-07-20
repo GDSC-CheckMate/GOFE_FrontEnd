@@ -1,32 +1,32 @@
-import { useLocation, useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { setNewRoutine } from "../redux/routine"
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setNewRoutine } from "../redux/routine";
 
-import { ReactComponent as HomeIcon } from "../assets/footer/Home.svg"
-import { ReactComponent as ActiveHomeIcon } from "../assets/footer/HomeActive.svg"
-import { ReactComponent as AchievementIcon } from "../assets/footer/Achievement.svg"
-import { ReactComponent as ActiveAchievementIcon } from "../assets/footer/AchievementActive.svg"
-import { ReactComponent as CommunityIcon } from "../assets/footer/Community.svg"
-import { ReactComponent as ActiveCommunityIcon } from "../assets/footer/CommunityActive.svg"
-import { ReactComponent as MypageIcon } from "../assets/footer/Mypage.svg"
-import { ReactComponent as ActiveMypageIcon } from "../assets/footer/MypageActive.svg"
-import { useEffect } from "react"
+import { ReactComponent as HomeIcon } from "../assets/footer/Home.svg";
+import { ReactComponent as ActiveHomeIcon } from "../assets/footer/HomeActive.svg";
+import { ReactComponent as AchievementIcon } from "../assets/footer/Achievement.svg";
+import { ReactComponent as ActiveAchievementIcon } from "../assets/footer/AchievementActive.svg";
+import { ReactComponent as CommunityIcon } from "../assets/footer/Community.svg";
+import { ReactComponent as ActiveCommunityIcon } from "../assets/footer/CommunityActive.svg";
+import { ReactComponent as MypageIcon } from "../assets/footer/Mypage.svg";
+import { ReactComponent as ActiveMypageIcon } from "../assets/footer/MypageActive.svg";
+import { useEffect } from "react";
 
 const Footer = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const path = location.pathname
-  const dispatch = useDispatch()
+  const location = useLocation();
+  const navigate = useNavigate();
+  const path = location.pathname;
+  const dispatch = useDispatch();
 
   const selectedSection = useSelector(
     (state) => state.selectedSection.selectedSection
-  )
+  );
 
-  useEffect(() => {}, [selectedSection])
+  useEffect(() => {}, [selectedSection]);
 
   const handleAddRoutine = () => {
-    dispatch(setNewRoutine({ time: "", title: "", recurringDays: [] }))
-  }
+    dispatch(setNewRoutine({ time: "", title: "", recurringDays: [] }));
+  };
 
   return (
     <div className="footer-container">
@@ -50,7 +50,12 @@ const Footer = () => {
             className="footer-item"
             onClick={() => navigate("/community/main")}
           >
-            {path === "/community" ? (
+            {path === "/community/main" ||
+            path === "/community/home" ||
+            path === "/community/communityShowProfile" ||
+            path === "/community/communityShowFollwers" ||
+            path === "/community/addFreind" ||
+            path === "/community/creategroup" ? (
               <ActiveCommunityIcon />
             ) : (
               <CommunityIcon />
@@ -58,9 +63,13 @@ const Footer = () => {
           </div>
           <div
             className="footer-item footer-item-right"
-            onClick={() => navigate("/mypage")}
+            onClick={() => navigate("/mypage/showmypage")}
           >
-            {path === "/mypage" ? <ActiveMypageIcon /> : <MypageIcon />}
+            {path === "/mypage/showmypage" || path === "/mypage/showalarm" ? (
+              <ActiveMypageIcon />
+            ) : (
+              <MypageIcon />
+            )}
           </div>
         </div>
       ) : (
@@ -74,7 +83,7 @@ const Footer = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

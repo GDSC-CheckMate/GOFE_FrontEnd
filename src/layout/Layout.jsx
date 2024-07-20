@@ -13,7 +13,7 @@ const Layout = () => {
   useSelector((state) =>
     state.community.groups.find((g) => g.id === parseInt(groupId))
   );
-  const noFooterPaths = [`/group`];
+  const noFooterPaths = [`/community/group`];
 
   // 현재 location이랑 같은지 확인
   const showFooter = !noFooterPaths.some((path) =>
@@ -23,10 +23,7 @@ const Layout = () => {
   return (
     <>
       <div
-        className={
-          showFooter ? "content-container" : "nofooter-content-container"
-        }
-      >
+        className={showFooter ? "content-container" : "nofooter-content-container"}>
         <Outlet />
       </div>
       {showFooter && <Footer />}

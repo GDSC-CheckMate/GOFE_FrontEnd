@@ -291,15 +291,19 @@
   }
 }
 
-.community-show-profile-follow-header-container-box {
-  display: flex;
-  padding: 44px 0px 0px 0px;
+.community-show-container-view {
+  width: 100%;
 
-  .community-show-profile-follow-header-back-icon {
-    padding: 6px 0 6px 20px;
-  }
-  .community-show-profile-follow-header-title {
-    margin: 0 0 0 36%;
+  .community-show-profile-follow-header-container-box {
+    display: flex;
+    padding: 44px 0px 0px 0px;
+
+    .community-show-profile-follow-header-back-icon {
+      padding: 6px 0 6px 20px;
+    }
+    .community-show-profile-follow-header-title {
+      margin: 0 0 0 37.5%;
+    }
   }
 }
 
@@ -686,6 +690,7 @@
   overflow-y: auto; /* 스크롤 가능하도록 설정 */
   padding: 122px 16px 16px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
   background: #fff;
+  width: 100%;
 }
 
 .group-detail-body {
@@ -812,9 +817,9 @@
   transform: translateX(-52%);
   background-color: #fff;
   z-index: 1000;
-  width: inherit;
   padding: 0 16px; /* 좌우 패딩 추가 */
   box-sizing: border-box; /* 박스 모델을 패딩과 테두리를 포함한 크기로 설정 */
+  width: 100%;
 }
 
 .group-detail-header {
@@ -932,9 +937,7 @@
     padding: 16px;
     overflow-y: auto;
     background-color: #f0f0f0; // 배경색을 좀 더 밝게 조정
-    max-height: calc(
-      100vh - 222px
-    ); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
+    max-height: calc(100vh - 222px); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
     width: 100%;
     box-sizing: border-box;
   }

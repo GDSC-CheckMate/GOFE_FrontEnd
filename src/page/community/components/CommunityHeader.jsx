@@ -23,8 +23,8 @@ const CommunityHeader = ({ headerRef }) => {
             커뮤홈
           </NavLink>
         </div>
-        <div className="mypage-root-line" />
       </div>
+      <div className="mypage-root-line" />
     </div>
   );
 };

@@ -1,44 +1,67 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ChatInput from './ChatInput';
+import NonChatLikeButton from "../../../assets/community/NonChatLikeButton.svg";
+import YesChatLikeButton from "../../../assets/community/YesChatLikeButton.svg";
 
 const GroupChat = () => {
   const [messages, setMessages] = useState([
-    { text: '안녕하세요 Lundean 님 ~', sender: 'other', time: '오전 2:14', userName: '용zi찬' },
-    { text: '안녕하세요 Lundean 님 ~', sender: 'other', time: '오전 2:14', userName: '가원' },
-    { text: '안녕하세요 Lundean 님 ~', sender: 'other', time: '오전 2:14', userName: '승찬' },
+    { text: '안녕하세요 Lundean 님 ~', sender: 'other', time: '오전 2:14', userName: '용zi찬', likes: 0, liked: false },
+    { text: '안녕하세요 Lundean 님 ~', sender: 'other', time: '오전 2:14', userName: '가원', likes: 0, liked: false },
+    { text: '안녕하세요 Lundean 님 ~', sender: 'other', time: '오전 2:14', userName: '승찬', likes: 0, liked: false },
+    { text: '쏟아지는 맘을 멈출수가 없을까~ 너의 작은 인사 한마디에 요란해져서, 네 맘의 비밀번호를 눌러 열고 싶지만', sender: 'other', time: '오전 2:14', userName: '쵸단', likes: 0, liked: false},
   ]);
 
   const chatContentRef = useRef(null);
+  const wasMessageAdded = useRef(false);
 
   const handleSend = (message) => {
-    setMessages(prevMessages => [
-      ...prevMessages,
-      {
-        text: message,
-        sender: 'user',
-        time: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }),
-        userName: 'Lundean' // 여기서 유저 이름을 고정적으로 설정했지만, 실제로는 로그인한 유저의 이름을 가져와야 합니다.
-      }
-    ]);
+    setMessages(prevMessages => {
+      wasMessageAdded.current = true;
+      return [
+        ...prevMessages,
+        {
+          text: message,
+          sender: 'user',
+          time: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }),
+          userName: 'Lundean',
+          likes: 0,
+          liked: false
+        }
+      ];
+    });
   };
 
   const handleFileUpload = (file) => {
-    setMessages(prevMessages => [
-      ...prevMessages,
-      {
-        text: file.name,
-        type: 'file',
-        sender: 'user',
-        time: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }),
-        userName: 'Lundean' // 여기서도 유저 이름을 고정적으로 설정
-      }
-    ]);
+    setMessages(prevMessages => {
+      wasMessageAdded.current = true;
+      return [
+        ...prevMessages,
+        {
+          text: file.name,
+          type: 'file',
+          sender: 'user',
+          time: new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' }),
+          userName: 'Lundean',
+          likes: 0,
+          liked: false
+        }
+      ];
+    });
+  };
+
+  const handleLike = (index) => {
+    setMessages(prevMessages =>
+      prevMessages.map((msg, i) =>
+        i === index ? { ...msg, liked: !msg.liked, likes: msg.liked ? msg.likes - 1 : msg.likes + 1 } : msg
+      )
+    );
+    wasMessageAdded.current = false;
   };
 
   useEffect(() => {
-    // 새 메시지가 추가되면 가장 아래로 스크롤
-    if (chatContentRef.current) {
+    if (wasMessageAdded.current && chatContentRef.current) {
       chatContentRef.current.scrollTop = chatContentRef.current.scrollHeight;
+      wasMessageAdded.current = false;
     }
   }, [messages]);
 
@@ -53,8 +76,18 @@ const GroupChat = () => {
               <div className="message">
                 {msg.text}
               </div>
-              <div className="time">{msg.time}</div>
+              <div className="time">
+                {msg.time}
+                {msg.sender === 'other' && msg.likes > 0 && (
+                  <span className="likes-count"> {msg.likes} Likes</span>
+                )}
+              </div>
             </div>
+            {msg.sender === 'other' && (
+              <button className="like-button" onClick={() => handleLike(index)}>
+                <img src={msg.liked ? YesChatLikeButton : NonChatLikeButton} alt="like" />
+              </button>
+            )}
           </div>
         ))}
       </div>

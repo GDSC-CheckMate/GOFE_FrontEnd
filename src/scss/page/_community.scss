@@ -959,7 +959,13 @@
     &.user {
       justify-content: flex-end;
 
+      .message-content {
+        order: 2;  // 메시지 컨텐츠를 두번째로 배치
+      }
+
       .message {
+        display: flex;
+        align-items: center;
         background-color: #f0e991; // 사용자가 보낸 메시지의 배경색
         text-align: left;
       }
@@ -979,6 +985,19 @@
 
       .time {
         text-align: left;
+      }
+
+      .like-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 8px;
+        align-self: center; 
+  
+        img {
+          width: 40px;
+          height: 40px;
+        }
       }
     }
 
@@ -1013,6 +1032,12 @@
         font-size: 0.8rem;
         color: #999;
         margin-top: 4px;
+      }
+
+      .likes-count {
+        margin-left: 8px;
+        font-size: 0.8rem;
+        color: #999;
       }
     }
   }
@@ -1119,3 +1144,4 @@
     }
   }
 }
+

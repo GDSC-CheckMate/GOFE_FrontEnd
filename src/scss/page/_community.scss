@@ -814,9 +814,9 @@
   position: fixed; /* 상단 고정 */
   top: 0;
   left: 50%;
-  transform: translateX(-52%);
+  transform: translateX(-50%);
   background-color: #fff;
-  z-index: 1000;
+  z-index: 9999;
   padding: 0 16px; /* 좌우 패딩 추가 */
   box-sizing: border-box; /* 박스 모델을 패딩과 테두리를 포함한 크기로 설정 */
   width: 100%;
@@ -940,6 +940,12 @@
     max-height: calc(100vh - 222px); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
     width: 100%;
     box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .group-chat-content::-webkit-scrollbar {
+    display: none;
   }
 
   .group-chat-message {

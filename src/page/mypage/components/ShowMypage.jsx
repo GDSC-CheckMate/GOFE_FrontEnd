@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
-import Community from "./Community";
-import Mypageheader from "./Mypageheader";
 
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -13,12 +11,26 @@ import { ReactComponent as Heart } from "../../../assets/mypage/Heart.svg";
 
 import CommunityHomeItem from "../../community/components/CommunityHomeItem";
 
-import { CommunityContext } from "../../community/components/CommunityProvider";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchGroups } from "../../../redux/communitySlice";
 const ShowMypage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
-  const { groups } = useContext(CommunityContext);
+  const groups = useSelector((state) => state.community.groups);
+  const dispatch = useDispatch();
+
+  const groupStatus = useSelector((state) => state.community.status);
+
+  useEffect(() => {
+    if (groupStatus === "idle") {
+      dispatch(fetchGroups());
+    }
+  }, [groupStatus, dispatch]);
+
+  const handleGroupClick = (groupId) => {
+    navigate(`/community/group/${groupId}/home`);
+  };
   return (
     <div>
       <div className="mypage-profile">
@@ -76,7 +88,9 @@ const ShowMypage = () => {
         </div>
         {groups.length > 0 ? (
           groups.map((group) => (
-            <CommunityHomeItem key={group.id} group={group} />
+            <div key={group.id} onClick={() => handleGroupClick(group.id)}>
+              <CommunityHomeItem group={group} />
+            </div>
           ))
         ) : (
           <p>참여중인 커뮤니티를 찾을 수 없음</p>

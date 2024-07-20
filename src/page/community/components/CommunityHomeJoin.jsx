@@ -1,9 +1,26 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { CommunityContext } from "./CommunityProvider";
 import CommunityHomeItem from "./CommunityHomeItem";
 
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { fetchGroups } from "../../../redux/communitySlice";
 const CommunityHomeJoin = () => {
-  const { groups } = useContext(CommunityContext);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const groups = useSelector((state) => state.community.groups);
+  const groupStatus = useSelector((state) => state.community.status);
+  console.log(groups);
+
+  useEffect(() => {
+    if (groupStatus === "idle") {
+      dispatch(fetchGroups());
+    }
+  }, [groupStatus, dispatch]);
+
+  const handleGroupClick = (groupId) => {
+    navigate(`/community/group/${groupId}/home`);
+  };
   return (
     <div>
       <div className="mypage-community-section">
@@ -16,7 +33,9 @@ const CommunityHomeJoin = () => {
         <div className="group-list">
           {groups.length > 0 ? (
             groups.map((group) => (
-              <CommunityHomeItem key={group.id} group={group} />
+              <div key={group.id} onClick={() => handleGroupClick(group.id)}>
+                <CommunityHomeItem group={group} />
+              </div>
             ))
           ) : (
             <p>참여중인 커뮤니티를 찾을 수 없음</p>

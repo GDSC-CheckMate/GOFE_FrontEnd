@@ -1151,3 +1151,50 @@
   }
 }
 
+
+//////////////////////////////////
+//////////////////////////////////
+// src/scss/components/_groupNotices.scss
+
+.group-notices {
+  padding: 16px;
+  position: relative;
+  z-index: 1000;
+  min-height: 80vh;
+}
+
+.notice-list {
+  position: relative; /* Ensure this container is the reference point for the edit button */
+  min-height: calc(80vh - 32px); /* Adjust the height considering the padding */
+}
+
+.notice-item {
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+
+.notice-item h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.notice-item p {
+  margin: 4px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.edit-button {
+  background: #e3e4dece;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  position: absolute; /* Ensure this button is absolutely positioned */
+  bottom: 16px; /* Position it 16px from the bottom of the parent container */
+  right: 16px; /* Position it 16px from the right of the parent container */
+}
+
+.edit-button img {
+  width: 55px;
+  height: 55px;
+}

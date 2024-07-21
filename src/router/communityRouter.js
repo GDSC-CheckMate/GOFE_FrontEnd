@@ -37,6 +37,7 @@ const CommunityShowAddFreind = lazy(() =>
 const CommunityShowProfile = lazy(() =>
   import("../page/community/components/CommunityShowProfile")
 );
+const PeekPage = lazy(() => import("../page/mypage/components/PeekPage"));
 
 const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
 
@@ -103,6 +104,14 @@ const communityRouter = [
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityShowAddFreind />
+      </Suspense>
+    ),
+  },
+  {
+    path: "peekpage",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <PeekPage />
       </Suspense>
     ),
   },

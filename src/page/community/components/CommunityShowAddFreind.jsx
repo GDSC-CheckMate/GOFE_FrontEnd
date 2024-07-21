@@ -12,16 +12,23 @@ const recomfriend = [
   {
     id: 1,
     name: "이상한 은진씨",
+    followstate: "no",
   },
   {
     id: 2,
     name: "내가 누구게",
+    followstate: "no",
   },
 ];
 const CommunityShowAddFreind = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
+
+  const handleProfileClick = (profile) => {
+    navigate("/community/peekpage", { state: { profile } });
+  };
+
   return (
     <div className="community-show-container-view">
       <div className="community-show-profile-follow-header-container-box">
@@ -55,10 +62,12 @@ const CommunityShowAddFreind = () => {
       <div>
         {recomfriend &&
           recomfriend.map((recomfriend) => (
-            <CommunityShowRecom_Friend
-              key={recomfriend}
-              recomfriend={recomfriend}
-            />
+            <div
+              onClick={() => handleProfileClick(recomfriend)}
+              key={recomfriend.id}
+            >
+              <CommunityShowRecom_Friend recomfriend={recomfriend} />
+            </div>
           ))}
       </div>
     </div>

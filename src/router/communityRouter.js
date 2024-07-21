@@ -37,8 +37,10 @@ const CommunityShowAddFreind = lazy(() =>
 const CommunityShowProfile = lazy(() =>
   import("../page/community/components/CommunityShowProfile")
 );
-
 const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
+const GroupCreateNotice = lazy(() =>
+  import("../page/community/components/GroupCreateNotice")
+);
 
 const communityRouter = [
   {
@@ -143,6 +145,14 @@ const communityRouter = [
         element: (
           <Suspense fallback={<Loading />}>
             <GroupNotices />
+          </Suspense>
+        ),
+      },
+      {
+        path: "create-notices",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GroupCreateNotice />
           </Suspense>
         ),
       },

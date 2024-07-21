@@ -19,6 +19,7 @@ const CommunityMainPage = () => {
     `/community/group/${groupId}/chat`,
     `/community/group/${groupId}/achievements`,
     `/community/group/${groupId}/notices`,
+    `/community/group/${groupId}/create-notices`
   ];
 
   // 현재 location이랑 같은지 확인

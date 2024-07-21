@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 const CommunityMainPage = () => {
   const location = useLocation();
   // 유저정보 모달을 안띄우고 싶은 라우팅을 설정
-  const {groupId} = useParams();
+  const { groupId } = useParams();
   useSelector((state) =>
     state.community.groups.find((g) => g.id === parseInt(groupId))
   );
@@ -19,6 +19,7 @@ const CommunityMainPage = () => {
     `/community/group/${groupId}/chat`,
     `/community/group/${groupId}/achievements`,
     `/community/group/${groupId}/notices`,
+    "/community/peekpage",
   ];
 
   // 현재 location이랑 같은지 확인

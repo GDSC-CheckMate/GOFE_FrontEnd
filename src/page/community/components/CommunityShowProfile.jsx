@@ -3,7 +3,6 @@ import { ReactComponent as Back } from "../../../assets/community/Back.svg";
 import { useNavigate } from "react-router-dom";
 import CommunityShowProfileMenu from "./CommunityShowProfileMenu";
 import CommunityShowFollowList from "./CommunityShowFollowList";
-import { useLocation } from "react-router-dom";
 
 const followlist = [
   {
@@ -27,11 +26,11 @@ const followlist = [
     name: "현용찬",
   },
   {
-    id: 4,
+    id: 6,
     name: "용찬",
   },
   {
-    id: 4,
+    id: 7,
     name: "용차니",
   },
 ];
@@ -40,6 +39,10 @@ const CommunityShowProfile = () => {
   const navigate = useNavigate();
 
   const totalProfiles = followlist ? followlist.length : 0;
+
+  const handleProfileClick = (profile) => {
+    navigate("/community/peekpage", { state: { profile } });
+  };
 
   return (
     <div className="community-show-container-view">
@@ -58,10 +61,12 @@ const CommunityShowProfile = () => {
       </div>
       {followlist &&
         followlist.map((follow_profile) => (
-          <CommunityShowFollowList
-            key={follow_profile}
-            follow_profile={follow_profile}
-          />
+          <div
+            onClick={() => handleProfileClick(follow_profile)}
+            key={follow_profile.id}
+          >
+            <CommunityShowFollowList follow_profile={follow_profile} />
+          </div>
         ))}
     </div>
   );

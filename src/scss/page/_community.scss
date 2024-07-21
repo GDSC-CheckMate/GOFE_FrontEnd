@@ -412,6 +412,75 @@
   color: #fff;
 }
 
+.community-profile-appeal-all {
+  display: flex;
+
+  .community-profile-appeal-mail {
+    @include box-size(40%, 78px);
+    flex-shrink: 0;
+    border-radius: 8px 0px 0px 8px;
+    background: #b4b4b4;
+    margin: 20px 1px 0px auto;
+
+    .community-profile-appeal-mail-box {
+      @include mypage_appeal_box(0.4375rem);
+      margin: 0.8275rem auto 0.8275rem;
+
+      .community-profile-appeal-mail-icon {
+        @include mypage_appeal_box(7px);
+      }
+    }
+  }
+
+  .community-profile-appeal-like {
+    @include box-size(40%, 78px);
+    flex-shrink: 0;
+    border-radius: 0px 8px 8px 0px;
+    background: #b4b4b4;
+    margin: 20px auto 0px 1px;
+
+    .community-profile-appeal-like-box {
+      display: flex;
+      width: 88.613px;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      margin: 13.24px auto 13.24px;
+
+      .community-profile-appeal-like-icon-box-num {
+        display: flex;
+        .community-profile-appeal-like-num {
+          @include custom-font-size(700, 15.471px, white);
+          width: 20.914px;
+          margin: 4.26px 0px 4.26px 4px;
+        }
+      }
+    }
+  }
+}
+
+.community-profile-appeal-text {
+  @include custom-font-size(600, 15px, white);
+  text-align: center;
+}
+
+.community-peekpage-back-buttom {
+  padding: 44px 0px 4px 13px;
+}
+
+.community-follow-box {
+  @include follow-box();
+  border: 1px solid #b2b2b2;
+  margin: 22.07px auto 0px;
+}
+
+.community-unfollow-box {
+  @include follow-box();
+  @include box-radius_with_color(8px, bcolor-4);
+  margin: 22.07px auto 0px;
+  color: #fff;
+}
+
 .tabs {
   display: flex;
   width: 100%;

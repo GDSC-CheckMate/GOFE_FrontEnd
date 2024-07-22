@@ -40,6 +40,9 @@ const CommunityShowProfile = lazy(() =>
 const PeekPage = lazy(() => import("../page/mypage/components/PeekPage"));
 
 const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
+const SearchView = lazy(() =>
+  import("../page/community/components/search/SearchView")
+);
 
 const communityRouter = [
   {
@@ -112,6 +115,14 @@ const communityRouter = [
     element: (
       <Suspense fallback={<Loading />}>
         <PeekPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "searchview",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <SearchView />
       </Suspense>
     ),
   },

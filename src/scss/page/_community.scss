@@ -575,6 +575,65 @@
   font-size: 12px;
   margin-left: auto;
 }
+.community-search-view-container-box {
+  width: 100%;
+  .community-search-view-header-container {
+    display: flex;
+    .community-search-header-back {
+      margin: 70px 0px 0px 20px;
+    }
+
+    .community-search-view-input-container {
+      margin: 54px 0rem 0rem 0px;
+      width: 100%;
+      @include inline-flexbox();
+
+      .community-search-view-command-box {
+        @include box-size(80%, 2.5rem);
+        @include box-radius(3.125rem);
+        @include search-box(0.3125rem 0rem 0rem 0.375rem);
+
+        .community-search-view-input {
+          width: 100%;
+          border: none;
+          outline: none;
+          padding: 0 1rem;
+          font-size: 0.8rem;
+          border-radius: 3.125rem;
+        }
+
+        .community-search-view-command-button {
+          position: absolute;
+          right: 0.625rem;
+          @include inline-flexbox();
+          @include box-size(1.25rem, 1.25rem);
+        }
+      }
+    }
+  }
+  .community-search-view-recent-container {
+    margin: 20px 0px 0px 20px;
+    .community-search-view-recent-title {
+      @include custom-font-size(600, 16px, black);
+    }
+    .community-search-view-recent-keywords {
+      @include custom-font-size(10, 15px, color-5);
+      align-items: center;
+
+      .community-search-view-recent-keyword {
+        display: flex;
+
+        .community-search-view-recent-keyword-content {
+          margin-top: 20px;
+        }
+        .community-search-view-recent-keyword-button {
+          margin-top: 10px;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
 
 /////////////////////////////////
 /////////////////////////////////

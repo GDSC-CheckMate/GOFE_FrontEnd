@@ -16,11 +16,15 @@ const communitySlice = createSlice({
   initialState: {
     groups: [],
     status: "idle",
+    likes: [], // 받은 응원 데이터를 저장할 곳을 빈 배열로 초기화
     error: null,
   },
   reducers: {
     addGroup: (state, action) => {
       state.groups.push(action.payload);
+    },
+    setLikes: (state, action) => {
+      state.likes = action.payload; // 받은 응원 데이터를 업데이트
     },
   },
   extraReducers: (builder) => {
@@ -39,6 +43,6 @@ const communitySlice = createSlice({
   },
 });
 
-export const { addGroup } = communitySlice.actions;
+export const { addGroup, setLikes } = communitySlice.actions;
 
 export default communitySlice.reducer;

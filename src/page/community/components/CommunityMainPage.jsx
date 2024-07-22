@@ -20,6 +20,7 @@ const CommunityMainPage = () => {
     `/community/group/${groupId}/achievements`,
     `/community/group/${groupId}/notices`,
     "/community/peekpage",
+    "/community/searchview",
   ];
 
   // 현재 location이랑 같은지 확인

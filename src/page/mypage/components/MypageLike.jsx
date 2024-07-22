@@ -1,6 +1,5 @@
 import React from "react";
 import Mypageviewheader from "./Mypageviewheader";
-import Record_of_like from "./like/Record_of_like";
 import Record from "./like/Record";
 
 const MypageLike = () => {

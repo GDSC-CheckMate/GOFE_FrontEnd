@@ -17,6 +17,7 @@ const communitySlice = createSlice({
     groups: [],
     status: "idle",
     likes: [], // 받은 응원 데이터를 저장할 곳을 빈 배열로 초기화
+    keyword: "",
     error: null,
   },
   reducers: {
@@ -25,6 +26,9 @@ const communitySlice = createSlice({
     },
     setLikes: (state, action) => {
       state.likes = action.payload; // 받은 응원 데이터를 업데이트
+    },
+    addKeyword: (state, action) => {
+      state.keyword = action.payload; //키워드 상태 업데이트
     },
   },
   extraReducers: (builder) => {
@@ -43,6 +47,6 @@ const communitySlice = createSlice({
   },
 });
 
-export const { addGroup, setLikes } = communitySlice.actions;
+export const { addGroup, setLikes, addKeyword } = communitySlice.actions;
 
 export default communitySlice.reducer;

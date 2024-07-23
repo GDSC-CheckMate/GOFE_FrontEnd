@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CommunityHomeKeywordDetail from "./CommunityHomeKeywordDetail";
+import { useDispatch, useSelector } from "react-redux";
+import { addhot_word } from "../../../redux/communitySlice";
 
 const hot_word = [
   {
@@ -37,9 +39,14 @@ const hot_word = [
 ];
 
 const CommunityHomeKeyword = () => {
+  const hot_words = useSelector((state) => state.community.hot_words);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(addhot_word([...hot_word]));
+  }, [dispatch]);
   return (
     <div className="community-home-keyword-container-box">
-      {hot_word.map((hot) => (
+      {hot_words.map((hot) => (
         <CommunityHomeKeywordDetail key={hot.id} hot={hot} />
       ))}
     </div>

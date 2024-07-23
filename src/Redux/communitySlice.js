@@ -18,6 +18,7 @@ const communitySlice = createSlice({
     status: "idle",
     likes: [], // 받은 응원 데이터를 저장할 곳을 빈 배열로 초기화
     keyword: "",
+    hot_words: [],
     error: null,
   },
   reducers: {
@@ -25,10 +26,13 @@ const communitySlice = createSlice({
       state.groups.push(action.payload);
     },
     setLikes: (state, action) => {
-      state.likes = action.payload; // 받은 응원 데이터를 업데이트
+      state.likes = action.payload;
     },
     addKeyword: (state, action) => {
-      state.keyword = action.payload; //키워드 상태 업데이트
+      state.keyword = action.payload;
+    },
+    addhot_word: (state, action) => {
+      state.hot_words = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -47,6 +51,7 @@ const communitySlice = createSlice({
   },
 });
 
-export const { addGroup, setLikes, addKeyword } = communitySlice.actions;
+export const { addGroup, setLikes, addKeyword, addhot_word } =
+  communitySlice.actions;
 
 export default communitySlice.reducer;

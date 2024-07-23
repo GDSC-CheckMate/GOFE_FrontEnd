@@ -1,7 +1,7 @@
 import React from "react";
 import CommunityHomeKeywordDetail from "./CommunityHomeKeywordDetail";
 
-const keyword = [
+const hot_word = [
   {
     id: 1,
     word: "자기개발",
@@ -39,8 +39,8 @@ const keyword = [
 const CommunityHomeKeyword = () => {
   return (
     <div className="community-home-keyword-container-box">
-      {keyword.map((keywords) => (
-        <CommunityHomeKeywordDetail key={keywords.id} keywords={keywords} />
+      {hot_word.map((hot) => (
+        <CommunityHomeKeywordDetail key={hot.id} hot={hot} />
       ))}
     </div>
   );

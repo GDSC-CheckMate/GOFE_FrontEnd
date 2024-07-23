@@ -23,9 +23,15 @@ const CommunityHomeRecom_com = ({ recommend, onRemove }) => {
         <div className="community-home-recommend-show-content-detail-member">
           맴버: {member}
         </div>
-        <div className="community-home-recommend-show-content-active">
-          {active}
-        </div>
+        {active === "모집중" ? (
+          <div className="community-home-recommend-show-content-activing">
+            {active}
+          </div>
+        ) : (
+          <div className="community-home-recommend-show-content-unactive">
+            {active}
+          </div>
+        )}
       </div>
       <div className="community-home-recommend-join-button">참여하기</div>
     </div>

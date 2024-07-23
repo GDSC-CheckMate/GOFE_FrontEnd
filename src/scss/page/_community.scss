@@ -262,15 +262,11 @@
       margin: 0rem 0.625rem 0 0;
     }
 
-    .community-home-recommend-show-content-active {
-      padding: 2.559px 5.118px;
-      @include inline-flexbox();
-      gap: 5.118px;
-      border-radius: 50px;
-      background: #daedff;
-      margin: auto 0 auto 10px;
-      position: relative;
-      @include custom-font-size(600, 8.188px, color-12);
+    .community-home-recommend-show-content-activing {
+      @include com-active-color();
+    }
+    .community-home-recommend-show-content-unactive {
+      @include com-active-color(pink, color-14);
     }
   }
 

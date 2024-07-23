@@ -577,6 +577,7 @@
 }
 .community-search-view-container-box {
   width: 100%;
+  position: relative;
   .community-search-view-header-container {
     display: flex;
     .community-search-header-back {
@@ -629,6 +630,34 @@
         .community-search-view-recent-keyword-button {
           margin-top: 10px;
           margin-left: auto;
+        }
+      }
+    }
+  }
+  .community-search-view-content {
+    position: relative;
+
+    .community-search-hot-words-container-box {
+      position: absolute;
+      top: 250px;
+      left: 20px;
+
+      .community-search-hot-words-title {
+        @include custom-font-size(600, 16px, black);
+        margin-bottom: 10px;
+      }
+      .community-home-keyword-box {
+        float: left;
+        margin-left: 2%;
+        margin-top: 2%;
+
+        .community-home-keyword-content {
+          padding: 5px 10px;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          border-radius: 50px;
+          border: 1px solid #b3b3b3;
         }
       }
     }

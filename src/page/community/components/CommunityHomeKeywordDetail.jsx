@@ -1,10 +1,10 @@
 import React from "react";
 
-const CommunityHomeKeywordDetail = ({ keywords }) => {
-  if (!keywords) {
+const CommunityHomeKeywordDetail = ({ hot }) => {
+  if (!hot) {
     return null; // profile이 undefined인 경우 null을 반환하여 렌더링하지 않음
   }
-  const { word } = keywords;
+  const { word } = hot;
   return (
     <div className="community-home-keyword-box">
       <div className="community-home-keyword-content">{word}</div>

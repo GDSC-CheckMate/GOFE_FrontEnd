@@ -7,12 +7,48 @@ import { ReactComponent as Back } from "../../../../assets/community/Back.svg";
 
 import { useDispatch, useSelector } from "react-redux";
 import SearchRecent from "./SearchRecent";
-import { addKeyword } from "../../../../redux/communitySlice";
+import { addKeyword, addhot_word } from "../../../../redux/communitySlice";
+import CommunityHomeKeywordDetail from "../CommunityHomeKeywordDetail";
+
+const hot_word = [
+  {
+    id: 1,
+    word: "자기개발",
+  },
+  {
+    id: 2,
+    word: "독서",
+  },
+  {
+    id: 3,
+    word: "ui",
+  },
+  {
+    id: 4,
+    word: "리액트",
+  },
+  {
+    id: 5,
+    word: "운동",
+  },
+  {
+    id: 6,
+    word: "notion",
+  },
+  {
+    id: 7,
+    word: "자전거",
+  },
+  {
+    id: 8,
+    word: "자동차",
+  },
+];
 
 const SearchView = () => {
   const searchText = useSelector((state) => state.community.keyword);
   const [keywordsArray, setKeywordsArray] = useState([]);
-
+  const hot_words = useSelector((state) => state.community.hot_words);
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
@@ -23,7 +59,8 @@ const SearchView = () => {
     if (searchText) {
       setKeywordsArray((prevArray) => prevArray.concat(searchText));
     }
-  }, [searchText]);
+    dispatch(addhot_word([...hot_word]));
+  }, [searchText, dispatch]);
 
   const handleSearch = () => {
     if (inputText.trim() !== "") {
@@ -68,7 +105,15 @@ const SearchView = () => {
           </div>
         </div>
       </div>
-      <SearchRecent keywordsArray={keywordsArray} onRemove={handleRemove} />
+      <div className="community-search-view-content">
+        <SearchRecent keywordsArray={keywordsArray} onRemove={handleRemove} />
+        <div className="community-search-hot-words-container-box">
+          <div className="community-search-hot-words-title">인기 키워드</div>
+          {hot_words.map((hot) => (
+            <CommunityHomeKeywordDetail key={hot.id} hot={hot} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

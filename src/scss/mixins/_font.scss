@@ -15,6 +15,7 @@ $font-map: (
   color-11: #acacac,
   color-12: #0083ff,
   color-13: #959595,
+  color-14: red,
 );
 
 @function _get-font-value($key) {
@@ -32,4 +33,15 @@ $font-map: (
 
 @mixin custom-font-color($font-color: basic) {
   color: _get-font-value($font-color);
+}
+
+@mixin com-active-color($bc: #daedff, $c: color-12) {
+  padding: 2.559px 5.118px;
+  @include inline-flexbox();
+  gap: 5.118px;
+  border-radius: 50px;
+  background: $bc;
+  margin: auto 0 auto 10px;
+  position: relative;
+  @include custom-font-size(600, 8.188px, $c);
 }

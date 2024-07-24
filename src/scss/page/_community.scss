@@ -1183,7 +1183,7 @@
 
 .notice-item p {
   margin: 4px 0;
-  color: #666;
+  color: #797878;
   font-size: 0.9rem;
 }
 
@@ -1279,7 +1279,7 @@ textarea {
   width: 100%;
   padding: 12px;
   background: #333;
-  border-radius: 3%;
+  border-radius: 4px;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -1308,42 +1308,45 @@ textarea {
   animation-delay: 2s; // Delay before starting the fade out
 }
 
+//////////////////////////////////
+//////////////////////////////////
 /* src/page/community/components/GroupNoticeDetail.css */
 .notice-detail {
-  padding: 16px;
+  padding: 10px;
   max-width: 800px;
-  margin: 0 auto;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-top: 20px;
+  margin: 10px auto;
+  background-color: #ffffff;
 }
 
 .notice-detail header {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 
 .notice-detail header img {
   cursor: pointer;
-  width: 24px;
-  height: 24px;
-  margin-right: 16px;
+  width: 45px;
+  height: 45px;
 }
 
 .notice-detail h2 {
-  margin-bottom: 16px;
-  font-size: 1.8rem;
-  color: #333;
-}
-
-.notice-detail p {
-  margin-bottom: 8px;
-  font-size: 1rem;
-  color: #666;
-}
-
-.notice-detail .author {
   font-weight: bold;
+  font-size: 1.5rem;
   color: #333;
+  margin: 0;
+}
+
+.notice-detail .info {
+  margin-bottom: 20px;
+  color: #797777;
+  font-size: 1.0rem;
+}
+
+.notice-detail .content {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
 }

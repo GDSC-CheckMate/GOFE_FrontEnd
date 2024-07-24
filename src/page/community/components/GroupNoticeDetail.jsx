@@ -23,10 +23,16 @@ const GroupNoticeDetail = () => {
     <div className="notice-detail">
       <header>
         <img src={BackButton} alt="back" onClick={handleBackClick} />
-        <h2>{notice.title}</h2>
+        <h2>공지사항</h2>
       </header>
-      <p className="date">{notice.date}</p>
-      <p className="author">작성자: {notice.author}</p>
+      <div className="info">
+        <p>{notice.date}&ensp;
+            {notice.author}
+        </p>
+      </div>
+      <h3>{notice.title}</h3>
+      <div className="content">
+      </div>
     </div>
   );
 };

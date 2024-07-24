@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-
 import { ReactComponent as ActiveVector } from "../../../assets/community/ActiveVector.svg";
 import { ReactComponent as Vector } from "../../../assets/community/Vector.svg";
-
 import { ReactComponent as Activesearch } from "../../../assets/community/Activesearch copy.svg";
 import { ReactComponent as Search } from "../../../assets/community/Search.svg";
-
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addKeyword } from "../../../redux/communitySlice";
+
+import SearchCategory from "./search/SearchCategory";
 
 const CommunitySearch = () => {
   const location = useLocation();
@@ -17,17 +16,28 @@ const CommunitySearch = () => {
   const dispatch = useDispatch();
 
   const [searchText, setSearchText] = useState("");
+  const [isTransparent, setIsTransparent] = useState(false);
+  const [showNewView, setShowNewView] = useState(false);
 
   const handleSearch = () => {
     dispatch(addKeyword(searchText)); // 키워드 상태 업데이트
     navigate("/community/searchview");
   };
 
+  const handleButtonClick = () => {
+    setIsTransparent(true);
+    setShowNewView(true);
+  };
+
   return (
-    <div className="community-search-container-box">
+    <div
+      className={`community-search-container-box ${
+        isTransparent ? "transparent" : ""
+      }`}
+    >
       <div
         className="community-search-detail-list"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/community/searchhome")}
       >
         {path === "/" ? <ActiveVector /> : <Vector />}
         {path === "/" ? <ActiveVector /> : <Vector />}
@@ -46,6 +56,7 @@ const CommunitySearch = () => {
           {path === "/" ? <Activesearch /> : <Search />}
         </div>
       </div>
+      {showNewView && <SearchCategory />} {/* 새로운 뷰 컴포넌트 렌더링 */}
     </div>
   );
 };

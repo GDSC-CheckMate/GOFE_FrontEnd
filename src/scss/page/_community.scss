@@ -119,10 +119,31 @@
   margin-bottom: 1.875rem;
   position: relative;
 }
-
+.community-search-container-box-trans {
+  display: flex;
+  margin: 1.75rem 0rem 0rem 1.3125rem;
+  opacity: 0.5; /* 투명도 조절 */
+  transition: opacity 0.3s ease;
+}
 .community-search-container-box {
   display: flex;
   margin: 1.75rem 0rem 0rem 1.3125rem;
+  .transparent {
+    opacity: 0.5; /* 투명도 조절 */
+    transition: opacity 0.3s ease;
+  }
+  .new-view-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: rgba(255, 255, 255, 0.9); /* 배경 투명도 조절 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
 
   .community-search-detail-list {
     @include inline-flexbox();

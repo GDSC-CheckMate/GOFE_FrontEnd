@@ -24,7 +24,7 @@ const GroupCreateNotice = () => {
     const newNotice = {
       title,
       date: new Date().toLocaleString('ko-KR', { month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }),
-      author: '작성자', // 실제 작성자 이름으로 대체
+      author: '가가원', // 실제 작성자 이름으로 대체
     };
     dispatch(addNotice(newNotice));
     navigate(-1);
@@ -34,7 +34,7 @@ const GroupCreateNotice = () => {
     if (errorMessage) {
       const timer = setTimeout(() => {
         setErrorMessage('');
-      }, 3000); // 3초 후에 메시지 제거
+      }, 2000); // 3초 후에 메시지 제거
 
       return () => clearTimeout(timer); // 컴포넌트가 언마운트될 때 타이머를 정리
     }

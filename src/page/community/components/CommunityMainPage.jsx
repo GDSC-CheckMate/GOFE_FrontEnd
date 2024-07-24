@@ -7,9 +7,13 @@ const CommunityMainPage = () => {
   const location = useLocation();
   // 유저정보 모달을 안띄우고 싶은 라우팅을 설정
   const {groupId} = useParams();
+  const {noticeId} = useParams();
   useSelector((state) =>
     state.community.groups.find((g) => g.id === parseInt(groupId))
   );
+  useSelector((state) =>
+    state.community.groups.find((g) => g.id === parseInt(noticeId))
+  )
   const noCommuntiyHeaderPaths = [
     "/community/communityShowProfile",
     "/community/communityShowFollwers",
@@ -19,7 +23,8 @@ const CommunityMainPage = () => {
     `/community/group/${groupId}/chat`,
     `/community/group/${groupId}/achievements`,
     `/community/group/${groupId}/notices`,
-    `/community/group/${groupId}/create-notices`
+    `/community/group/${groupId}/create-notices`,
+    `/community/group/${groupId}/notices/${noticeId}`
   ];
 
   // 현재 location이랑 같은지 확인

@@ -43,6 +43,9 @@ const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
 const SearchView = lazy(() =>
   import("../page/community/components/search/SearchView")
 );
+const ComSearchHome = lazy(() =>
+  import("../page/community/components/ComSearchHome")
+);
 
 const communityRouter = [
   {
@@ -58,6 +61,14 @@ const communityRouter = [
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityHomePage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "searchhome",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <ComSearchHome />
       </Suspense>
     ),
   },

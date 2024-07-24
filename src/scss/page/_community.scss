@@ -1179,6 +1179,9 @@
 .notice-item h2 {
   margin: 0;
   font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .notice-item p {
@@ -1192,9 +1195,9 @@
   border: none;
   border-radius: 100%;
   cursor: pointer;
-  position: absolute; /* Ensure this button is absolutely positioned */
-  bottom: 16px; /* Position it 16px from the bottom of the parent container */
-  right: 16px; /* Position it 16px from the right of the parent container */
+  position: fixed;
+  bottom: 16px; 
+  right: calc(50% - 190px);
 }
 
 .edit-button img {
@@ -1216,6 +1219,7 @@
 }
 
 .create-notice-header {
+  position: sticky;
   display: flex;
   align-items: center;
   padding-bottom: 16px;
@@ -1283,4 +1287,26 @@ textarea {
   border: none;
   cursor: pointer;
   font-size: 1rem;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.error-message {
+  position: relative;
+  background: #ffdddd;
+  border: 1px solid #ff5c5c;
+  color: #d8000c;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 8px 0;
+  width: fit-content;
+  animation: fadeOut 1s forwards; // fade out 애니메이션 효과
+  animation-delay: 2s; // Delay before starting the fade out
 }

@@ -1,5 +1,3 @@
-// src/Redux/communitySlice.js
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchGroups = createAsyncThunk(
@@ -15,12 +13,16 @@ const communitySlice = createSlice({
   name: "community",
   initialState: {
     groups: [],
+    notices: [],
     status: "idle",
     error: null,
   },
   reducers: {
     addGroup: (state, action) => {
       state.groups.push(action.payload);
+    },
+    addNotice: (state, action) => {
+      state.notices.push(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -39,6 +41,6 @@ const communitySlice = createSlice({
   },
 });
 
-export const { addGroup } = communitySlice.actions;
+export const { addGroup, addNotice } = communitySlice.actions;
 
 export default communitySlice.reducer;

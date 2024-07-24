@@ -42,6 +42,10 @@ const GroupCreateNotice = lazy(() =>
   import("../page/community/components/GroupCreateNotice")
 );
 
+const GroupNoticeDetail = lazy(() =>
+  import("../page/community/components/GroupNoticeDetail")
+);
+
 const communityRouter = [
   {
     path: "main",
@@ -153,6 +157,14 @@ const communityRouter = [
         element: (
           <Suspense fallback={<Loading />}>
             <GroupCreateNotice />
+          </Suspense>
+        ),
+      },
+      {
+        path: "notices/:noticeId",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GroupNoticeDetail />
           </Suspense>
         ),
       },

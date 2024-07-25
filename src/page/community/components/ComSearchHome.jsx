@@ -29,11 +29,7 @@ const ComSearchHome = () => {
   return (
     <div className="community-main-view-all">
       <CommunityProfilesList />
-      <div
-        className={`community-search-container-box ${
-          isTransparent ? "transparent" : ""
-        }`}
-      >
+      <div className="community-search-container-box">
         <div className="community-search-detail-list">
           {path === "/" ? <ActiveVector /> : <Vector />}
           {path === "/" ? <ActiveVector /> : <Vector />}

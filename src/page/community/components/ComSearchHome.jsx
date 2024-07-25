@@ -50,8 +50,7 @@ const ComSearchHome = () => {
       </div>
       <CommunityHomeMadeGroup />
       <CommunityHomeKeyword />
-      <CommunityHomeRecommend />
-      <CommunityHomeJoin />
+      {/* <CommunityHomeRecommend /> */}
     </div>
   );
 };

@@ -130,17 +130,53 @@
     opacity: 0.5; /* 투명도 조절 */
     transition: opacity 0.3s ease;
   }
-  .new-view-container {
+  .community-clear-view-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 120%;
+    height: 100%;
     background: rgba(128, 128, 128, 0.8); /* 배경 투명도 조절 */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
+
+    .community-clear-view-show-container {
+      display: flex;
+      flex-direction: column;
+      border: 0px solid #cbd5e0;
+      height: 80%; /* 초기 높이를 적절히 조정 */
+      width: 100%;
+      margin-top: 45%;
+    }
+    .community-clear-view-show-top {
+      height: 50%; /* 초기 높이를 절반으로 설정 */
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+    .community-clear-view-show-resizer {
+      background-color: white;
+      cursor: ns-resize; /* 위아래로 드래그 할 수 있는 커서로 변경 */
+      width: 100%;
+      height: 25px; /* 높이 변경 */
+      border-radius: 15px 15px 0px 0px;
+      @include inline-flexbox();
+    }
+    .community-clear-view-show-bottom {
+      flex: 1; /* top이 차지하고 남은 공간에 따라 유동적으로 변화 */
+      display: flex;
+      background-color: white;
+
+      .community-clear-view-show-bottom-content {
+        margin: 20px 0px 0px 20px;
+        width: 100%;
+        @include custom-font-size(600, 16px, black);
+        .community-clear-view-show-bottom-content-title {
+        }
+      }
+    }
   }
   .community-search-detail-list {
     @include inline-flexbox();

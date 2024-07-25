@@ -522,22 +522,26 @@
   .create-group-header {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
     padding: 8px 0; /* 패딩 추가 */
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
   }
 
-  .create-group-back-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    color: #000;
-  }
+  // .create-group-back-button {
+  //   background: none;
+  //   border: none;
+  //   font-size: 24px;
+  //   cursor: pointer;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   width: 40px;
+  //   height: 40px;
+  //   color: #000;
+  // }
 
   .create-group-form-group {
     margin-bottom: 24px; /* 간격을 늘리기 위해 값을 24px로 변경 */
@@ -670,6 +674,54 @@
     font-size: 16px;
   }
 }
+
+.create-group-error-tooltip {
+  position: relative;
+  display: block;
+}
+
+.create-group-error-tooltip .create-group-error-tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #f44336;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 70%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.create-group-error-tooltip .create-group-error-tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f44336 transparent transparent transparent;
+}
+
+.create-group-error-tooltip.create-group-show .create-group-error-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeOut 1s forwards; /* 애니메이션 추가 */
+  animation-delay: 2s; /* 딜레이 추가 */
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 
 //////////////////////////////////
 //////////////////////////////////
@@ -1401,7 +1453,9 @@ textarea {
   margin-bottom: 10px;
 }
 
-.calendar-container {
+////////////////
+/*달력 컴포넌트*/
+.calendar-container {  
   width: 100%;
   border-radius: 10px;
   margin-bottom: 42.68px;
@@ -1492,37 +1546,49 @@ textarea {
   }
 }
 
-
 .goals-section {
   margin-top: 20px;
 }
 
 .goal {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .goal-title {
-  font-size: 16px;
+  font-size: 18px;
+  color: #9c9b9b;
   margin: 0;
 }
 
 .goal-description {
-  font-size: 14px;
-  color: #666;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+  color: #000;
 }
 
-.goal-status {
-  font-size: 14px;
-  color: green;
-}
-
-.importance {
+.importance-section {
   margin-top: 20px;
+  font-size: 18px;
+  color: #9c9b9b;
 }
 
-.importance-bar {
+.static-importance {
+  font-size: 18px;
+  color: #9c9b9b;
+  margin: 0;
+}
+
+.user-importance {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 35px;
+  color: #000;
+}
+
+.group-achievement-importance-bar {
   background: #ccc;
   height: 10px;
   width: 100%;
@@ -1531,20 +1597,22 @@ textarea {
   margin-top: 5px;
 }
 
-.importance-fill {
+.group-achievement-importance-fill {
   background: #000;
   height: 100%;
+  transition: width 1s ease-in-out;
 }
 
-.progress {
+.group-achievement-progress {
   margin-top: 20px;
 }
 
-.progress-title {
-  font-size: 16px;
+.group-achievement-progress-title {
+  font-size: 18px;
+  color: #9c9b9b;
 }
 
-.progress-bar {
+.group-achievement-progress-bar {
   background: #ccc;
   height: 20px;
   width: 100%;
@@ -1553,12 +1621,12 @@ textarea {
   margin-top: 5px;
 }
 
-.progress-fill {
+.group-achievement-progress-fill {
   background: #000;
   height: 100%;
 }
 
-.progress-summary {
+.group-achievement-progress-summary {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;

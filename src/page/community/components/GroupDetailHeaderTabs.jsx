@@ -48,11 +48,16 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+//import BackButton from "../../../assets/community/BackButton.svg"; // 뒤로가기 버튼 이미지 파일
 
 const GroupDetailHeaderTabs = ({ groupName, setActiveTab }) => {
   const navigate = useNavigate();
   const { groupId } = useParams();
   const [headerWidth, setHeaderWidth] = useState('100%');
+
+  // const handleBackClick = () => {
+  //   navigate("/community/main");
+  // }
 
   useEffect(() => {
     const handleResize = () => {
@@ -102,5 +107,3 @@ GroupDetailHeaderTabs.propTypes = {
 };
 
 export default GroupDetailHeaderTabs;
-
-

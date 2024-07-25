@@ -20,12 +20,16 @@ const GroupNotices = () => {
   return (
     <div className="group-notices">
       <div className="notice-list">
-        {notices.map((notice, index) => (
-          <div key={index} className="notice-item" onClick={() => handleNoticeClick(index)}>
-            <h2>{notice.title}</h2>
-            <p>{notice.date} {notice.author}</p>
-          </div>
-        ))}
+        {notices.length > 0 ? (
+          notices.map((notice, index) => (
+            <div key={index} className="notice-item" onClick={() => handleNoticeClick(index)}>
+              <h2>{notice.title}</h2>
+              <p>{notice.date} {notice.author}</p>
+            </div>
+          ))
+        ) : (
+          <p>이런...아직 공지사항 글이 없어요:(</p>
+        )}
       </div>
       <button className="edit-button" onClick={handleEditClick}>
         <img src={NoticeEdit} alt="edit" />

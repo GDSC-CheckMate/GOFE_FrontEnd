@@ -807,7 +807,6 @@
 
 //////////////////////////////////
 //////////////////////////////////
-//GroupDetailHeaderTabs.scss
 
 /* src/scss/components/_groupDetailHeaderTabs.scss */
 
@@ -1308,9 +1307,11 @@ textarea {
   animation-delay: 2s; // Delay before starting the fade out
 }
 
+
 //////////////////////////////////
 //////////////////////////////////
 /* src/page/community/components/GroupNoticeDetail.css */
+
 .notice-detail {
   padding: 10px;
   max-width: 800px;
@@ -1349,4 +1350,218 @@ textarea {
   font-size: 1rem;
   color: #333;
   line-height: 1.6;
+}
+
+
+//////////////////////////////////
+//////////////////////////////////
+/* src/page/community/components/_groupAchievements.scss */
+
+.achievements-container {
+  font-family: 'Arial, sans-serif';
+  margin: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-link {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #999;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+}
+
+.main-content {
+  margin-top: 20px;
+}
+
+.calendar-section {
+  text-align: center;
+}
+
+.month-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.calendar-container {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 42.68px;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 14px;
+
+  .calendar-header {
+    display: flex;
+    align-items: center;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    justify-content: center;
+    position: relative;
+    font-size: 16px;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      img {
+        width: 48px;
+        height: 48px;
+        color: #333333;
+      }
+    }
+
+    .month-display {
+      margin: 0 49px;
+      font-weight: bold;
+    }
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 321.5px;
+    justify-content: center;
+    margin: 0 auto;
+
+    .header {
+      display: contents;
+
+      .day-header {
+        text-align: center;
+        color: #a2a2a2;
+      }
+    }
+
+    .body {
+      display: contents;
+
+      .day {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #858484;
+        text-align: center;
+        box-sizing: border-box;
+
+        .circle {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f0f0f0;
+
+          .day-number {
+            position: relative;
+            z-index: 1;
+          }
+        }
+
+        &.empty-day {
+          color: #ccc;
+        }
+      }
+    }
+  }
+}
+
+
+.goals-section {
+  margin-top: 20px;
+}
+
+.goal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goal-title {
+  font-size: 16px;
+  margin: 0;
+}
+
+.goal-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.goal-status {
+  font-size: 14px;
+  color: green;
+}
+
+.importance {
+  margin-top: 20px;
+}
+
+.importance-bar {
+  background: #ccc;
+  height: 10px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.importance-fill {
+  background: #000;
+  height: 100%;
+}
+
+.progress {
+  margin-top: 20px;
+}
+
+.progress-title {
+  font-size: 16px;
+}
+
+.progress-bar {
+  background: #ccc;
+  height: 20px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-fill {
+  background: #000;
+  height: 100%;
+}
+
+.progress-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
 }

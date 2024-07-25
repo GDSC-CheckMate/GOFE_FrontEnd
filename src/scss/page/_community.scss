@@ -530,19 +530,6 @@
     }
   }
 
-  // .create-group-back-button {
-  //   background: none;
-  //   border: none;
-  //   font-size: 24px;
-  //   cursor: pointer;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   width: 40px;
-  //   height: 40px;
-  //   color: #000;
-  // }
-
   .create-group-form-group {
     margin-bottom: 24px; /* 간격을 늘리기 위해 값을 24px로 변경 */
 
@@ -1258,7 +1245,7 @@
 //////////////////////////////////
 // src/scss/components/_createGroupNotices.scss
 
-.create-notice {
+.group-create-notice {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -1266,7 +1253,7 @@
   box-sizing: border-box;
 }
 
-.create-notice-header {
+.group-create-notice-header {
   position: sticky;
   display: flex;
   align-items: center;
@@ -1279,14 +1266,14 @@
   }
 }
 
-h1 {
+.group-create-notice-h1 {
   font-weight: bold;
   display: flex;
   flex-grow: 1;
   font-size: 1.2rem;
 }
 
-textarea {
+.group-create-notice-textarea {
   flex: 1;
   padding: 8px;
   resize: none;
@@ -1295,7 +1282,7 @@ textarea {
   border-radius: 4px;
 }
 
-.notice-option {
+.group-create-notice-option {
   display: flex;
   align-items: center;
   margin-top: 16px;
@@ -1321,12 +1308,12 @@ textarea {
   }
 }
 
-.create-notice-footer {
+.group-create-notice-footer {
   padding-top: 16px;
   border-top: 1px solid #ddd;
 }
 
-.submit-button {
+.group-create-notice-submit-button {
   width: 100%;
   padding: 12px;
   background: #333;
@@ -1346,7 +1333,7 @@ textarea {
   }
 }
 
-.error-message {
+.group-create-notice-error-message {
   position: relative;
   background: #ffdddd;
   border: 1px solid #ff5c5c;
@@ -1364,14 +1351,14 @@ textarea {
 //////////////////////////////////
 /* src/page/community/components/GroupNoticeDetail.css */
 
-.notice-detail {
+.group-notice-detail {
   padding: 10px;
   max-width: 800px;
   margin: 10px auto;
   background-color: #ffffff;
 }
 
-.notice-detail header {
+.group-notice-detail-header {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -1379,26 +1366,26 @@ textarea {
   padding-bottom: 10px;
 }
 
-.notice-detail header img {
+.group-notice-detail-header img {
   cursor: pointer;
   width: 45px;
   height: 45px;
 }
 
-.notice-detail h2 {
+.group-notice-detail-h2 {
   font-weight: bold;
   font-size: 1.5rem;
   color: #333;
   margin: 0;
 }
 
-.notice-detail .info {
+.group-notice-detail-info {
   margin-bottom: 20px;
   color: #797777;
   font-size: 1.0rem;
 }
 
-.notice-detail .content {
+.group-notice-detail-content {
   font-size: 1rem;
   color: #333;
   line-height: 1.6;

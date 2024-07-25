@@ -41,20 +41,20 @@ const GroupCreateNotice = () => {
   }, [errorMessage]);
 
   return (
-    <div className="create-notice">
-      <header className="create-notice-header">
+    <div className="group-create-notice">
+      <header className="group-create-notice-header">
         <button className="back-button" onClick={handleBackClick}>
           <img src={BackButton} alt="back" />
         </button>
-        <h1>글 작성하기</h1>
+        <h1 className="group-create-notice-h1">글 작성하기</h1>
       </header>
-      <textarea
+      <textarea className="group-create-notice-textarea"
         placeholder="멤버들과 공유하고 싶은 소식을 남겨보세요."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <div className="notice-option">
+      {errorMessage && <p className="group-create-notice-error-message">{errorMessage}</p>}
+      <div className="group-create-notice-option">
         <input
           type="checkbox"
           id="chk"
@@ -63,8 +63,8 @@ const GroupCreateNotice = () => {
         />
         <label htmlFor="chk">공지</label>
       </div>
-      <footer className="create-notice-footer">
-        <button className="submit-button" onClick={handleSubmit}>작성하기</button>
+      <footer className="group-create-notice-footer">
+        <button className="group-create-notice-submit-button" onClick={handleSubmit}>작성하기</button>
       </footer>
     </div>
   );

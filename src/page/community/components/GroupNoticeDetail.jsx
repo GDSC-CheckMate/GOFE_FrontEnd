@@ -20,18 +20,18 @@ const GroupNoticeDetail = () => {
   };
 
   return (
-    <div className="notice-detail">
-      <header>
+    <div className="group-notice-detail">
+      <div className="group-notice-detail-header">
         <img src={BackButton} alt="back" onClick={handleBackClick} />
-        <h2>공지사항</h2>
-      </header>
-      <div className="info">
+        <h2 className="group-notice-detail-h2">공지사항</h2>
+      </div>
+      <div className="group-notice-detail-info">
         <p>{notice.date}&ensp;
             {notice.author}
         </p>
       </div>
       <h3>{notice.title}</h3>
-      <div className="content">
+      <div className="group-notice-detail-content">
       </div>
     </div>
   );

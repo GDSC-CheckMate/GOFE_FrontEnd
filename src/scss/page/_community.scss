@@ -130,6 +130,7 @@
     opacity: 0.5; /* 투명도 조절 */
     transition: opacity 0.3s ease;
   }
+
   .community-clear-view-container {
     position: absolute;
     top: 0;
@@ -146,9 +147,8 @@
       display: flex;
       flex-direction: column;
       border: 0px solid #cbd5e0;
-      height: 80%; /* 초기 높이를 적절히 조정 */
+      height: 100%; /* 초기 높이를 적절히 조정 */
       width: 100%;
-      margin-top: 45%;
     }
     .community-clear-view-show-top {
       height: 50%; /* 초기 높이를 절반으로 설정 */
@@ -164,16 +164,41 @@
       border-radius: 15px 15px 0px 0px;
       @include inline-flexbox();
     }
+    // .community-search-view-content {
+    //   position: relative;
+
+    //   .community-search-hot-words-container-box {
+    //     position: absolute;
+    //     top: 270px;
+    //     left: 20px;
+
     .community-clear-view-show-bottom {
       flex: 1; /* top이 차지하고 남은 공간에 따라 유동적으로 변화 */
       display: flex;
       background-color: white;
+      overflow-y: scroll;
 
       .community-clear-view-show-bottom-content {
         margin: 20px 0px 0px 20px;
         width: 100%;
-        @include custom-font-size(600, 16px, black);
         .community-clear-view-show-bottom-content-title {
+          @include custom-font-size(600, 16px, black);
+        }
+
+        .community-clear-view-show-bottom-content-words {
+          margin-top: 37px;
+
+          .community-clear-view-show-bottom-content-words-container-title {
+            @include custom-font-size(600, 15px, black);
+            margin-bottom: 10px;
+            width: 100%;
+          }
+        }
+        .community-clear-view-show-bottom-content-words_two {
+          margin-top: 149px;
+        }
+        .community-clear-view-show-bottom-content-words_third {
+          margin-top: 190px;
         }
       }
     }
@@ -229,23 +254,18 @@
   }
 }
 
-.community-home-keyword-container-box {
-  margin: 0px 0px 30px;
-  width: 100%;
+.community-home-keyword-box {
+  float: left;
+  margin-left: 3%;
+  margin-top: 2%;
 
-  .community-home-keyword-box {
-    float: left;
-    margin-left: 4%;
-    margin-top: 2%;
-
-    .community-home-keyword-content {
-      padding: 5px 10px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      border-radius: 50px;
-      border: 1px solid #b3b3b3;
-    }
+  .community-home-keyword-content {
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+    border: 1px solid #b3b3b3;
   }
 }
 

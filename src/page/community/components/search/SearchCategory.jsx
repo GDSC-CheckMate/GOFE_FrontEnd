@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import { ReactComponent as Line_bar } from "../../../../assets/community/Line_bar.svg";
+import { useNavigate } from "react-router-dom";
+
+import ComKeyWordHome from "../ComKeyWordHome";
 
 const SearchCategory = () => {
   const resizerRef = useRef(null);
   const topSideRef = useRef(null);
   const bottomSideRef = useRef(null);
+  const navigate = useNavigate();
 
   const [isResizing, setIsResizing] = useState(false);
   const [y, setY] = useState(0);
@@ -31,7 +35,6 @@ const SearchCategory = () => {
     };
 
     const upHandler = (e) => {
-      e.stopPropagation(); // 이벤트 전파 방지
       setIsResizing(false);
       document.body.style.removeProperty("cursor");
       topSideRef.current.style.removeProperty("user-select");
@@ -58,10 +61,10 @@ const SearchCategory = () => {
       document.removeEventListener("touchmove", moveHandler);
       document.removeEventListener("touchend", upHandler);
     };
+    // dispatch(addhot_word([...hot_word]));
   }, [isResizing, y, topHeight]);
 
   const downHandler = (e) => {
-    e.stopPropagation(); // 이벤트 전파 방지
     setIsResizing(true);
     const clientY = e.touches ? e.touches[0].clientY : e.clientY;
     setY(clientY);
@@ -71,7 +74,11 @@ const SearchCategory = () => {
   return (
     <div className="community-clear-view-container">
       <div className="community-clear-view-show-container">
-        <div className="community-clear-view-show-top" ref={topSideRef}></div>
+        <div
+          className="community-clear-view-show-top"
+          ref={topSideRef}
+          onClick={() => navigate("/community/home")}
+        ></div>
         <div
           className="community-clear-view-show-resizer"
           id="dragMe"
@@ -85,6 +92,16 @@ const SearchCategory = () => {
           <div className="community-clear-view-show-bottom-content">
             <div className="community-clear-view-show-bottom-content-title">
               카테고리
+            </div>
+
+            <div className="community-clear-view-show-bottom-content-words">
+              <ComKeyWordHome name="커리어" />
+            </div>
+            <div className="community-clear-view-show-bottom-content-words_two">
+              <ComKeyWordHome name="제테크" />
+            </div>
+            <div className="community-clear-view-show-bottom-content-words_third">
+              <ComKeyWordHome name="자기개발" />
             </div>
           </div>
         </div>

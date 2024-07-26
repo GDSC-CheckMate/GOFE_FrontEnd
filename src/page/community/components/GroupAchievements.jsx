@@ -1,5 +1,6 @@
 import React from 'react';
 import GroupAchievementsCalendar from './GroupAchievementsCalendar';
+import { useOutletContext } from 'react-router-dom';
 
 const achievements = [
   { date: '2024-06-02', percentage: 50 },
@@ -9,6 +10,18 @@ const achievements = [
 
 const GroupAchievements = () => {
   const importancePercentage = 78;
+  const {group} = useOutletContext();
+  const startDate = new Date(group.startDate);
+  const currentDate = new Date();
+
+  const calculateDaysPassed = (start, current) => {
+    const oneDayInMs = 1000 * 60 * 60 * 24;  // 하루를 밀리초로 계산
+    const diffInMs = currentDate.getTime() - startDate.getTime();  // 날짜 차이를 밀리초로 계산
+    const daysPassed = Math.ceil(diffInMs / oneDayInMs);
+    return daysPassed < 0 ? 0 : daysPassed;
+  }
+
+  const daysPassed = calculateDaysPassed(startDate, currentDate); 
 
   const getImportanceText = (percentage) => {
     if (percentage <= 25) {
@@ -46,8 +59,14 @@ const GroupAchievements = () => {
               <div className="group-achievement-progress-fill" style={{ width: '50%' }}></div>
             </div>
             <div className="group-achievement-progress-summary">
-              <span>목표 기간: 100일</span>
-              <span>달성 일수: 50일 (50%)</span>
+              <span>
+                <div>목표 기간</div>
+                <div>{group.duration}일</div>
+              </span>
+              <span>
+                <div>달성 일수</div>
+                <div>{daysPassed}<span className='highlight'>/{group.duration}일</span></div>
+              </span>
             </div>
           </div>
         </section>

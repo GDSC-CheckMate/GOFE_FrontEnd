@@ -46,6 +46,9 @@ const SearchView = lazy(() =>
 const ComSearchHome = lazy(() =>
   import("../page/community/components/ComSearchHome")
 );
+const KeyWordIn = lazy(() =>
+  import("../page/community/components/category/KeyWordIn")
+);
 
 const communityRouter = [
   {
@@ -134,6 +137,14 @@ const communityRouter = [
     element: (
       <Suspense fallback={<Loading />}>
         <SearchView />
+      </Suspense>
+    ),
+  },
+  {
+    path: "keyword",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <KeyWordIn />
       </Suspense>
     ),
   },

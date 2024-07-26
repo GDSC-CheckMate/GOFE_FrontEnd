@@ -21,6 +21,7 @@ const CommunityMainPage = () => {
     `/community/group/${groupId}/notices`,
     "/community/peekpage",
     "/community/searchview",
+    "/community/keyword",
   ];
 
   // 현재 location이랑 같은지 확인

@@ -32,7 +32,9 @@ const hot_word_3 = [
 
 const ComKeyWordHome = ({ name }) => {
   const [hotWords, setHotWords] = useState([]);
+  const [selectedWord, setSelectedWord] = useState(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     let selectedHotWords = [];
     if (name === "커리어") {
@@ -46,18 +48,22 @@ const ComKeyWordHome = ({ name }) => {
   }, [name]);
 
   const handleDetailClick = (content) => {
-    navigate("/community/keyword", { state: { content } });
+    setSelectedWord(content.word);
+    navigate("/community/keyword", { state: { content, name } });
   };
+
   return (
-    <div>
+    <div className="community-clear-view-show-bottom-content-words-container">
       <div className="community-clear-view-show-bottom-content-words-container-title">
         {name}
       </div>
-
       {hotWords.map((hot) => (
-        <div key={hot.id} onClick={() => handleDetailClick(hot)}>
-          <CommunityHomeKeywordDetail hot={hot} />
-        </div>
+        <CommunityHomeKeywordDetail
+          key={hot.id}
+          hot={hot}
+          isSelected={selectedWord === hot.word}
+          onClick={() => handleDetailClick(hot)}
+        />
       ))}
     </div>
   );

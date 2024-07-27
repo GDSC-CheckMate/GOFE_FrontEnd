@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CommunityHomeKeywordDetail from "./CommunityHomeKeywordDetail";
+import { useNavigate } from "react-router-dom";
 
 const hot_word_1 = [
   { id: 1, word: "자기개발" },
@@ -31,6 +32,8 @@ const hot_word_3 = [
 
 const ComKeyWordHome = ({ name }) => {
   const [hotWords, setHotWords] = useState([]);
+  const [selectedWord, setSelectedWord] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let selectedHotWords = [];
@@ -44,13 +47,23 @@ const ComKeyWordHome = ({ name }) => {
     setHotWords(selectedHotWords);
   }, [name]);
 
+  const handleDetailClick = (content) => {
+    setSelectedWord(content.word);
+    navigate("/community/keyword", { state: { content, name } });
+  };
+
   return (
-    <div>
+    <div className="community-clear-view-show-bottom-content-words-container">
       <div className="community-clear-view-show-bottom-content-words-container-title">
         {name}
       </div>
       {hotWords.map((hot) => (
-        <CommunityHomeKeywordDetail key={hot.id} hot={hot} />
+        <CommunityHomeKeywordDetail
+          key={hot.id}
+          hot={hot}
+          isSelected={selectedWord === hot.word}
+          onClick={() => handleDetailClick(hot)}
+        />
       ))}
     </div>
   );

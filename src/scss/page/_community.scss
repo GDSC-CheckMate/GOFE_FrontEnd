@@ -164,13 +164,6 @@
       border-radius: 15px 15px 0px 0px;
       @include inline-flexbox();
     }
-    // .community-search-view-content {
-    //   position: relative;
-
-    //   .community-search-hot-words-container-box {
-    //     position: absolute;
-    //     top: 270px;
-    //     left: 20px;
 
     .community-clear-view-show-bottom {
       flex: 1; /* top이 차지하고 남은 공간에 따라 유동적으로 변화 */
@@ -187,11 +180,12 @@
 
         .community-clear-view-show-bottom-content-words {
           margin-top: 37px;
-
-          .community-clear-view-show-bottom-content-words-container-title {
-            @include custom-font-size(600, 15px, black);
-            margin-bottom: 10px;
-            width: 100%;
+          .community-clear-view-show-bottom-content-words-container {
+            .community-clear-view-show-bottom-content-words-container-title {
+              @include custom-font-size(600, 15px, black);
+              margin-bottom: 10px;
+              width: 100%;
+            }
           }
         }
         .community-clear-view-show-bottom-content-words_two {
@@ -258,7 +252,6 @@
   float: left;
   margin-left: 3%;
   margin-top: 2%;
-
   .community-home-keyword-content {
     padding: 5px 10px;
     justify-content: center;

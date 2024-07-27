@@ -13,7 +13,11 @@ const Layout = () => {
   useSelector((state) =>
     state.community.groups.find((g) => g.id === parseInt(groupId))
   );
-  const noFooterPaths = [`/community/group`, `/community/searchhome`];
+  const noFooterPaths = [
+    `/community/group`,
+    `/community/searchhome`,
+    "/community/keyword",
+  ];
 
   // 현재 location이랑 같은지 확인
   const showFooter = !noFooterPaths.some((path) =>

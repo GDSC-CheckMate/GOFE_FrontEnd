@@ -71,6 +71,10 @@ const SearchCategory = () => {
     setTopHeight(topSideRef.current.getBoundingClientRect().height);
   };
 
+  const handleTitlelClick = (title) => {
+    navigate("/community/keyword", { state: { title } });
+  };
+
   return (
     <div className="community-clear-view-container">
       <div className="community-clear-view-show-container">
@@ -100,7 +104,10 @@ const SearchCategory = () => {
             <div className="community-clear-view-show-bottom-content-words_two">
               <ComKeyWordHome name="제테크" />
             </div>
-            <div className="community-clear-view-show-bottom-content-words_third">
+            <div
+              className="community-clear-view-show-bottom-content-words_third"
+              //   onClick={() => handleTitlelClick("자기개발")}
+            >
               <ComKeyWordHome name="자기개발" />
             </div>
           </div>

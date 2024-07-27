@@ -36,19 +36,19 @@ const GroupAchievements = () => {
   };
 
   return (
-    <div className="achievements-container">
-      <main className="main-content">
-        <section className="calendar-section">
+    <div className="group-achievements-container">
+      <main className="group-achievements-main-content">
+        <section className="group-achievements-calendar-section">
           <GroupAchievementsCalendar achievements={achievements} />
         </section>
-        <section className="goals-section">
-          <div className="goal">
-            <h3 className="goal-title">나의 목표</h3>
-            <h3 className="goal-description">리액트 강의 다 듣기</h3>
+        <section className="group-achievements-goals-section">
+          <div className="group-achievements-goal">
+            <h3 className="group-achievements-goal-title">나의 목표</h3>
+            <h3 className="group-achievements-goal-description">리액트 강의 다 듣기</h3>
           </div>
-          <div className="importance-section">
-            <span className="static-importance">중요도</span>
-            <span className="user-importance"> {getImportanceText(importancePercentage)}</span>
+          <div className="group-achievements-importance-section">
+            <span className="group-achievements-static-importance">중요도</span>
+            <span className="group-achievements-user-importance"> {getImportanceText(importancePercentage)}</span>
             <div className="group-achievement-importance-bar">
               <div className="group-achievement-importance-fill" style={{ width: `${importancePercentage}%` }}></div>
             </div>

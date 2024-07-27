@@ -1396,42 +1396,16 @@
 //////////////////////////////////
 /* src/page/community/components/_groupAchievements.scss */
 
-.achievements-container {
+.group-achievements-container {
   font-family: 'Arial, sans-serif';
   margin: 20px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.title {
-  font-size: 24px;
-  margin: 0;
-}
-
-.nav {
-  display: flex;
-}
-
-.nav-link {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #999;
-}
-
-.nav-link.active {
-  font-weight: bold;
-  border-bottom: 2px solid #000;
-}
-
-.main-content {
+.group-achievements-main-content {
   margin-top: 20px;
 }
 
-.calendar-section {
+.group-achievements-calendar-section {
   text-align: center;
 }
 
@@ -1533,42 +1507,45 @@
   }
 }
 
-.goals-section {
+////////////////////////////////////////
+////////////////////////////////////////
+
+.group-achievements-goals-section {
   margin-top: 20px;
 }
 
-.goal {
+.group-achievements-goal {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.goal-title {
+.group-achievements-goal-title {
   font-size: 18px;
   color: #9c9b9b;
   margin: 0;
 }
 
-.goal-description {
+.group-achievements-goal-description {
   font-size: 18px;
   font-weight: bold;
   margin-left: 20px;
   color: #000;
 }
 
-.importance-section {
+.group-achievements-importance-section {
   margin-top: 20px;
   font-size: 18px;
   color: #9c9b9b;
 }
 
-.static-importance {
+.group-achievements-static-importance {
   font-size: 18px;
   color: #9c9b9b;
   margin: 0;
 }
 
-.user-importance {
+.group-achievements-user-importance {
   font-size: 18px;
   font-weight: bold;
   margin-left: 35px;

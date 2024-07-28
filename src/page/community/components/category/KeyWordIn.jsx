@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ComKeyWordHome from "../ComKeyWordHome";
 import { ReactComponent as Back } from "../../../../assets/community/Back.svg";
+import SelectMenu from "./SelectMenu";
 
 const KeyWordIn = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ const KeyWordIn = () => {
       </div>
       {/* ComKeyWordHome에 name과 content의 word를 title로 전달합니다. */}
       {name && <ComKeyWordHome name={name} title={content?.word} />}
+      <SelectMenu />
     </div>
   );
 };

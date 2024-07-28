@@ -601,8 +601,21 @@
   display: flex;
   flex-direction: column;
 }
-.community-search-keyword-container-header {
-  margin-top: 20px;
+.community-search-keywordin-container {
+  width: 100%;
+  .community-search-keywordin-container-header {
+    margin-top: 44px;
+    margin-bottom: 26px;
+    display: flex;
+    .community-search-keywordin-container-header-back {
+      margin-left: 20px;
+    }
+    .community-search-keywordin-container-header-title {
+      @include inline-flexbox();
+      @include custom-font-size(600, 16px, black);
+      margin-left: 160px;
+    }
+  }
 }
 ///////////////////////////////////
 ///////////////////////////////////

@@ -55,9 +55,6 @@ const ComKeyWordHome = ({ name, title }) => {
 
   return (
     <div className="community-clear-view-show-bottom-content-words-container">
-      <div className="community-clear-view-show-bottom-content-words-container-title">
-        {name}
-      </div>
       {hotWords.map((hot) => (
         <CommunityHomeKeywordDetail
           key={hot.id}

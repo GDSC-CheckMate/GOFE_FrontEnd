@@ -912,21 +912,27 @@
 
 /* 반응형 디자인을 위한 미디어 쿼리 */
 @media (max-width: 768px) {
-  .group-detail-header {
-    padding: 8px;
+  .group-detail-header-tabs {
+    padding-top: 10px;
+    .group-detail-header {
+      padding-top: 45px;
+      padding-bottom: 20px;
+      border-bottom: none;
+    }
   }
 
   .back-button {
     font-size: 20px;
-    margin-right: 6px;
+    margin-right: 10px;
   }
 
   .group-detail-name {
     font-size: 16px;
+    flex: 1;
   }
 
   .group-detail-tabs {
-    padding: 4px 0;
+    padding: 10px 0;
   }
   .tab {
     padding: 6px 0;
@@ -935,8 +941,12 @@
 }
 
 @media (max-width: 480px) {
-  .group-detail-header {
-    padding: 6px 0;
+  .group-detail-header-tabs {
+    padding-top: 10px;
+    .group-detail-header {
+      padding-top: 45px;
+      padding-bottom: 20px;
+    }
   }
 
   .back-button {

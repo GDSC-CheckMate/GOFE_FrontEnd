@@ -10,10 +10,9 @@ const KeyWordIn = () => {
   console.log(content);
 
   return (
-    <div>
-      {/* ComKeyWordHome에 name을 전달합니다. */}
-      {name && <ComKeyWordHome name={name} />}
-      {/* {content ? <div>{content.word}</div> : <p>내용이 없습니다.</p>} */}
+    <div className="community-search-keyword-container-header">
+      {/* ComKeyWordHome에 name과 content의 word를 title로 전달합니다. */}
+      {name && <ComKeyWordHome name={name} title={content?.word} />}
     </div>
   );
 };

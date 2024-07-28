@@ -252,6 +252,7 @@
   float: left;
   margin-left: 3%;
   margin-top: 2%;
+
   .community-home-keyword-content {
     padding: 5px 10px;
     justify-content: center;
@@ -259,6 +260,13 @@
     gap: 10px;
     border-radius: 50px;
     border: 1px solid #b3b3b3;
+    @include custom-font-size(800, 16px, black);
+
+    &.highlighted {
+      border-radius: 50px;
+      border: 1px solid var(--blue, #0083ff);
+      @include custom-font-size(800, 16px, color-12);
+    }
   }
 }
 
@@ -593,7 +601,9 @@
   display: flex;
   flex-direction: column;
 }
-
+.community-search-keyword-container-header {
+  margin-top: 20px;
+}
 ///////////////////////////////////
 ///////////////////////////////////
 /* 기존 _communityItem.scss 파일 */

@@ -8,6 +8,7 @@ import CommunityHomeMadeGroup from "./CommunityHomeMadeGroup";
 import CommunityHomeKeyword from "./CommunityHomeKeyword";
 import CommunityHomeRecommend from "./CommunityHomeRecommend";
 import CommunityHomeJoin from "./CommunityHomeJoin";
+import ComKeyWordHome from "./ComKeyWordHome";
 
 const CommunityHomePage = () => {
   return (
@@ -17,7 +18,10 @@ const CommunityHomePage = () => {
       <CommunityProfilesList />
       <CommunitySearch />
       <CommunityHomeMadeGroup />
+
       <CommunityHomeKeyword />
+      {/* <ComKeyWordHome name="커리어"/> */}
+
       <CommunityHomeRecommend />
       <CommunityHomeJoin />
     </div>

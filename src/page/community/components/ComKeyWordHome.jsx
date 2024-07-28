@@ -30,7 +30,7 @@ const hot_word_3 = [
   { id: 19, word: "언어" },
 ];
 
-const ComKeyWordHome = ({ name }) => {
+const ComKeyWordHome = ({ name, title }) => {
   const [hotWords, setHotWords] = useState([]);
   const [selectedWord, setSelectedWord] = useState(null);
   const navigate = useNavigate();
@@ -51,6 +51,7 @@ const ComKeyWordHome = ({ name }) => {
     setSelectedWord(content.word);
     navigate("/community/keyword", { state: { content, name } });
   };
+  console.log(title);
 
   return (
     <div className="community-clear-view-show-bottom-content-words-container">
@@ -63,6 +64,7 @@ const ComKeyWordHome = ({ name }) => {
           hot={hot}
           isSelected={selectedWord === hot.word}
           onClick={() => handleDetailClick(hot)}
+          {...(title && { tit: title })}
         />
       ))}
     </div>

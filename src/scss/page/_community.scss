@@ -820,7 +820,8 @@
 
 @media (max-width: 480px) {
   .group-detail-body {
-    padding: 8px; /* 작은 화면에서는 패딩을 줄임 */
+    width: 100%;
+    padding: 0px; /* 작은 화면에서는 패딩을 줄임 */
   }
 
   .group-detail-body .group-detail-section-title {
@@ -944,7 +945,7 @@
   .group-detail-header-tabs {
     padding-top: 10px;
     .group-detail-header {
-      padding-top: 45px;
+      padding-top: 37px;
       padding-bottom: 20px;
     }
   }
@@ -1177,7 +1178,6 @@
     .group-chat-input {
       width: 100%; // padding에 맞게 조정
       max-width: 100%;
-      padding: 8px;
 
       textarea {
         padding: 8px;
@@ -1191,11 +1191,37 @@
     }
 
     .group-chat-content {
-      padding: 8px;
       max-height: calc(
-        100vh - 110px
+        100vh - 100px
       ); // 더 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
       width: 100%;
+    }
+
+    .group-chat-message {
+      .profile-pic {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .message-content {
+        .username {
+          font-size: 0.9rem;
+          padding: 3px;
+        }
+
+        .message {
+          padding: 8px 12px;
+          font-size: 0.8rem;
+        }
+
+        .time {
+          font-size: 0.7rem;
+        }
+
+        .likes-count {
+          font-size: 0.7rem;
+        }
+      }
     }
   }
 }

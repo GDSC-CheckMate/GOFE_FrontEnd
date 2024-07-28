@@ -616,6 +616,49 @@
       margin-left: 160px;
     }
   }
+  .community-search-keywordin-container-dropdown {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    text-align: right;
+    float: right; // 부모 요소 내에서 오른쪽 끝에 위치
+
+    .community-search-keywordin-container-dropdown-toggle {
+      background-color: white;
+      color: gray;
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      font-size: 16px;
+
+      &:focus,
+      &:active {
+        outline: none;
+        color: black; // 눌렀을 때 글자 색을 검정색으로 설정
+      }
+    }
+
+    .community-search-keywordin-container-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0; // dropdown을 따라 오른쪽 끝에 위치
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      min-width: 100px;
+
+      .community-search-keywordin-container-dropdown-item {
+        padding: 10px 150px 10px 20px;
+        cursor: pointer;
+      }
+      .community-search-keywordin-container-divide-line {
+        @include box-size(100%, 1px);
+        background: #cdcdcd;
+      }
+    }
+  }
 }
 ///////////////////////////////////
 ///////////////////////////////////

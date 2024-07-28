@@ -99,15 +99,21 @@ const SearchCategory = () => {
             </div>
 
             <div className="community-clear-view-show-bottom-content-words">
+              <div className="community-clear-view-show-bottom-content-words-container-title">
+                커리어
+              </div>
               <ComKeyWordHome name="커리어" />
             </div>
             <div className="community-clear-view-show-bottom-content-words_two">
+              <div className="community-clear-view-show-bottom-content-words-container-title">
+                제테크
+              </div>
               <ComKeyWordHome name="제테크" />
             </div>
-            <div
-              className="community-clear-view-show-bottom-content-words_third"
-              //   onClick={() => handleTitlelClick("자기개발")}
-            >
+            <div className="community-clear-view-show-bottom-content-words_third">
+              <div className="community-clear-view-show-bottom-content-words-container-title">
+                자기개발
+              </div>
               <ComKeyWordHome name="자기개발" />
             </div>
           </div>

@@ -26,6 +26,7 @@ const KeyWordIn = () => {
       {/* ComKeyWordHome에 name과 content의 word를 title로 전달합니다. */}
       {name && <ComKeyWordHome name={name} title={content?.word} />}
       <SelectMenu />
+      {/*  밑에 동아리 컴포넌트와 연동 필요 */}
     </div>
   );
 };

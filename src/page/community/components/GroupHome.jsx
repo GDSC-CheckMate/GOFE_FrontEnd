@@ -42,7 +42,7 @@ const GroupHome = () => {
       </div>
       <div className="group-detail-section">
         <h4 className="group-detail-section-title">목표 기간</h4>
-        <p>{formatDate(group.startDate)} ~ {formatDate(new Date(new Date(group.startDate).setDate(new Date(group.startDate).getDate() + group.duration)))} &nbsp; 
+        <p>{formatDate(group.startDate)} ~ {formatDate(new Date(new Date(group.startDate).setDate(new Date(group.startDate).getDate() + group.duration)))} &nbsp; &nbsp; 
           <span className="group-detail-section-title-goal-duration">{group.duration}일</span>
         </p>
       </div>

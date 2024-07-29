@@ -103,7 +103,7 @@ const CreateGroup = () => {
   return (
     <div className="create-group-page">
       <div className="create-group-header">
-        <button className="create-group-back-button" onClick={handleBackClick}>
+        <button onClick={handleBackClick}>
           <img src={BackButton} alt="back"/>
         </button>
       </div>

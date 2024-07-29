@@ -1226,6 +1226,7 @@
   }
 }
 
+
 //////////////////////////////////
 //////////////////////////////////
 // src/scss/components/_groupNotices.scss
@@ -1267,13 +1268,33 @@
   border-radius: 100%;
   cursor: pointer;
   position: fixed;
-  bottom: 16px; 
-  right: calc(50% - 190px);
+  bottom: 5vh; 
+  right: calc(50vw - 22vw);
 }
 
 .edit-button img {
   width: 55px;
   height: 55px;
+}
+
+@media (max-width: 480px){
+  .edit-button {
+    right: calc(50vw - 45vw);
+    bottom: 4vh;
+  }
+
+  .edit-button img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .notice-item h2 {
+    font-size: 0.85rem;
+  }
+
+  .notice-item p {
+    font-size: 0.7rem;
+  }
 }
 
 
@@ -1382,13 +1403,54 @@
   animation-delay: 2s; // Delay before starting the fade out
 }
 
+@media (max-width: 480px) {
+  .group-create-notice {
+    padding: 12px;
+  }
+  .group-create-notice-header {
+    padding-bottom: 12px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .group-create-notice-h1 {
+    font-size: 1.1rem;
+  }
+
+  .group-create-notice-textarea {
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+
+  .group-create-notice-option {
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    input[type="checkbox"] {
+      width: 1.0rem;
+      height: 1.0rem;
+    }
+
+    label {
+      font-size: 1.0rem;
+    }
+  }
+
+  .group-create-notice-submit-button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
 
 //////////////////////////////////
 //////////////////////////////////
 /* src/page/community/components/GroupNoticeDetail.css */
 
 .group-notice-detail {
-  padding: 10px;
   max-width: 800px;
   margin: 10px auto;
   background-color: #ffffff;
@@ -1399,13 +1461,12 @@
   align-items: center;
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
 }
 
 .group-notice-detail-header img {
   cursor: pointer;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
 }
 
 .group-notice-detail-h2 {
@@ -1425,6 +1486,21 @@
   font-size: 1rem;
   color: #333;
   line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .group-notice-detail-header {
+    margin-bottom: 15px;
+  }
+
+  .group-notice-detail-header img{
+    width: 45px;
+    height: 45px;
+  }
+
+  .group-notice-detail-h2 {
+    font-size: 1.3rem;
+  }
 }
 
 

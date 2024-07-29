@@ -915,6 +915,7 @@
 @media (max-width: 768px) {
   .group-detail-header-tabs {
     padding-top: 10px;
+
     .group-detail-header {
       padding-top: 45px;
       padding-bottom: 20px;
@@ -935,6 +936,7 @@
   .group-detail-tabs {
     padding: 10px 0;
   }
+
   .tab {
     padding: 6px 0;
     font-size: 14px;
@@ -1619,6 +1621,34 @@
   }
 }
 
+@media(max-width: 480px) {
+  .calendar-container {
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      width: 100%;
+      justify-items: center;
+      margin: 0 auto;
+    }
+
+    .calendar-header {
+      font-size: 14px;
+
+      button {
+        background: none;
+        border: none;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+
+
 ////////////////////////////////////////
 ////////////////////////////////////////
 
@@ -1738,5 +1768,40 @@
 
   >span:not(:last-child) {
     margin-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .group-achievements-goals-section {
+    margin-top: 18px;
+
+    .group-achievements-goal {
+      .group-achievements-goal-title {
+        font-size: 14px;
+      }
+
+      .group-achievements-goal-description {
+        font-size: 14px;
+      }
+    }
+
+    .group-achievements-importance-section {
+      .group-achievements-static-importance {
+        font-size: 15px;
+      }
+
+      .group-achievements-user-importance {
+        font-size: 15px;
+        margin-left: 30px;
+      }
+    }
+
+    .group-achievement-progress {
+      margin-top: 18px;
+
+      .group-achievement-progress-title {
+        font-size: 15px;
+      }
+    }
   }
 }

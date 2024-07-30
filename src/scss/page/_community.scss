@@ -530,8 +530,49 @@
     }
   }
 
+  .create-group-assign-category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .create-group-assign-category-label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .create-group-assign-category-select {
+      margin-left: auto;
+      width: 50%;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
   .create-group-form-group {
     margin-bottom: 24px; /* 간격을 늘리기 위해 값을 24px로 변경 */
+
+    .create-group-assign-tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+
+      .create-group-assign-tag {
+        padding: 8px 12px;
+        border: 1.7px solid #acacac;
+        color: #acacac;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .create-group-assign-tags-selected {
+        border: 1.7px solid black;
+        color: black;
+      }
+    }
 
     label {
       display: block;
@@ -593,6 +634,11 @@
       box-sizing: border-box;
     }
 
+    .create-group-checkbox-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
     .create-group-checkbox-group {
       display: flex;
       align-items: center;
@@ -600,7 +646,7 @@
       .create-group-checkbox-container {
         display: flex;
         align-items: center;
-        margin-right: 16px;
+        margin-right: 1.3rem;
         position: relative;
         padding-left: 24px;
         cursor: pointer;
@@ -615,6 +661,7 @@
         }
 
         .checkmark {
+          border-radius: 5px;
           position: absolute;
           top: 0;
           left: 0;
@@ -649,7 +696,7 @@
       }
     }
   }
-
+  
   .create-group-submit-button {
     width: 100%;
     padding: 12px;

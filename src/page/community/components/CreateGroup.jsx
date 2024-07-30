@@ -12,9 +12,11 @@ const CreateGroup = () => {
   const [goalStartDate, setGoalStartDate] = useState("");
   const [goalDuration, setGoalDuration] = useState("");
   const [members, setMembers] = useState("");
-  const [joinAfterStart, setJoinAfterStart] = useState("불가능");
+  const [joinAfterStart, setJoinAfterStart] = useState(null);
   const [profileImage, setProfileImage] = useState(null);
   const [error, setError] = useState(null);
+  const [category, setCategory] = useState(""); // 카테고리 상태 추가
+  const [selectedTags, setSelectedTags] = useState([]); // 태그 상태 추가
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -95,9 +97,48 @@ const CreateGroup = () => {
       startDate: goalStartDate,
       duration: parseInt(goalDuration),
       members: parseInt(members),
+      joinAfterStart,
+      category, // 추가
+      selectedTags, // 추가
     };
+    console.log("생성된 그룹 정보:", newGroup);
     dispatch(addGroup(newGroup));
     navigate("/community/main");
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+    setSelectedTags([]); // 카테고리 변경 시 선택된 태그 초기화
+  };
+
+  const handleTagClick = (tag) => {
+    if (tag === "전체") {
+      if (selectedTags.includes(tag)) {
+        // "전체" 태그가 선택된 상태라면 모든 태그 선택 해제
+        setSelectedTags([]);
+      } else {
+        // "전체" 태그가 선택되지 않은 상태라면 모든 태그 선택
+        const allTags = categories[category];
+        setSelectedTags(allTags);
+      }
+    } else {
+      const newTags = selectedTags.includes(tag)
+        ? selectedTags.filter((t) => t !== tag)
+        : [...selectedTags, tag];
+
+      // "전체" 태그 선택 여부 업데이트
+      const allTagsSelected = categories[category].every(t => newTags.includes(t));
+      const updatedTags = allTagsSelected ? newTags : newTags.filter(t => t !== "전체");
+
+      setSelectedTags(updatedTags);
+    }
+  };
+
+  const categories = {
+    "커리어": ["전체", "IT", "개발자", "디자인", "기획/UX", "마케팅", "데이터 분석", "자격시험", "크리에이티브", "직무역량"],
+    "제테크": ["전체", "주식 / 기업분석", "부동산", "ETF", "암호화폐", "파이낸셜 플래닝", "채권 투자", "재정관리"],
+    "자기개발": ["전체", "교양", "건강 / 운동", "동기 부여", "퍼스널 브랜딩", "독서", "언어"],
+    "학업": ["전체", "대학강의", "고등", "연구", "논문", "온라인 강의", "학원"],
   };
 
   return (
@@ -166,6 +207,34 @@ const CreateGroup = () => {
             <span className="create-group-error-tooltip-text">{error.message}</span>
           )}
         </div>
+
+        <div className={`create-group-assign-category create-group-error-tooltip ${error?.field === "keywords" ? "create-group-show" : ""}`}>
+          <label className="create-group-assign-category-label">카테고리 등록</label>
+          <select className="create-group-assign-category-select" value={category} onChange={handleCategoryChange}>
+              <option value="">카테고리</option>
+              {Object.keys(categories).map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+            ))}
+            </select>
+        </div>
+
+        <div className={`create-group-form-group create-group-error-tooltip ${error?.field === "keywords" ? "create-group-show" : ""}`}>
+          <label>태그 등록</label>
+          <div className="create-group-assign-tags-container">
+            {category && categories[category].map((tag) => (
+              <div
+                key={tag}
+                className={`create-group-assign-tag ${selectedTags.includes(tag) ? "create-group-assign-tags-selected" : ""}`}
+                onClick={() => handleTagClick(tag)}
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className={`create-group-form-group create-group-error-tooltip ${error?.field === "goalStartDate" ? "create-group-show" : ""}`}>
           <label>목표 기간</label>
           <div className="create-group-input-group">
@@ -206,7 +275,7 @@ const CreateGroup = () => {
           )}
         </div>
         <div className="create-group-form-group">
-          <label>시작일 이후 참여</label>
+          <label className="create-group-checkbox-label">시작일 이후 참여:</label>
           <div className="create-group-checkbox-group">
             <label className="create-group-checkbox-container">
               불가능

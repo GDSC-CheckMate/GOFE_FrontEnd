@@ -846,12 +846,23 @@
     padding: 0px; /* 작은 화면에서는 패딩을 줄임 */
   }
 
-  .group-detail-body .group-detail-section-title {
-    font-size: 14px;
-  }
+  .group-detail-body {
+    .group-detail-section-title {
+      font-size: 18px;
+    }
 
-  .group-detail-body p {
-    font-size: 14px;
+    p {
+      font-size: 16px;
+    }
+
+    .group-detail-keyword-container {
+      gap: 6px;
+    }
+
+    .group-detail-keyword {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
   }
 
   .progress-bar-container {

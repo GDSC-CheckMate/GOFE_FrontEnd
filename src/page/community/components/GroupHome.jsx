@@ -60,7 +60,13 @@ const GroupHome = () => {
       </div>
       <div className="group-detail-section">
         <h4 className="group-detail-section-title">키워드 설정</h4>
-        <p>{Array.isArray(group.keywords) ? group.keywords.join(', ') : group.keywords}</p>
+        <div className="group-detail-keyword-container">
+          {group.keywords.map((keyword, index) => (
+            <div key={index} className='group-detail-keyword'>
+              {keyword}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="group-detail-section">
         <h4 className="group-detail-section-title">참여자 목록</h4>

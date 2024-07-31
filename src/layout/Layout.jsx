@@ -19,8 +19,8 @@ const Layout = () => {
     `/community/searchhome`,
     "/community/keyword",
 
-    `/community/creategroup`
-
+    `/community/creategroup`,
+    "/mypage/message",
   ];
 
   // 현재 location이랑 같은지 확인

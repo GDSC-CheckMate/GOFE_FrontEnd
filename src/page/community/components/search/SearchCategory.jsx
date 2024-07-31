@@ -71,10 +71,6 @@ const SearchCategory = () => {
     setTopHeight(topSideRef.current.getBoundingClientRect().height);
   };
 
-  const handleTitlelClick = (title) => {
-    navigate("/community/keyword", { state: { title } });
-  };
-
   return (
     <div className="community-clear-view-container">
       <div className="community-clear-view-show-container">

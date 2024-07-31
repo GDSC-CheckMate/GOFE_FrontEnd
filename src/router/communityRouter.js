@@ -49,14 +49,13 @@ const ComSearchHome = lazy(() =>
 );
 const KeyWordIn = lazy(() =>
   import("../page/community/components/category/KeyWordIn")
-
+);
 const GroupCreateNotice = lazy(() =>
   import("../page/community/components/GroupCreateNotice")
 );
 
 const GroupNoticeDetail = lazy(() =>
   import("../page/community/components/GroupNoticeDetail")
-
 );
 
 const communityRouter = [

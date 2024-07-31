@@ -33,10 +33,9 @@ const communitySlice = createSlice({
     },
     addhot_word: (state, action) => {
       state.hot_words = action.payload;
-
+    },
     addNotice: (state, action) => {
       state.notices.push(action.payload);
-
     },
   },
   extraReducers: (builder) => {
@@ -55,8 +54,7 @@ const communitySlice = createSlice({
   },
 });
 
-
-export const { addGroup, setLikes, addKeyword, addhot_word,addNotice } = communitySlice.actions;
-
+export const { addGroup, setLikes, addKeyword, addhot_word, addNotice } =
+  communitySlice.actions;
 
 export default communitySlice.reducer;

@@ -1,5 +1,5 @@
 // src/page/community/components/GroupCreateNotice.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addNotice } from '../../../redux/communitySlice';
@@ -12,11 +12,11 @@ const GroupCreateNotice = () => {
   const [isNotice, setIsNotice] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleBackClick = () => {
+  const handleBackClick = useCallback(() => {
     navigate(-1);
-  };
+  },[navigate]);
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     if (title.trim() === '') {
       setErrorMessage('공지사항을 작성해 주세요.');
       return;
@@ -28,7 +28,7 @@ const GroupCreateNotice = () => {
     };
     dispatch(addNotice(newNotice));
     navigate(-1);
-  };
+  },[title, dispatch, navigate]);
 
   useEffect(() => {
     if (errorMessage) {
@@ -39,6 +39,16 @@ const GroupCreateNotice = () => {
       return () => clearTimeout(timer); // 컴포넌트가 언마운트될 때 타이머를 정리
     }
   }, [errorMessage]);
+
+  const handleTitleChange = useCallback((e) => {
+    console.log('Title changed:', e.target.value);
+    setTitle(e.target.value);
+  }, []);
+
+
+  const handleCheckboxChange = useCallback(() => {
+    setIsNotice((prev) => !prev);
+  }, []);
 
   return (
     <div className="group-create-notice">
@@ -51,7 +61,7 @@ const GroupCreateNotice = () => {
       <textarea className="group-create-notice-textarea"
         placeholder="멤버들과 공유하고 싶은 소식을 남겨보세요."
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={handleTitleChange}
       />
       {errorMessage && <p className="group-create-notice-error-message">{errorMessage}</p>}
       <div className="group-create-notice-option">
@@ -59,7 +69,7 @@ const GroupCreateNotice = () => {
           type="checkbox"
           id="chk"
           checked={isNotice}
-          onChange={() => setIsNotice(!isNotice)}
+          onChange={handleCheckboxChange}
         />
         <label htmlFor="chk">공지</label>
       </div>
@@ -70,4 +80,4 @@ const GroupCreateNotice = () => {
   );
 };
 
-export default GroupCreateNotice;
+export default React.memo(GroupCreateNotice);

@@ -29,6 +29,11 @@ const GroupHome = () => {
     }
   }, [group]);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('ko-KR', {year: 'numeric', month: 'long', day: 'numeric'}).format(date);
+  }
+
   return (
     <div>
       <div className="group-detail-section">
@@ -37,7 +42,9 @@ const GroupHome = () => {
       </div>
       <div className="group-detail-section">
         <h4 className="group-detail-section-title">목표 기간</h4>
-        <p>{group.startDate} ~ {new Date(new Date(group.startDate).setDate(new Date(group.startDate).getDate() + group.duration)).toLocaleDateString()} ({group.duration}일)</p>
+        <p>{formatDate(group.startDate)} ~ {formatDate(new Date(new Date(group.startDate).setDate(new Date(group.startDate).getDate() + group.duration)))} &nbsp; &nbsp; 
+          <span className="group-detail-section-title-goal-duration">{group.duration}일</span>
+        </p>
       </div>
       <div className="group-detail-section">
         <h4 className="group-detail-section-title">{isGoalReached ? "목표 기간을 달성했습니다!🎉" : `목표 달성일까지 ${daysLeft}일 남았어요!`}</h4>
@@ -53,7 +60,13 @@ const GroupHome = () => {
       </div>
       <div className="group-detail-section">
         <h4 className="group-detail-section-title">키워드 설정</h4>
-        <p>{Array.isArray(group.keywords) ? group.keywords.join(', ') : group.keywords}</p>
+        <div className="group-detail-keyword-container">
+          {group.keywords.map((keyword, index) => (
+            <div key={index} className='group-detail-keyword'>
+              {keyword}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="group-detail-section">
         <h4 className="group-detail-section-title">참여자 목록</h4>

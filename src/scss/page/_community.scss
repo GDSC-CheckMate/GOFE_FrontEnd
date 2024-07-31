@@ -803,28 +803,57 @@
   .create-group-header {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
     padding: 8px 0; /* 패딩 추가 */
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
   }
 
-  .create-group-back-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
+  .create-group-assign-category {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: #f0f0f0;
-    color: #000;
-    border: 1px solid #ddd;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .create-group-assign-category-label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .create-group-assign-category-select {
+      margin-left: auto;
+      width: 50%;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
   }
 
   .create-group-form-group {
     margin-bottom: 24px; /* 간격을 늘리기 위해 값을 24px로 변경 */
+
+    .create-group-assign-tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+
+      .create-group-assign-tag {
+        padding: 8px 12px;
+        border: 1.7px solid #acacac;
+        color: #acacac;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .create-group-assign-tags-selected {
+        border: 1.7px solid black;
+        color: black;
+      }
+    }
 
     label {
       display: block;
@@ -886,6 +915,11 @@
       box-sizing: border-box;
     }
 
+    .create-group-checkbox-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
     .create-group-checkbox-group {
       display: flex;
       align-items: center;
@@ -893,7 +927,7 @@
       .create-group-checkbox-container {
         display: flex;
         align-items: center;
-        margin-right: 16px;
+        margin-right: 1.3rem;
         position: relative;
         padding-left: 24px;
         cursor: pointer;
@@ -908,6 +942,7 @@
         }
 
         .checkmark {
+          border-radius: 5px;
           position: absolute;
           top: 0;
           left: 0;
@@ -917,7 +952,7 @@
         }
 
         input:checked ~ .checkmark {
-          background-color: #2196f3;
+          background-color: #121212;
         }
 
         .checkmark:after {
@@ -942,11 +977,11 @@
       }
     }
   }
-
+  
   .create-group-submit-button {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: #333;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -954,6 +989,54 @@
     font-size: 16px;
   }
 }
+
+.create-group-error-tooltip {
+  position: relative;
+  display: block;
+}
+
+.create-group-error-tooltip .create-group-error-tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #f44336;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 70%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.create-group-error-tooltip .create-group-error-tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f44336 transparent transparent transparent;
+}
+
+.create-group-error-tooltip.create-group-show .create-group-error-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeOut 1s forwards; /* 애니메이션 추가 */
+  animation-delay: 2s; /* 딜레이 추가 */
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 
 //////////////////////////////////
 //////////////////////////////////
@@ -972,6 +1055,10 @@
   padding: 122px 16px 16px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
   background: #fff;
   width: 100%;
+
+  &.no-header {
+    padding: 16px;
+  }
 }
 
 .group-detail-body {
@@ -982,9 +1069,31 @@
     margin-bottom: 4px;
   }
 
+  .group-detail-keyword-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .group-detail-keyword {
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid #b3b3b3;
+  }
+
   p {
     font-size: 17px;
     margin-bottom: 26px;
+
+    .group-detail-section-title-goal-duration {
+      padding: 5px 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 50px;
+      border: 1px solid #b3b3b3;
+    }
   }
 }
 
@@ -1017,7 +1126,7 @@
 
     .progress-bar-fill {
       height: 100%;
-      background-color: #007bff;
+      background-color: #121212;
       border-radius: 10px 0 0 10px;
       transition: width 1s ease-in-out;
     }
@@ -1061,15 +1170,27 @@
 
 @media (max-width: 480px) {
   .group-detail-body {
-    padding: 8px; /* 작은 화면에서는 패딩을 줄임 */
+    width: 100%;
+    padding: 0px; /* 작은 화면에서는 패딩을 줄임 */
   }
 
-  .group-detail-body .group-detail-section-title {
-    font-size: 14px;
-  }
+  .group-detail-body {
+    .group-detail-section-title {
+      font-size: 18px;
+    }
 
-  .group-detail-body p {
-    font-size: 14px;
+    p {
+      font-size: 16px;
+    }
+
+    .group-detail-keyword-container {
+      gap: 6px;
+    }
+
+    .group-detail-keyword {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
   }
 
   .progress-bar-container {
@@ -1087,7 +1208,6 @@
 
 //////////////////////////////////
 //////////////////////////////////
-//GroupDetailHeaderTabs.scss
 
 /* src/scss/components/_groupDetailHeaderTabs.scss */
 
@@ -1095,9 +1215,9 @@
   position: fixed; /* 상단 고정 */
   top: 0;
   left: 50%;
-  transform: translateX(-52%);
+  transform: translateX(-50%);
   background-color: #fff;
-  z-index: 1000;
+  z-index: 9999;
   padding: 0 16px; /* 좌우 패딩 추가 */
   box-sizing: border-box; /* 박스 모델을 패딩과 테두리를 포함한 크기로 설정 */
   width: 100%;
@@ -1106,21 +1226,18 @@
 .group-detail-header {
   display: flex;
   align-items: center;
-  padding-top: 35px;
+  padding-top: 21px;
   padding-bottom: 10px;
   border-bottom: none; /* 실선 제거 */
-}
 
-.back-button {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  margin-right: 8px;
+  img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .group-detail-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
   overflow: hidden; /* 텍스트 오버플로 방지 */
@@ -1154,22 +1271,25 @@
 
 /* 반응형 디자인을 위한 미디어 쿼리 */
 @media (max-width: 768px) {
-  .group-detail-header {
-    padding: 8px;
-  }
+  .group-detail-header-tabs {
+    padding-top: 10px;
 
-  .back-button {
-    font-size: 20px;
-    margin-right: 6px;
+    .group-detail-header {
+      padding-top: 45px;
+      padding-bottom: 20px;
+      border-bottom: none;
+    }
   }
 
   .group-detail-name {
     font-size: 16px;
+    flex: 1;
   }
 
   .group-detail-tabs {
-    padding: 4px 0;
+    padding: 10px 0;
   }
+
   .tab {
     padding: 6px 0;
     font-size: 14px;
@@ -1177,17 +1297,22 @@
 }
 
 @media (max-width: 480px) {
-  .group-detail-header {
-    padding: 6px 0;
-  }
+  .group-detail-header-tabs {
+    //padding-top: 10px;
 
-  .back-button {
-    font-size: 18px;
-    margin-right: 4px;
+    .group-detail-header {
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      img {
+        width: 45px;
+        height: 45px;
+      }
+    }
   }
 
   .group-detail-name {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .group-detail-tabs {
@@ -1223,6 +1348,12 @@
     ); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
     width: 100%;
     box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .group-chat-content::-webkit-scrollbar {
+    display: none;
   }
 
   .group-chat-message {
@@ -1236,13 +1367,19 @@
     &.user {
       justify-content: flex-end;
 
+      .message-content {
+        order: 2;  // 메시지 컨텐츠를 두번째로 배치
+      }
+
       .message {
+        display: flex;
+        align-items: center;
         background-color: #f0e991; // 사용자가 보낸 메시지의 배경색
         text-align: left;
       }
 
       .time {
-        text-align: left;
+        text-align: right;
       }
     }
 
@@ -1256,6 +1393,19 @@
 
       .time {
         text-align: left;
+      }
+
+      .like-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 8px;
+        align-self: center; 
+  
+        img {
+          width: 40px;
+          height: 40px;
+        }
       }
     }
 
@@ -1291,6 +1441,12 @@
         color: #999;
         margin-top: 4px;
       }
+
+      .likes-count {
+        margin-left: 8px;
+        font-size: 0.8rem;
+        color: #999;
+      }
     }
   }
 
@@ -1309,36 +1465,42 @@
     box-sizing: border-box; // 패딩과 테두리를 포함한 전체 크기를 계산
     height: 100px; // 입력창 높이 자동 조절
 
-    textarea {
-      flex-grow: 1;
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 0px;
-      margin-right: 8px;
-      resize: none; // 사용자가 크기 조절을 못하게 설정
-      overflow-y: auto;
-      height: auto; // 높이를 자동으로 조절
-      min-height: 38px; // 최소 높이 설정
-      max-height: 100px; // 최대 높이 설정
-    }
-
-    button {
-      padding: 8px 8px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 0px;
-      cursor: pointer;
-    }
-
     .plus-button {
+      padding: 0;
       background: none;
       border: none;
       cursor: pointer;
 
       img {
-        width: 24px;
-        height: 24px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    textarea {
+      flex-grow: 1;
+      padding: 8px 12px;
+      resize: none; // 사용자가 크기 조절을 못하게 설정
+      overflow-y: auto;
+      height: auto; // 높이를 자동으로 조절
+      min-height: 38px; // 최소 높이 설정
+      max-height: 100px; // 최대 높이 설정
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .textarea::-webkit-scrollbar {
+      display: none;
+    }
+
+    .send-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      img {
+        width: 45px;
+        height: 45px;
       }
     }
   }
@@ -1374,7 +1536,6 @@
     .group-chat-input {
       width: 100%; // padding에 맞게 조정
       max-width: 100%;
-      padding: 8px;
 
       textarea {
         padding: 8px;
@@ -1388,11 +1549,615 @@
     }
 
     .group-chat-content {
-      padding: 8px;
       max-height: calc(
-        100vh - 110px
+        100vh - 100px
       ); // 더 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
       width: 100%;
+    }
+
+    .group-chat-message {
+      .profile-pic {
+        width: 30px;
+        height: 30px;
+      }
+      
+      .message-content {
+        .username {
+          font-size: 0.9rem;
+          padding: 3px;
+        }
+
+        .message {
+          padding: 8px 12px;
+          font-size: 0.8rem;
+        }
+
+        .time {
+          font-size: 0.7rem;
+        }
+
+        .likes-count {
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+
+//////////////////////////////////
+//////////////////////////////////
+// src/scss/components/_groupNotices.scss
+
+.group-notices {
+  padding: 16px;
+  position: relative;
+  z-index: 1000;
+  min-height: 80vh;
+}
+
+.notice-list {
+  position: relative; /* Ensure this container is the reference point for the edit button */
+  min-height: calc(80vh - 32px); /* Adjust the height considering the padding */
+}
+
+.notice-item {
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+
+.notice-item h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notice-item p {
+  margin: 4px 0;
+  color: #797878;
+  font-size: 0.9rem;
+}
+
+.edit-button {
+  background: #e3e4dece;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  position: fixed;
+  bottom: 5vh; 
+  right: calc(50vw - 22vw);
+}
+
+.edit-button img {
+  width: 55px;
+  height: 55px;
+}
+
+@media (max-width: 480px){
+  .edit-button {
+    right: calc(50vw - 45vw);
+    bottom: 4vh;
+  }
+
+  .edit-button img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .notice-item h2 {
+    font-size: 0.85rem;
+  }
+
+  .notice-item p {
+    font-size: 0.7rem;
+  }
+}
+
+
+//////////////////////////////////
+//////////////////////////////////
+// src/scss/components/_createGroupNotices.scss
+
+.group-create-notice {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.group-create-notice-header {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+
+  img {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.group-create-notice-h1 {
+  font-weight: bold;
+  display: flex;
+  flex-grow: 1;
+  font-size: 1.2rem;
+}
+
+.group-create-notice-textarea {
+  flex: 1;
+  padding: 8px;
+  resize: none;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.group-create-notice-option {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    border: 1px solid #999;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]:checked {
+    background: #2196f3;
+    border: none;
+  }
+
+  label {
+    margin-left: 8px;
+    font-size: 1.2rem;
+  }
+}
+
+.group-create-notice-footer {
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+}
+
+.group-create-notice-submit-button {
+  width: 100%;
+  padding: 12px;
+  background: #333;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.group-create-notice-error-message {
+  position: relative;
+  background: #ffdddd;
+  border: 1px solid #ff5c5c;
+  color: #d8000c;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 8px 0;
+  width: fit-content;
+  animation: fadeOut 1s forwards; // fade out 애니메이션 효과
+  animation-delay: 2s; // Delay before starting the fade out
+}
+
+@media (max-width: 480px) {
+  .group-create-notice {
+    padding: 12px;
+  }
+  .group-create-notice-header {
+    padding-bottom: 12px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .group-create-notice-h1 {
+    font-size: 1.1rem;
+  }
+
+  .group-create-notice-textarea {
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+
+  .group-create-notice-option {
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    input[type="checkbox"] {
+      width: 1.0rem;
+      height: 1.0rem;
+    }
+
+    label {
+      font-size: 1.0rem;
+    }
+  }
+
+  .group-create-notice-submit-button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+
+//////////////////////////////////
+//////////////////////////////////
+/* src/page/community/components/GroupNoticeDetail.css */
+
+.group-notice-detail {
+  max-width: 800px;
+  margin: 10px auto;
+  background-color: #ffffff;
+}
+
+.group-notice-detail-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.group-notice-detail-header img {
+  cursor: pointer;
+  width: 55px;
+  height: 55px;
+}
+
+.group-notice-detail-h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.group-notice-detail-info {
+  margin-bottom: 20px;
+  color: #797777;
+  font-size: 1.0rem;
+}
+
+.group-notice-detail-content {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .group-notice-detail-header {
+    margin-bottom: 15px;
+  }
+
+  .group-notice-detail-header img{
+    width: 45px;
+    height: 45px;
+  }
+
+  .group-notice-detail-h2 {
+    font-size: 1.3rem;
+  }
+}
+
+
+//////////////////////////////////
+//////////////////////////////////
+/* src/page/community/components/_groupAchievements.scss */
+
+.group-achievements-container {
+  font-family: 'Arial, sans-serif';
+  margin: 20px;
+}
+
+.group-achievements-main-content {
+  margin-top: 20px;
+}
+
+.group-achievements-calendar-section {
+  text-align: center;
+}
+
+.month-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+////////////////
+/*달력 컴포넌트*/
+.calendar-container {  
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 42.68px;
+  box-sizing: border-box;
+  align-items: center;
+  font-size: 14px;
+
+  .calendar-header {
+    display: flex;
+    align-items: center;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    justify-content: center;
+    position: relative;
+    font-size: 16px;
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      img {
+        width: 48px;
+        height: 48px;
+        color: #333333;
+      }
+    }
+
+    .month-display {
+      margin: 0 49px;
+      font-weight: bold;
+    }
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 321.5px;
+    justify-content: center;
+    margin: 0 auto;
+
+    .header {
+      display: contents;
+
+      .day-header {
+        text-align: center;
+        color: #a2a2a2;
+      }
+    }
+
+    .body {
+      display: contents;
+
+      .day {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #858484;
+        text-align: center;
+        box-sizing: border-box;
+
+        .circle {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f0f0f0;
+
+          .day-number {
+            position: relative;
+            z-index: 1;
+          }
+        }
+
+        &.empty-day {
+          color: #ccc;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 480px) {
+  .calendar-container {
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      width: 100%;
+      justify-items: center;
+      margin: 0 auto;
+    }
+
+    .calendar-header {
+      font-size: 14px;
+
+      button {
+        background: none;
+        border: none;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+
+
+////////////////////////////////////////
+////////////////////////////////////////
+
+.group-achievements-goals-section {
+  margin-top: 20px;
+}
+
+.group-achievements-goal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.group-achievements-goal-title {
+  font-size: 18px;
+  color: #9c9b9b;
+  margin: 0;
+}
+
+.group-achievements-goal-description {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+  color: #000;
+}
+
+.group-achievements-importance-section {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #9c9b9b;
+}
+
+.group-achievements-static-importance {
+  font-size: 18px;
+  color: #9c9b9b;
+  margin: 0;
+}
+
+.group-achievements-user-importance {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 35px;
+  color: #000;
+}
+
+.group-achievement-importance-bar {
+  background: #ccc;
+  height: 10px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.group-achievement-importance-fill {
+  background: #000;
+  height: 100%;
+  transition: width 1s ease-in-out;
+}
+
+.group-achievement-progress {
+  margin-top: 20px;
+}
+
+.group-achievement-progress-title {
+  font-size: 18px;
+  color: #9c9b9b;
+}
+
+.group-achievement-progress-bar {
+  background: #ccc;
+  height: 20px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.group-achievement-progress-fill {
+  background: #000;
+  height: 100%;
+}
+
+.group-achievement-progress-summary {
+  display: flex;
+  justify-content: space-around;
+  background-color: #c2c0c0;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #ffffff;
+  margin-top: 20px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 80%; /* 높이는 필요에 따라 조정 */
+    background-color: #fff;
+  }
+
+  >span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    text-align: center;
+    
+    .highlight {
+      color: #000;
+    }
+  }
+
+  >span:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .group-achievements-goals-section {
+    margin-top: 18px;
+
+    .group-achievements-goal {
+      .group-achievements-goal-title {
+        font-size: 14px;
+      }
+
+      .group-achievements-goal-description {
+        font-size: 14px;
+      }
+    }
+
+    .group-achievements-importance-section {
+      .group-achievements-static-importance {
+        font-size: 15px;
+      }
+
+      .group-achievements-user-importance {
+        font-size: 15px;
+        margin-left: 30px;
+      }
+    }
+
+    .group-achievement-progress {
+      margin-top: 18px;
+
+      .group-achievement-progress-title {
+        font-size: 15px;
+      }
     }
   }
 }

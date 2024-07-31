@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GroupAchievementsCalendar from './GroupAchievementsCalendar';
 import { useOutletContext } from 'react-router-dom';
 
@@ -35,6 +35,12 @@ const GroupAchievements = () => {
     }
   };
 
+  const [fillWidth, setFillWidth] = useState(0);
+
+  useEffect(() => {
+    setFillWidth(importancePercentage);
+  }, [importancePercentage]);
+
   return (
     <div className="group-achievements-container">
       <main className="group-achievements-main-content">
@@ -48,9 +54,14 @@ const GroupAchievements = () => {
           </div>
           <div className="group-achievements-importance-section">
             <span className="group-achievements-static-importance">중요도</span>
-            <span className="group-achievements-user-importance"> {getImportanceText(importancePercentage)}</span>
+            <span className="group-achievements-user-importance"> 
+              {getImportanceText(importancePercentage)}
+            </span>
             <div className="group-achievement-importance-bar">
-              <div className="group-achievement-importance-fill" style={{ width: `${importancePercentage}%` }}></div>
+              <div 
+                className="group-achievement-importance-fill" 
+                style={{ width: `${fillWidth}%` }}>
+              </div>
             </div>
           </div>
           <div className="group-achievement-progress">

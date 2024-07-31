@@ -1051,7 +1051,7 @@
 .group-detail-page {
   flex: 1;
   overflow-y: auto; /* 스크롤 가능하도록 설정 */
-  padding-top: 122px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
+  padding-top: 107px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
   background: #fff;
   width: 100%;
   &.no-header {
@@ -1134,15 +1134,14 @@
       transition: width 1s ease-in-out;
     }
   }
-
-  span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    color: #333;
-  }
+  // span {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   font-size: 12px;
+  //   color: #333;
+  // }
 }
 
 @media (max-width: 768px) {
@@ -1347,11 +1346,11 @@
     display: flex;
     flex-direction: column; // 메시지들을 정방향으로 정렬
     flex: 1;
-    padding: 16px;
+    padding: 20px 16px 16px 16px;
     overflow-y: auto;
     background-color: #f0f0f0; // 배경색을 좀 더 밝게 조정
     max-height: calc(
-      100vh - 222px
+      100vh - 207px
     ); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
     width: 100%;
     box-sizing: border-box;
@@ -2046,6 +2045,22 @@
   color: #9c9b9b;
 }
 
+.group-achievement-importance-bar {
+  background: #ccc;
+  height: 10px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}  
+
+.group-achievement-importance-fill {
+  background: #000;
+  height: 100%;
+  width: 0;  //초기 width를 0으로 설정
+  transition: width 1s ease-in-out;
+}
+
 .group-achievements-static-importance {
   font-size: 18px;
   color: #9c9b9b;
@@ -2057,21 +2072,6 @@
   font-weight: bold;
   margin-left: 35px;
   color: #000;
-}
-
-.group-achievement-importance-bar {
-  background: #ccc;
-  height: 10px;
-  width: 100%;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-top: 5px;
-}
-
-.group-achievement-importance-fill {
-  background: #000;
-  height: 100%;
-  transition: width 1s ease-in-out;
 }
 
 .group-achievement-progress {

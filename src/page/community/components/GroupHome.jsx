@@ -45,7 +45,7 @@ const GroupHome = () => {
       <div className="group-detail-section">
         <h4 className="group-detail-section-title">{group.name}</h4>
         <p>
-          인원 : {2}명 / 정원 : {group.members}명
+          인원 : {3}명 / 정원 : {group.members}명
         </p>
       </div>
       <div className="group-detail-section">

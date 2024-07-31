@@ -1327,6 +1327,7 @@
   }
 }
 
+
 //////////////////////////////////
 //////////////////////////////////
 // src/scss/components/_groupChat.scss
@@ -1337,9 +1338,9 @@
   height: calc(
     100vh - 222px
   ); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
-  background-color: #ffffff;
-  &.group-chat-message-container {
-    height: calc(100vh - 180px);
+
+  @media screen and (max-height: 982px) {
+    height: calc(100vh - 170px);
   }
 
   .group-chat-content {
@@ -1356,6 +1357,10 @@
     box-sizing: border-box;
     scrollbar-width: none;
     -ms-overflow-style: none;
+
+    &.group-chat-message-content {
+      max-height: calc(100vh - 180px);
+    }
   }
 
   .group-chat-content::-webkit-scrollbar {
@@ -1610,20 +1615,22 @@
 .notice-item {
   border-bottom: 1px solid #ddd;
   padding: 8px 0;
-}
 
-.notice-item h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  .group-notice-item-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-.notice-item p {
-  margin: 4px 0;
-  color: #797878;
-  font-size: 0.9rem;
+  .group-notice-item-date-time-author {
+    margin: 4px 0;
+    color: #797878;
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+  }
 }
 
 .edit-button {

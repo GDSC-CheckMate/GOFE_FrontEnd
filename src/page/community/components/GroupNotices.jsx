@@ -23,8 +23,8 @@ const GroupNotices = () => {
         {notices.length > 0 ? (
           notices.map((notice, index) => (
             <div key={index} className="notice-item" onClick={() => handleNoticeClick(index)}>
-              <h2>{notice.title}</h2>
-              <p>{notice.date} {notice.author}</p>
+              <div className="group-notice-item-title">{notice.title}</div>
+              <div className="group-notice-item-date-time-author">{notice.date} {notice.author}</div>
             </div>
           ))
         ) : (

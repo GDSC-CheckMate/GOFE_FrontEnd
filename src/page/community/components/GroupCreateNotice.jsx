@@ -12,11 +12,11 @@ const GroupCreateNotice = () => {
   const [isNotice, setIsNotice] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleBackClick = useCallback(() => {
+  const handleBackClick = () => {
     navigate(-1);
-  },[navigate]);
+  };
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = () => {
     if (title.trim() === '') {
       setErrorMessage('공지사항을 작성해 주세요.');
       return;
@@ -28,7 +28,7 @@ const GroupCreateNotice = () => {
     };
     dispatch(addNotice(newNotice));
     navigate(-1);
-  },[title, dispatch, navigate]);
+  };
 
   useEffect(() => {
     if (errorMessage) {
@@ -45,10 +45,9 @@ const GroupCreateNotice = () => {
     setTitle(e.target.value);
   }, []);
 
-
-  const handleCheckboxChange = useCallback(() => {
+  const handleCheckboxChange = () => {
     setIsNotice((prev) => !prev);
-  }, []);
+  };
 
   return (
     <div className="group-create-notice">

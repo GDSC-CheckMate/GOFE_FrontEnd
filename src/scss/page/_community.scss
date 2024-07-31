@@ -977,7 +977,7 @@
       }
     }
   }
-  
+
   .create-group-submit-button {
     width: 100%;
     padding: 12px;
@@ -1013,7 +1013,7 @@
 }
 
 .create-group-error-tooltip .create-group-error-tooltip-text::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -1037,7 +1037,6 @@
   }
 }
 
-
 //////////////////////////////////
 //////////////////////////////////
 // src/scss/page/group_detail_page.scss
@@ -1052,47 +1051,50 @@
 .group-detail-page {
   flex: 1;
   overflow-y: auto; /* 스크롤 가능하도록 설정 */
-  padding: 122px 16px 16px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
+  padding-top: 122px; /* 상단 고정된 헤더와 탭의 높이만큼 패딩 추가, 좌우 패딩 */
   background: #fff;
   width: 100%;
-
   &.no-header {
     padding: 16px;
   }
-}
 
-.group-detail-body {
-  .group-detail-section-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 4px;
-  }
+  .group-detail-body {
+    .group-detail-container-box {
+      padding-left: 10px;
+    }
 
-  .group-detail-keyword-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+    .group-detail-section-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 30px;
+      margin-bottom: 4px;
+    }
 
-  .group-detail-keyword {
-    padding: 8px 12px;
-    border-radius: 20px;
-    display: inline-block;
-    border: 1px solid #b3b3b3;
-  }
+    .group-detail-keyword-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-  p {
-    font-size: 17px;
-    margin-bottom: 26px;
-
-    .group-detail-section-title-goal-duration {
-      padding: 5px 10px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      border-radius: 50px;
+    .group-detail-keyword {
+      padding: 8px 12px;
+      border-radius: 20px;
+      display: inline-block;
       border: 1px solid #b3b3b3;
+    }
+
+    p {
+      font-size: 17px;
+      margin-bottom: 26px;
+
+      .group-detail-section-title-goal-duration {
+        padding: 5px 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 50px;
+        border: 1px solid #b3b3b3;
+      }
     }
   }
 }
@@ -1368,7 +1370,7 @@
       justify-content: flex-end;
 
       .message-content {
-        order: 2;  // 메시지 컨텐츠를 두번째로 배치
+        order: 2; // 메시지 컨텐츠를 두번째로 배치
       }
 
       .message {
@@ -1400,8 +1402,8 @@
         border: none;
         cursor: pointer;
         margin-left: 8px;
-        align-self: center; 
-  
+        align-self: center;
+
         img {
           width: 40px;
           height: 40px;
@@ -1560,7 +1562,7 @@
         width: 30px;
         height: 30px;
       }
-      
+
       .message-content {
         .username {
           font-size: 0.9rem;
@@ -1583,7 +1585,6 @@
     }
   }
 }
-
 
 //////////////////////////////////
 //////////////////////////////////
@@ -1626,7 +1627,7 @@
   border-radius: 100%;
   cursor: pointer;
   position: fixed;
-  bottom: 5vh; 
+  bottom: 5vh;
   right: calc(50vw - 22vw);
 }
 
@@ -1635,7 +1636,7 @@
   height: 55px;
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
   .edit-button {
     right: calc(50vw - 45vw);
     bottom: 4vh;
@@ -1654,7 +1655,6 @@
     font-size: 0.7rem;
   }
 }
-
 
 //////////////////////////////////
 //////////////////////////////////
@@ -1788,12 +1788,12 @@
     margin-bottom: 12px;
 
     input[type="checkbox"] {
-      width: 1.0rem;
-      height: 1.0rem;
+      width: 1rem;
+      height: 1rem;
     }
 
     label {
-      font-size: 1.0rem;
+      font-size: 1rem;
     }
   }
 
@@ -1802,7 +1802,6 @@
     font-size: 0.9rem;
   }
 }
-
 
 //////////////////////////////////
 //////////////////////////////////
@@ -1837,7 +1836,7 @@
 .group-notice-detail-info {
   margin-bottom: 20px;
   color: #797777;
-  font-size: 1.0rem;
+  font-size: 1rem;
 }
 
 .group-notice-detail-content {
@@ -1851,7 +1850,7 @@
     margin-bottom: 15px;
   }
 
-  .group-notice-detail-header img{
+  .group-notice-detail-header img {
     width: 45px;
     height: 45px;
   }
@@ -1861,13 +1860,12 @@
   }
 }
 
-
 //////////////////////////////////
 //////////////////////////////////
 /* src/page/community/components/_groupAchievements.scss */
 
 .group-achievements-container {
-  font-family: 'Arial, sans-serif';
+  font-family: "Arial, sans-serif";
   margin: 20px;
 }
 
@@ -1886,7 +1884,7 @@
 
 ////////////////
 /*달력 컴포넌트*/
-.calendar-container {  
+.calendar-container {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 42.68px;
@@ -1977,7 +1975,7 @@
   }
 }
 
-@media(max-width: 480px) {
+@media (max-width: 480px) {
   .calendar-container {
     .calendar {
       display: grid;
@@ -2003,7 +2001,6 @@
     }
   }
 }
-
 
 ////////////////////////////////////////
 ////////////////////////////////////////
@@ -2100,7 +2097,7 @@
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -2110,19 +2107,19 @@
     background-color: #fff;
   }
 
-  >span {
+  > span {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
     text-align: center;
-    
+
     .highlight {
       color: #000;
     }
   }
 
-  >span:not(:last-child) {
+  > span:not(:last-child) {
     margin-right: 20px;
   }
 }

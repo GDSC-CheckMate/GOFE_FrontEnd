@@ -104,7 +104,7 @@ const ShowMypage = () => {
         <div className="mypage-communication">참여중인 소모임</div>
         <div className="mypage-communication-count">
           <p className="mypage-communication-now">
-            참여중인 소모임{groups.length}개
+            참여중인 소모임 {groups.length}개
           </p>
           <p className="mypage-communication-all">/ 10개</p>
         </div>

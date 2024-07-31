@@ -37,6 +37,7 @@ const CommunityShowAddFreind = lazy(() =>
 const CommunityShowProfile = lazy(() =>
   import("../page/community/components/CommunityShowProfile")
 );
+
 const PeekPage = lazy(() => import("../page/mypage/components/PeekPage"));
 
 const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
@@ -48,6 +49,13 @@ const ComSearchHome = lazy(() =>
 );
 const KeyWordIn = lazy(() =>
   import("../page/community/components/category/KeyWordIn")
+);
+const GroupCreateNotice = lazy(() =>
+  import("../page/community/components/GroupCreateNotice")
+);
+
+const GroupNoticeDetail = lazy(() =>
+  import("../page/community/components/GroupNoticeDetail")
 );
 
 const communityRouter = [
@@ -185,6 +193,22 @@ const communityRouter = [
         element: (
           <Suspense fallback={<Loading />}>
             <GroupNotices />
+          </Suspense>
+        ),
+      },
+      {
+        path: "create-notices",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GroupCreateNotice />
+          </Suspense>
+        ),
+      },
+      {
+        path: "notices/:noticeId",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <GroupNoticeDetail />
           </Suspense>
         ),
       },

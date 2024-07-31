@@ -8,7 +8,6 @@ const KeyWordIn = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { content, name } = location.state || {};
-  //   const className = `community-clear-view-show-bottom-content-words-container-title ${name}`;
 
   return (
     <div className="community-search-keywordin-container">

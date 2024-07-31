@@ -1221,7 +1221,11 @@
   transform: translateX(-50%);
   background-color: #fff;
   z-index: 9999;
+<<<<<<< Updated upstream
   padding: 0; /* 좌우 패딩 추가 */
+=======
+  //padding: px; /* 좌우 패딩 추가 */
+>>>>>>> Stashed changes
   box-sizing: border-box; /* 박스 모델을 패딩과 테두리를 포함한 크기로 설정 */
   width: 100%;
 }
@@ -1326,6 +1330,7 @@
     font-size: 12px;
   }
 }
+
 
 //////////////////////////////////
 //////////////////////////////////

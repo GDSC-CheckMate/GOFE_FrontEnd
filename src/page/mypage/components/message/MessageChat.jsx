@@ -89,8 +89,13 @@ const MessageChat = () => {
     }
   }, [messages]);
 
+  // group-chat-message 클래스 추가
   return (
-    <div className="group-chat">
+    <div
+      className={`group-chat ${
+        messages.length > 0 ? "group-chat-message-container" : ""
+      }`}
+    >
       <div className="group-chat-content" ref={chatContentRef}>
         {messages.map((msg, index) => (
           <div key={index} className={`group-chat-message ${msg.sender}`}>

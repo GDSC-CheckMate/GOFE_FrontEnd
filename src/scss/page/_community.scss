@@ -1060,7 +1060,8 @@
 
   .group-detail-body {
     .group-detail-container-box {
-      padding-left: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
     }
 
     .group-detail-section-title {
@@ -1220,7 +1221,7 @@
   transform: translateX(-50%);
   background-color: #fff;
   z-index: 9999;
-  padding: 0 16px; /* 좌우 패딩 추가 */
+  padding: 0; /* 좌우 패딩 추가 */
   box-sizing: border-box; /* 박스 모델을 패딩과 테두리를 포함한 크기로 설정 */
   width: 100%;
 }
@@ -1337,6 +1338,9 @@
     100vh - 222px
   ); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
   background-color: #ffffff;
+  &.group-chat-message-container {
+    height: calc(100vh - 180px);
+  }
 
   .group-chat-content {
     display: flex;
@@ -1361,6 +1365,7 @@
   .group-chat-message {
     display: flex;
     align-items: flex-start;
+    margin-top: 10px;
     margin-bottom: 12px;
     padding: 0; // 전체 메시지 박스의 패딩 제거
     border-radius: 20px;

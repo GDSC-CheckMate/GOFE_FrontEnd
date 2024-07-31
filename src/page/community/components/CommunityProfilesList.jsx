@@ -45,11 +45,12 @@ const CommunityProfilesList = () => {
   return (
     <div className="Community-profile-list-container-box">
       <div className="Community-profile-list">
-        <div className="Community-profile-personal-box">
-          <Link to="/ShowMypage">
-            <div className="Community-profile-me-img"></div>
-            <div className="Community-profile-me-name">me</div>
-          </Link>
+        <div
+          className="Community-profile-personal-box"
+          onClick={() => navigate("/mypage/showmypage")}
+        >
+          <div className="Community-profile-me-img"></div>
+          <div className="Community-profile-me-name">me</div>
         </div>
         <div className="Community-profiles-neigbor">
           {profileName.map((profile) => (

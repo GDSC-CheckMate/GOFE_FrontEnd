@@ -52,12 +52,15 @@ const CommunityShowFollwers = () => {
   const navigate = useNavigate();
   const totalfollowers = followerlist ? followerlist.length : 0;
 
+  const handleProfileClick = (profile) => {
+    navigate("/community/peekpage", { state: { profile } });
+  };
   return (
     <div className="community-show-container-view">
       <div className="community-show-profile-follow-header-container-box">
         <div
           className="community-show-profile-follow-header-back-icon"
-          onClick={() => navigate("/community/CommunityHomePage")}
+          onClick={() => navigate("/community/home")}
         >
           <Back />
         </div>
@@ -69,10 +72,12 @@ const CommunityShowFollwers = () => {
       </div>
       {followerlist &&
         followerlist.map((followers_profile) => (
-          <CommunityShowFollwers_list
-            key={followers_profile}
-            followers_profile={followers_profile}
-          />
+          <div
+            onClick={() => handleProfileClick(followers_profile)}
+            key={followers_profile.id}
+          >
+            <CommunityShowFollwers_list followers_profile={followers_profile} />
+          </div>
         ))}
     </div>
   );

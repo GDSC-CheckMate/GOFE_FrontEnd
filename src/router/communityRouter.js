@@ -37,13 +37,26 @@ const CommunityShowAddFreind = lazy(() =>
 const CommunityShowProfile = lazy(() =>
   import("../page/community/components/CommunityShowProfile")
 );
+
+const PeekPage = lazy(() => import("../page/mypage/components/PeekPage"));
+
 const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
+const SearchView = lazy(() =>
+  import("../page/community/components/search/SearchView")
+);
+const ComSearchHome = lazy(() =>
+  import("../page/community/components/ComSearchHome")
+);
+const KeyWordIn = lazy(() =>
+  import("../page/community/components/category/KeyWordIn")
+
 const GroupCreateNotice = lazy(() =>
   import("../page/community/components/GroupCreateNotice")
 );
 
 const GroupNoticeDetail = lazy(() =>
   import("../page/community/components/GroupNoticeDetail")
+
 );
 
 const communityRouter = [
@@ -60,6 +73,14 @@ const communityRouter = [
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityHomePage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "searchhome",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <ComSearchHome />
       </Suspense>
     ),
   },
@@ -109,6 +130,30 @@ const communityRouter = [
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityShowAddFreind />
+      </Suspense>
+    ),
+  },
+  {
+    path: "peekpage",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <PeekPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "searchview",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <SearchView />
+      </Suspense>
+    ),
+  },
+  {
+    path: "keyword",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <KeyWordIn />
       </Suspense>
     ),
   },

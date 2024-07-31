@@ -1337,9 +1337,9 @@
   height: calc(
     100vh - 222px
   ); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
-  background-color: #ffffff;
-  &.group-chat-message-container {
-    height: calc(100vh - 180px);
+
+  @media screen and (max-height: 982px) {
+    height: calc(100vh - 170px);
   }
 
   .group-chat-content {
@@ -1356,6 +1356,10 @@
     box-sizing: border-box;
     scrollbar-width: none;
     -ms-overflow-style: none;
+
+    &.group-chat-message-content {
+      max-height: calc(100vh - 180px);
+    }
   }
 
   .group-chat-content::-webkit-scrollbar {

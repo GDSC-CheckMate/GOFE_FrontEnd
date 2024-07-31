@@ -10,9 +10,9 @@ const CommunityProvider = lazy(() =>
 const CreateGroup = lazy(() =>
   import("../page/community/components/CreateGroup")
 );
-const CommunityMainPage = lazy(() =>
-  import("../page/community/components/CommunityMainPage")
-);
+// const CommunityMainPage = lazy(() =>
+//   import("../page/community/components/CommunityMainPage")
+// );
 const CommunityHomePage = lazy(() =>
   import("../page/community/components/CommunityHomePage")
 );

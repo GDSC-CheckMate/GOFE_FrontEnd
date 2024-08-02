@@ -188,9 +188,33 @@
     }
   }
 }
-.mypage-show-alarm-main-container-box {
-}
+.mypage-show-alarm-main-container-box-all {
+  width: 100%;
+  .mypage-show-alarm-main-container-box {
+    .mypage-alarm-detail-content {
+      .mypage-alarm-detail-box {
+        padding: 16px 20px;
+        height: 80px;
 
+        .mypage-alarm-detail-content-box {
+          display: flex;
+          margin-top: 5px;
+          .mypage-alarm-detail-content-box-title {
+            padding-top: 5px;
+          }
+          .mypage-alarm-detail-button {
+            margin-left: auto;
+            margin-top: 7px;
+          }
+        }
+        .mypage-alarm-detail-content-sub {
+          @include custom-font-size(500, 13px, color-1);
+          padding-bottom: 5px;
+        }
+      }
+    }
+  }
+}
 .mypage-like-container-box {
   width: 100%;
   .mypage-like-header {

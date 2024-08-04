@@ -8,7 +8,7 @@ const CommunityHomeItem = ({ group }) => (
     </div>
     <div className="community-home-group-details">
       <div className="community-home-group-name">{group.name}</div>
-      <div className="community-home-group-notice">{group.notice}</div>
+      <div className="community-home-group-notice"></div>
     </div>
     <div className="community-home-group-info"></div>
   </div>

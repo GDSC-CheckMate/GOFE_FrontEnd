@@ -133,10 +133,69 @@
   background: #f4f4f4;
   margin: 2.2456rem auto 0rem auto;
 }
+.mypage-alarm-commnuity-container {
+  margin-top: 40px;
+  width: 100%;
+
+  .mypage-alarm-community-section {
+    flex-direction: column;
+    gap: 8px;
+
+    .mypage-alarm-communication {
+      @include custom-font-size(600, 16px, black);
+      align-self: stretch;
+      padding-left: 20px;
+    }
+    .mypage-alarm-group-list {
+      .mypage-alarm-item-group-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 20px;
+
+        .mypage-alarm-item-group-icon img {
+          @include box-size(40px, 40px);
+          border-radius: 20px;
+        }
+        .mypage-alarm-item-group-details {
+          flex: 1;
+          margin-left: 16px;
+
+          .mypage-alarm-item-group-name {
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            .com-mypage-alarm-detail-button {
+              margin-left: auto;
+              margin-top: 7px;
+            }
+          }
+
+          .mypage-alarm-item-group-notice {
+            font-size: 0.875rem;
+            color: #888;
+          }
+        }
+      }
+    }
+    .mypage-alarm-communication-count {
+      align-self: stretch;
+
+      .mypage-alarm-communication-now {
+        @include custom-font-size(500, 13px, color-9);
+      }
+
+      .mypage-alarm-communication-all {
+        @include custom-font-size(500, 13px, color-10);
+        padding-left: 20px;
+      }
+      display: flex;
+    }
+  }
+}
 
 .mypage-community-section {
   @include inline-flexbox(center, start);
-  width: 316px;
+  width: 92%;
   flex-direction: column;
   gap: 8px;
   margin: 20.5px;

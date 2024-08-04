@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import CommunityHomeItem from "../../../community/components/CommunityHomeItem";
-
 import { useDispatch, useSelector } from "react-redux";
+
 import { useNavigate } from "react-router-dom";
 import { fetchGroups } from "../../../../redux/communitySlice";
 import AlarmItem from "./AlarmItem";

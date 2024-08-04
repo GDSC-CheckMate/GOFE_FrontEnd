@@ -1,8 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Mypageheader from "./Mypageheader";
 import AlarmContent from "./alarm/AlarmContent";
-import CommunityHomeJoin from "../../community/components/CommunityHomeJoin";
 import AlarmCom from "./alarm/AlarmCom";
 const ShowAlarm = () => {
   return (

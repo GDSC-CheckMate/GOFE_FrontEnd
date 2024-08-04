@@ -277,7 +277,8 @@
 
   .community-home-group-icon img {
     @include box-size(40px, 40px);
-    border-radius: 20px;
+    border-radius: 50%;
+    object-fit: cover;
   }
   .community-home-group-details {
     flex: 1;
@@ -673,7 +674,8 @@
 .community-group-icon img {
   width: 40px;
   height: 40px;
-  border-radius: 20px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .community-group-details {

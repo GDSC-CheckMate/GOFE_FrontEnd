@@ -272,9 +272,11 @@
 
 .community-home-group-item {
   display: flex;
-  align-items: center;
-  padding: 8px 16px;
 
+  align-items: center;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
   .community-home-group-icon img {
     @include box-size(40px, 40px);
     border-radius: 20px;
@@ -286,6 +288,11 @@
     .community-home-group-name {
       font-size: 16px;
       font-weight: bold;
+      display: flex;
+      .com-mypage-alarm-detail-button {
+        margin-left: auto;
+        margin-top: 7px;
+      }
     }
 
     .community-home-group-notice {
@@ -596,7 +603,9 @@
   cursor: pointer;
   font-size: 16px;
 }
-
+.group-list {
+  width: 100%;
+}
 .community-group-list {
   display: flex;
   flex-direction: column;

@@ -9,7 +9,7 @@ const achievements = [
 ];
 
 const GroupAchievements = () => {
-  const importancePercentage = 78;
+  const importancePercentage = 78;  // 지금은 임시로 user data가 없기 때문에 78로 설정했지만 나중에 user data가 있으면 그걸로 설정
   const {group} = useOutletContext();
   const startDate = new Date(group.startDate);
   const currentDate = new Date();
@@ -35,11 +35,16 @@ const GroupAchievements = () => {
     }
   };
 
-  const [fillWidth, setFillWidth] = useState(0);
+  const [importanceFillWidth, setImportanceFillWidth] = useState(0);
+  const [goalFillWidth, setGoalFillWidth] = useState('0%');
 
   useEffect(() => {
-    setFillWidth(importancePercentage);
+    setImportanceFillWidth(importancePercentage);
   }, [importancePercentage]);
+
+  useEffect(() => {   // 마찬가지로 나중에 user data가 오면 그걸로 목표 바 설정
+    setGoalFillWidth('50%');
+  }, []);
 
   return (
     <div className="group-achievements-container">
@@ -60,14 +65,17 @@ const GroupAchievements = () => {
             <div className="group-achievement-importance-bar">
               <div 
                 className="group-achievement-importance-fill" 
-                style={{ width: `${fillWidth}%` }}>
+                style={{ width: `${importanceFillWidth}%` }}>
               </div>
             </div>
           </div>
           <div className="group-achievement-progress">
             <span className="group-achievement-progress-title">목표 달성률✨</span>
             <div className="group-achievement-progress-bar">
-              <div className="group-achievement-progress-fill" style={{ width: '50%' }}></div>
+              <div 
+                className="group-achievement-progress-fill" 
+                style={{ width: `${goalFillWidth}` }}>
+              </div>
             </div>
             <div className="group-achievement-progress-summary">
               <span>

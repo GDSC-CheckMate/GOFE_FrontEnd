@@ -2049,7 +2049,7 @@
   background: #ccc;
   height: 10px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   margin-top: 5px;
 }  
@@ -2095,6 +2095,8 @@
 .group-achievement-progress-fill {
   background: #000;
   height: 100%;
+  width: 100%;
+  transition: width 1s ease-in-out;
 }
 
 .group-achievement-progress-summary {

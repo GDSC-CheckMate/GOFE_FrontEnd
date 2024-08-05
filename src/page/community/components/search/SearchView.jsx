@@ -8,7 +8,7 @@ import { ReactComponent as Back } from "../../../../assets/community/Back.svg";
 import { useDispatch, useSelector } from "react-redux";
 import SearchRecent from "./SearchRecent";
 import { addKeyword, addhot_word } from "../../../../redux/communitySlice";
-import CommunityHomeKeywordDetail from "../CommunityHomeKeywordDetail";
+import ComKeyWordHome from "../ComKeyWordHome";
 
 const hot_word = [
   {
@@ -109,9 +109,8 @@ const SearchView = () => {
         <SearchRecent keywordsArray={keywordsArray} onRemove={handleRemove} />
         <div className="community-search-hot-words-container-box">
           <div className="community-search-hot-words-title">인기 키워드</div>
-          {hot_words.map((hot) => (
-            <CommunityHomeKeywordDetail key={hot.id} hot={hot} />
-          ))}
+
+          <ComKeyWordHome name="인기 키워드" />
         </div>
       </div>
     </div>

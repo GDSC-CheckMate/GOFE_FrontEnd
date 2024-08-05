@@ -2,6 +2,40 @@ import React, { useState, useEffect } from "react";
 import CommunityHomeKeywordDetail from "./CommunityHomeKeywordDetail";
 import { useNavigate } from "react-router-dom";
 
+const hot_word = [
+  {
+    id: 1,
+    word: "개발",
+  },
+  {
+    id: 2,
+    word: "걷기",
+  },
+  {
+    id: 3,
+    word: "온도",
+  },
+  {
+    id: 4,
+    word: "날씨",
+  },
+  {
+    id: 5,
+    word: "감기",
+  },
+  {
+    id: 6,
+    word: "맥북",
+  },
+  {
+    id: 7,
+    word: "게임",
+  },
+  {
+    id: 8,
+    word: "자동차",
+  },
+];
 const hot_word_1 = [
   { id: 1, word: "자기개발" },
   { id: 2, word: "독서" },
@@ -43,6 +77,8 @@ const ComKeyWordHome = ({ name, title }) => {
       selectedHotWords = hot_word_2;
     } else if (name === "자기개발") {
       selectedHotWords = hot_word_3;
+    } else if (name === "인기 키워드") {
+      selectedHotWords = hot_word;
     }
     setHotWords(selectedHotWords);
   }, [name]);

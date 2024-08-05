@@ -5,7 +5,6 @@ import CommunitySearch from "./CommunitySearch";
 
 import CommunityHomeMadeGroup from "./CommunityHomeMadeGroup";
 
-import CommunityHomeKeyword from "./CommunityHomeKeyword";
 import CommunityHomeRecommend from "./CommunityHomeRecommend";
 import CommunityHomeJoin from "./CommunityHomeJoin";
 import ComKeyWordHome from "./ComKeyWordHome";
@@ -18,10 +17,7 @@ const CommunityHomePage = () => {
       <CommunityProfilesList />
       <CommunitySearch />
       <CommunityHomeMadeGroup />
-
-      <CommunityHomeKeyword />
-      {/* <ComKeyWordHome name="커리어"/> */}
-
+      <ComKeyWordHome name="인기 키워드" />
       <CommunityHomeRecommend />
       <CommunityHomeJoin />
     </div>

@@ -4,15 +4,12 @@ import { ReactComponent as Vector } from "../../../assets/community/Vector.svg";
 import { ReactComponent as Activesearch } from "../../../assets/community/Activesearch copy.svg";
 import { ReactComponent as Search } from "../../../assets/community/Search.svg";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addKeyword } from "../../../redux/communitySlice";
 
 import SearchCategory from "./search/SearchCategory";
 import CommunityProfilesList from "./CommunityProfilesList";
 import CommunityHomeMadeGroup from "./CommunityHomeMadeGroup";
-import CommunityHomeKeyword from "./CommunityHomeKeyword";
-import CommunityHomeRecommend from "./CommunityHomeRecommend";
-import CommunityHomeJoin from "./CommunityHomeJoin";
+
+import ComKeyWordHome from "./ComKeyWordHome";
 
 const ComSearchHome = () => {
   const location = useLocation();
@@ -49,7 +46,8 @@ const ComSearchHome = () => {
         {showNewView && <SearchCategory />} {/* 새로운 뷰 컴포넌트 렌더링 */}
       </div>
       <CommunityHomeMadeGroup />
-      <CommunityHomeKeyword />
+      <ComKeyWordHome name="인기 키워드" />
+
       {/* <CommunityHomeRecommend /> */}
     </div>
   );

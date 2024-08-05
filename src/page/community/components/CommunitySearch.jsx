@@ -24,11 +24,6 @@ const CommunitySearch = () => {
     navigate("/community/searchview");
   };
 
-  const handleButtonClick = () => {
-    setIsTransparent(true);
-    setShowNewView(true);
-  };
-
   return (
     <div
       className={`community-search-container-box ${

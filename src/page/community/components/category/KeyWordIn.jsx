@@ -8,6 +8,7 @@ const KeyWordIn = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { content, name } = location.state || {};
+  console.log(content, name);
 
   return (
     <div className="community-search-keywordin-container">

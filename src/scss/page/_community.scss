@@ -779,6 +779,7 @@
       position: absolute;
       top: 270px;
       left: 20px;
+      padding-right: 10px;
 
       .community-search-hot-words-title {
         @include custom-font-size(600, 16px, black);

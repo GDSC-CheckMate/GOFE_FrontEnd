@@ -43,7 +43,9 @@ const AlarmCom = () => {
               </div>
             ))
           ) : (
-            <p>참여중인 커뮤니티를 찾을 수 없음</p>
+            <p className="mypage-alarm-group-list-p">
+              참여중인 커뮤니티를 찾을 수 없음
+            </p>
           )}
         </div>
       </div>

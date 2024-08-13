@@ -72,7 +72,6 @@
 }
 .goalInfoBox2 {
   width: 49.6%;
-
   background-color: #aaaaaa;
   border-radius: 0 10px 10px 0;
   text-align: center;
@@ -86,9 +85,11 @@
 .averageAchievementLine {
   position: absolute;
   width: 4px;
-  height: 35px;
+  height: 7px;
+  top: 26px;
+
   background: transparent;
-  border-left: 1px dashed #aaa;
+  border-left: 0.9px dashed #aaa;
 }
 
 .averageAchievementLabel {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./CalendarComponent.scss";
-import leftButton from "../left_but.png";
-import rightButton from "../right_but.png";
+import "./GroupAchievementCalendar.scss";
+import leftButton from "../../achievement/left_but.png";
+import rightButton from "../../achievement/right_but.png";
 
 const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
 const months = [
@@ -19,7 +19,7 @@ const months = [
   "12월",
 ];
 
-const CalendarComponent = ({ achievements }) => {
+const GroupAchievementCalendar = ({ achievements }) => {
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
   const [filteredAchievements, setFilteredAchievements] = useState([]);
 
@@ -125,4 +125,4 @@ const CalendarComponent = ({ achievements }) => {
   );
 };
 
-export default CalendarComponent;
+export default GroupAchievementCalendar;

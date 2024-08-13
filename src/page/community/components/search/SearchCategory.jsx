@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-
-import { ReactComponent as Line_bar } from "../../../../assets/community/Line_bar.svg";
-import { useNavigate } from "react-router-dom";
-
-import ComKeyWordHome from "../ComKeyWordHome";
+import React, { useState, useEffect, useRef } from 'react';
+import { ReactComponent as Line_bar } from '../../../../assets/community/Line_bar.svg';
+import { useNavigate } from 'react-router-dom';
+import ComKeyWordHome from '../ComKeyWordHome';
+import axios from 'axios';
 
 const SearchCategory = () => {
   const resizerRef = useRef(null);
@@ -14,6 +13,21 @@ const SearchCategory = () => {
   const [isResizing, setIsResizing] = useState(false);
   const [y, setY] = useState(0);
   const [topHeight, setTopHeight] = useState(0);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    // API 호출하여 카테고리 데이터를 가져옴
+    axios
+      .get('https://kscoldproject.site/api/categories')
+      .then((response) => {
+        // 카테고리 데이터를 상태에 저장
+        setCategories(response.data.data);
+        console.log(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
     const moveHandler = (e) => {
@@ -27,41 +41,40 @@ const SearchCategory = () => {
         resizerRef.current.parentNode.getBoundingClientRect().height;
       topSideRef.current.style.height = `${newTopHeight}%`;
 
-      document.body.style.cursor = "row-resize";
-      topSideRef.current.style.userSelect = "none";
-      topSideRef.current.style.pointerEvents = "none";
-      bottomSideRef.current.style.userSelect = "none";
-      bottomSideRef.current.style.pointerEvents = "none";
+      document.body.style.cursor = 'row-resize';
+      topSideRef.current.style.userSelect = 'none';
+      topSideRef.current.style.pointerEvents = 'none';
+      bottomSideRef.current.style.userSelect = 'none';
+      bottomSideRef.current.style.pointerEvents = 'none';
     };
 
-    const upHandler = (e) => {
+    const upHandler = () => {
       setIsResizing(false);
-      document.body.style.removeProperty("cursor");
-      topSideRef.current.style.removeProperty("user-select");
-      topSideRef.current.style.removeProperty("pointer-events");
-      bottomSideRef.current.style.removeProperty("user-select");
-      bottomSideRef.current.style.removeProperty("pointer-events");
+      document.body.style.removeProperty('cursor');
+      topSideRef.current.style.removeProperty('user-select');
+      topSideRef.current.style.removeProperty('pointer-events');
+      bottomSideRef.current.style.removeProperty('user-select');
+      bottomSideRef.current.style.removeProperty('pointer-events');
     };
 
     if (isResizing) {
-      document.addEventListener("mousemove", moveHandler);
-      document.addEventListener("mouseup", upHandler);
-      document.addEventListener("touchmove", moveHandler);
-      document.addEventListener("touchend", upHandler);
+      document.addEventListener('mousemove', moveHandler);
+      document.addEventListener('mouseup', upHandler);
+      document.addEventListener('touchmove', moveHandler);
+      document.addEventListener('touchend', upHandler);
     } else {
-      document.removeEventListener("mousemove", moveHandler);
-      document.removeEventListener("mouseup", upHandler);
-      document.removeEventListener("touchmove", moveHandler);
-      document.removeEventListener("touchend", upHandler);
+      document.removeEventListener('mousemove', moveHandler);
+      document.removeEventListener('mouseup', upHandler);
+      document.removeEventListener('touchmove', moveHandler);
+      document.removeEventListener('touchend', upHandler);
     }
 
     return () => {
-      document.removeEventListener("mousemove", moveHandler);
-      document.removeEventListener("mouseup", upHandler);
-      document.removeEventListener("touchmove", moveHandler);
-      document.removeEventListener("touchend", upHandler);
+      document.removeEventListener('mousemove', moveHandler);
+      document.removeEventListener('mouseup', upHandler);
+      document.removeEventListener('touchmove', moveHandler);
+      document.removeEventListener('touchend', upHandler);
     };
-    // dispatch(addhot_word([...hot_word]));
   }, [isResizing, y, topHeight]);
 
   const downHandler = (e) => {
@@ -77,7 +90,7 @@ const SearchCategory = () => {
         <div
           className="community-clear-view-show-top"
           ref={topSideRef}
-          onClick={() => navigate("/community/home")}
+          onClick={() => navigate('/community/home')}
         ></div>
         <div
           className="community-clear-view-show-resizer"
@@ -93,25 +106,17 @@ const SearchCategory = () => {
             <div className="community-clear-view-show-bottom-content-title">
               카테고리
             </div>
-
-            <div className="community-clear-view-show-bottom-content-words">
-              <div className="community-clear-view-show-bottom-content-words-container-title">
-                커리어
+            {categories.map((category) => (
+              <div
+                key={category.id}
+                className="community-clear-view-show-bottom-content-words"
+              >
+                <div className="community-clear-view-show-bottom-content-words-container-title">
+                  {category.attributes.category_name}
+                </div>
+                <ComKeyWordHome name={category.attributes.category_name} />
               </div>
-              <ComKeyWordHome name="커리어" />
-            </div>
-            <div className="community-clear-view-show-bottom-content-words_two">
-              <div className="community-clear-view-show-bottom-content-words-container-title">
-                제테크
-              </div>
-              <ComKeyWordHome name="제테크" />
-            </div>
-            <div className="community-clear-view-show-bottom-content-words_third">
-              <div className="community-clear-view-show-bottom-content-words-container-title">
-                자기개발
-              </div>
-              <ComKeyWordHome name="자기개발" />
-            </div>
+            ))}
           </div>
         </div>
       </div>

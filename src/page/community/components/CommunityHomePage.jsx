@@ -1,13 +1,25 @@
-// src/page/community/components/CommunityHomePage.jsx
+import React from "react";
+import CommunityHeader from "./CommunityHeader";
+import CommunityProfilesList from "./CommunityProfilesList";
+import CommunitySearch from "./CommunitySearch";
 
-import React from 'react';
-import CommunityHeader from './CommunityHeader';
+import CommunityHomeMadeGroup from "./CommunityHomeMadeGroup";
+
+import CommunityHomeRecommend from "./CommunityHomeRecommend";
+import CommunityHomeJoin from "./CommunityHomeJoin";
+import ComKeyWordHome from "./ComKeyWordHome";
 
 const CommunityHomePage = () => {
   return (
-    <div className="community-page">
-      <CommunityHeader />
-      커뮤홈  
+    <div className="community-main-view-all">
+      {/* <CommunityHeader /> */}
+
+      <CommunityProfilesList />
+      <CommunitySearch />
+      <CommunityHomeMadeGroup />
+      <ComKeyWordHome name="인기 키워드" />
+      <CommunityHomeRecommend />
+      <CommunityHomeJoin />
     </div>
   );
 };

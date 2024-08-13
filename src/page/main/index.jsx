@@ -1,37 +1,37 @@
-import React, { useState, useEffect, useMemo } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { setSelectedSection } from "../../redux/main"
-import { ReactComponent as ArrowfrontIcon } from "../../assets/main/Arrowfront.svg"
-import { ReactComponent as ArrowbackIcon } from "../../assets/main/Arrowback.svg"
+import React, { useState, useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedSection } from '../../redux/main';
+import { ReactComponent as ArrowfrontIcon } from '../../assets/main/Arrowfront.svg';
+import { ReactComponent as ArrowbackIcon } from '../../assets/main/Arrowback.svg';
 
-import MainPickerDay from "./components/MainPickerDay"
-import MainPersonalRoutine from "./components/MainPersonalRoutine"
-import MainGroupRoutine from "./components/MainGroupRoutine"
+import MainPickerDay from './components/MainPickerDay';
+import MainPersonalRoutine from './components/MainPersonalRoutine';
+import MainGroupRoutine from './components/MainGroupRoutine';
 
-import groupDayData from "../../api/mock/groupDay.json"
-import dayData from "../../api/mock/day.json"
+import groupDayData from '../../api/mock/groupDay.json';
+import dayData from '../../api/mock/day.json';
 
 const Main = () => {
-  const [calendarData, setCalendarData] = useState(null)
-  const [selectedDay, setSelectedDay] = useState("월")
-  const [newRoutineInput, setNewRoutineInput] = useState("")
+  const [calendarData, setCalendarData] = useState(null);
+  const [selectedDay, setSelectedDay] = useState('월');
+  const [newRoutineInput, setNewRoutineInput] = useState('');
 
   const selectedSection = useSelector(
     (state) => state.selectedSection.selectedSection
-  )
-  const dispatch = useDispatch()
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setCalendarData({
       personal: dayData.personal,
       groups: groupDayData.groups,
-    })
-    dispatch(setSelectedSection("view1"))
-  }, [dispatch])
+    });
+    dispatch(setSelectedSection('view1'));
+  }, [dispatch]);
 
   const personalDayEvents = useMemo(() => {
-    if (!calendarData) return []
-    const allEvents = []
+    if (!calendarData) return [];
+    const allEvents = [];
 
     calendarData.personal[0].recurringEvents.forEach((event) => {
       event.recurringDays.forEach((dayInfo) => {
@@ -39,12 +39,12 @@ const Main = () => {
           ...event,
           weekday: dayInfo.day,
           success: dayInfo.success,
-        })
-      })
-    })
+        });
+      });
+    });
 
-    return allEvents.filter((event) => event.weekday === selectedDay)
-  }, [calendarData, selectedDay])
+    return allEvents.filter((event) => event.weekday === selectedDay);
+  }, [calendarData, selectedDay]);
 
   const groupDayEvents = useMemo(() => {
     return (
@@ -56,14 +56,14 @@ const Main = () => {
           .filter((day) => day.weekday === selectedDay)
           .flatMap((day) => day.events),
       })) || []
-    )
-  }, [calendarData, selectedDay])
+    );
+  }, [calendarData, selectedDay]);
 
   const updateDayEvents = (updatedEvents, dayEventsType, groupId) => {
     const updatedCalendarData = {
       ...calendarData,
       [dayEventsType]: calendarData[dayEventsType].map((entry) => {
-        if (dayEventsType === "groups" && entry.id === groupId) {
+        if (dayEventsType === 'groups' && entry.id === groupId) {
           return {
             ...entry,
             days: entry.days.map((day) =>
@@ -71,9 +71,9 @@ const Main = () => {
                 ? { ...day, events: updatedEvents }
                 : day
             ),
-          }
+          };
         }
-        if (dayEventsType === "personal") {
+        if (dayEventsType === 'personal') {
           return {
             ...entry,
             recurringEvents: entry.recurringEvents.map((event) => {
@@ -89,70 +89,70 @@ const Main = () => {
                       }
                     : dayInfo
                 ),
-              }
+              };
             }),
-          }
+          };
         }
-        return entry
+        return entry;
       }),
-    }
-    setCalendarData(updatedCalendarData)
-  }
+    };
+    setCalendarData(updatedCalendarData);
+  };
 
   const onClickSelectedDay = (weekday) => {
-    setSelectedDay(weekday)
-  }
+    setSelectedDay(weekday);
+  };
 
   const calculateCompletionPercentage = (events) => {
-    if (!events || events.length === 0) return 0
-    const completedEvents = events.filter((event) => event.success).length
-    return (completedEvents / events.length) * 100
-  }
+    if (!events || events.length === 0) return 0;
+    const completedEvents = events.filter((event) => event.success).length;
+    return (completedEvents / events.length) * 100;
+  };
 
   const calculateDayCompletionPercentage = (personalEvents, groupEvents) => {
-    const allEvents = [...personalEvents, ...groupEvents]
-    return calculateCompletionPercentage(allEvents)
-  }
+    const allEvents = [...personalEvents, ...groupEvents];
+    return calculateCompletionPercentage(allEvents);
+  };
 
   const dayEvents = useMemo(() => {
-    if (!calendarData) return []
+    if (!calendarData) return [];
     return calendarData.personal[0].week.map((dayObj) => {
       const personalEvents = calendarData.personal[0].recurringEvents.filter(
         (event) =>
           event.recurringDays.some((dayInfo) => dayInfo.day === dayObj.day)
-      )
+      );
       const selectedPersonalEvents = personalEvents.map((event) => ({
         ...event,
         success: event.recurringDays.find(
           (dayInfo) => dayInfo.day === dayObj.day
         ).success,
-      }))
+      }));
 
       const groupEvents = calendarData.groups.flatMap((group) =>
         group.days.flatMap((day) => {
           if (day.weekday === dayObj.day) {
-            return day.events
+            return day.events;
           }
-          return []
+          return [];
         })
-      )
+      );
 
       const completionPercentage = calculateDayCompletionPercentage(
         selectedPersonalEvents,
         groupEvents
-      )
+      );
 
       return {
         ...dayObj,
         personalEvents: selectedPersonalEvents,
         groupEvents,
         completionPercentage,
-      }
-    })
-  }, [calendarData])
+      };
+    });
+  }, [calendarData]);
 
   if (!calendarData) {
-    return <div>로딩중...</div>
+    return <div>로딩중...</div>;
   }
 
   return (
@@ -185,11 +185,11 @@ const Main = () => {
         <MainPersonalRoutine
           routineData={personalDayEvents}
           setRoutineData={(updatedEvents) =>
-            updateDayEvents(updatedEvents, "personal")
+            updateDayEvents(updatedEvents, 'personal')
           }
         />
 
-        {selectedSection === "view1" && (
+        {selectedSection === 'view1' && (
           <div className="main-page-detail-group-routine-container">
             <div className="main-page-detail-group-routine-title">
               진행중인 소모임
@@ -200,7 +200,7 @@ const Main = () => {
                 groupName={group.name}
                 routineData={group.days}
                 setRoutineData={(updatedEvents) =>
-                  updateDayEvents(updatedEvents, "groups", group.id)
+                  updateDayEvents(updatedEvents, 'groups', group.id)
                 }
                 newRoutineInput={newRoutineInput}
                 setNewRoutineInput={setNewRoutineInput}
@@ -210,7 +210,7 @@ const Main = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

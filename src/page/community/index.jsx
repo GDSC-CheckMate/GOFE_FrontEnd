@@ -1,18 +1,10 @@
-
 import React, { useContext } from "react";
-// import "../../scss/page/_community.scss"
+
 import CommunityMainPage from "./components/CommunityMainPage";
+import { Outlet } from "react-router-dom";
 
 const Community = () => {
-  return (
-    <div>
-      <CommunityMainPage />
-
-    </div>
-  )
-}
-
+  return <div></div>;
+};
 
 export default Community;
-
-

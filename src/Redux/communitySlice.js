@@ -1,5 +1,3 @@
-// src/Redux/communitySlice.js
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchGroups = createAsyncThunk(
@@ -15,12 +13,29 @@ const communitySlice = createSlice({
   name: "community",
   initialState: {
     groups: [],
+    notices: [],
     status: "idle",
+    likes: [], // 받은 응원 데이터를 저장할 곳을 빈 배열로 초기화
+    keyword: "",
+    hot_words: [],
     error: null,
   },
   reducers: {
     addGroup: (state, action) => {
       state.groups.push(action.payload);
+    },
+
+    setLikes: (state, action) => {
+      state.likes = action.payload;
+    },
+    addKeyword: (state, action) => {
+      state.keyword = action.payload;
+    },
+    addhot_word: (state, action) => {
+      state.hot_words = action.payload;
+    },
+    addNotice: (state, action) => {
+      state.notices.push(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -39,6 +54,7 @@ const communitySlice = createSlice({
   },
 });
 
-export const { addGroup } = communitySlice.actions;
+export const { addGroup, setLikes, addKeyword, addhot_word, addNotice } =
+  communitySlice.actions;
 
 export default communitySlice.reducer;

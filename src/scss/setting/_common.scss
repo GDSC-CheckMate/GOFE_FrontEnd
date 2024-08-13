@@ -3,8 +3,13 @@
     src: url("../../assets/Pretendard-Medium.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "Inter";
+    src: url("../../assets/Inter-SemiBold.ttf") format("opentype");
+}
+
 * {
-    font-family: "Pretendard";
+    font-family: "Pretendard", "Inter";
 }
 
 @media (min-width: 375px) {

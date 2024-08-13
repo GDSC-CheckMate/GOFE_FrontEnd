@@ -1,11 +1,22 @@
 import React from "react";
 
-import ShowMypage from "./components/ShowMypage";
+import Mypageheader from "./components/Mypageheader";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Mypage = () => {
+  const location = useLocation();
+  // 유저정보 모달을 안띄우고 싶은 라우팅을 설정
+  const noCommuntiyHeaderPaths = [
+    "/mypage/edit",
+    "/mypage/message",
+    "/mypage/like",
+  ];
+  const noShowHeader = !noCommuntiyHeaderPaths.includes(location.pathname);
   return (
-    <div>
-      <ShowMypage />
+    <div className="mypage-page">
+      {noShowHeader && <Mypageheader />}
+
+      <Outlet />
     </div>
   );
 };

@@ -1,13 +1,19 @@
+//src/page/community/components/GroupDetailPage.jsx
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import GroupDetailHeaderTabs from './GroupDetailHeaderTabs';
 
 const GroupDetailPage = () => {
   const { groupId } = useParams();
-  const navigate = useNavigate();
+  const { noticeId } = useParams();
+  const location = useLocation();
   const group = useSelector((state) =>
     state.community.groups.find((g) => g.id === parseInt(groupId))
   );
+  useSelector((state) =>
+    state.community.notices.find((_, index) => index === parseInt(noticeId))
+  )
   const [activeTab, setActiveTab] = useState('home');
 
   useEffect(() => {
@@ -18,21 +24,20 @@ const GroupDetailPage = () => {
     };
   }, []);
 
+  const noHeaderPaths = [
+    `/community/group/${groupId}/create-notice`,
+    `/community/group/${groupId}/notices/${noticeId}`
+  ];
+  const noShowHeader = noHeaderPaths.some((path) => location.pathname.startsWith(path));
+
   if (!group) {
     return <p>그룹을 찾을 수 없음</p>;
   }
 
   return (
-    <div className="group-detail-page">
-      <div className="group-detail-header">
-        <button className="back-button" onClick={() => navigate('/CommunityMainPage')}>&lt;</button>
-        <span className="group-detail-name">{group.name}</span>
-      </div>
-      <div className="group-detail-tabs">
-        <NavLink className="tab" to={`/group/${groupId}/home`} end onClick={() => setActiveTab('home')}>홈</NavLink>
-        <NavLink className="tab" to={`/group/${groupId}/chat`} onClick={() => setActiveTab('chat')}>채팅</NavLink>
-        <NavLink className="tab" to={`/group/${groupId}/achievements`} onClick={() => setActiveTab('achievements')}>성취</NavLink>
-        <NavLink className="tab" to={`/group/${groupId}/notices`} onClick={() => setActiveTab('notices')}>공지글</NavLink>
+    <div className={`group-detail-page ${noShowHeader ? 'no-header' : ''}`}>
+      <div className={`${noShowHeader ? 'hidden' : ''}`}>
+        <GroupDetailHeaderTabs groupName={group.name} setActiveTab={setActiveTab} />
       </div>
       {activeTab === 'home' && group.image && (
         <div className="group-detail-image">

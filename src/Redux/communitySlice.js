@@ -35,7 +35,8 @@ const communitySlice = createSlice({
       state.hot_words = action.payload;
     },
     addNotice: (state, action) => {
-      state.notices.push(action.payload);
+      const notice = action.payload.data; // action.payload에서 data 객체를 추출
+      state.notices.push(notice);
     },
   },
   extraReducers: (builder) => {

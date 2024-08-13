@@ -1,4 +1,5 @@
 // src/page/community/components/GroupCreateNotice.jsx
+import axios from 'axios';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -16,19 +17,35 @@ const GroupCreateNotice = () => {
     navigate(-1);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (title.trim() === '') {
       setErrorMessage('공지사항을 작성해 주세요.');
       return;
     }
-    const newNotice = {
-      title,
-      date: new Date().toLocaleString('ko-KR', { month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }),
-      author: '가가원', // 실제 작성자 이름으로 대체
+    const data = {
+      data: {
+        title,
+        date: new Date().toISOString(), // ISO 8601 형식으로 날짜를 저장
+        author: '가가원', // 실제 작성자 이름으로 대체
+      }
     };
-    dispatch(addNotice(newNotice));
-    navigate(-1);
+    try {
+      // 여기서 서버로 공지사항을 POST 요청으로 전송
+      const response = await axios.post('https://kscoldproject.site/api/gawons', data);
+      if (response.status === 200 || response.status === 201) {
+        // 공지사항이 성공적으로 추가되었으면, 추가된 공지사항을 redux에 dispatch
+        dispatch(addNotice(data)); 
+        navigate(-1); // 이전 페이지로 이동
+        console.log("데이터 잘 작성했음")
+      } else {
+        setErrorMessage('공지사항을 추가하는 중 오류가 발생했습니다.');
+      }
+    } catch (error) {
+      console.error('공지사항을 추가하는 중 오류가 발생했습니다:', error);
+      setErrorMessage('공지사항을 추가하는 중 오류가 발생했습니다.');
+    }
   };
+  
 
   useEffect(() => {
     if (errorMessage) {

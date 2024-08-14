@@ -1,66 +1,67 @@
-import React, { lazy, Suspense } from "react";
-import Loading from "../components/Loading";
+import React, { lazy, Suspense } from 'react';
+import Loading from '../components/Loading';
 
 const CommunityItem = lazy(() =>
-  import("../page/community/components/CommunityItem")
+  import('../page/community/components/CommunityItem')
 );
 const CommunityProvider = lazy(() =>
-  import("../page/community/components/CommunityProvider")
+  import('../page/community/components/CommunityProvider')
 );
 const CreateGroup = lazy(() =>
-  import("../page/community/components/CreateGroup")
+  import('../page/community/components/CreateGroup')
 );
 // const CommunityMainPage = lazy(() =>
 //   import("../page/community/components/CommunityMainPage")
 // );
 const CommunityHomePage = lazy(() =>
-  import("../page/community/components/CommunityHomePage")
+  import('../page/community/components/CommunityHomePage')
 );
 const GroupDetailPage = lazy(() =>
-  import("../page/community/components/GroupDetailPage")
+  import('../page/community/components/GroupDetailPage')
 );
-const GroupHome = lazy(() => import("../page/community/components/GroupHome"));
-const GroupChat = lazy(() => import("../page/community/components/GroupChat"));
+const GroupHome = lazy(() => import('../page/community/components/GroupHome'));
+const GroupChat = lazy(() => import('../page/community/components/GroupChat'));
 const GroupAchievements = lazy(() =>
-  import("../page/community/components/GroupAchievements")
+  import('../page/community/components/GroupAchievements')
 );
+
 const GroupNotices = lazy(() =>
-  import("../page/community/components/GroupNotices")
+  import('../page/community/components/GroupNotices')
 );
 
 const CommunityShowFollwers = lazy(() =>
-  import("../page/community/components/CommunityShowFollwers")
+  import('../page/community/components/CommunityShowFollwers')
 );
 const CommunityShowAddFreind = lazy(() =>
-  import("../page/community/components/CommunityShowAddFreind")
+  import('../page/community/components/CommunityShowAddFreind')
 );
 const CommunityShowProfile = lazy(() =>
-  import("../page/community/components/CommunityShowProfile")
+  import('../page/community/components/CommunityShowProfile')
 );
 
-const PeekPage = lazy(() => import("../page/mypage/components/PeekPage"));
+const PeekPage = lazy(() => import('../page/mypage/components/PeekPage'));
 
-const ComMyPage = lazy(() => import("../page/community/components/ComMyPage"));
+const ComMyPage = lazy(() => import('../page/community/components/ComMyPage'));
 const SearchView = lazy(() =>
-  import("../page/community/components/search/SearchView")
+  import('../page/community/components/search/SearchView')
 );
 const ComSearchHome = lazy(() =>
-  import("../page/community/components/ComSearchHome")
+  import('../page/community/components/ComSearchHome')
 );
 const KeyWordIn = lazy(() =>
-  import("../page/community/components/category/KeyWordIn")
+  import('../page/community/components/category/KeyWordIn')
 );
 const GroupCreateNotice = lazy(() =>
-  import("../page/community/components/GroupCreateNotice")
+  import('../page/community/components/GroupCreateNotice')
 );
 
 const GroupNoticeDetail = lazy(() =>
-  import("../page/community/components/GroupNoticeDetail")
+  import('../page/community/components/GroupNoticeDetail')
 );
 
 const communityRouter = [
   {
-    path: "main",
+    path: 'main',
     element: (
       <Suspense fallback={<Loading />}>
         <ComMyPage />
@@ -68,7 +69,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "home",
+    path: 'home',
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityHomePage />
@@ -76,7 +77,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "searchhome",
+    path: 'searchhome',
     element: (
       <Suspense fallback={<Loading />}>
         <ComSearchHome />
@@ -84,7 +85,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "CommunityItem",
+    path: 'CommunityItem',
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityItem />
@@ -92,7 +93,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "CommunityProvider",
+    path: 'CommunityProvider',
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityProvider />
@@ -100,7 +101,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "creategroup",
+    path: 'creategroup',
     element: (
       <Suspense fallback={<Loading />}>
         <CreateGroup />
@@ -108,7 +109,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "communityShowProfile",
+    path: 'communityShowProfile',
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityShowProfile />
@@ -117,7 +118,7 @@ const communityRouter = [
   },
 
   {
-    path: "communityShowFollwers",
+    path: 'communityShowFollwers',
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityShowFollwers />
@@ -125,7 +126,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "addFreind",
+    path: 'addFreind',
     element: (
       <Suspense fallback={<Loading />}>
         <CommunityShowAddFreind />
@@ -133,7 +134,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "peekpage",
+    path: 'peekpage',
     element: (
       <Suspense fallback={<Loading />}>
         <PeekPage />
@@ -141,7 +142,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "searchview",
+    path: 'searchview',
     element: (
       <Suspense fallback={<Loading />}>
         <SearchView />
@@ -149,7 +150,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "keyword",
+    path: 'keyword',
     element: (
       <Suspense fallback={<Loading />}>
         <KeyWordIn />
@@ -157,7 +158,7 @@ const communityRouter = [
     ),
   },
   {
-    path: "group/:groupId",
+    path: 'group/:groupId',
     element: (
       <Suspense fallback={<Loading />}>
         <GroupDetailPage />
@@ -165,7 +166,7 @@ const communityRouter = [
     ),
     children: [
       {
-        path: "home",
+        path: 'home',
         element: (
           <Suspense fallback={<Loading />}>
             <GroupHome />
@@ -173,7 +174,7 @@ const communityRouter = [
         ),
       },
       {
-        path: "chat",
+        path: 'chat',
         element: (
           <Suspense fallback={<Loading />}>
             <GroupChat />
@@ -181,7 +182,7 @@ const communityRouter = [
         ),
       },
       {
-        path: "achievements",
+        path: 'achievements',
         element: (
           <Suspense fallback={<Loading />}>
             <GroupAchievements />
@@ -189,7 +190,7 @@ const communityRouter = [
         ),
       },
       {
-        path: "notices",
+        path: 'notices',
         element: (
           <Suspense fallback={<Loading />}>
             <GroupNotices />
@@ -197,7 +198,7 @@ const communityRouter = [
         ),
       },
       {
-        path: "create-notices",
+        path: 'create-notices',
         element: (
           <Suspense fallback={<Loading />}>
             <GroupCreateNotice />
@@ -205,7 +206,7 @@ const communityRouter = [
         ),
       },
       {
-        path: "notices/:noticeId",
+        path: 'notices/:noticeId',
         element: (
           <Suspense fallback={<Loading />}>
             <GroupNoticeDetail />

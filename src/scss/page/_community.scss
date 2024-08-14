@@ -1337,7 +1337,6 @@
   }
 }
 
-
 //////////////////////////////////
 //////////////////////////////////
 // src/scss/components/_groupChat.scss
@@ -1345,9 +1344,7 @@
 .group-chat {
   display: flex;
   flex-direction: column;
-  height: calc(
-    100vh - 222px
-  ); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
+  height: calc(100vh - 222px); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
 
   @media screen and (max-height: 982px) {
     height: calc(100vh - 170px);
@@ -1360,9 +1357,7 @@
     padding: 16px;
     overflow-y: auto;
     background-color: #f0f0f0; // 배경색을 좀 더 밝게 조정
-    max-height: calc(
-      100vh - 222px
-    ); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
+    max-height: calc(100vh - 222px); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
     width: 100%;
     box-sizing: border-box;
     scrollbar-width: none;
@@ -1547,9 +1542,7 @@
 
     .group-chat-content {
       padding: 8px;
-      max-height: calc(
-        100vh - 110px
-      ); // 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
+      max-height: calc(100vh - 110px); // 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
       width: 100%;
     }
   }
@@ -1571,9 +1564,7 @@
     }
 
     .group-chat-content {
-      max-height: calc(
-        100vh - 100px
-      ); // 더 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
+      max-height: calc(100vh - 100px); // 더 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
       width: 100%;
     }
 

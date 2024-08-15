@@ -174,39 +174,29 @@
       .community-clear-view-show-bottom-content {
         margin: 20px 0px 0px 20px;
         width: 100%;
-        display: flex;
+        // display: flex;
         flex-direction: column;
         gap: 50px;
-        .category-sections {
-          display: flex;
-          flex-direction: column;
-          gap: 50px; /* 카테고리 섹션 간격 */
-        }
         .community-clear-view-show-bottom-content-title {
           @include custom-font-size(600, 16px, black);
         }
+        .community-clear-view-category-sections {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
 
-        .community-clear-view-show-bottom-content-words {
-          margin-top: 37px;
-          .community-clear-view-show-bottom-content-words-container {
-            .community-home-keyword-box {
-              float: left;
-              margin-left: 3%;
-              margin-top: 2%;
+          .community-clear-view-show-bottom-content-words {
+            margin-top: 37px;
+            .community-clear-view-show-bottom-content-words-container {
+              .community-home-keyword-box {
+                @include category_box();
 
-              .community-home-keyword-content {
-                padding: 5px 10px;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-                border-radius: 50px;
-                border: 1px solid #b3b3b3;
-                @include custom-font-size(800, 16px, black);
+                .community-home-keyword-content {
+                  @include category_content();
 
-                &.highlighted {
-                  border-radius: 50px;
-                  border: 1px solid var(--blue, #0083ff);
-                  @include custom-font-size(800, 16px, color-12);
+                  &.highlighted {
+                    @include category_highli();
+                  }
                 }
               }
             }
@@ -630,6 +620,24 @@
       @include inline-flexbox();
       @include custom-font-size(600, 16px, black);
       margin-left: 160px;
+    }
+  }
+  .community-search-keywordin-category-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .community-keywordin-words-container {
+      .community-keywordin-box {
+        @include category_box();
+
+        .community-keywordin-content {
+          @include category_content();
+
+          &.highlighted {
+            @include category_highli();
+          }
+        }
+      }
     }
   }
   .community-search-keywordin-container-dropdown {

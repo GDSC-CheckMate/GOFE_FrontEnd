@@ -1,0 +1,21 @@
+@mixin category_box($l: 3%, $t: 2%) {
+  float: left;
+  margin-left: $l;
+  margin-top: $t;
+}
+
+@mixin category_content() {
+  padding: 5px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  border: 1px solid #b3b3b3;
+  @include custom-font-size(800, 16px, black);
+}
+
+@mixin category_highli() {
+  border-radius: 50px;
+  border: 1px solid var(--blue, #0083ff);
+  @include custom-font-size(800, 16px, color-12);
+}

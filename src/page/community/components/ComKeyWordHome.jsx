@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import CommunityHomeKeywordDetail from './CommunityHomeKeywordDetail';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -13,7 +12,7 @@ const ComKeyWordHome = ({ name, title }) => {
       try {
         // API 호출
         const response = await axios.get(
-          'https://kscoldproject.site/api/Categories?populate=*&sort[0][id]=desc'
+          'https://kscold.store/api/Categories?populate=*&sort[0][id]=desc'
         );
         const categories = response.data.data;
 
@@ -46,15 +45,24 @@ const ComKeyWordHome = ({ name, title }) => {
 
   return (
     <div className="community-clear-view-show-bottom-content-words-container">
-      {hotWords.map((hot) => (
-        <CommunityHomeKeywordDetail
-          key={hot.id}
-          hot={hot}
-          isSelected={selectedWord === hot.word}
-          onClick={() => handleDetailClick(hot)}
-          {...(title && { tit: title })}
-        />
-      ))}
+      {hotWords.map((hot) => {
+        const { word } = hot;
+        return (
+          <div
+            key={hot.id}
+            className="community-home-keyword-box"
+            onClick={() => handleDetailClick(hot)}
+          >
+            <div
+              className={`community-home-keyword-content ${
+                title === word ? 'highlighted' : ''
+              }`}
+            >
+              {word}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

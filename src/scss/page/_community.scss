@@ -174,16 +174,35 @@
       .community-clear-view-show-bottom-content {
         margin: 20px 0px 0px 20px;
         width: 100%;
+        // display: flex;
+        flex-direction: column;
+        gap: 50px;
         .community-clear-view-show-bottom-content-title {
           @include custom-font-size(600, 16px, black);
         }
+        .community-clear-view-category-sections {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
 
-        .community-clear-view-show-bottom-content-words {
-          margin-top: 37px;
-          .community-clear-view-show-bottom-content-words-container {
+          .community-clear-view-show-bottom-content-words {
+            margin-top: 37px;
+            .community-clear-view-show-bottom-content-words-container {
+              .community-home-keyword-box {
+                @include category_box();
+
+                .community-home-keyword-content {
+                  @include category_content();
+
+                  &.highlighted {
+                    @include category_highli();
+                  }
+                }
+              }
+            }
             .community-clear-view-show-bottom-content-words-container-title {
               @include custom-font-size(600, 15px, black);
-              margin-bottom: 10px;
+
               width: 100%;
             }
           }
@@ -245,28 +264,6 @@
     @include custom-font-size(500, 13px, black);
     cursor: pointer;
     font-size: 16px;
-  }
-}
-
-.community-home-keyword-box {
-  float: left;
-  margin-left: 3%;
-  margin-top: 2%;
-
-  .community-home-keyword-content {
-    padding: 5px 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 50px;
-    border: 1px solid #b3b3b3;
-    @include custom-font-size(800, 16px, black);
-
-    &.highlighted {
-      border-radius: 50px;
-      border: 1px solid var(--blue, #0083ff);
-      @include custom-font-size(800, 16px, color-12);
-    }
   }
 }
 
@@ -625,6 +622,24 @@
       margin-left: 160px;
     }
   }
+  .community-search-keywordin-category-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .community-keywordin-words-container {
+      .community-keywordin-box {
+        @include category_box();
+
+        .community-keywordin-content {
+          @include category_content();
+
+          &.highlighted {
+            @include category_highli();
+          }
+        }
+      }
+    }
+  }
   .community-search-keywordin-container-dropdown {
     width: 100%;
     position: relative;
@@ -895,9 +910,9 @@
       display: flex;
       align-items: center;
 
-      input[type="text"],
-      input[type="date"],
-      input[type="number"] {
+      input[type='text'],
+      input[type='date'],
+      input[type='number'] {
         flex: 1;
         padding: 8px;
         border: 1px solid #ccc;
@@ -915,9 +930,9 @@
       }
     }
 
-    input[type="text"],
-    input[type="date"],
-    input[type="number"] {
+    input[type='text'],
+    input[type='date'],
+    input[type='number'] {
       width: 100%;
       padding: 8px;
       border: 1px solid #ccc;
@@ -966,7 +981,7 @@
         }
 
         .checkmark:after {
-          content: "";
+          content: '';
           position: absolute;
           display: none;
         }
@@ -1023,7 +1038,7 @@
 }
 
 .create-group-error-tooltip .create-group-error-tooltip-text::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 100%;
   left: 50%;
@@ -1344,7 +1359,9 @@
 .group-chat {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 222px); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
+  height: calc(
+    100vh - 222px
+  ); // 전체 높이를 뷰포트 높이로 설정, 헤더 높이와 여유 공간 고려
 
   @media screen and (max-height: 982px) {
     height: calc(100vh - 170px);
@@ -1357,7 +1374,9 @@
     padding: 16px;
     overflow-y: auto;
     background-color: #f0f0f0; // 배경색을 좀 더 밝게 조정
-    max-height: calc(100vh - 222px); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
+    max-height: calc(
+      100vh - 222px
+    ); // 최대 높이 설정, 입력창 높이와 여유 공간 고려
     width: 100%;
     box-sizing: border-box;
     scrollbar-width: none;
@@ -1542,7 +1561,9 @@
 
     .group-chat-content {
       padding: 8px;
-      max-height: calc(100vh - 110px); // 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
+      max-height: calc(
+        100vh - 110px
+      ); // 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
       width: 100%;
     }
   }
@@ -1564,7 +1585,9 @@
     }
 
     .group-chat-content {
-      max-height: calc(100vh - 100px); // 더 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
+      max-height: calc(
+        100vh - 100px
+      ); // 더 작은 화면에서 최대 높이 설정, 입력창 높이와 여유 공간 고려
       width: 100%;
     }
 
@@ -1716,7 +1739,7 @@
   margin-top: 16px;
   margin-bottom: 16px;
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     width: 1.2rem;
     height: 1.2rem;
     border-radius: 50%;
@@ -1725,7 +1748,7 @@
     cursor: pointer;
   }
 
-  input[type="checkbox"]:checked {
+  input[type='checkbox']:checked {
     background: #2196f3;
     border: none;
   }
@@ -1800,7 +1823,7 @@
     margin-top: 12px;
     margin-bottom: 12px;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       width: 1rem;
       height: 1rem;
     }
@@ -1878,7 +1901,7 @@
 /* src/page/community/components/_groupAchievements.scss */
 
 .group-achievements-container {
-  font-family: "Arial, sans-serif";
+  font-family: 'Arial, sans-serif';
   margin: 20px;
 }
 
@@ -2110,7 +2133,7 @@
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;

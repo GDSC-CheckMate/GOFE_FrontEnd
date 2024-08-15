@@ -16,13 +16,10 @@ const SearchCategory = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    // API 호출하여 카테고리 데이터를 가져옴
     axios
-      .get('https://kscoldproject.site/api/categories')
+      .get('https://kscold.store/api/categories')
       .then((response) => {
-        // 카테고리 데이터를 상태에 저장
         setCategories(response.data.data);
-        console.log(response.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -106,17 +103,21 @@ const SearchCategory = () => {
             <div className="community-clear-view-show-bottom-content-title">
               카테고리
             </div>
-            {categories.map((category) => (
-              <div
-                key={category.id}
-                className="community-clear-view-show-bottom-content-words"
-              >
-                <div className="community-clear-view-show-bottom-content-words-container-title">
-                  {category.attributes.category_name}
+
+            {/* 각 카테고리 섹션을 묶어서 박스 스타일을 적용할 수 있도록 div 추가 */}
+            <div className="community-clear-view-category-sections">
+              {categories.map((category) => (
+                <div
+                  key={category.id}
+                  className="community-clear-view-show-bottom-content-words"
+                >
+                  <div className="community-clear-view-show-bottom-content-words-container-title">
+                    {category.attributes.category_name}
+                  </div>
+                  <ComKeyWordHome name={category.attributes.category_name} />
                 </div>
-                <ComKeyWordHome name={category.attributes.category_name} />
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

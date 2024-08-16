@@ -1,22 +1,25 @@
 [
-    {
-        "group_id": 1,
-        "creator_id": 101,
-        "name": "런닝 크루",
-        "introduce": "런닝을 좋아하는 사람들 모임",
-        "start_at": "2024-01-01T08:00:00Z",
-        "end_at": "2024-12-31T17:00:00Z",
-        "keyword": "running, fitness",
-        "can_join": true
-    },
-    {
-        "group_id": 2,
-        "creator_id": 102,
-        "name": "리엑트 강의",
-        "introduce": "리액트 스터디 모임",
-        "start_at": "2024-08-15T08:00:00Z",
-        "end_at": "2024-08-25T17:00:00Z",
-        "keyword" : "react, yarn",
-        "can_join": false
-    }
+  {
+      "group_id": 1,
+      "creator_id": 101,
+      "name": "런닝 크루",
+      "notice": "새로운 소모임이 생성되었습니다.",
+      "introduce": "런닝을 좋아하는 사람들 모임",
+      "start_at": "2024-01-01T08:00:00Z",
+      "end_at": "2024-12-31T17:00:00Z",
+      "duration" : 12,
+      "keyword": "런닝, 한강",
+      "can_join": true
+  },
+  {
+      "group_id": 2,
+      "creator_id": 102,
+      "name": "리엑트 강의",
+      "notice": "새로운 소모임이 생성되었습니다.",
+      "introduce": "리액트 스터디 모임",
+      "start_at": "2024-08-15T08:00:00Z",
+      "end_at": "2024-08-25T17:00:00Z",
+      "keyword" : "react, yarn",
+      "can_join": false
+  }
 ]

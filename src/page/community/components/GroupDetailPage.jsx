@@ -9,7 +9,7 @@ const GroupDetailPage = () => {
   const { noticeId } = useParams();
   const location = useLocation();
   const group = useSelector((state) =>
-    state.community.groups.find((g) => g.id === parseInt(groupId))
+    state.community.groups.find((g) => g.group_id === parseInt(groupId))
   );
   useSelector((state) =>
     state.community.notices.find((_, index) => index === parseInt(noticeId))

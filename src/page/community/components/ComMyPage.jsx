@@ -10,7 +10,7 @@ const ComMyPage = () => {
   const navigate = useNavigate();
   const groups = useSelector((state) => state.community.groups);
   const groupStatus = useSelector((state) => state.community.status);
-  console.log(groups);
+  //console.log(groups);
 
   useEffect(() => {
     if (groupStatus === "idle") {
@@ -28,7 +28,7 @@ const ComMyPage = () => {
       <div className="group-list">
         {groups.length > 0 ? (
           groups.map((group) => (
-            <div key={group.id} onClick={() => handleGroupClick(group.id)}>
+            <div key={group.group_id} onClick={() => handleGroupClick(group.group_id)}>
               <CommunityItem group={group} />
             </div>
           ))

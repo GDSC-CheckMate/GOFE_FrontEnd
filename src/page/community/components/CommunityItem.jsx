@@ -21,12 +21,11 @@ const CommunityItem = ({ group }) => (
 
 CommunityItem.propTypes = {
   group: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    group_id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     notice: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    badge: PropTypes.string,
   }).isRequired,
 };
 

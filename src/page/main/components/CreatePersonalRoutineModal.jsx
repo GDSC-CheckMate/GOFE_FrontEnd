@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReactComponent as DeleteIcon } from '../../../assets/main/DeleteIcon.svg';
 
 const CreatePersonalRoutineModal = ({
   isOpen,
@@ -41,14 +42,14 @@ const CreatePersonalRoutineModal = ({
               <input
                 type="text"
                 name="time"
-                placeholder="8:00"
+                placeholder="0:00"
                 value={routine.time}
                 onChange={handleChange}
               />
               <input
                 type="text"
                 name="title"
-                placeholder="8시 기상"
+                placeholder="목표를 적어보세요"
                 value={routine.title}
                 onChange={handleChange}
               />
@@ -90,13 +91,17 @@ const CreatePersonalRoutineModal = ({
             </label>
           </div>
         </div>
+        <hr />
         <div className="modal-footer">
-          <button className="modal-delete-button" onClick={onDelete}>
-            삭제하기
-          </button>
-          <button className="modal-save-button" onClick={onSave}>
-            수정하기
-          </button>
+          <div className="modal-footer-button-container">
+            <button className="modal-delete-button" onClick={onDelete}>
+              <DeleteIcon />
+              삭제하기
+            </button>
+            <button className="modal-save-button" onClick={onSave}>
+              수정하기
+            </button>
+          </div>
         </div>
       </div>
     </div>

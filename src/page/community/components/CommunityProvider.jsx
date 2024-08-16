@@ -11,7 +11,7 @@ const CommunityProvider = ({ children }) => {
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const response = await fetch('/community.json'); // public 폴더 기준 경로
+        const response = await fetch('/group.json'); 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

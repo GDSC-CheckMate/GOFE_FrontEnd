@@ -1,115 +1,78 @@
 {
     "personal": [
         {
-            "id": 1,
-            "month": "2024년 6월",
-            "whatweek": 1,
-            "week": [
+            "title": "8시 기상",
+            "time": "08:00",
+            "recurringDays": [
                 {
                     "day": "월",
-                    "date": 1
+                    "success": true
                 },
                 {
                     "day": "화",
-                    "date": 2
+                    "success": false
                 },
                 {
                     "day": "수",
-                    "date": 3
+                    "success": true
                 },
                 {
                     "day": "목",
-                    "date": 4
+                    "success": true
                 },
                 {
                     "day": "금",
-                    "date": 5
-                },
-                {
-                    "day": "토",
-                    "date": 6
-                },
-                {
-                    "day": "일",
-                    "date": 7
+                    "success": true
                 }
-            ],
-            "recurringEvents": [
+            ]
+        },
+        {
+            "title": "헬스장 가기",
+            "time": "09:00",
+            "recurringDays": [
                 {
-                    "title": "8시 기상",
-                    "time": "08:00",
-                    "recurringDays": [
-                        {
-                            "day": "월",
-                            "success": true
-                        },
-                        {
-                            "day": "화",
-                            "success": false
-                        },
-                        {
-                            "day": "수",
-                            "success": true
-                        },
-                        {
-                            "day": "목",
-                            "success": true
-                        },
-                        {
-                            "day": "금",
-                            "success": true
-                        }
-                    ]
+                    "day": "수",
+                    "success": true
                 },
                 {
-                    "title": "헬스장 가기",
-                    "time": "09:00",
-                    "recurringDays": [
-                        {
-                            "day": "수",
-                            "success": true
-                        },
-                        {
-                            "day": "목",
-                            "success": false
-                        },
-                        {
-                            "day": "금",
-                            "success": true
-                        }
-                    ]
+                    "day": "목",
+                    "success": false
                 },
                 {
-                    "title": "유산소 1시간 타기",
-                    "time": "10:00",
-                    "recurringDays": [
-                        {
-                            "day": "수",
-                            "success": false
-                        },
-                        {
-                            "day": "목",
-                            "success": false
-                        }
-                    ]
+                    "day": "금",
+                    "success": true
+                }
+            ]
+        },
+        {
+            "title": "유산소 1시간 타기",
+            "time": "10:00",
+            "recurringDays": [
+                {
+                    "day": "수",
+                    "success": false
                 },
                 {
-                    "title": "코딩하기",
-                    "time": "09:00",
-                    "recurringDays": [
-                        {
-                            "day": "수",
-                            "success": false
-                        },
-                        {
-                            "day": "목",
-                            "success": false
-                        },
-                        {
-                            "day": "금",
-                            "success": true
-                        }
-                    ]
+                    "day": "목",
+                    "success": false
+                }
+            ]
+        },
+        {
+            "title": "코딩하기",
+            "time": "09:00",
+            "recurringDays": [
+                {
+                    "day": "수",
+                    "success": false
+                },
+                {
+                    "day": "목",
+                    "success": false
+                },
+                {
+                    "day": "금",
+                    "success": true
                 }
             ]
         }

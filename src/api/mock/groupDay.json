@@ -3,10 +3,8 @@
         {
             "id": 1,
             "group": "리액트 스터디",
-            "month": "2024년 6월",
             "days": [
                 {
-                    "day": 3,
                     "weekday": "월",
                     "events": [
                         {
@@ -20,12 +18,10 @@
                     ]
                 },
                 {
-                    "day": 4,
                     "weekday": "화",
                     "events": []
                 },
                 {
-                    "day": 5,
                     "weekday": "수",
                     "events": [
                         {
@@ -35,22 +31,18 @@
                     ]
                 },
                 {
-                    "day": 6,
                     "weekday": "목",
                     "events": []
                 },
                 {
-                    "day": 7,
                     "weekday": "금",
                     "events": []
                 },
                 {
-                    "day": 8,
                     "weekday": "토",
                     "events": []
                 },
                 {
-                    "day": 9,
                     "weekday": "일",
                     "events": []
                 }
@@ -59,10 +51,8 @@
         {
             "id": 2,
             "group": "토익 스터디",
-            "month": "2024년 6월",
             "days": [
                 {
-                    "day": 3,
                     "weekday": "월",
                     "events": [
                         {
@@ -76,32 +66,26 @@
                     ]
                 },
                 {
-                    "day": 4,
                     "weekday": "화",
                     "events": []
                 },
                 {
-                    "day": 5,
                     "weekday": "수",
                     "events": []
                 },
                 {
-                    "day": 6,
                     "weekday": "목",
                     "events": []
                 },
                 {
-                    "day": 7,
                     "weekday": "금",
                     "events": []
                 },
                 {
-                    "day": 8,
                     "weekday": "토",
                     "events": []
                 },
                 {
-                    "day": 9,
                     "weekday": "일",
                     "events": []
                 }

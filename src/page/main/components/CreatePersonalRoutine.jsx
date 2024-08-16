@@ -1,12 +1,12 @@
-import React from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { setNewRoutine } from "../../../redux/routine"
-import { ReactComponent as More } from "../../../assets/main/More.svg"
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNewRoutine } from '../../../redux/routine';
+import { ReactComponent as More } from '../../../assets/main/More.svg';
 
 const CreatePersonalRoutine = () => {
-  const dispatch = useDispatch()
-  const routineData = useSelector((state) => state.routine.routines)
-  const newRoutine = useSelector((state) => state.routine.newRoutine)
+  const dispatch = useDispatch();
+  const routineData = useSelector((state) => state.routine.routines);
+  const newRoutine = useSelector((state) => state.routine.newRoutine);
 
   const handleDaySelection = (day) => {
     dispatch(
@@ -16,8 +16,8 @@ const CreatePersonalRoutine = () => {
           ? newRoutine.recurringDays.filter((d) => d !== day)
           : [...newRoutine.recurringDays, day],
       })
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -47,11 +47,11 @@ const CreatePersonalRoutine = () => {
         </div>
       </div>
       <div className="main-page-detail-routine-day-container">
-        {["월", "화", "수", "목", "금", "토", "일"].map((day, index) => (
+        {['월', '화', '수', '목', '금', '토', '일'].map((day, index) => (
           <div
             key={index}
             className={`main-page-detail-routine-day-item ${
-              newRoutine.recurringDays.includes(day) ? "selected" : ""
+              newRoutine.recurringDays.includes(day) ? 'selected' : ''
             }`}
             onClick={() => handleDaySelection(day)}
           >
@@ -79,8 +79,9 @@ const CreatePersonalRoutine = () => {
           </div>
         ))}
       </div>
+      <button>루틴 추가</button>
     </>
-  )
-}
+  );
+};
 
-export default CreatePersonalRoutine
+export default CreatePersonalRoutine;

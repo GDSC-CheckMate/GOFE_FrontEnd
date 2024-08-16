@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
-import { ReactComponent as GroupRoutinePlus } from "../../../assets/main/GroupRoutinePlus.svg"
-import { ReactComponent as Check } from "../../../assets/main/Check.svg"
-import { ReactComponent as NotCheck } from "../../../assets/main/NotCheck.svg"
+import React, { useEffect, useState } from 'react';
+import { ReactComponent as GroupRoutinePlus } from '../../../assets/main/GroupRoutinePlus.svg';
+import { ReactComponent as Check } from '../../../assets/main/Check.svg';
+import { ReactComponent as NotCheck } from '../../../assets/main/NotCheck.svg';
 
 const MainGroupRoutine = ({
   groupName,
@@ -10,45 +10,45 @@ const MainGroupRoutine = ({
   newRoutineInput,
   setNewRoutineInput,
 }) => {
-  const [openRoutineInput, setOpenRoutineInput] = useState(false)
+  const [openRoutineInput, setOpenRoutineInput] = useState(false);
 
   useEffect(() => {
-    console.log("선택된 그룹 데이터", routineData)
-  }, [routineData])
+    console.log('선택된 그룹 데이터', routineData);
+  }, [routineData]);
 
   const updateRoutineItem = (eventIndex, value) => {
     const updatedRoutines = routineData.map((event, index) =>
       index === eventIndex ? { ...event, title: value } : event
-    )
-    setRoutineData(updatedRoutines)
-  }
+    );
+    setRoutineData(updatedRoutines);
+  };
 
   const toggleRoutineSuccess = (eventIndex) => {
     const updatedRoutines = routineData.map((event, index) =>
       index === eventIndex ? { ...event, success: !event.success } : event
-    )
-    setRoutineData(updatedRoutines)
-  }
+    );
+    setRoutineData(updatedRoutines);
+  };
 
   const onChangeRoutineInput = (e) => {
-    e.preventDefault()
-    if (newRoutineInput.trim() === "") return
+    e.preventDefault();
+    if (newRoutineInput.trim() === '') return;
 
     const updatedRoutines = [
       ...routineData,
       { title: newRoutineInput, success: false },
-    ]
-    setRoutineData(updatedRoutines)
-    setNewRoutineInput("")
-    setOpenRoutineInput(false)
-  }
+    ];
+    setRoutineData(updatedRoutines);
+    setNewRoutineInput('');
+    setOpenRoutineInput(false);
+  };
 
   const addRoutineItem = () => {
-    setOpenRoutineInput(true)
-  }
+    setOpenRoutineInput(true);
+  };
 
   if (!Array.isArray(routineData)) {
-    routineData = []
+    routineData = [];
   }
 
   return (
@@ -73,6 +73,7 @@ const MainGroupRoutine = ({
             />
             <div
               className="main-page-detail-group-routine-content-item-button"
+              style={{ width: '25px' }}
               onClick={() => toggleRoutineSuccess(eventIndex)}
             >
               {event.success ? <Check /> : <NotCheck />}
@@ -96,7 +97,7 @@ const MainGroupRoutine = ({
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainGroupRoutine
+export default MainGroupRoutine;

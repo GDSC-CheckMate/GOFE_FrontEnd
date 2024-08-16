@@ -1,39 +1,79 @@
-import { createSlice } from "@reduxjs/toolkit"
+// import { createSlice } from "@reduxjs/toolkit"
+
+// const initialState = {
+//   routines: [],
+//   newRoutine: {
+//     time: "",
+//     title: "",
+//     recurringDays: [],
+//   },
+// }
+
+// const routineSlice = createSlice({
+//   name: "routine",
+//   initialState,
+//   reducers: {
+//     addRoutine: (state, action) => {
+//       state.routines.push(action.payload)
+//     },
+//     updateRoutine: (state, action) => {
+//       const { title, success } = action.payload
+//       const routine = state.routines.find((routine) => routine.title === title)
+//       if (routine) {
+//         routine.success = success
+//       }
+//     },
+//     deleteRoutine: (state, action) => {
+//       state.routines = state.routines.filter(
+//         (routine) => routine.title !== action.payload
+//       )
+//     },
+//     setNewRoutine: (state, action) => {
+//       state.newRoutine = action.payload
+//     },
+//   },
+// })
+
+// export const { addRoutine, updateRoutine, deleteRoutine, setNewRoutine } =
+//   routineSlice.actions
+// export default routineSlice.reducer
+
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  routines: [],
+  routines: [], // Store all personal routines here
   newRoutine: {
-    time: "",
-    title: "",
+    time: '',
+    title: '',
     recurringDays: [],
   },
-}
+};
 
 const routineSlice = createSlice({
-  name: "routine",
+  name: 'routine',
   initialState,
   reducers: {
     addRoutine: (state, action) => {
-      state.routines.push(action.payload)
+      state.routines.push(action.payload); // Add the new routine to the list
     },
     updateRoutine: (state, action) => {
-      const { title, success } = action.payload
-      const routine = state.routines.find((routine) => routine.title === title)
+      const { title, success } = action.payload;
+      const routine = state.routines.find((routine) => routine.title === title);
       if (routine) {
-        routine.success = success
+        routine.success = success;
       }
     },
     deleteRoutine: (state, action) => {
       state.routines = state.routines.filter(
         (routine) => routine.title !== action.payload
-      )
+      );
     },
     setNewRoutine: (state, action) => {
-      state.newRoutine = action.payload
+      state.newRoutine = action.payload;
     },
   },
-})
+});
 
 export const { addRoutine, updateRoutine, deleteRoutine, setNewRoutine } =
-  routineSlice.actions
-export default routineSlice.reducer
+  routineSlice.actions;
+export default routineSlice.reducer;

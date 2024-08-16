@@ -3,20 +3,34 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setNewRoutine } from '../../../redux/routine';
 import { ReactComponent as More } from '../../../assets/main/More.svg';
 
-const CreatePersonalRoutine = () => {
+const CreatePersonalRoutine = ({ routineData, setRoutineData }) => {
   const dispatch = useDispatch();
-  const routineData = useSelector((state) => state.routine.routines);
   const newRoutine = useSelector((state) => state.routine.newRoutine);
 
   const handleDaySelection = (day) => {
+    const updatedDays = newRoutine.recurringDays.includes(day)
+      ? newRoutine.recurringDays.filter((d) => d !== day)
+      : [...newRoutine.recurringDays, day];
+
     dispatch(
       setNewRoutine({
         ...newRoutine,
-        recurringDays: newRoutine.recurringDays.includes(day)
-          ? newRoutine.recurringDays.filter((d) => d !== day)
-          : [...newRoutine.recurringDays, day],
+        recurringDays: updatedDays,
       })
     );
+  };
+
+  const handleAddRoutine = () => {
+    if (
+      newRoutine.title &&
+      newRoutine.time &&
+      newRoutine.recurringDays.length >= 2
+    ) {
+      setRoutineData([...routineData, newRoutine]);
+      dispatch(setNewRoutine({ title: '', time: '', recurringDays: [] })); // Reset new routine
+    } else {
+      alert('Please fill in all fields and select at least two days.');
+    }
   };
 
   return (
@@ -79,7 +93,14 @@ const CreatePersonalRoutine = () => {
           </div>
         ))}
       </div>
-      <button>루틴 추가</button>
+      <div className="main-page-detail-routine-add-button-container">
+        <button
+          className="main-page-detail-routine-add-button"
+          onClick={handleAddRoutine}
+        >
+          루틴 추가
+        </button>
+      </div>
     </>
   );
 };

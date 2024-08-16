@@ -10,16 +10,25 @@ import MainGroupRoutine from './components/MainGroupRoutine';
 
 import groupDayData from '../../api/mock/groupDay.json';
 import dayData from '../../api/mock/day.json';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
   const [calendarData, setCalendarData] = useState(null);
   const [selectedDay, setSelectedDay] = useState('월');
   const [newRoutineInput, setNewRoutineInput] = useState('');
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const navigate = useNavigate();
 
   const selectedSection = useSelector(
     (state) => state.selectedSection.selectedSection
   );
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     setCalendarData({

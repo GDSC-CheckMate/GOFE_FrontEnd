@@ -18,6 +18,7 @@ const Layout = () => {
     '/community/creategroup',
     '/mypage/message',
     '/login',
+    '/register',
   ];
 
   // 현재 location이랑 같은지 확인

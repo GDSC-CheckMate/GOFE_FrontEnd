@@ -5,11 +5,14 @@ import loginBackBtn from '../../assets/register/login_back_btn.svg';
 import checkIcon from '../../assets/register/check.svg';
 import noCheckIcon from '../../assets/register/no-check.svg';
 import inputIcon from '../../assets/register/input-img.svg';
+import Modal from './Modal'; // 모달 컴포넌트를 가져옵니다.
 
 const Register = () => {
   const [nickname, setNickname] = useState('');
   const [isValidLength, setIsValidLength] = useState(false);
   const [isValidFormat, setIsValidFormat] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const navigate = useNavigate();
   localStorage.setItem('nickname', nickname);
@@ -19,7 +22,8 @@ const Register = () => {
       const { data } = await axios.post('/api/v1/validations/name', {
         name: nickname,
       });
-      alert('사용 가능한 닉네임입니다.');
+      setModalMessage('사용 가능한 닉네임입니다.');
+      setShowModal(true);
     } catch (error) {
       handleNicknameError(error);
     }
@@ -27,10 +31,11 @@ const Register = () => {
 
   const handleNicknameError = (error) => {
     if (error.response?.status === 400) {
-      alert('1-16자리 영문, 숫자, 특수문자(. , _)를 입력해주세요.');
+      setModalMessage('1-16자리 영문, 숫자, 특수문자(. , _)를 입력해주세요.');
     } else if (error.response?.status === 409) {
-      alert('이미 존재하는 닉네임입니다.');
+      setModalMessage('이미 존재하는 닉네임입니다.');
     }
+    setShowModal(true);
   };
 
   const handleNicknameChange = (e) => {
@@ -61,11 +66,12 @@ const Register = () => {
         name: nickname,
       });
       storeTokens(data);
-      alert('회원가입이 완료되었습니다.');
-      navigate('/');
+      setModalMessage('회원가입이 완료되었습니다.');
+      setShowModal(true);
     } catch (error) {
       if (error.response?.status === 500) {
-        alert('당신은 이미 가입된 유저입니다.');
+        setModalMessage('당신은 이미 가입된 유저입니다.');
+        setShowModal(true);
         navigate('/login');
       }
     }
@@ -74,6 +80,10 @@ const Register = () => {
   const storeTokens = ({ accessToken, refreshToken }) => {
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('refreshToken', refreshToken);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -127,6 +137,7 @@ const Register = () => {
       >
         회원가입
       </button>
+      <Modal show={showModal} message={modalMessage} onClose={closeModal} />
     </div>
   );
 };

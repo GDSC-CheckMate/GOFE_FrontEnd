@@ -1,22 +1,22 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchGroups = createAsyncThunk(
-  "community/fetchGroups",
+  'community/fetchGroups',
   async () => {
-    const response = await fetch("/community.json");
+    const response = await fetch('/community.json');
     const data = await response.json();
     return data;
   }
 );
 
 const communitySlice = createSlice({
-  name: "community",
+  name: 'community',
   initialState: {
     groups: [],
     notices: [],
-    status: "idle",
+    status: 'idle',
     likes: [], // 받은 응원 데이터를 저장할 곳을 빈 배열로 초기화
-    keyword: "",
+    keyword: '',
     hot_words: [],
     error: null,
   },
@@ -41,14 +41,22 @@ const communitySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchGroups.pending, (state) => {
-        state.status = "세상에서 가장 지루한 중학교는? 로딩중...";
+        state.status = '세상에서 가장 지루한 중학교는? 로딩중...';
       })
+      // .addCase(fetchGroups.fulfilled, (state, action) => {
+      //   state.status = "성공하면 혁명";
+      //   state.groups = action.payload;
+      // })
       .addCase(fetchGroups.fulfilled, (state, action) => {
-        state.status = "성공하면 혁명";
-        state.groups = action.payload;
+        state.status = '성공하면 혁명';
+        if (Array.isArray(action.payload)) {
+          state.groups = action.payload;
+        } else {
+          state.groups = []; // 혹은 action.payload.groups 같은 정확한 배열로 설정
+        }
       })
       .addCase(fetchGroups.rejected, (state, action) => {
-        state.status = "실패하면 반역";
+        state.status = '실패하면 반역';
         state.error = action.error.message;
       });
   },

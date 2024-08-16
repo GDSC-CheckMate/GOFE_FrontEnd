@@ -14,11 +14,20 @@ const Community = lazy(() =>
 );
 const Mypage = lazy(() => import('../page/mypage'));
 const Login = lazy(() => import('../page/login'));
+const Register = lazy(() => import('../page/register'));
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
+      {
+        path: 'register',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Register />
+          </Suspense>
+        ),
+      },
       {
         path: 'login',
         element: (

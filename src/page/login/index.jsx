@@ -1,15 +1,21 @@
-import React from 'react';
-import { ReactComponent as KakaoIcon } from '../../assets/login/KakaoIcon.svg';
-
+import React, { useState } from 'react';
+import GoogleLoginButton from './GoogleLoginButton';
+import logo from '../../assets/login/logo.svg';
 const Login = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    !!localStorage.getItem('accessToken')
+  );
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', true);
+  };
+
   return (
     <div className="login-container">
-      <h1 className="login-title">CheckMate</h1>
-
-      <button className="login-button-container">
-        <KakaoIcon />
-        <span>카카오톡으로 시작</span>
-      </button>
+      {/* <h1 className="login-title">CheckMate</h1> */}
+      <img src={logo} className="logo-img" />
+      <GoogleLoginButton onLoginSuccess={handleLogin} className="login-btn" />
     </div>
   );
 };
